@@ -17,42 +17,31 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home/nicepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home/PrepHouse.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+<body data-home-page="PrepHouse.html" data-home-page-title="PrepHouse" class="u-body">
+    <header class="u-clearfix u-custom-color-14 u-header u-header" id="sec-02e7">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <nav class="u-align-right u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                <div class="u-custom-menu u-nav-container">
+                    <ul class="u-nav u-unstyled u-nav-1">
+                        <li class="u-nav-item" data-toggle="modal" data-target="#myModal">Share question</li>
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link u-text-active-palette-1-light-3 u-text-hover-palette-2-base u-text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link u-text-active-palette-1-light-3 u-text-hover-palette-2-base u-text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="u-nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -60,7 +49,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -72,12 +61,79 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
-        </nav>
+                <div class="u-custom-menu u-nav-container-collapse">
+                    <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                        <div class="u-sidenav-overflow">
+                            <div class="u-menu-close"></div>
+                            <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="PrepHouse.html" style="padding: 10px 20px;">PrepHouse</a>
+                                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Study-Materials.html" target="_blank" style="padding: 10px 20px;">Study Materials</a>
+                                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="QUIZ.html" target="_blank" style="padding: 10px 20px;">QUIZ</a>
+                                </li></ul>
+                        </div>
+                    </div>
+                    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                </div>
+            </nav>
+            <a href="PrepHouse.html" data-page-id="11240865" class="u-image u-logo u-image-1" data-image-width="1348" data-image-height="420" title="PrepHouse">
+                <img src="images/ScreenShot2021-04-04at11.07.44AM.png" class="u-logo-image u-logo-image-1" data-image-width="254.2859">
+            </a>
+        </div>
+    </header>
 
+    <div id="app">
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" id="sendQuestionForm">
+                        @csrf
+                        <div class="form-group row">
+                            <label for="jobVacancy" class="col-md-12 col-form-label">Job vacancy</label>
+                            <div class="col-md-12">
+                                <input id="jobVacancy" type="text" class="form-control @error('job_vacancy') is-invalid @enderror" name="jobVacancy" value="" required autofocus>
+                                @error('job_vacancy')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="question" class="col-md-12 col-form-label">Question</label>
+                            <div class="col-md-12">
+                                <textarea id="question" class="form-control @error('question') is-invalid @enderror" name="question" required>
+                                </textarea>
+                                @error('question')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer align-content-center">
+                    <button id="sendQuestionButton" type="button" class="btn btn-primary">Send question</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+    <script src="js/home/home.js"></script>
 </body>
 </html>

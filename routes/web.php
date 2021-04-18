@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home/send-question', [App\Http\Controllers\HomeController::class, 'saveQuestion']);
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('questions/list', [App\Http\Controllers\Admin\QuestionsBankController::class, 'index']);
+    Route::get('questions/show/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'show']);
+    Route::get('questions/delete/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'delete']);
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
