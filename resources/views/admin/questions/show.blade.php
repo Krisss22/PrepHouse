@@ -11,5 +11,5 @@
         <li class="list-group-item">Updated at: {{ $question->updated_at }}</li>
     </ul>
 
-    <a type="button" onclick="javascript:history.back();return false;" class="btn btn-primary">Back</a>
+    <a href="/admin/questions/list" type="button" class="btn btn-primary">Back</a>
 @endsection

@@ -3,33 +3,39 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\QuestionsBank;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class QuestionsBankController extends AdminController
 {
 
-    protected const ITEM_ON_PAGE = 15;
-
     protected $sectionName = 'questions';
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
-        if (!Auth::check()) {
+        if (!Auth::check() || !Auth::user()->isAdmin()) {
             return view('auth/login');
         }
 //        var_dump(Auth::check());
 //        var_dump(Auth::user()->name);
 //        var_dump(\App\Models\User::ADMIN_ROLE);
+//        var_dump(Auth::user()->isAdmin());
         return view('admin/questions/list', [
             'sectionName' => $this->sectionName,
-            'questions' => DB::table('questions_bank')->paginate(self::ITEM_ON_PAGE)
+            'questions' => QuestionsBank::query()->paginate(self::ITEM_ON_PAGE)
         ]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function show($id)
     {
-        if (!Auth::check()) {
+        if (!Auth::check() || !Auth::user()->isAdmin()) {
             return view('auth/login');
         }
 
@@ -39,9 +45,45 @@ class QuestionsBankController extends AdminController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit(Request $request, $id)
+    {
+        if (!Auth::check() || !Auth::user()->isAdmin()) {
+            return view('auth/login');
+        }
+
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'inputJobVacancy' => 'required|max:25',
+                'inputQuestion' => 'required|max:500'
+            ]);
+
+            QuestionsBank::query()
+                ->where('id', $id)
+                ->limit(1)
+                ->update([
+                    'job_vacancy' => $request->input('inputJobVacancy'),
+                    'question' => $request->input('inputQuestion'),
+            ]);
+        }
+
+        return view('admin/questions/edit', [
+            'sectionName' => $this->sectionName,
+            'question' => QuestionsBank::findOrFail($id)
+        ]);
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function delete($id)
     {
-        if (!Auth::check()) {
+        if (!Auth::check() || !Auth::user()->isAdmin()) {
             return view('auth/login');
         }
 

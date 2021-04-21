@@ -102,24 +102,13 @@
                         <div class="form-group row">
                             <label for="jobVacancy" class="col-md-12 col-form-label">Job vacancy</label>
                             <div class="col-md-12">
-                                <input id="jobVacancy" type="text" class="form-control @error('job_vacancy') is-invalid @enderror" name="jobVacancy" value="" required autofocus>
-                                @error('job_vacancy')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="jobVacancy" type="text" class="form-control" name="jobVacancy" value="" required autofocus>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="question" class="col-md-12 col-form-label">Question</label>
                             <div class="col-md-12">
-                                <textarea id="question" class="form-control @error('question') is-invalid @enderror" name="question" required>
-                                </textarea>
-                                @error('question')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <textarea id="question" class="form-control" name="question" required></textarea>
                             </div>
                         </div>
                     </form>
