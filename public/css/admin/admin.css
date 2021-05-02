@@ -1,0 +1,25 @@
+html, body { height: 100%; width: 100%; margin: 0; }
+
+#admin-main-menu {
+    float: left;
+    height: 100%;
+}
+
+#admin-main-menu li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu ul {
+    padding: 0px;
+}
+
+.menu li {
+    list-style-type: none;
+}
+
+#admin-content {
+    width: calc(100% - 300px);
+    float: right;
+    margin-top: 25px;
+}

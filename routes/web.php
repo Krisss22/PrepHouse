@@ -13,14 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home/send-question', [App\Http\Controllers\HomeController::class, 'saveQuestion']);
+
+Route::group(['prefix' => 'admin/common'], function () {
+    Route::get('/', [App\Http\Controllers\Admin\CommonController::class, 'index']);
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('questions/list', [App\Http\Controllers\Admin\QuestionsBankController::class, 'index']);
+Route::group(['prefix' => 'admin/questions'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\QuestionsBankController::class, 'index']);
+    Route::get('show/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'show']);
+    Route::any('create', [App\Http\Controllers\Admin\QuestionsBankController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'admin/vacancies'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\VacancyController::class, 'index']);
+    Route::get('show/{id}', [App\Http\Controllers\Admin\VacancyController::class, 'show']);
+    Route::any('create', [App\Http\Controllers\Admin\VacancyController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\VacancyController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\VacancyController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'admin/users'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\UserController::class, 'index']);
+    Route::get('show/{id}', [App\Http\Controllers\Admin\UserController::class, 'show']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\UserController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\UserController::class, 'delete']);
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
