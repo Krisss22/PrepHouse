@@ -11,4 +11,9 @@ class QuestionsBank extends Model
 
     protected $table = 'questions_bank';
 
+    public function vacancy()
+    {
+        return $this->belongsTo('App\Models\Vacancy', 'job_vacancy', 'id');
+    }
+
 }

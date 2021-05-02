@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/vacancies.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/questions.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/users.css') }}" rel="stylesheet">
 </head>
@@ -31,6 +32,7 @@
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item"><a href="/admin/common" class="nav-link @if($sectionName === 'common') active @endif">Common</a></li>
             <li><a href="/admin/questions/list" class="nav-link @if($sectionName === 'questions') active @endif">Questions bank</a></li>
+            <li><a href="/admin/vacancies/list" class="nav-link @if($sectionName === 'vacancies') active @endif">Vacancies</a></li>
             <li><a href="/admin/users/list" class="nav-link @if($sectionName === 'users') active @endif">Users</a></li>
         </ul>
     </div>

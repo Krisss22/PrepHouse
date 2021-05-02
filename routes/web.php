@@ -23,8 +23,17 @@ Route::group(['prefix' => 'admin/common'], function () {
 Route::group(['prefix' => 'admin/questions'], function () {
     Route::get('list', [App\Http\Controllers\Admin\QuestionsBankController::class, 'index']);
     Route::get('show/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'show']);
+    Route::any('create', [App\Http\Controllers\Admin\QuestionsBankController::class, 'create']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'admin/vacancies'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\VacancyController::class, 'index']);
+    Route::get('show/{id}', [App\Http\Controllers\Admin\VacancyController::class, 'show']);
+    Route::any('create', [App\Http\Controllers\Admin\VacancyController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\VacancyController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\VacancyController::class, 'delete']);
 });
 
 Route::group(['prefix' => 'admin/users'], function () {

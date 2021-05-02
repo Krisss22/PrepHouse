@@ -2,6 +2,7 @@
 
 @section('content')
     <h1 class="questions-list-title">Questions</h1>
+    <a href="/admin/questions/create" class="btn btn-primary">Create question</a>
 
     <table class="table">
         <thead>
@@ -18,7 +19,7 @@
         @foreach($questions as $question)
             <tr>
                 <th scope="row">{{ $question->id }}</th>
-                <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->job_vacancy }}</a></td>
+                <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->vacancy->name }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->created_at }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->updated_at }}</a></td>

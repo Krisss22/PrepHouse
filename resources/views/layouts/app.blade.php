@@ -100,9 +100,13 @@
                     <form method="POST" id="sendQuestionForm">
                         @csrf
                         <div class="form-group row">
-                            <label for="jobVacancy" class="col-md-12 col-form-label">Job vacancy</label>
+                            <label for="inputVacancy" class="col-md-12 col-form-label">Vacancy</label>
                             <div class="col-md-12">
-                                <input id="jobVacancy" type="text" class="form-control" name="jobVacancy" value="" required autofocus>
+                                <select name="inputVacancy" class="form-select form-control" required>
+                                    @foreach($vacancies as $vacancy)
+                                        <option value="{{ $vacancy->id }}">{{ $vacancy->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">

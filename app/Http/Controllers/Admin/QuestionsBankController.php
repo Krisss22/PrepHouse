@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\QuestionsBank;
+use App\Models\Vacancy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,7 +59,7 @@ class QuestionsBankController extends AdminController
 
         if ($request->isMethod('post')) {
             $request->validate([
-                'inputJobVacancy' => 'required|max:25',
+                'inputVacancy' => 'required',
                 'inputQuestion' => 'required|max:500'
             ]);
 
@@ -66,14 +67,48 @@ class QuestionsBankController extends AdminController
                 ->where('id', $id)
                 ->limit(1)
                 ->update([
-                    'job_vacancy' => $request->input('inputJobVacancy'),
+                    'job_vacancy' => $request->input('inputVacancy'),
                     'question' => $request->input('inputQuestion'),
-            ]);
+                ]);
         }
 
         return view('admin/questions/edit', [
+            'action' => self::ACTION_EDIT,
             'sectionName' => $this->sectionName,
-            'question' => QuestionsBank::findOrFail($id)
+            'question' => QuestionsBank::findOrFail($id),
+            'vacancies' => Vacancy::all()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function create(Request $request)
+    {
+        if (!Auth::check() || !Auth::user()->isAdmin()) {
+            return view('auth/login');
+        }
+
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'inputVacancy' => 'required',
+                'inputQuestion' => 'required|max:500'
+            ]);
+
+            QuestionsBank::query()->insert([
+                'job_vacancy' => $request->input('inputVacancy'),
+                'question' => $request->input('inputQuestion')
+            ]);
+
+            return redirect('/admin/questions/list');
+        }
+
+        return view('admin/questions/edit', [
+            'action' => self::ACTION_CREATE,
+            'sectionName' => $this->sectionName,
+            'question' => new QuestionsBank(),
+            'vacancies' => Vacancy::all()
         ]);
     }
 
