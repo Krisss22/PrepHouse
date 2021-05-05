@@ -16,4 +16,14 @@ class QuestionsBank extends Model
         return $this->belongsTo('App\Models\Vacancy', 'job_vacancy', 'id');
     }
 
+    public function isReleased(): bool
+    {
+        return (bool) $this->release;
+    }
+
+    public function isAddedByAdmin(): bool
+    {
+        return (bool) $this->addedByAdmin;
+    }
+
 }

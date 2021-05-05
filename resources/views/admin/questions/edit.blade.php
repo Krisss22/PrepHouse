@@ -28,6 +28,24 @@
             @enderror
             <textarea type="text" class="form-control" name="inputQuestion" id="inputQuestion" required>{{ $question->question }}</textarea>
         </div>
+        <div class="col-7">
+            <label for="inputAddedByAdmin" class="form-label">Added by admin</label>
+            @error('inputAddedByAdmin')
+            <span class="invalid-inputQuestion" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <input type="checkbox" class="form-check-input" name="inputAddedByAdmin" id="inputAddedByAdmin" value="1" {{ $question->isAddedByAdmin() ? 'checked' : '' }}>
+        </div>
+        <div class="col-7">
+            <label for="inputRelease" class="form-label">In release</label>
+            @error('inputRelease')
+            <span class="invalid-inputQuestion" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <input type="checkbox" class="form-check-input" name="inputRelease" id="inputRelease" value="1" {{ $question->isReleased() ? 'checked' : '' }}>
+        </div>
     </form>
 
     <a href="/admin/questions/list" type="button" class="btn btn-primary">Back</a>
