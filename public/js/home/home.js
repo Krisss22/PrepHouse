@@ -10,7 +10,7 @@ sendQuestionButton && sendQuestionButton.addEventListener('click', function(e) {
         dataType: "json",
         // async: true,
         success: function(data) {
-            $('#myModal').modal('hide');
+            $('#questionModal').modal('hide');
             console.log(data);
         },
         error: function(data) {

@@ -29,6 +29,15 @@
             <textarea type="text" class="form-control" name="inputQuestion" id="inputQuestion" required>{{ $question->question }}</textarea>
         </div>
         <div class="col-7">
+            <label for="inputAnswer" class="form-label">Answer</label>
+            @error('inputQuestion')
+            <span class="invalid-inputAnswer" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <textarea type="text" class="form-control" name="inputAnswer" id="inputAnswer" required>{{ $question->answer }}</textarea>
+        </div>
+        <div class="col-7">
             <label for="inputAddedByAdmin" class="form-label">Added by admin</label>
             @error('inputAddedByAdmin')
             <span class="invalid-inputQuestion" role="alert">

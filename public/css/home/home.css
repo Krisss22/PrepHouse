@@ -1,0 +1,8 @@
+#questionModal .modal-footer {
+    text-align: center;
+}
+
+#questionModal .question-modal-register-offer-text {
+    font-size: 15px;
+    margin: 10px 0;
+}

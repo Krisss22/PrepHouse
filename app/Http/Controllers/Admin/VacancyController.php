@@ -13,10 +13,6 @@ class VacancyController extends AdminController
 
     public function index()
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         return view('admin/vacancies/list', [
             'sectionName' => $this->sectionName,
             'vacancies' => Vacancy::query()->paginate(self::ITEM_ON_PAGE)
@@ -25,10 +21,6 @@ class VacancyController extends AdminController
 
     public function show($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         return view('admin/vacancies/show', [
             'sectionName' => $this->sectionName,
             'vacancy' => Vacancy::findOrFail($id)
@@ -37,10 +29,6 @@ class VacancyController extends AdminController
 
     public function edit(Request $request, $id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         if ($request->isMethod('post')) {
             $request->validate([
                 'inputName' => 'required|max:100',
@@ -63,10 +51,6 @@ class VacancyController extends AdminController
 
     public function create(Request $request)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         if ($request->isMethod('post')) {
             $request->validate([
                 'inputName' => 'required|max:100'
@@ -89,10 +73,6 @@ class VacancyController extends AdminController
 
     public function delete($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         Vacancy::findOrFail($id)->delete();
 
         return redirect('/admin/vacancies/list');

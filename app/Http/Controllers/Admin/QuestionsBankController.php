@@ -18,10 +18,6 @@ class QuestionsBankController extends AdminController
      */
     public function index(Request $request)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         $questions = QuestionsBank::query();
         $vacanciesList = Vacancy::all();
         $filter = [
@@ -46,6 +42,8 @@ class QuestionsBankController extends AdminController
             }
         }
 
+        $questions->orderBy('id', 'DESC');
+
 //        var_dump(Auth::check());
 //        var_dump(Auth::user()->name);
 //        var_dump(\App\Models\User::ADMIN_ROLE);
@@ -64,10 +62,6 @@ class QuestionsBankController extends AdminController
      */
     public function show($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         return view('admin/questions/show', [
             'sectionName' => $this->sectionName,
             'question' => QuestionsBank::findOrFail($id)
@@ -81,11 +75,7 @@ class QuestionsBankController extends AdminController
      */
     public function edit(Request $request, $id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
-        if ($request->isMethod('post')) {
+       if ($request->isMethod('post')) {
             $request->validate([
                 'inputVacancy' => 'required',
                 'inputQuestion' => 'required|max:500'
@@ -97,6 +87,7 @@ class QuestionsBankController extends AdminController
                 ->update([
                     'job_vacancy' => $request->input('inputVacancy'),
                     'question' => $request->input('inputQuestion'),
+                    'answer' => $request->input('inputAnswer'),
                     'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
                     'release' => (int) $request->input('inputRelease') ?? 0,
                 ]);
@@ -116,10 +107,6 @@ class QuestionsBankController extends AdminController
      */
     public function create(Request $request)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         if ($request->isMethod('post')) {
             $request->validate([
                 'inputVacancy' => 'required',
@@ -128,7 +115,10 @@ class QuestionsBankController extends AdminController
 
             QuestionsBank::query()->insert([
                 'job_vacancy' => $request->input('inputVacancy'),
-                'question' => $request->input('inputQuestion')
+                'question' => $request->input('inputQuestion'),
+                'answer' => $request->input('inputAnswer'),
+                'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
+                'release' => (int) $request->input('inputRelease') ?? 0
             ]);
 
             return redirect('/admin/questions/list');
@@ -148,10 +138,6 @@ class QuestionsBankController extends AdminController
      */
     public function delete($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         QuestionsBank::findOrFail($id)->delete();
 
         return redirect('/admin/questions/list');
@@ -159,10 +145,6 @@ class QuestionsBankController extends AdminController
 
     public function release($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         QuestionsBank::query()
             ->where('id', $id)
             ->limit(1)

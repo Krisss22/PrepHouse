@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('css/home/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home/nicepage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home/PrepHouse.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
@@ -27,7 +28,7 @@
             <nav class="u-align-right u-menu u-menu-dropdown u-offcanvas u-menu-1">
                 <div class="u-custom-menu u-nav-container">
                     <ul class="u-nav u-unstyled u-nav-1">
-                        <li class="u-nav-item" data-toggle="modal" data-target="#myModal">Share question</li>
+                        <li class="u-nav-item" data-toggle="modal" data-target="#questionModal">Share question</li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="u-nav-item">
@@ -87,14 +88,14 @@
     </div>
 
     <!-- Модальное окно -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="questionModalLabel">Send question for help</h4>
                 </div>
                 <div class="modal-body">
                     <form method="POST" id="sendQuestionForm">
@@ -103,7 +104,7 @@
                             <label for="inputVacancy" class="col-md-12 col-form-label">Vacancy</label>
                             <div class="col-md-12">
                                 <select name="inputVacancy" class="form-select form-control" required>
-                                    @foreach($vacancies as $vacancy)
+                                    @foreach($vacancies ?? [] as $vacancy)
                                         <option value="{{ $vacancy->id }}">{{ $vacancy->name }}</option>
                                     @endforeach
                                 </select>
@@ -115,10 +116,18 @@
                                 <textarea id="question" class="form-control" name="question" required></textarea>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="answer" class="col-md-12 col-form-label">Answer (optional)</label>
+                            <div class="col-md-12">
+                                <textarea id="answer" class="form-control" name="answer"></textarea>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer align-content-center">
                     <button id="sendQuestionButton" type="button" class="btn btn-primary">Send question</button>
+                    <div class="question-modal-register-offer-text">Register now to skip adding questions and keep track of your interview/quizes results</div>
+                    <a href="/register" class="btn btn-success">Register Now</a>
                 </div>
             </div>
         </div>

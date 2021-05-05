@@ -16,10 +16,6 @@ class UserController extends AdminController
      */
     public function index()
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         return view('admin/users/list', [
             'sectionName' => $this->sectionName,
             'users' => User::query()->paginate(self::ITEM_ON_PAGE)
@@ -32,10 +28,6 @@ class UserController extends AdminController
      */
     public function show($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         return view('admin/users/show', [
             'sectionName' => $this->sectionName,
             'user' => User::findOrFail($id)
@@ -49,10 +41,6 @@ class UserController extends AdminController
      */
     public function edit(Request $request, $id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         if ($request->isMethod('post')) {
             var_dump(111);
 //            $request->validate([
@@ -81,10 +69,6 @@ class UserController extends AdminController
      */
     public function delete($id)
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            return view('auth/login');
-        }
-
         User::findOrFail($id)->delete();
 
         return redirect('/admin/users/list');

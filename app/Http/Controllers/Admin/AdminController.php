@@ -11,4 +11,12 @@ class AdminController extends Controller
     public const ACTION_EDIT = 'edit';
 
     protected $sectionName = '';
+
+    /**
+     * AdminController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

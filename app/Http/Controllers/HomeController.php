@@ -9,15 +9,6 @@ use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -40,7 +31,11 @@ class HomeController extends Controller
             'question' => 'required|max:500'
         ]);
 
-        DB::table('questions_bank')->insert(['job_vacancy' => $data['inputVacancy'], 'question' => $data['question']]);
+        DB::table('questions_bank')->insert([
+            'job_vacancy' => $data['inputVacancy'],
+            'question' => $data['question'],
+            'answer' => $request->input('answer') ?? ''
+        ]);
 
         return Response::json(['success' => true]);
     }

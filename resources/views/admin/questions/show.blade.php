@@ -5,8 +5,9 @@
 
     <ul class="list-group question-show-group">
         <li class="list-group-item">ID: {{ $question->id }}</li>
-        <li class="list-group-item">Job vacancy: {{ $question->job_vacancy }}</li>
+        <li class="list-group-item">Job vacancy: {{ $question->vacancy->name }}</li>
         <li class="list-group-item">Question: {{ $question->question }}</li>
+        <li class="list-group-item">Answer: {{ $question->answer }}</li>
         <li class="list-group-item">Added by admin: {{ $question->isAddedByAdmin() ? 'Yes' : 'No' }}</li>
         <li class="list-group-item">Released: {{ $question->isReleased() ? 'Yes' : 'No' }}</li>
         <li class="list-group-item">Created at: {{ $question->created_at }}</li>
