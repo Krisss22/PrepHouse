@@ -30,7 +30,8 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item"><a href="/admin/common" class="nav-link @if($sectionName === 'common') active @endif">Common</a></li>
+            <li class="nav-item"><a href="/admin/statistics/list" class="nav-link @if($sectionName === 'statistics') active @endif">Statistics</a></li>
+{{--            <li><a href="/admin/common" class="nav-link @if($sectionName === 'common') active @endif">Common</a></li>--}}
             <li><a href="/admin/questions/list" class="nav-link @if($sectionName === 'questions') active @endif">Questions bank</a></li>
             <li><a href="/admin/vacancies/list" class="nav-link @if($sectionName === 'vacancies') active @endif">Vacancies</a></li>
             <li><a href="/admin/users/list" class="nav-link @if($sectionName === 'users') active @endif">Users</a></li>

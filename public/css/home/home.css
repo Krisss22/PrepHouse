@@ -6,3 +6,26 @@
     font-size: 15px;
     margin: 10px 0;
 }
+
+#notificationPopup {
+    display: none;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+#notificationPopup.notificationPopupShow {
+    display: block;
+}
+
+#notificationPopup.notificationPopupSuccess {
+    background-color: green;
+    color: white;
+}
+
+#notificationPopup.notificationPopupError {
+    background-color: red;
+    color: white;
+}

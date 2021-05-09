@@ -39,4 +39,5 @@ class HomeController extends Controller
 
         return Response::json(['success' => true]);
     }
+
 }

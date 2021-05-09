@@ -159,28 +159,38 @@
                     </div>
                     <div class="u-container-style u-custom-color-13 u-layout-cell u-size-28 u-layout-cell-2">
                         <div class="u-container-layout u-container-layout-2">
-                            <h2 class="u-text u-text-white u-text-2">register to save your progress</h2>
+                            <h2 class="u-text u-text-white u-text-2">Help community grow! Share your experience</h2>
                             <div class="u-form u-form-1">
-                                <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form-4">
-                                    <div class="u-form-group u-form-name">
-                                        <label for="name-e2a4" class="u-form-control-hidden u-label">Name</label>
-                                        <input type="text" placeholder="" id="name-e2a4" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                                    </div>
+                                <form method="POST" id="homeQuestionForm" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px">
+                                    @csrf
                                     <div class="u-form-email u-form-group">
-                                        <label for="email-e2a4" class="u-form-control-hidden u-label">Email</label>
-                                        <input type="email" placeholder="Enter a valid email address" id="email-e2a4" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                                        <select name="inputVacancy" class="form-select form-control" required>
+                                            @foreach($vacancies ?? [] as $vacancy)
+                                                <option value="{{ $vacancy->id }}">{{ $vacancy->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="u-form-group u-form-message">
-                                        <label for="message-e2a4" class="u-form-control-hidden u-label">Message</label>
-                                        <textarea placeholder="Enter your message" rows="4" cols="50" id="message-e2a4" name="message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
+                                        @error('question')
+                                        <span class="invalid-question" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                        <textarea id="formQuestion" class="form-control" name="question" placeholder="Enter here interview question you straggled with" required></textarea>
+                                    </div>
+                                    <div class="u-form-group u-form-message">
+                                        @error('answer')
+                                        <span class="invalid-answer" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                        <textarea id="formAnswer" class="form-control" name="answer" placeholder="Enter your answer to the question"></textarea>
                                     </div>
                                     <div class="u-form-group u-form-submit">
-                                        <a href="#" class="u-btn u-btn-submit u-button-style u-palette-2-base u-btn-1">Submit</a>
-                                        <input type="submit" value="submit" class="u-form-control-hidden">
+                                        <input type="submit" value="submit" id="home-submit-question-form-button" class="u-btn u-btn-submit u-button-style u-palette-2-base u-btn-1">
                                     </div>
                                     <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
                                     <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-                                    <input type="hidden" value="" name="recaptchaResponse">
                                 </form>
                             </div>
                         </div>

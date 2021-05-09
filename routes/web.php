@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home/send-question', [App\Http\Controllers\HomeController::class, 'saveQuestion']);
 
+Route::group(['prefix' => 'admin'], function () {
+    Route::any('/', [App\Http\Controllers\Admin\StatisticController::class, 'index']);
+});
+
+Route::group(['prefix' => 'admin/statistics'], function () {
+    Route::any('list', [App\Http\Controllers\Admin\StatisticController::class, 'index']);
+});
+
 Route::group(['prefix' => 'admin/common'], function () {
     Route::get('/', [App\Http\Controllers\Admin\CommonController::class, 'index']);
 });

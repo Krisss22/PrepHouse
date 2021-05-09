@@ -75,7 +75,7 @@
                     <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
                 </div>
             </nav>
-            <a href="PrepHouse.html" data-page-id="11240865" class="u-image u-logo u-image-1" data-image-width="1348" data-image-height="420" title="PrepHouse">
+            <a href="/" data-page-id="11240865" class="u-image u-logo u-image-1" data-image-width="1348" data-image-height="420" title="PrepHouse">
                 <img src="images/ScreenShot2021-04-04at11.07.44AM.png" class="u-logo-image u-logo-image-1" data-image-width="254.2859">
             </a>
         </div>
@@ -86,6 +86,8 @@
             @yield('content')
         </main>
     </div>
+
+    <div id="notificationPopup"></div>
 
     <!-- Модальное окно -->
     <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true">

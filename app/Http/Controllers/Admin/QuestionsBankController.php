@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\QuestionsBank;
 use App\Models\Vacancy;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class QuestionsBankController extends AdminController
 {
