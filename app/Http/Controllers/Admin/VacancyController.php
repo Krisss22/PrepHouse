@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Vacancy;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class VacancyController extends AdminController
 {
