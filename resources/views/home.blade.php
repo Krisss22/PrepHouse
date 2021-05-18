@@ -1,6 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
+    <header class="u-clearfix u-custom-color-14 u-header u-header" id="sec-02e7">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <nav class="u-align-right u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                <div class="u-custom-menu u-nav-container">
+                    <ul class="u-nav u-unstyled u-nav-1">
+                        <li class="u-nav-item" data-toggle="modal" data-target="#questionModal">Share question</li>
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link u-text-active-palette-1-light-3 u-text-hover-palette-2-base u-text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link u-text-active-palette-1-light-3 u-text-hover-palette-2-base u-text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="u-nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+                <div class="u-custom-menu u-nav-container-collapse">
+                    <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                        <div class="u-sidenav-overflow">
+                            <div class="u-menu-close"></div>
+                            <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="PrepHouse.html" style="padding: 10px 20px;">PrepHouse</a>
+                                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Study-Materials.html" target="_blank" style="padding: 10px 20px;">Study Materials</a>
+                                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="QUIZ.html" target="_blank" style="padding: 10px 20px;">QUIZ</a>
+                                </li></ul>
+                        </div>
+                    </div>
+                    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                </div>
+            </nav>
+            <a href="/" data-page-id="11240865" class="u-image u-logo u-image-1" data-image-width="1348" data-image-height="420" title="PrepHouse">
+                <img src="images/ScreenShot2021-04-04at11.07.44AM.png" class="u-logo-image u-logo-image-1" data-image-width="254.2859">
+            </a>
+        </div>
+    </header>
     <section class="u-clearfix u-gradient u-section-1" id="carousel_75c0">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
