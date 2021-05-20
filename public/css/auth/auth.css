@@ -23,7 +23,7 @@
     margin: 60px auto 0;
     text-align: center;
     width: 528px;
-    max-height: 516px;
+    min-height: 150px;
     background: #27364c;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.126783);
     border-radius: 4px;
@@ -37,13 +37,13 @@
 
 .auth-page-main-block .auth-page-main-block-top .auth-page-main-block-top-lable {
     float: left;
-    width: 65px;
+    width: 200px;
     height: 34px;
-    /*font-family: GT Walsheim Pro;*/
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 34px;
+    text-align: left;
 }
 
 .auth-page-main-block .auth-page-main-block-top .auth-page-main-block-top-sign-up {
@@ -65,11 +65,19 @@
 }
 .auth-page-main-block-form {
     width: 528px;
-    min-height: 390px;
     background: #27364c;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.126783);
     border-radius: 4px;
     padding-top: 8px;
+    display: block;
+}
+
+.auth-page-main-block-form .form-row {
+    float: left;
+}
+
+form.auth-page-login-form {
+    min-height: 430px;
 }
 
 .auth-page-main-block-form .form-row {
@@ -79,7 +87,6 @@
 
 .auth-page-main-block-form .form-row label {
     float: left;
-    /*font-family: GT Walsheim Pro;*/
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -135,6 +142,7 @@
 
 .auth-page-remember-me-row {
     display: inline-block;
+    margin-top: 13px !important;
 }
 
 .auth-page-forgot-password {
@@ -159,7 +167,7 @@
 
 .auth-page-remember-me-block input:checked + label:before {
     content: '';
-    position: fixed;
+    position: absolute;
     width: 20px;
     height: 20px;
     margin-left: -5px;
@@ -167,3 +175,61 @@
     background: url("../../images/check.svg") no-repeat;
 }
 
+form .auth-form-reset-password-description {
+    text-align: left;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+form.auth-page-reset-password-form {
+    min-height: 280px;
+}
+
+form.auth-page-sign-up-form {
+    min-height: 560px;
+}
+
+.auth-page-sign-up-form-name-block {
+    max-width: 50%;
+    float: left;
+    text-align: left;
+}
+.auth-page-sign-up-form-name-block input,
+.auth-page-sign-up-form-name-block label {
+    max-width: 180px;
+}
+
+.auth-page-sign-up-form-surname-block {
+    max-width: 50%;
+    float: right;
+    text-align: right;
+}
+.auth-page-sign-up-form-surname-block input,
+.auth-page-sign-up-form-surname-block label {
+    max-width: 180px;
+}
+
+.auth-page-sign-up-form-surname-block label {
+    padding-left: 15px;
+}
+
+body form.auth-page-main-block-form .auth-page-form-other-info-block {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    width: 310px;
+    margin: 29px auto;
+    float: inherit;
+    display: inline-block;
+}
+
+body form.auth-page-main-block-form .auth-page-form-other-info-block a {
+    color: #F7B631;
+    text-decoration: none;
+}
