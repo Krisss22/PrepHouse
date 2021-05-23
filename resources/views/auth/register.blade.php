@@ -34,8 +34,8 @@
                 </div>
             </div>
             <div class="form-row">
-                <label>Job Title @error('email')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
-                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="job-title" autofocus>
+                <label>Job Title @error('job_title')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
+                <input id="job-title" type="text" class="@error('job_title') is-invalid @enderror" name="job_title" value="{{ old('job_title') }}" required autocomplete="job-title" autofocus>
             </div>
             <div class="form-row">
                 <label>Email @error('email')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
@@ -44,6 +44,10 @@
             <div class="form-row">
                 <label>Create password @error('password')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
                 <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            </div>
+            <div class="form-row">
+                <label>Confirm password @error('password_confirmation')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
+                <input id="password-confirm" type="password" class="@error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="password-confirm">
             </div>
             <div class="form-row auth-page-remember-me-row">
                 <div class="auth-page-remember-me-block">

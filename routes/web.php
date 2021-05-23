@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,13 @@ Route::group(['prefix' => 'admin/users'], function () {
     Route::get('show/{id}', [App\Http\Controllers\Admin\UserController::class, 'show']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\UserController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\UserController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'admin/tags'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\TagController::class, 'index']);
+    Route::any('create', [App\Http\Controllers\Admin\TagController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\TagController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\TagController::class, 'delete']);
 });
 
 Auth::routes();
