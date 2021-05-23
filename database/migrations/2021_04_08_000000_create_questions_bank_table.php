@@ -15,8 +15,11 @@ class CreateQuestionsBankTable extends Migration
     {
         Schema::create('questions_bank', function (Blueprint $table) {
             $table->id();
-            $table->string('job_vacancy');
+            $table->integer('job_vacancy')->nullable();
             $table->string('question');
+            $table->integer('addedByAdmin')->default(0);
+            $table->integer('release')->default(0);
+            $table->string('answer')->nullable(true);
             $table->timestamps();
         });
     }
