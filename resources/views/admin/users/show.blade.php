@@ -3,7 +3,7 @@
 @section('content')
     <h1>Question {{ $user->id }}</h1>
 
-    <ul class="list-group user-show-group">
+    <ul class="list-group content-show-group">
         <li class="list-group-item">ID: {{ $user->id }}</li>
         <li class="list-group-item">Name: {{ $user->name }}</li>
         <li class="list-group-item">Email: {{ $user->email }}</li>

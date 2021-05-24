@@ -31,3 +31,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 .list-filter .list-filter-actions {
     margin-top: 10px;
 }
+
+.content-show-group,
+.content-edit-group {
+    margin: 25px 0;
+}

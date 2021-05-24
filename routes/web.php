@@ -60,4 +60,11 @@ Route::group(['prefix' => 'admin/tags'], function () {
     Route::get('delete/{id}', [App\Http\Controllers\Admin\TagController::class, 'delete']);
 });
 
+Route::group(['prefix' => 'admin/topics'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\TopicController::class, 'index']);
+    Route::any('create', [App\Http\Controllers\Admin\TopicController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\TopicController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\TopicController::class, 'delete']);
+});
+
 Auth::routes();

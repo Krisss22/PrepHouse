@@ -3,7 +3,7 @@
 @section('content')
     <h1>Vacancy {{ $tag->id }}</h1>
 
-    <form method="post" action="/admin/tags/{{ $action }}{{ $tag->id ? '/' . $tag->id : '' }}" id="edit-tag-form" class="row g-3 tag-edit-group">
+    <form method="post" action="/admin/tags/{{ $action }}{{ $tag->id ? '/' . $tag->id : '' }}" id="edit-tag-form" class="row g-3 content-edit-group">
         @method('post')
         @csrf
         <div class="col-7">
