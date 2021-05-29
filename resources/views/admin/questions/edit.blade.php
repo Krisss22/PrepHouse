@@ -79,7 +79,7 @@
     <a href="/admin/questions/list" type="button" class="btn btn-primary">Back</a>
     @if($action === \App\Http\Controllers\Admin\QuestionsBankController::ACTION_EDIT)
         <button type="submit" value="Update" form="edit-question-form" class="btn btn-success">Update</button>
-        <a href="/admin/questions/delete/{{ $question->id }}}" class="btn btn-danger">Delete</a>
+        <a href="/admin/questions/delete/{{ $question->id }}" class="btn btn-danger">Delete</a>
     @else
         <button type="submit" value="Create" form="edit-question-form" class="btn btn-success">Create</button>
     @endif
