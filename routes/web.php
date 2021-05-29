@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin/questions'], function () {
     Route::any('edit/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'delete']);
     Route::get('release/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'release']);
+    Route::get('search-tag/{name}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'searchTag']);
 });
 
 Route::group(['prefix' => 'admin/vacancies'], function () {

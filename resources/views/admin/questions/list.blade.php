@@ -56,6 +56,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Job vacancy</th>
+            <th scope="col">Tag</th>
             <th scope="col">Question</th>
             <th scope="col">In release</th>
             <th scope="col">Created at</th>
@@ -68,6 +69,7 @@
             <tr>
                 <th scope="row">{{ $question->id }}</th>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->vacancy->name }}</a></td>
+                <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->tag_id ? $question->tag->name : '' }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->isReleased() ? 'Yes' : 'No' }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->created_at }}</a></td>

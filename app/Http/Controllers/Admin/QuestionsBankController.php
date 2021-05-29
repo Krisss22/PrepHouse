@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\QuestionsBank;
 use App\Models\Vacancy;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class QuestionsBankController extends AdminController
@@ -85,6 +86,7 @@ class QuestionsBankController extends AdminController
                 ->limit(1)
                 ->update([
                     'job_vacancy' => $request->input('inputVacancy'),
+                    'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
                     'question' => $request->input('inputQuestion'),
                     'answer' => $request->input('inputAnswer'),
                     'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
@@ -96,7 +98,8 @@ class QuestionsBankController extends AdminController
             'action' => self::ACTION_EDIT,
             'sectionName' => $this->sectionName,
             'question' => QuestionsBank::findOrFail($id),
-            'vacancies' => Vacancy::all()
+            'vacancies' => Vacancy::all(),
+            'tags' => Tag::all(),
         ]);
     }
 
@@ -112,8 +115,9 @@ class QuestionsBankController extends AdminController
                 'inputQuestion' => 'required|max:500'
             ]);
 
-            QuestionsBank::query()->insert([
+            QuestionsBank::insert([
                 'job_vacancy' => $request->input('inputVacancy'),
+                'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
                 'question' => $request->input('inputQuestion'),
                 'answer' => $request->input('inputAnswer'),
                 'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
@@ -127,7 +131,8 @@ class QuestionsBankController extends AdminController
             'action' => self::ACTION_CREATE,
             'sectionName' => $this->sectionName,
             'question' => new QuestionsBank(),
-            'vacancies' => Vacancy::all()
+            'vacancies' => Vacancy::all(),
+            'tags' => Tag::all(),
         ]);
     }
 
@@ -152,5 +157,14 @@ class QuestionsBankController extends AdminController
             ]);
 
         return redirect('/admin/questions/list');
+    }
+
+    public function searchTag($name): \Illuminate\Http\JsonResponse
+    {
+        return response()->json(Tag::query()
+            ->where('name', 'LIKE', '%' . $name . '%')
+            ->orWhere('name', 'LIKE', $name . '%')
+            ->orWhere('name', 'LIKE', '%' . $name)
+            ->get());
     }
 }
