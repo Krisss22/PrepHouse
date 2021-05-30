@@ -1,0 +1,36 @@
+.search-select-element {
+    position: relative;
+}
+
+.search-select-element .search-select-results {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    z-index: 9;
+    width: 100%;
+    border: 1px solid #ced4da;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.search-select-element .search-select-results-item {
+    border-bottom: 1px solid #ced4da;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.search-select-element .search-select-results-item:hover {
+    background-color: #efefef;
+}
+
+.search-select-element .search-select-results-item-hidden {
+    display: none;
+}
+
+.search-select-element .search-select-input-hidden {
+    display: none;
+}
+
+.search-select-element .search-select-results-show {
+    display: block;
+}

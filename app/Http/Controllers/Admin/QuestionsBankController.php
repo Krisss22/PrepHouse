@@ -22,7 +22,8 @@ class QuestionsBankController extends AdminController
         $vacanciesList = Vacancy::all();
         $filter = [
             'inputVacancy' => 'empty',
-            'inputTags' => '',
+            'inputTag' => '',
+            'inputTagName' => '',
             'inputRelease' => 'empty',
             'inputAddedByAdmin' => 'empty'
         ];
@@ -31,6 +32,11 @@ class QuestionsBankController extends AdminController
             if ($request->has('inputVacancy') && $request->input('inputVacancy') !== 'empty') {
                 $filter['inputVacancy'] = (int) $request->input('inputVacancy');
                 $questions->where('job_vacancy', '=', (int) $request->input('inputVacancy'));
+            }
+            if ($request->has('inputTag') && $request->input('inputTag') !== 'empty') {
+                $filter['inputTag'] = (int) $request->input('inputTag');
+                $filter['inputTagName'] = Tag::findOrFail((int) $request->input('inputTag'))->name;
+                $questions->where('tag_id', '=', (int) $request->input('inputTag'));
             }
             if ($request->has('inputRelease') && $request->input('inputRelease') !== 'empty') {
                 $filter['inputRelease'] = (int) $request->input('inputRelease');
@@ -52,7 +58,8 @@ class QuestionsBankController extends AdminController
             'sectionName' => $this->sectionName,
             'vacanciesList' => $vacanciesList,
             'filter' => $filter,
-            'questions' => $questions->paginate(self::ITEM_ON_PAGE)->appends($filter)
+            'questions' => $questions->paginate(self::ITEM_ON_PAGE)->appends($filter),
+            'tags' => Tag::all()
         ]);
     }
 
@@ -157,14 +164,5 @@ class QuestionsBankController extends AdminController
             ]);
 
         return redirect('/admin/questions/list');
-    }
-
-    public function searchTag($name): \Illuminate\Http\JsonResponse
-    {
-        return response()->json(Tag::query()
-            ->where('name', 'LIKE', '%' . $name . '%')
-            ->orWhere('name', 'LIKE', $name . '%')
-            ->orWhere('name', 'LIKE', '%' . $name)
-            ->get());
     }
 }

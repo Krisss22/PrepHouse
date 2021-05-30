@@ -26,17 +26,15 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-{{--            <div class="search-select-element">--}}
-{{--                <input type="text" class="form-control search-select-input" value="{{ $question->tag_id ? $question->tag->name : '' }}">--}}
-{{--                <input type="text" class="search-select-input-hidden" name="inputTag" value="{{ $question->tag_id ?? '' }}">--}}
-{{--                <div class="search-select-results"></div>--}}
-{{--            </div>--}}
-            <select name="inputTag" class="form-select">
-                <option value="0"></option>
-                @foreach($tags as $tag)
-                    <option value="{{ $tag->id }}" {{ $question->tag_id === $tag->id ? 'selected' : '' }}>{{ $tag->name }}</option>
-                @endforeach
-            </select>
+            <div class="search-select-element">
+                <input type="text" class="form-control search-select-input" value="{{ $question->tag_id ? $question->tag->name : '' }}">
+                <input type="text" class="search-select-input-hidden" name="inputTag" value="{{ $question->tag_id ?? '' }}">
+                <div class="search-select-results">
+                    @foreach($tags as $tag)
+                        <div data-tag-id="{{ $tag->id }}" class="search-select-results-item search-select-results-item-hidden">{{ $tag->name }}</div>
+                    @endforeach
+                </div>
+            </div>
         </div>
         <div class="col-7">
             <label for="inputQuestion" class="form-label">Question</label>

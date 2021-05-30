@@ -22,8 +22,16 @@
                     </select>
                 </div>
                 <div class="col-2">
-                    <label for="inputVacancy" class="form-label">Tags</label>
-                    <input type="text" name="inputTags" class="form-control">
+                    <label for="" class="form-label">Tags</label>
+                    <div class="search-select-element">
+                        <input type="text" class="form-control search-select-input" value="{{ $filter['inputTagName'] }}">
+                        <input type="text" class="search-select-input-hidden" name="inputTag" value="{{ $filter['inputTag'] }}">
+                        <div class="search-select-results">
+                            @foreach($tags as $tag)
+                                <div data-tag-id="{{ $tag->id }}" class="search-select-results-item search-select-results-item-hidden">{{ $tag->name }}</div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
                 <div class="col-2">
                     <label for="inputRelease" class="form-label">In release</label>

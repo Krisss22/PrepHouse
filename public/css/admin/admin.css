@@ -37,17 +37,3 @@ html, body { height: 100%; width: 100%; margin: 0; }
     margin: 25px 0;
 }
 
-.search-select-element .search-select-results {
-    display: none;
-    width: 100%;
-    background-color: #1d3a69;
-    height: 50px;
-}
-
-.search-select-element .search-select-input-hidden {
-    display: none;
-}
-
-.search-select-element .search-select-results-show {
-    display: block;
-}
