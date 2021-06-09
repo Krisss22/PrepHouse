@@ -84,7 +84,9 @@ class QuestionsBankController extends AdminController
                 'inputQuestion' => 'required|max:500'
             ]);
 
-            QuestionsBank::query()
+            $question = QuestionsBank::findOrFail($id);
+
+            $question->query()
                 ->where('id', $id)
                 ->limit(1)
                 ->update([
@@ -95,24 +97,45 @@ class QuestionsBankController extends AdminController
                     'release' => (int) $request->input('inputRelease') ?? 0,
                 ]);
 
+            $answerIds = [];
+            $questionAnswerIds = [];
+            foreach ($question->answers as $answer) {
+                $questionAnswerIds[] = $answer->id;
+            }
+
             if ($request->has('textAnswer')) {
                 foreach ($request->textAnswer as $answerId => $text) {
-                   Answer::findOrFail($answerId)->update([
-                       'text' => $text
-                   ]);
+                    $answerIds[] = $answerId;
+                    Answer::findOrFail($answerId)->update([
+                        'text' => $text
+                    ]);
                 }
             }
+
+           if ($request->has('fileAnswerHidden')) {
+               foreach ($request->fileAnswerHidden as $answerId => $text) {
+                   $answerIds[] = $answerId;
+               }
+           }
 
            if ($request->hasFile('fileAnswer')) {
                foreach ($request->file('fileAnswer') as $answerId => $image) {
                    $answer = Answer::findOrFail($answerId);
-                   unlink(public_path(Answer::IMAGES_PATH) . '/' . $answer->image);
+                   if (file_exists(public_path(Answer::IMAGES_PATH) . '/' . $answer->image)) {
+                       unlink(public_path(Answer::IMAGES_PATH) . '/' . $answer->image);
+                   }
                    $imageName = time() . '.' . $image->extension();
                    $image->move(public_path(Answer::IMAGES_PATH), $imageName);
                    $answer->update([
                        'image' => $imageName
                    ]);
 
+               }
+           }
+
+           foreach ($question->answers as $answer) {
+               if (!in_array($answer->id, $answerIds)) {
+                   $answer->delete();
                }
            }
 

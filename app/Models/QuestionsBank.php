@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @method static insert(array $array)
  * @method static create(array $array)
+ * @method static findOrFail()
  */
 class QuestionsBank extends Model
 {

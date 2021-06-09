@@ -51,6 +51,7 @@
                     @if($answer->image)
                             <label data-id="{{ $answer->id }}" for="answerFile">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
                             <img data-id="{{ $answer->id }}" src="{{ '/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image }}">
+                            <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}]" value="{{ $answer->id }}">
                             <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}]" type="file" value="">
                     @endif
                 @endforeach
