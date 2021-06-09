@@ -3,22 +3,9 @@
 @section('content')
     <h1>Question {{ $question->id }}</h1>
 
-    <form method="post" action="/admin/questions/{{ $action }}{{ $question->id ? '/' . $question->id : '' }}" id="edit-question-form" class="row g-3 content-edit-group">
+    <form method="post" action="/admin/questions/{{ $action }}{{ $question->id ? '/' . $question->id : '' }}" id="edit-question-form" enctype="multipart/form-data" class="row g-3 content-edit-group">
         @method('post')
         @csrf
-        <div class="col-7">
-            <label for="inputVacancy" class="form-label">Job vacancy</label>
-            @error('inputVacancy')
-            <span class="invalid-inputVacancy" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-            <select name="inputVacancy" class="form-select" required>
-                @foreach($vacancies as $vacancy)
-                    <option value="{{ $vacancy->id }}">{{ $vacancy->name }}</option>
-                @endforeach
-            </select>
-        </div>
         <div class="col-7">
             <label for="inputTag" class="form-label">Tag</label>
             @error('inputTag')
@@ -46,13 +33,35 @@
             <textarea type="text" class="form-control" name="inputQuestion" id="inputQuestion" required>{{ $question->question }}</textarea>
         </div>
         <div class="col-7">
-            <label for="inputAnswer" class="form-label">Answer</label>
+            <label for="inputUserAnswer" class="form-label">User's Answer</label>
             @error('inputQuestion')
-            <span class="invalid-inputAnswer" role="alert">
+            <span class="invalid-inputUserAnswer" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <textarea type="text" class="form-control" name="inputAnswer" id="inputAnswer" required>{{ $question->answer }}</textarea>
+            <textarea type="text" class="form-control" name="inputUserAnswer" id="inputUserAnswer" required>{{ $question->answer }}</textarea>
+        </div>
+        <div class="col-7">
+            <div id="questionAnswersBlock">
+                @foreach($question->answers as $index => $answer)
+                    @if($answer->text)
+                        <label data-id="{{ $answer->id }}" for="answerText">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                        <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}]">{{ $answer->text }}</textarea>
+                    @endif
+                    @if($answer->image)
+                            <label data-id="{{ $answer->id }}" for="answerFile">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                            <img data-id="{{ $answer->id }}" src="{{ '/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image }}">
+                            <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}]" type="file" value="">
+                    @endif
+                @endforeach
+            </div>
+            <div id="addAnswerButton" class="btn btn-primary">Add answer</div>
+            <div id="addAnswerButtonsBlock" class="hidden">
+                <div class="btn btn-secondary add-answer-type-button" data-answer-type="text">Text</div>
+                <div class="btn btn-secondary add-answer-type-button" data-answer-type="file">File</div>
+            </div>
+            <div id="answersBlock">
+            </div>
         </div>
         <div class="col-7">
             <label for="inputAddedByAdmin" class="form-label">Added by admin</label>

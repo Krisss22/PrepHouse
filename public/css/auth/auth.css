@@ -172,7 +172,7 @@ form.auth-page-login-form {
     height: 20px;
     margin-left: -5px;
     margin-top: 5px;
-    background: url("../../images/check.svg") no-repeat;
+    background: url("../../storage/images/check.svg") no-repeat;
 }
 
 form .auth-form-reset-password-description {

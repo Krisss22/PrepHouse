@@ -5,7 +5,6 @@
 
     <ul class="list-group content-show-group">
         <li class="list-group-item">ID: {{ $question->id }}</li>
-        <li class="list-group-item">Job vacancy: {{ $question->vacancy->name }}</li>
         <li class="list-group-item">Question: {{ $question->question }}</li>
         <li class="list-group-item">Answer: {{ $question->answer }}</li>
         <li class="list-group-item">Added by admin: {{ $question->isAddedByAdmin() ? 'Yes' : 'No' }}</li>

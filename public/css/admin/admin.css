@@ -3,6 +3,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 #admin-main-menu {
     float: left;
     height: 100%;
+    position: fixed;
 }
 
 #admin-main-menu li a{
@@ -21,7 +22,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 #admin-content {
     width: calc(100% - 300px);
     float: right;
-    margin-top: 25px;
+    padding: 10px 0px 50px;
 }
 
 .list-filter {

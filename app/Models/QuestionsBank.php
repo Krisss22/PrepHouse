@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static insert(array $array)
+ * @method static create(array $array)
  */
 class QuestionsBank extends Model
 {
@@ -14,9 +15,22 @@ class QuestionsBank extends Model
 
     protected $table = 'questions_bank';
 
-    public function vacancy(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'question',
+        'addedByAdmin',
+        'release',
+        'answer',
+        'tag_id',
+    ];
+
+    public function answers()
     {
-        return $this->belongsTo('App\Models\Vacancy', 'job_vacancy', 'id');
+        return $this->hasMany('App\Models\Answer', 'question_id', 'id');
     }
 
     public function tag(): \Illuminate\Database\Eloquent\Relations\HasOne

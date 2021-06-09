@@ -13,15 +13,6 @@
             <form method="get" class="row">
                 @csrf
                 <div class="col-2">
-                    <label for="inputVacancy" class="form-label">Job vacancy</label>
-                    <select name="inputVacancy" id="inputVacancy" class="form-select">
-                        <option value="empty">No filter</option>
-                        @foreach($vacanciesList as $vacancyItem)
-                            <option value="{{ $vacancyItem->id }}" {{ $filter['inputVacancy'] === $vacancyItem->id ? 'selected' : '' }}>{{ $vacancyItem->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-2">
                     <label for="" class="form-label">Tags</label>
                     <div class="search-select-element">
                         <input type="text" class="form-control search-select-input" value="{{ $filter['inputTagName'] }}">
@@ -63,7 +54,6 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Job vacancy</th>
             <th scope="col">Tag</th>
             <th scope="col">Question</th>
             <th scope="col">In release</th>
@@ -76,7 +66,6 @@
         @foreach($questions as $question)
             <tr>
                 <th scope="row">{{ $question->id }}</th>
-                <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->vacancy->name }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->tag_id ? $question->tag->name : '' }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->isReleased() ? 'Yes' : 'No' }}</a></td>

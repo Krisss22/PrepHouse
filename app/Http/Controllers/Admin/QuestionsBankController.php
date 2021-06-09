@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Answer;
 use App\Models\QuestionsBank;
 use App\Models\Vacancy;
 use App\Models\Tag;
@@ -29,10 +30,6 @@ class QuestionsBankController extends AdminController
         ];
 
         if ($request->input('inputAction') !== 'Clear') {
-            if ($request->has('inputVacancy') && $request->input('inputVacancy') !== 'empty') {
-                $filter['inputVacancy'] = (int) $request->input('inputVacancy');
-                $questions->where('job_vacancy', '=', (int) $request->input('inputVacancy'));
-            }
             if ($request->has('inputTag') && $request->input('inputTag') !== 'empty') {
                 $filter['inputTag'] = (int) $request->input('inputTag');
                 $filter['inputTagName'] = Tag::findOrFail((int) $request->input('inputTag'))->name;
@@ -84,7 +81,6 @@ class QuestionsBankController extends AdminController
     {
        if ($request->isMethod('post')) {
             $request->validate([
-                'inputVacancy' => 'required',
                 'inputQuestion' => 'required|max:500'
             ]);
 
@@ -92,20 +88,59 @@ class QuestionsBankController extends AdminController
                 ->where('id', $id)
                 ->limit(1)
                 ->update([
-                    'job_vacancy' => $request->input('inputVacancy'),
                     'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
                     'question' => $request->input('inputQuestion'),
-                    'answer' => $request->input('inputAnswer'),
+                    'answer' => $request->input('inputUserAnswer'),
                     'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
                     'release' => (int) $request->input('inputRelease') ?? 0,
                 ]);
+
+            if ($request->has('textAnswer')) {
+                foreach ($request->textAnswer as $answerId => $text) {
+                   Answer::findOrFail($answerId)->update([
+                       'text' => $text
+                   ]);
+                }
+            }
+
+           if ($request->hasFile('fileAnswer')) {
+               foreach ($request->file('fileAnswer') as $answerId => $image) {
+                   $answer = Answer::findOrFail($answerId);
+                   unlink(public_path(Answer::IMAGES_PATH) . '/' . $answer->image);
+                   $imageName = time() . '.' . $image->extension();
+                   $image->move(public_path(Answer::IMAGES_PATH), $imageName);
+                   $answer->update([
+                       'image' => $imageName
+                   ]);
+
+               }
+           }
+
+            if ($request->has('newTextAnswer')) {
+                foreach ($request->newTextAnswer as $text) {
+                   Answer::create([
+                       'text' => $text,
+                       'question_id' => $id
+                   ]);
+                }
+            }
+
+            if ($request->hasFile('newFileAnswer')) {
+                foreach ($request->file('newFileAnswer') as $image) {
+                   $imageName = time() . '.' . $image->extension();
+                   $image->move(public_path(Answer::IMAGES_PATH), $imageName);
+                   Answer::create([
+                       'image' => $imageName,
+                       'question_id' => $id
+                   ]);
+                }
+            }
         }
 
         return view('admin/questions/edit', [
             'action' => self::ACTION_EDIT,
             'sectionName' => $this->sectionName,
             'question' => QuestionsBank::findOrFail($id),
-            'vacancies' => Vacancy::all(),
             'tags' => Tag::all(),
         ]);
     }
@@ -118,18 +153,36 @@ class QuestionsBankController extends AdminController
     {
         if ($request->isMethod('post')) {
             $request->validate([
-                'inputVacancy' => 'required',
                 'inputQuestion' => 'required|max:500'
             ]);
 
-            QuestionsBank::insert([
-                'job_vacancy' => $request->input('inputVacancy'),
+            $question = QuestionsBank::create([
                 'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
                 'question' => $request->input('inputQuestion'),
-                'answer' => $request->input('inputAnswer'),
+                'answer' => $request->input('inputUserAnswer'),
                 'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
                 'release' => (int) $request->input('inputRelease') ?? 0
             ]);
+
+            if ($request->has('newTextAnswer')) {
+                foreach ($request->newTextAnswer as $text) {
+                    Answer::create([
+                        'text' => $text,
+                        'question_id' => $question->id
+                    ]);
+                }
+            }
+
+            if ($request->hasFile('newFileAnswer')) {
+                foreach ($request->file('newFileAnswer') as $image) {
+                    $imageName = time() . '.' . $image->extension();
+                    $image->move(public_path(Answer::IMAGES_PATH), $imageName);
+                    Answer::create([
+                        'image' => $imageName,
+                        'question_id' => $question->id
+                    ]);
+                }
+            }
 
             return redirect('/admin/questions/list');
         }
@@ -138,7 +191,6 @@ class QuestionsBankController extends AdminController
             'action' => self::ACTION_CREATE,
             'sectionName' => $this->sectionName,
             'question' => new QuestionsBank(),
-            'vacancies' => Vacancy::all(),
             'tags' => Tag::all(),
         ]);
     }
