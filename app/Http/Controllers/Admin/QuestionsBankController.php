@@ -81,7 +81,7 @@ class QuestionsBankController extends AdminController
     {
        if ($request->isMethod('post')) {
             $request->validate([
-                'inputQuestion' => 'required|max:500'
+                'inputQuestion' => 'required|max:1500'
             ]);
 
             $question = QuestionsBank::findOrFail($id);
@@ -176,7 +176,7 @@ class QuestionsBankController extends AdminController
     {
         if ($request->isMethod('post')) {
             $request->validate([
-                'inputQuestion' => 'required|max:500'
+                'inputQuestion' => 'required|max:1500'
             ]);
 
             $question = QuestionsBank::create([
