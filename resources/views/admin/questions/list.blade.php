@@ -67,7 +67,7 @@
             <tr>
                 <th scope="row">{{ $question->id }}</th>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->tag_id ? $question->tag->name : '' }}</a></td>
-                <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
+                <td class="questions-list-question-td"><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->isReleased() ? 'Yes' : 'No' }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->created_at }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->updated_at }}</a></td>

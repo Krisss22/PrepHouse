@@ -33,7 +33,7 @@
             <textarea type="text" class="form-control" name="inputQuestion" id="inputQuestion" required>{{ $question->question }}</textarea>
         </div>
         <div class="col-7">
-            <label for="inputUserAnswer" class="form-label">User's Answer</label>
+            <label for="inputUserAnswer" class="form-label">User's Answer (Deprecated. Will be remove)</label>
             @error('inputQuestion')
             <span class="invalid-inputUserAnswer" role="alert">
                 <strong>{{ $message }}</strong>
@@ -45,14 +45,20 @@
             <div id="questionAnswersBlock">
                 @foreach($question->answers as $index => $answer)
                     @if($answer->text)
-                        <label data-id="{{ $answer->id }}" for="answerText">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
-                        <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}]">{{ $answer->text }}</textarea>
+                        <div class="answerBlockItem">
+                            <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                            <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="textAnswer[{{ $answer->id }}][correct]" @if($answer->correct) checked @endIf>
+                            <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}][value]">{{ $answer->text }}</textarea>
+                        </div>
                     @endif
                     @if($answer->image)
-                            <label data-id="{{ $answer->id }}" for="answerFile">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                        <div class="answerBlockItem">
+                            <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                            <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="fileAnswerHidden[{{ $answer->id }}][correct]" @if($answer->correct) checked @endIf>
                             <img data-id="{{ $answer->id }}" src="{{ '/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image }}">
-                            <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}]" value="{{ $answer->id }}">
+                            <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}][value]" value="{{ $answer->id }}">
                             <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}]" type="file" value="">
+                        </div>
                     @endif
                 @endforeach
             </div>

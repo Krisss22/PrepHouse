@@ -103,18 +103,22 @@ class QuestionsBankController extends AdminController
                 $questionAnswerIds[] = $answer->id;
             }
 
-            if ($request->has('textAnswer')) {
-                foreach ($request->textAnswer as $answerId => $text) {
-                    $answerIds[] = $answerId;
-                    Answer::findOrFail($answerId)->update([
-                        'text' => $text
-                    ]);
-                }
-            }
+           if ($request->has('textAnswer')) {
+               foreach ($request->textAnswer as $answerId => $item) {
+                   $answerIds[] = $answerId;
+                   Answer::findOrFail($answerId)->update([
+                       'text' => $item['value'],
+                       'correct' => isset($item['correct'])
+                   ]);
+               }
+           }
 
            if ($request->has('fileAnswerHidden')) {
-               foreach ($request->fileAnswerHidden as $answerId => $text) {
+               foreach ($request->fileAnswerHidden as $answerId => $item) {
                    $answerIds[] = $answerId;
+                   Answer::findOrFail($answerId)->update([
+                       'correct' => isset($item['correct'])
+                   ]);
                }
            }
 
@@ -139,25 +143,27 @@ class QuestionsBankController extends AdminController
                }
            }
 
-            if ($request->has('newTextAnswer')) {
-                foreach ($request->newTextAnswer as $text) {
+           if ($request->has('newTextAnswer')) {
+               foreach ($request->newTextAnswer as $item) {
                    Answer::create([
-                       'text' => $text,
-                       'question_id' => $id
+                       'text' => $item['value'],
+                       'question_id' => $question->id,
+                       'correct' => isset($item['correct'])
                    ]);
-                }
-            }
+               }
+           }
 
-            if ($request->hasFile('newFileAnswer')) {
-                foreach ($request->file('newFileAnswer') as $image) {
-                   $imageName = time() . '.' . $image->extension();
-                   $image->move(public_path(Answer::IMAGES_PATH), $imageName);
+           if ($request->has('newFileAnswer')) {
+               foreach ($request->newFileAnswer as $item) {
+                   $imageName = time() . '.' . $item['value']->extension();
+                   $item['value']->move(public_path(Answer::IMAGES_PATH), $imageName);
                    Answer::create([
                        'image' => $imageName,
-                       'question_id' => $id
+                       'question_id' => $question->id,
+                       'correct' => isset($item['correct'])
                    ]);
-                }
-            }
+               }
+           }
         }
 
         return view('admin/questions/edit', [
@@ -188,21 +194,23 @@ class QuestionsBankController extends AdminController
             ]);
 
             if ($request->has('newTextAnswer')) {
-                foreach ($request->newTextAnswer as $text) {
+                foreach ($request->newTextAnswer as $item) {
                     Answer::create([
-                        'text' => $text,
-                        'question_id' => $question->id
+                        'text' => $item['value'],
+                        'question_id' => $question->id,
+                        'correct' => isset($item['correct'])
                     ]);
                 }
             }
 
-            if ($request->hasFile('newFileAnswer')) {
-                foreach ($request->file('newFileAnswer') as $image) {
-                    $imageName = time() . '.' . $image->extension();
-                    $image->move(public_path(Answer::IMAGES_PATH), $imageName);
+            if ($request->has('newFileAnswer')) {
+                foreach ($request->newFileAnswer as $item) {
+                    $imageName = time() . '.' . $item['value']->extension();
+                    $item['value']->move(public_path(Answer::IMAGES_PATH), $imageName);
                     Answer::create([
                         'image' => $imageName,
-                        'question_id' => $question->id
+                        'question_id' => $question->id,
+                        'correct' => isset($item['correct'])
                     ]);
                 }
             }

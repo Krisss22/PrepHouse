@@ -22,5 +22,6 @@ class Answer extends Model
         'image',
         'text',
         'question_id',
+        'correct'
     ];
 }
