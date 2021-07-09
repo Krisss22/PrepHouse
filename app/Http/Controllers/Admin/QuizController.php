@@ -118,4 +118,15 @@ class QuizController extends AdminController
         ]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function delete($id)
+    {
+        Quiz::findOrFail($id)->delete();
+
+        return redirect('/admin/quizzes/list');
+    }
+
 }
