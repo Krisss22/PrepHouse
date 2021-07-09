@@ -39,7 +39,7 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <textarea type="text" class="form-control" name="inputUserAnswer" id="inputUserAnswer" required>{{ $question->answer }}</textarea>
+            <textarea type="text" class="form-control" name="inputUserAnswer" id="inputUserAnswer">{{ $question->answer }}</textarea>
         </div>
         <div class="col-7">
             <div id="questionAnswersBlock">

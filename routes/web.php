@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin/tags'], function () {
     Route::any('create', [App\Http\Controllers\Admin\TagController::class, 'create']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\TagController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\TagController::class, 'delete']);
+    Route::get('get-json', [App\Http\Controllers\Admin\TagController::class, 'getJson']);
 });
 
 Route::group(['prefix' => 'admin/topics'], function () {
@@ -65,6 +66,14 @@ Route::group(['prefix' => 'admin/topics'], function () {
     Route::any('create', [App\Http\Controllers\Admin\TopicController::class, 'create']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\TopicController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\TopicController::class, 'delete']);
+    Route::get('get-json', [App\Http\Controllers\Admin\TopicController::class, 'getJson']);
+});
+
+Route::group(['prefix' => 'admin/quizzes'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\QuizController::class, 'index']);
+    Route::any('create', [App\Http\Controllers\Admin\QuizController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\QuizController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\QuizController::class, 'delete']);
 });
 
 Auth::routes();

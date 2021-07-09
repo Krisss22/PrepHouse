@@ -1,4 +1,4 @@
-function sendQuestionAjax(url, formData = null, method = "GET") {
+function sendQuestionAjax(url, method = "GET", formData = null) {
     let result = [];
 
     $.ajax({

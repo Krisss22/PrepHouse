@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/questions.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/quizzes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/searchSelectElement.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -31,6 +32,7 @@
             <li><a href="/admin/topics/list" class="nav-link @if($sectionName === 'topics') active @endif">Topics</a></li>
             <li><a href="/admin/tags/list" class="nav-link @if($sectionName === 'tags') active @endif">Tags</a></li>
             <li><a href="/admin/questions/list" class="nav-link @if($sectionName === 'questions') active @endif">Questions bank</a></li>
+            <li><a href="/admin/quizzes/list" class="nav-link @if($sectionName === 'quizzes') active @endif">Quizzes</a></li>
             <li><a href="/admin/vacancies/list" class="nav-link @if($sectionName === 'vacancies') active @endif">Vacancies</a></li>
             <li><a href="/admin/users/list" class="nav-link @if($sectionName === 'users') active @endif">Users</a></li>
         </ul>
@@ -45,5 +47,6 @@
     <script src="{{ asset('js/functions.js') }}" defer></script>
     <script src="{{ asset('js/admin/searchSelectElement.js') }}" defer></script>
     <script src="{{ asset('js/admin/questions.js') }}" defer></script>
+    <script src="{{ asset('js/admin/quizzes.js') }}" defer></script>
 </body>
 </html>

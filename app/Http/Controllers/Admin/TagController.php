@@ -62,4 +62,9 @@ class TagController extends AdminController
 
         return redirect('/admin/tags/list');
     }
+
+    public function getJson()
+    {
+        return json_encode(Tag::all());
+    }
 }
