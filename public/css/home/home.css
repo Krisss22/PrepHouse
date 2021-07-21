@@ -1,31 +1,182 @@
-#questionModal .modal-footer {
+/*#questionModal .modal-footer {*/
+/*    text-align: center;*/
+/*}*/
+
+/*#questionModal .question-modal-register-offer-text {*/
+/*    font-size: 15px;*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*#notificationPopup {*/
+/*    display: none;*/
+/*    position: fixed;*/
+/*    right: 15px;*/
+/*    top: 15px;*/
+/*    padding: 25px;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*#notificationPopup.notificationPopupShow {*/
+/*    display: block;*/
+/*}*/
+
+/*#notificationPopup.notificationPopupSuccess {*/
+/*    background-color: green;*/
+/*    color: white;*/
+/*}*/
+
+/*#notificationPopup.notificationPopupError {*/
+/*    background-color: red;*/
+/*    color: white;*/
+/*}*/
+
+.home-head-block {
+    width: 100%;
+    min-height: 930px;
+    background-color: #1C3A67;
+    padding-top: 45px;
+}
+.home-middle-block {
+    width: 100%;
+    height: 250px;
+    background-color: #0F2038;
+}
+.home-bottom-block {
+    width: 100%;
+    height: 250px;
+    background-color: #0B1728;
+}
+.home-menu-block .icon{
+    float: left;
+    padding-left: 100px;
+}
+
+.home-menu-block .menu{
+    float: right;
+    margin-right: 90px;
+}
+.home-menu-block .menu .menu-item {
+    color: #FFFFFF;
+    float: left;
+    margin-right: 30px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+.home-menu-block .menu .menu-item div {
+    padding-top: 17px;
+}
+.home-menu-block .menu .menu-item.log-in-button {
+    width: 126px;
+    height: 53.56px;
+    background: #334e76;
+    border-radius: 100px;
+}
+.home-menu-block .menu .menu-item.sign-in-button {
+    width: 126px;
+    height: 53.56px;
+    background: #F7B631;
+    border-radius: 45px;
+}
+#logout-form {
+    display: none;
+}
+.home-head-content-block {
+    margin-top: 185px;
+}
+.home-head-content-block .home-head-content-left-block {
+    padding-top: 150px;
+    width: 50%;
+    height: 680px;
+    float: left;
     text-align: center;
 }
-
-#questionModal .question-modal-register-offer-text {
-    font-size: 15px;
-    margin: 10px 0;
+.home-head-content-block .home-head-content-right-block {
+    text-align: right;
+    margin-top: -120px;
+    width: 50%;
+    height: 680px;
+    float: left;
 }
-
-#notificationPopup {
-    display: none;
-    position: fixed;
-    right: 15px;
+.home-head-content-left-first-rectangle,
+.home-head-content-left-second-rectangle {
+    position: relative;
+}
+.home-head-content-left-first-rectangle {
+    left: -20px;
+    z-index: 1;
+}
+.home-head-content-left-second-rectangle {
+    top: -35px;
+}
+.home-head-content-left-first-rectangle div {
+    font-size: 50px;
+    color: #FFFFFF;
+    position: absolute;
     top: 15px;
-    padding: 25px;
-    border-radius: 10px;
+    left: 250px;
 }
-
-#notificationPopup.notificationPopupShow {
-    display: block;
+.home-head-content-left-second-rectangle div {
+    font-size: 40px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 30px;
+    left: 250px;
 }
-
-#notificationPopup.notificationPopupSuccess {
-    background-color: green;
-    color: white;
+.home-head-content-left-text-block p {
+    width: 440px;
+    margin-left: calc(50% - 220px);
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 32px;
+    color: #FFFFFF;
 }
-
-#notificationPopup.notificationPopupError {
-    background-color: red;
-    color: white;
+.home-head-content-left-start-quiz-button {
+    width: 194px;
+    height: 69px;
+    background: #F7B631;
+    border-radius: 45px;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+.home-head-content-left-start-quiz-button-svg,
+.home-head-content-left-share-question-button-svg {
+    display: inline-block;
+    height: 100%;
+    float: left;
+    padding-top: 13px;
+    padding-left: 14px;
+}
+.home-head-content-left-start-quiz-button-text,
+.home-head-content-left-share-question-button-text {
+    height: 100%;
+    padding-top: 18px;
+    display: inline-block;
+}
+.home-head-content-left-buttons-block {
+    min-height: 70px;
+    margin-top: 43px;
+}
+.home-head-content-left-share-question-button {
+    width: 248px;
+    height: 69px;
+    background: #334e76;
+    border-radius: 45px;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 14px;
 }

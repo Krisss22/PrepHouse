@@ -20,7 +20,7 @@
     <link rel="https://cdn.rawgit.com/mfd/7c7a915eb31474cc8c6a65066a4c4dc3/raw/f0f2fb94c21dea904812a53e0eb6cf0bc87f3754/GTWalsheimPro.css">
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     <link href="{{ asset('css/auth/auth.css') }}" rel="stylesheet">
-{{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">--}}
+    <link href="{{ asset('css/home/home.css') }}" rel="stylesheet">
 </head>
 <body data-home-page="PrepHouse.html" data-home-page-title="PrepHouse" class="u-body">
     <div id="app">
