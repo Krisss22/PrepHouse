@@ -30,7 +30,7 @@ class QuestionsBankController extends AdminController
         ];
 
         if ($request->input('inputAction') !== 'Clear') {
-            if ($request->has('inputTag') && $request->input('inputTag') !== 'empty') {
+            if ($request->has('inputTag') && !empty($request->input('inputTag'))) {
                 $filter['inputTag'] = (int) $request->input('inputTag');
                 $filter['inputTagName'] = Tag::findOrFail((int) $request->input('inputTag'))->name;
                 $questions->where('tag_id', '=', (int) $request->input('inputTag'));

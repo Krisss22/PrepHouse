@@ -43,7 +43,7 @@
                     </svg>
                 </div>
                 <div class="home-head-content-left-text-block">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>We created unique and comprehensive quizzes and courses for better preparation for your upcoming interview. Select your desired title and start a quiz to see how close you are to pass this interview.  It is 100% free, you will see your results immediately after completion. </p>
                 </div>
                 <div class="home-head-content-left-buttons-block">
                     <a class="home-head-content-left-start-quiz-button">
