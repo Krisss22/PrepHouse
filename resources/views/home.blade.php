@@ -17,10 +17,10 @@
             <div class="menu">
                 <a class="menu-item"><div>Course Gallery</div></a>
                 @guest
-                    <a class="menu-item log-in-button" href="{{ route('login') }}"><div>Log In</div></a>
-                    <a class="menu-item sign-in-button" href="{{ route('register') }}"><div>Sign In</div></a>
+                    <a class="menu-item log-in-button" href="{{ route('login') }}"><div>Sign In</div></a>
+                    <a class="menu-item sign-in-button" href="{{ route('register') }}"><div>Sign Up</div></a>
                 @else
-                    <a class="menu-item log-in-button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><div>Log Out</div></a>
+                    <a class="menu-item log-in-button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><div>Sign Out</div></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
@@ -61,7 +61,6 @@
                                 <circle cx="20" cy="20.7812" r="20" fill="white"/>
                                 <path d="M18.0472 22.1412C18.0472 21.4372 18.2552 20.7652 18.6712 20.1252C19.1032 19.4852 19.5672 18.9732 20.0632 18.5892C20.5592 18.1892 21.0152 17.7252 21.4312 17.1972C21.8632 16.6692 22.0792 16.1412 22.0792 15.6132C22.0792 15.0532 21.8872 14.6212 21.5032 14.3172C21.1192 14.0132 20.5832 13.8612 19.8952 13.8612C18.5512 13.8612 17.5992 14.5732 17.0392 15.9972L14.2072 14.3652C14.6872 13.1812 15.4472 12.2692 16.4872 11.6292C17.5432 10.9732 18.7192 10.6452 20.0152 10.6452C21.4712 10.6452 22.7272 11.0692 23.7832 11.9172C24.8552 12.7492 25.3912 13.9012 25.3912 15.3732C25.3912 16.0452 25.2472 16.6692 24.9592 17.2452C24.6872 17.8212 24.3512 18.3172 23.9512 18.7332C23.5672 19.1332 23.1752 19.5172 22.7752 19.8852C22.3912 20.2372 22.0552 20.6052 21.7672 20.9892C21.4952 21.3732 21.3592 21.7572 21.3592 22.1412H18.0472ZM21.1432 27.4932C20.7432 27.8933 20.2632 28.0933 19.7032 28.0933C19.1432 28.0933 18.6632 27.8933 18.2632 27.4932C17.8632 27.0932 17.6632 26.6132 17.6632 26.0532C17.6632 25.4932 17.8632 25.0132 18.2632 24.6133C18.6632 24.2132 19.1432 24.0132 19.7032 24.0132C20.2632 24.0132 20.7432 24.2132 21.1432 24.6133C21.5432 25.0132 21.7432 25.4932 21.7432 26.0532C21.7432 26.6132 21.5432 27.0932 21.1432 27.4932Z" fill="#1C3A67"/>
                             </svg>
-
                         </div>
                         <div class="home-head-content-left-share-question-button-text">Share question</div>
                     </a>
@@ -74,6 +73,175 @@
             </div>
         </div>
     </div>
-    <div class="home-middle-block"></div>
-    <div class="home-bottom-block"></div>
+    <div class="home-middle-block">
+        <div class="home-middle-block-title">Pick A desired job title</div>
+        <div class="home-middle-block-description">You will be ask to answer different question same as you are on a real interview</div>
+        <a class="home-middle-block-button"><p>View all Jobs</p></a>
+
+        <div class="home-middle-block-jobs-list">
+            <div class="home-middle-block-jobs-list-item">
+                <div class="job-item-questions-count">78 questions</div>
+                <div class="job-item-title">Java Automation Engineer</div>
+                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
+                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+            </div>
+            <div class="home-middle-block-jobs-list-item">
+                <div class="job-item-questions-count">78 questions</div>
+                <div class="job-item-title">Java Automation Engineer</div>
+                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
+                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+            </div>
+            <div class="home-middle-block-jobs-list-item">
+                <div class="job-item-questions-count">78 questions</div>
+                <div class="job-item-title">Java Automation Engineer</div>
+                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
+                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+            </div>
+            <br>
+            <div class="home-middle-block-jobs-list-item">
+                <div class="job-item-questions-count">78 questions</div>
+                <div class="job-item-title">Java Automation Engineer</div>
+                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
+                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+            </div>
+            <div class="home-middle-block-jobs-list-item">
+                <div class="job-item-questions-count">78 questions</div>
+                <div class="job-item-title">Java Automation Engineer</div>
+                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
+                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+            </div>
+            <div class="home-middle-block-jobs-list-item">
+                <div class="job-item-questions-count">78 questions</div>
+                <div class="job-item-title">Java Automation Engineer</div>
+                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
+                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+            </div>
+        </div>
+
+        <div class="home-middle-block-how-it-work-block">
+            <img src="../../storage/images/home/how-it-work.png">
+        </div>
+
+        <div class="home-middle-block-share-question-block">
+            <div class="home-middle-block-share-question-block-title">Have interview question you want to share?</div>
+            <div class="home-middle-block-share-question-block-description">
+                 We will be glad to hear that!
+                <p>
+                 Click this button to submit one or more super interesting question from your expirience.
+                </p>
+            </div>
+            <a class="home-middle-block-share-question-block-button">
+                <div class="home-middle-block-share-question-block-button-svg">
+                    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20.7812" r="20" fill="white"/>
+                        <path d="M18.0472 22.1412C18.0472 21.4372 18.2552 20.7652 18.6712 20.1252C19.1032 19.4852 19.5672 18.9732 20.0632 18.5892C20.5592 18.1892 21.0152 17.7252 21.4312 17.1972C21.8632 16.6692 22.0792 16.1412 22.0792 15.6132C22.0792 15.0532 21.8872 14.6212 21.5032 14.3172C21.1192 14.0132 20.5832 13.8612 19.8952 13.8612C18.5512 13.8612 17.5992 14.5732 17.0392 15.9972L14.2072 14.3652C14.6872 13.1812 15.4472 12.2692 16.4872 11.6292C17.5432 10.9732 18.7192 10.6452 20.0152 10.6452C21.4712 10.6452 22.7272 11.0692 23.7832 11.9172C24.8552 12.7492 25.3912 13.9012 25.3912 15.3732C25.3912 16.0452 25.2472 16.6692 24.9592 17.2452C24.6872 17.8212 24.3512 18.3172 23.9512 18.7332C23.5672 19.1332 23.1752 19.5172 22.7752 19.8852C22.3912 20.2372 22.0552 20.6052 21.7672 20.9892C21.4952 21.3732 21.3592 21.7572 21.3592 22.1412H18.0472ZM21.1432 27.4932C20.7432 27.8933 20.2632 28.0933 19.7032 28.0933C19.1432 28.0933 18.6632 27.8933 18.2632 27.4932C17.8632 27.0932 17.6632 26.6132 17.6632 26.0532C17.6632 25.4932 17.8632 25.0132 18.2632 24.6133C18.6632 24.2132 19.1432 24.0132 19.7032 24.0132C20.2632 24.0132 20.7432 24.2132 21.1432 24.6133C21.5432 25.0132 21.7432 25.4932 21.7432 26.0532C21.7432 26.6132 21.5432 27.0932 21.1432 27.4932Z" fill="#1C3A67"/>
+                    </svg>
+                </div>
+                <div class="home-middle-block-share-question-block-button-text">Share question</div>
+            </a>
+            <div class="home-middle-block-share-question-block-image">
+                <img src="../../storage/images/home/share_question_image.svg">
+            </div>
+        </div>
+
+        <div class="home-middle-block-lectures-block">
+            <div class="home-middle-block-lectures-block-title">Modules Lectures</div>
+            <div class="home-middle-block-lectures-block-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <a class="home-middle-block-lectures-block-button"><p>View all Lectures</p></a>
+            <div class="home-middle-block-lectures-block-list">
+                <div class="home-middle-block-lectures-block-list-item">
+                    <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
+                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
+                    <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                </div>
+                <div class="home-middle-block-lectures-block-list-item">
+                    <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
+                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
+                    <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                </div>
+                <div class="home-middle-block-lectures-block-list-item">
+                    <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
+                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
+                    <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                </div>
+                <div class="home-middle-block-lectures-block-list-item">
+                    <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
+                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
+                    <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                </div>
+            </div>
+        </div>
+
+        <div class="home-middle-block-materials-block">
+            <img src="../../storage/images/home/discoverImg.png" class="home-middle-block-materials-block-image">
+            <div class="home-middle-block-materials-block-title"><p>All usefull materials in one place</p></div>
+            <div class="home-middle-block-materials-block-description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+            <a class="home-middle-block-materials-block-button"><p>Open Course Gallery</p></a>
+        </div>
+
+        <div class="home-middle-block-feedback-block">
+            <div class="home-middle-block-feedback-block-left">
+                <div class="home-middle-block-feedback-block-left-text-list">
+                    <div data-feedback-id="0" class="home-middle-block-feedback-block-left-text-list-item active">
+                        <div class="home-middle-block-feedback-block-left-text">
+                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            1When someone does something that they know that they shouldn’t do, did they really have a choice.
+                        </div>
+                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
+                    </div>
+                    <div data-feedback-id="1" class="home-middle-block-feedback-block-left-text-list-item">
+                        <div class="home-middle-block-feedback-block-left-text">
+                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            2When someone does something that they know that they shouldn’t do, did they really have a choice.
+                        </div>
+                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
+                    </div>
+                    <div data-feedback-id="2" class="home-middle-block-feedback-block-left-text-list-item">
+                        <div class="home-middle-block-feedback-block-left-text">
+                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            3When someone does something that they know that they shouldn’t do, did they really have a choice.
+                        </div>
+                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
+                    </div>
+                    <div data-feedback-id="3" class="home-middle-block-feedback-block-left-text-list-item">
+                        <div class="home-middle-block-feedback-block-left-text">
+                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            4When someone does something that they know that they shouldn’t do, did they really have a choice.
+                        </div>
+                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
+                    </div>
+                </div>
+                <div class="home-middle-block-feedback-block-left-images-list">
+                    <img data-feedback-id="0" src="../../storage/images/home/example-photo-1.png" class="home-middle-block-feedback-block-left-images-list-item active">
+                    <img data-feedback-id="1" src="../../storage/images/home/example-photo-2.png" class="home-middle-block-feedback-block-left-images-list-item">
+                    <img data-feedback-id="2" src="../../storage/images/home/example-photo-3.png" class="home-middle-block-feedback-block-left-images-list-item">
+                    <img data-feedback-id="3" src="../../storage/images/home/example-photo-4.png" class="home-middle-block-feedback-block-left-images-list-item">
+                </div>
+            </div>
+            <div class="home-middle-block-feedback-block-right">
+                <img data-feedback-id="0" src="../../storage/images/home/example-photo-1.png" class="home-middle-block-feedback-block-right-image active">
+                <img data-feedback-id="1" src="../../storage/images/home/example-photo-2.png" class="home-middle-block-feedback-block-right-image">
+                <img data-feedback-id="2" src="../../storage/images/home/example-photo-3.png" class="home-middle-block-feedback-block-right-image">
+                <img data-feedback-id="3" src="../../storage/images/home/example-photo-4.png" class="home-middle-block-feedback-block-right-image">
+            </div>
+        </div>
+
+        <div class="home-middle-block-email-form-block">
+            <div class="home-middle-block-email-form-block-title">Sign Up to save your progress</div>
+            <div class="home-middle-block-email-form-block-description">Some text...</div>
+            <a href="/register" class="home-middle-block-email-form-block-button">Subscribe</a>
+        </div>
+    </div>
+    <div class="home-bottom-block">
+        <div class="home-bottom-socials">
+            <a><img src="../../storage/images/home/twiter-icon.png"></a>
+            <a><img src="../../storage/images/home/facebook-icon.png"></a>
+            <a><img src="../../storage/images/home/instagram-icon.png"></a>
+        </div>
+        <div class="home-bottom-copyright">Copyright (C) 2021 PREPHouse.</div>
+    </div>
 @endsection

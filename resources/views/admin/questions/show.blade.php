@@ -6,7 +6,6 @@
     <ul class="list-group content-show-group">
         <li class="list-group-item">ID: {{ $question->id }}</li>
         <li class="list-group-item">Question: {{ $question->question }}</li>
-        <li class="list-group-item">Answer (Deprecated. Will bve remove): {{ $question->answer }}</li>
         @foreach($question->answers as $index => $answer)
             <li class="list-group-item @if($answer->correct) correctAnswer @else incorrectAnswer @endIf">
                 @if($answer->text)

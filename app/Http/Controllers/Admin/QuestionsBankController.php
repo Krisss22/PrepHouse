@@ -92,7 +92,6 @@ class QuestionsBankController extends AdminController
                 ->update([
                     'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
                     'question' => $request->input('inputQuestion'),
-                    'answer' => $request->input('inputUserAnswer'),
                     'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
                     'release' => (int) $request->input('inputRelease') ?? 0,
                 ]);
@@ -188,7 +187,6 @@ class QuestionsBankController extends AdminController
             $question = QuestionsBank::create([
                 'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
                 'question' => $request->input('inputQuestion'),
-                'answer' => $request->input('inputUserAnswer'),
                 'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
                 'release' => (int) $request->input('inputRelease') ?? 0
             ]);

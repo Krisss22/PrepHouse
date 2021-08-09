@@ -60,3 +60,35 @@ homeSubmitQuestionFormButton && homeSubmitQuestionFormButton.addEventListener('c
     };
     sendQuestionAjax(formElement, successFunction, errorFunction);
 })
+
+let linkSmallImagesList = document.querySelectorAll('.home-middle-block-feedback-block-left-images-list img')
+linkSmallImagesList && linkSmallImagesList.forEach((item) => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        let element = e.target
+        document.querySelectorAll('.home-middle-block-feedback-block-left-images-list img').forEach((el) => {
+            if (el.getAttribute('data-feedback-id') === element.getAttribute('data-feedback-id')) {
+                el.classList.add('active')
+            } else {
+                el.classList.remove('active')
+            }
+        })
+
+        document.querySelectorAll('.home-middle-block-feedback-block-left-text-list-item').forEach((el) => {
+            if (el.getAttribute('data-feedback-id') === element.getAttribute('data-feedback-id')) {
+                el.classList.add('active')
+            } else {
+                el.classList.remove('active')
+            }
+        })
+
+        document.querySelectorAll('.home-middle-block-feedback-block-right img').forEach(function(el) {
+            if (el.getAttribute('data-feedback-id') === element.getAttribute('data-feedback-id')) {
+                el.classList.add('active')
+            } else {
+               el.classList.remove('active')
+            }
+        })
+    })
+})

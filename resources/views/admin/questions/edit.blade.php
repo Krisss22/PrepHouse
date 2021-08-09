@@ -33,15 +33,6 @@
             <textarea type="text" class="form-control" name="inputQuestion" id="inputQuestion" required>{{ $question->question }}</textarea>
         </div>
         <div class="col-7">
-            <label for="inputUserAnswer" class="form-label">User's Answer (Deprecated. Will be remove)</label>
-            @error('inputQuestion')
-            <span class="invalid-inputUserAnswer" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-            <textarea type="text" class="form-control" name="inputUserAnswer" id="inputUserAnswer">{{ $question->answer }}</textarea>
-        </div>
-        <div class="col-7">
             <div id="questionAnswersBlock">
                 @foreach($question->answers as $index => $answer)
                     @if($answer->text)

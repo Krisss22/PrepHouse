@@ -25,7 +25,6 @@ class QuestionsBank extends Model
         'question',
         'addedByAdmin',
         'release',
-        'answer',
         'tag_id',
     ];
 
