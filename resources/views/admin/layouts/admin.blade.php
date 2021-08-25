@@ -32,6 +32,7 @@
             <li><a href="/admin/topics/list" class="nav-link @if($sectionName === 'topics') active @endif">Topics</a></li>
             <li><a href="/admin/tags/list" class="nav-link @if($sectionName === 'tags') active @endif">Tags</a></li>
             <li><a href="/admin/questions/list" class="nav-link @if($sectionName === 'questions') active @endif">Questions bank</a></li>
+            <li><a href="/admin/sent-questions/list" class="nav-link @if($sectionName === 'sent-questions') active @endif">Sent questions</a></li>
             <li><a href="/admin/quizzes/list" class="nav-link @if($sectionName === 'quizzes') active @endif">Quizzes</a></li>
             <li><a href="/admin/vacancies/list" class="nav-link @if($sectionName === 'vacancies') active @endif">Vacancies</a></li>
             <li><a href="/admin/users/list" class="nav-link @if($sectionName === 'users') active @endif">Users</a></li>

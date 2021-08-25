@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/home/send-question', [App\Http\Controllers\HomeController::class, 'saveQuestion']);
+Route::any('/share-question', [App\Http\Controllers\HomeController::class, 'shareQuestion'])->name('share-question');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::any('/', [App\Http\Controllers\Admin\StatisticController::class, 'index']);
@@ -36,6 +36,13 @@ Route::group(['prefix' => 'admin/questions'], function () {
     Route::any('edit/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'delete']);
     Route::get('release/{id}', [App\Http\Controllers\Admin\QuestionsBankController::class, 'release']);
+});
+
+Route::group(['prefix' => 'admin/sent-questions'], function () {
+    Route::any('list', [App\Http\Controllers\Admin\SentQuestionController::class, 'index']);
+    Route::get('show/{id}', [App\Http\Controllers\Admin\SentQuestionController::class, 'show']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\SentQuestionController::class, 'delete']);
+    Route::get('move/{id}', [App\Http\Controllers\Admin\SentQuestionController::class, 'move']);
 });
 
 Route::group(['prefix' => 'admin/vacancies'], function () {

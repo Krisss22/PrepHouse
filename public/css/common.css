@@ -11,3 +11,7 @@ input.is-invalid:focus,
 input.is-invalid:focus-visible {
     border: solid 2px red !important;
 }
+
+.hidden {
+    display: none;
+}
