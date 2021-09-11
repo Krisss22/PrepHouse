@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::any('/share-question', [App\Http\Controllers\HomeController::class, 'shareQuestion'])->name('share-question');
+Route::any('/quizzes-list', [App\Http\Controllers\Quiz\QuizzesController::class, 'index'])->name('quizzes-list');
 
+// Admin routs
 Route::group(['prefix' => 'admin'], function () {
     Route::any('/', [App\Http\Controllers\Admin\StatisticController::class, 'index']);
 });
