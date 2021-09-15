@@ -1,4 +1,4 @@
-let searchSelectElementJsons = {};
+let searchSelectElementJsons = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     let searchSelectInputs = document.querySelectorAll('.search-select-element');
@@ -93,7 +93,8 @@ function createSelectElements(element) {
     element.lastElementChild.insertAdjacentElement('afterEnd', divElement)
 
     let searchSelectResultsElement = element.querySelector('.search-select-results');
-    searchSelectElementJsons[element.dataset.jsonName].forEach((item) => {
+
+    searchSelectElementJsons.length > 0 && searchSelectElementJsons[element.dataset.jsonName].forEach((item) => {
         let divSelectItemElement = document.createElement('div');
         divSelectItemElement.classList.add('search-select-results-item');
         divSelectItemElement.classList.add('search-select-results-item-hidden');

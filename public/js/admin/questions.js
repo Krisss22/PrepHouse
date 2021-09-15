@@ -17,15 +17,15 @@ addAnswerTypeButtons && addAnswerTypeButtons.forEach(function(element) {
 
         if (type === 'text') {
             ++answersCount;
-            element = '<div class="answerBlockItem"><label for="answerText">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
+            element = '<label for="answerText">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
                 '<br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="newTextAnswer[new' + answersCount + '][correct]">' +
-                '<textarea type="text" id="answerText" name="newTextAnswer[new' + answersCount + '][value]">Answer ' + answersCount + '</textarea></div>';
+                '<textarea type="text" id="answerText" name="newTextAnswer[new' + answersCount + '][value]">Answer ' + answersCount + '</textarea>';
         }
         if (type === 'file') {
             ++answersCount;
-            element = '<div class="answerBlockItem"><label for="answerFile">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
+            element = '<label for="answerFile">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
                 '<br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="newFileAnswer[new' + answersCount + '][correct]">' +
-                '<input id="answerFile" name="newFileAnswer[new' + answersCount + '][value]" type="file" value=""></div>';
+                '<input id="answerFile" name="newFileAnswer[new' + answersCount + '][value]" type="file" value="">';
         }
 
         if (addAnswerButtonsBlock && !addAnswerButtonsBlock.classList.contains('hidden')) {
@@ -39,7 +39,7 @@ addAnswerTypeButtons && addAnswerTypeButtons.forEach(function(element) {
             divElement.innerHTML = element;
             lastAnswerElement.insertAdjacentElement('afterEnd', divElement)
         } else {
-            answersBlock.innerHTML += element;
+            answersBlock.innerHTML += '<div class="answerBlockItem">' + element + '</div>';
         }
     });
 });
