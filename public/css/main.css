@@ -1,0 +1,44 @@
+#app {
+    height: 100%;
+}
+
+.left-menu-block {
+    width: 100px;
+    height: 100%;
+    float: left;
+    bottom: 0;
+    background: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(67, 104, 178, 0.0544611);
+    position: fixed;
+}
+
+.left-menu-block-item {
+    width: 100%;
+}
+
+.left-menu-block-item-bottom {
+    position: absolute;
+    bottom: 30px;
+}
+
+.left-menu-block-item-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7E879F;
+    opacity: 0.9;
+}
+
+.main-content {
+    float: right;
+    display: inline-table;
+    width: calc(100% - 160px);
+    height: 100%;
+    background-color: #F7F8FA;
+    padding-left: 60px;
+}
+
