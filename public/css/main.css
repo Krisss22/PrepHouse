@@ -12,13 +12,45 @@
     position: fixed;
 }
 
+.left-menu-block-item-active {
+    background-color: #f8f9fb;
+}
+
 .left-menu-block-item {
     width: 100%;
+    cursor: pointer;
+    padding: 25px 0;
+}
+
+.left-menu-block-icon {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.left-menu-block-item-icon {
+    text-align: center;
 }
 
 .left-menu-block-item-bottom {
     position: absolute;
     bottom: 30px;
+}
+
+.left-menu-block-item-profile .left-menu-block-item-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    border: 1px solid #4780D8;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #4780D8;
+    line-height: 30px;
 }
 
 .left-menu-block-item-title {

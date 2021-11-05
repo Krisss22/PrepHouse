@@ -15,7 +15,7 @@
                 </svg>
             </div>
             <div class="menu">
-                <a class="menu-item"><div>Course Gallery</div></a>
+                <a href="/quizzes-list" class="menu-item"><div>Course Gallery</div></a>
                 @guest
                     <a class="menu-item log-in-button" href="{{ route('login') }}"><div>Sign In</div></a>
                     <a class="menu-item sign-in-button" href="{{ route('register') }}"><div>Sign Up</div></a>

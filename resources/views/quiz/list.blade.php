@@ -5,17 +5,17 @@
     <div class="main-content">
         <div class="quiz-section-title">Choose a desired occupation</div>
         <div class="quiz-item-list">
-            @foreach([0,1,2,3,4,5,6,7] as $c)
+            @foreach($quizzesList as $quiz)
             <div class="quiz-item-list-item">
                 <div class="quiz-item-top-block">
                     <div class="quiz-item-progress-bar"><div class="quiz-item-progress-bar-line"></div></div>
                     <div class="quiz-item-progress-job-title-text">Job title</div>
-                    <div class="quiz-item-progress-job-title">Test title <div class="quiz-item-progress-job-title-icon"></div></div>
+                    <div class="quiz-item-progress-job-title">{{ $quiz->name }} <div class="quiz-item-progress-job-title-icon"></div></div>
                 </div>
                 <div class="quiz-item-bottom-block">
                     <div class="quiz-item-questions-count">97/100</div>
                     <div class="quiz-item-questions-count-title">questions</div>
-                    <div class="quiz-item-button">Start</div>
+                    <a href="/quiz/run/{{ $quiz->id }}" target="_blank"><div class="quiz-item-button">Start</div></a>
                 </div>
             </div>
             @endforeach
