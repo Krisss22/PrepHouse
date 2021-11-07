@@ -20,7 +20,10 @@ Route::any('/share-question', [App\Http\Controllers\HomeController::class, 'shar
 Route::any('/quizzes-list', [App\Http\Controllers\Quiz\QuizzesController::class, 'index'])->name('quizzes-list');
 Route::get('/quiz/run/{quizId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'runQuiz'])->name('quiz-run');
 Route::get('/quiz/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'processQuiz'])->name('quiz-process');
-Route::post('/quiz/quizAnswerProcess/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'quizAnswerProcess'])->name('quiz-answer-process');
+Route::post('/quiz/answerProcess/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'answerProcess'])->name('quiz-answer-process');
+Route::get('/quiz/getQuestion/{quizActionId}/{questionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'getQuestion'])->name('quiz-get-question');
+Route::get('/quiz/finish/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'finish'])->name('quiz-finish');
+Route::get('/quiz/statistic/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'statistic'])->name('quiz-statistic');
 
 // Admin routs
 Route::group(['prefix' => 'admin'], function () {

@@ -6,20 +6,70 @@ use App\Http\Controllers\Controller;
 use App\Models\QuestionsBank;
 use App\Models\Quiz;
 use App\Models\QuizAction;
+use App\Services\Quiz\QuizData;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 
 class QuizzesController extends Controller
 {
 
-    protected $sectionName = 'quizzes';
+    protected string $sectionName = 'quizzes';
 
     public function index()
     {
-        $quiz = Quiz::query();
+        if (Auth::check()) {
+            $additionalRawQueries = [
+                DB::raw('(
+                    SELECT quiz_action.finished
+                    FROM quiz_action
+                    WHERE quiz_action.quiz_id = quizzes.id
+                        AND quiz_action.user_id = ' . Auth::user()->id . '
+                    ORDER BY quiz_action.id DESC
+                    LIMIT 1
+                ) as quiz_action_finished'),
+                DB::raw('(
+                    SELECT quiz_action.data
+                    FROM quiz_action
+                    WHERE quiz_action.quiz_id = quizzes.id
+                        AND quiz_action.user_id = ' . Auth::user()->id . '
+                    ORDER BY quiz_action.id DESC
+                    LIMIT 1
+                ) as quiz_action_data')
+            ];
+        } else {
+            $additionalRawQueries = [
+                DB::raw("null as quiz_action_finished"),
+                DB::raw("null as quiz_action_data")
+            ];
+        }
+
+
+
+        $quizzesList = Quiz::query()
+            ->select([
+                'quizzes.*',
+                ...$additionalRawQueries
+            ])
+            ->paginate(self::ITEM_ON_PAGE);
+
+        for ($i = 0; $i < count($quizzesList); $i++) {
+            if (isset($quizzesList[$i]->quiz_action_data)) {
+                $quizzesList[$i]->quiz_action_data = new QuizData(json_decode($quizzesList[$i]->quiz_action_data, true));
+                if ($quizzesList[$i]->quiz_action_finished) {
+                    $quizzesList[$i]->processStatusClass = 'finished';
+                } else {
+                    $quizzesList[$i]->processStatusClass = 'process';
+                }
+            } else {
+                $quizzesList[$i]['processStatusClass'] = 'new';
+            }
+        }
 
         return view('quiz/list', [
-            'quizzesList' => $quiz->paginate(self::ITEM_ON_PAGE)
+            'quizzesList' => $quizzesList
         ]);
     }
 
@@ -46,7 +96,7 @@ class QuizzesController extends Controller
                 $questionsArray[] = [
                     'question' => $question->question,
                     'answers' => $answers,
-                    'usersAnswer' => null,
+                    'usersAnswer' => [],
                     'flagged' => false,
                 ];
             }
@@ -63,8 +113,13 @@ class QuizzesController extends Controller
             'data' => json_encode($quizArray),
         ];
 
+        if (Auth::check()) {
+            $quizActionFields['user_id'] = Auth::user()->id;
+        }
+
         $quizAction = QuizAction::create($quizActionFields);
-        dd($quizAction);
+
+        return redirect('/quiz/' . $quizAction->id);
     }
 
     public function processQuiz(int $quizActionId)
@@ -74,25 +129,124 @@ class QuizzesController extends Controller
             return redirect('/quizzes-list');
         }
 
+        $quizActionData = $quizAction->getData();
+        $currentQuestion = $quizActionData->questions[0];
+        foreach ($quizActionData->questions as $question) {
+            if (empty($question->usersAnswer)) {
+                $currentQuestion = $question;
+                break;
+            }
+        }
+
         return view('quiz/process', [
             'quizAction' => $quizAction,
-            'quizActionData' => $quizAction->getData()
+            'quizActionData' => $quizActionData,
+            'currentQuestion' => $currentQuestion,
+            'previousQuestionId' => isset($quizActionData->questions[$currentQuestion->id - 1]) ? ($currentQuestion->id - 1) : null,
+            'nextQuestionId' => isset($quizActionData->questions[$currentQuestion->id + 1]) ? ($currentQuestion->id + 1) : null
         ]);
     }
 
-    public function quizAnswerProcess(int $quizActionId, Request $request): \Illuminate\Http\JsonResponse
+    public function answerProcess(int $quizActionId, Request $request): JsonResponse
     {
         if (!$request->isMethod('post')) {
             return Response::json([
-                'success' => false,
+                'status' => self::RESPONSE_STATUS_ERROR,
                 'errorMessage' => 'Not allowed method'
             ]);
         }
 
+        if ($request->json('questionId') === null || $request->json('answerId') === null) {
+            return Response::json([
+                'status' => self::RESPONSE_STATUS_ERROR,
+                'errorMessage' => 'Can not get required params'
+            ]);
+        }
+
+        $questionId = $request->json('questionId');
+        $answerId = $request->json('answerId');
+
+        $quizAction = QuizAction::findOrFail($quizActionId);
+        $quizActionData = $quizAction->getData();
+
+        if (!isset($quizActionData->questions[$questionId])) {
+            return Response::json([
+                'status' => self::RESPONSE_STATUS_ERROR,
+                'errorMessage' => 'Not found question by ID'
+            ]);
+        }
+
+        if (!isset($quizActionData->questions[$questionId]->answers[$answerId])) {
+            return Response::json([
+                'status' => self::RESPONSE_STATUS_ERROR,
+                'errorMessage' => 'Not found answer by ID'
+            ]);
+        }
+
+        if (in_array($answerId, $quizActionData->questions[$questionId]->usersAnswer)) {
+            unset($quizActionData->questions[$questionId]->usersAnswer[(int) $answerId]);
+        } else {
+            $quizActionData->questions[$questionId]->usersAnswer[] = (int) $answerId;
+        }
+
+        $quizAction->data = json_encode($quizActionData);
+        $quizAction->save();
+
         return Response::json([
-            'success' => true,
-            '$quizActionId' => $quizActionId,
-//            'x' => $request->input(
+            'status' => self::RESPONSE_STATUS_SUCCESS,
+            'processPercent' => $quizActionData->getPercent(),
+        ]);
+    }
+
+    public function getQuestion($quizActionId, $questionId): JsonResponse
+    {
+        $quizAction = QuizAction::findOrFail($quizActionId);
+        $quizActionData = $quizAction->getData();
+        if (!isset($quizActionData->questions[$questionId])) {
+            return Response::json([
+                'status' => self::RESPONSE_STATUS_ERROR,
+                'errorMessage' => 'Can not find this question'
+            ]);
+        }
+
+        $questionData = $quizActionData->questions[$questionId];
+        $answers = [];
+        foreach ($questionData->answers as $answer) {
+            $answers[] = [
+                'realId' => $answer->id,
+                'humanId' => $answer->getHumanId(),
+                'text' => $answer->text,
+                'image' => $answer->image
+            ];
+        }
+
+        return Response::json([
+            'status' => self::RESPONSE_STATUS_SUCCESS,
+            'question' => [
+                'id' => $questionData->id,
+                'question' => $questionData->question,
+                'answers' => $answers,
+                'usersAnswer' => $questionData->usersAnswer
+            ],
+            'previousQuestionId' => isset($quizActionData->questions[$questionId - 1]) ? ($questionId - 1) : null,
+            'nextQuestionId' => isset($quizActionData->questions[$questionId + 1]) ? ($questionId + 1) : null
+        ]);
+    }
+
+    public function finish($quizActionId)
+    {
+        $quizAction = QuizAction::findOrFail($quizActionId);
+        $quizAction->finished = true;
+        $quizAction->save();
+
+        return redirect('/quiz/statistic/' . $quizActionId);
+    }
+
+    public function statistic($quizActionId) {
+        $quizAction = QuizAction::findOrFail($quizActionId);
+
+        return view('quiz/statistic', [
+            'quizAction' => $quizAction
         ]);
     }
 }

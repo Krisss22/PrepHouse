@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @method static create(array $array)
@@ -25,22 +27,24 @@ class Quiz extends Model
         'topic_id',
     ];
 
-    public function topic()
+    public function topic(): HasOne
     {
         return $this->hasOne('App\Models\Topic', 'id', 'topic_id');
     }
 
-    public function quizTags()
+    public function quizTags(): HasMany
     {
         return $this->hasMany('App\Models\QuizTag', 'quiz_id', 'id');
     }
 
-    public function getAllQuesionsCount(): int
+    public function getAllQuestionsCount(): int
     {
-        $count = 0;
+        $questionsCount = 0;
         foreach ($this->quizTags as $quizTag) {
-            $count += $quizTag->count;
+            $questionsCount += $quizTag->count;
         }
-        return $count;
+
+        return $questionsCount;
     }
 }
+

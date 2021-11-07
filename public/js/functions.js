@@ -21,6 +21,7 @@ function sendRequest(method = 'GET', url, data = {}, async = false, successCallb
 
     xhr.open(method, url, async);
     xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+    xhr.setRequestHeader('content-type', 'application/json');
     xhr.send(JSON.stringify(data));
 
     return resultData;

@@ -20,4 +20,29 @@ class QuizData
             }
         }
     }
+
+    public function getPercent(): int
+    {
+        $questionsCount = count($this->questions);
+        $answersCount = 0;
+        foreach ($this->questions as $question) {
+            if (!empty($question->usersAnswer)) {
+                $answersCount++;
+            }
+        }
+
+        return $answersCount > 0 ? floor(100 / ($questionsCount / $answersCount)) : 0;
+    }
+
+    public function getAnsweredQuestionsCount(): int
+    {
+        $answeredQuestionsCount = 0;
+        foreach ($this->questions as $question) {
+            if (!empty($question->usersAnswer)) {
+                $answeredQuestionsCount++;
+            }
+        }
+
+        return $answeredQuestionsCount;
+    }
 }

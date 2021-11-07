@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static create(array $array)
  * @method static findOrFail()
  * @method static where()
+ * @method static select(string $string)
  * @property mixed $finished
  * @property mixed $data
  */
@@ -52,7 +53,8 @@ class QuizAction extends Model
     {
         return self::query()
             ->where('user_id', 1)
+            ->where('finished', 0)
             ->orderByDesc('id')
-            ->firstOrFail();
+            ->first();
     }
 }

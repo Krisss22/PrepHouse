@@ -79,38 +79,38 @@
         <a class="home-middle-block-button"><p>View all Jobs</p></a>
 
         <div class="home-middle-block-jobs-list">
-            <div class="home-middle-block-jobs-list-item">
+            <div class="home-middle-block-jobs-list-item card-0">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
                 <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
             </div>
-            <div class="home-middle-block-jobs-list-item">
+            <div class="home-middle-block-jobs-list-item card-1">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
                 <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
             </div>
-            <div class="home-middle-block-jobs-list-item">
+            <div class="home-middle-block-jobs-list-item card-2">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
                 <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
             </div>
             <br>
-            <div class="home-middle-block-jobs-list-item">
+            <div class="home-middle-block-jobs-list-item card-3">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
                 <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
             </div>
-            <div class="home-middle-block-jobs-list-item">
+            <div class="home-middle-block-jobs-list-item card-4">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
                 <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
             </div>
-            <div class="home-middle-block-jobs-list-item">
+            <div class="home-middle-block-jobs-list-item card-5">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
@@ -149,25 +149,25 @@
             <div class="home-middle-block-lectures-block-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
             <a class="home-middle-block-lectures-block-button"><p>View all Lectures</p></a>
             <div class="home-middle-block-lectures-block-list">
-                <div class="home-middle-block-lectures-block-list-item">
+                <div class="home-middle-block-lectures-block-list-item lecture-card-0">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
                     <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
                 </div>
-                <div class="home-middle-block-lectures-block-list-item">
+                <div class="home-middle-block-lectures-block-list-item lecture-card-1">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
                     <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
                 </div>
-                <div class="home-middle-block-lectures-block-list-item">
+                <div class="home-middle-block-lectures-block-list-item lecture-card-2">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
                     <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
                 </div>
-                <div class="home-middle-block-lectures-block-list-item">
+                <div class="home-middle-block-lectures-block-list-item lecture-card-3">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>

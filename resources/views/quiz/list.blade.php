@@ -6,16 +6,36 @@
         <div class="quiz-section-title">Choose a desired occupation</div>
         <div class="quiz-item-list">
             @foreach($quizzesList as $quiz)
-            <div class="quiz-item-list-item">
+            <div class="quiz-item-list-item {{ $quiz->processStatusClass }}">
                 <div class="quiz-item-top-block">
-                    <div class="quiz-item-progress-bar"><div class="quiz-item-progress-bar-line"></div></div>
+                    @if(isset($quiz->quiz_action_data))
+                        <div class="quiz-item-progress-bar">
+                            <div class="quiz-item-progress-bar-line" style="width: {{ $quiz->quiz_action_data->getPercent() }}%;"></div>
+                        </div>
+                    @endif
                     <div class="quiz-item-progress-job-title-text">Job title</div>
-                    <div class="quiz-item-progress-job-title">{{ $quiz->name }} <div class="quiz-item-progress-job-title-icon"></div></div>
+                    <div class="quiz-item-progress-job-title"><span>{{ $quiz->name }}</span> <div class="quiz-item-progress-job-title-icon"></div></div>
                 </div>
                 <div class="quiz-item-bottom-block">
-                    <div class="quiz-item-questions-count">97/100</div>
+                    <div class="quiz-item-questions-count">
+                        @if(isset($quiz->quiz_action_data))
+                            {{ $quiz->quiz_action_data->getAnsweredQuestionsCount() }}
+                        @else
+                            0
+                        @endif
+                        /{{ $quiz->getAllQuestionsCount() }}</div>
                     <div class="quiz-item-questions-count-title">questions</div>
-                    <a href="/quiz/run/{{ $quiz->id }}" target="_blank"><div class="quiz-item-button">Start</div></a>
+                    <a href="/quiz/run/{{ $quiz->id }}" target="_blank">
+                        @if(isset($quiz->quiz_action_data))
+                            <div class="quiz-item-button continue-button">
+                                Continue
+                            </div>
+                        @else
+                            <div class="quiz-item-button">
+                                Start
+                            </div>
+                        @endif
+                    </a>
                 </div>
             </div>
             @endforeach
@@ -27,6 +47,6 @@
                 <div class="quiz-share-suggestion-description">Please share your suggestions and we will consider adding it later. </div>
             </div>
         </div>
-        <div class="quiz-share-footer">Copyright © 2021 PrepHome</div>
+        <div class="quiz-share-footer">Copyright © {{ date('Y') }} PrepHome</div>
     </div>
 @endsection

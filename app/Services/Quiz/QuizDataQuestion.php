@@ -36,4 +36,9 @@ class QuizDataQuestion
     {
         return $this->id + 1;
     }
+
+    public function isAnswerSelected($answerId): bool
+    {
+        return in_array($answerId, $this->usersAnswer);
+    }
 }

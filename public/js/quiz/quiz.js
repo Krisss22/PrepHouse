@@ -8,24 +8,46 @@ document.addEventListener('click', function(event) {
         let clickedAnswerElement = element.classList.contains('quiz-process-question-block-answers-block-item') ? element : element.parentNode;
         clickAnswer(clickedAnswerElement.dataset.answerId);
     }
+
+    if (element.classList.contains('quiz-process-questions-button')) {
+        loadQuestion(element.dataset.questionId);
+    }
+
+    if (
+        (element.classList.contains('quiz-process-navigations-block-button-prev')
+            || element.classList.contains('quiz-process-navigations-block-button-next'))
+        && element.dataset.questionId !== ''
+    ) {
+        loadQuestion(element.dataset.questionId);
+    }
 });
 
 function clickAnswer(answerId) {
     let questionId = document.querySelector('.quiz-process-right-block').dataset.quizQuestionId;
+    let clickedAnswerElement = document.querySelector(`.quiz-process-question-block-answers-block-item[data-answer-id="${answerId}"]`)
     let questionButtonByQuestionIdElement = document.querySelector(`.quiz-process-questions-button[data-question-id="${questionId}"]`);
-    let answerItemElements = document.querySelectorAll('.quiz-process-question-block-answers-block-item');
 
-    for (let answerItem of answerItemElements) {
-        if (answerItem.dataset.answerId === answerId && !answerItem.classList.contains('active')) {
-            answerItem.classList.add('active');
+    const response = sendAnswer(questionId, answerId);
+    if (response.status === 'success') {
+        if (clickedAnswerElement.classList.contains('active')) {
+            clickedAnswerElement.classList.remove('active');
+        } else {
+            clickedAnswerElement.classList.add('active');
+        }
 
-            let response = sendAnswer(questionId, answerId);
-            if (!questionButtonByQuestionIdElement.classList.contains('answered') && response.success) {
-                questionButtonByQuestionIdElement.classList.add('answered')
+        let answersCount = document.querySelectorAll('.quiz-process-question-block-answers-block-item.active').length;
+
+        if (answersCount > 0) {
+            if (!questionButtonByQuestionIdElement.classList.contains('answered')) {
+                questionButtonByQuestionIdElement.classList.add('answered');
             }
         } else {
-            answerItem.classList.remove('active');
+            questionButtonByQuestionIdElement.classList.remove('answered');
         }
+
+        setProgressPercent(response.processPercent);
+    } else {
+        console.error(response.errorMessage);
     }
 }
 
@@ -34,17 +56,88 @@ function sendAnswer(questionId, answerId) {
     let data = {
         "questionId": questionId,
         "answerId": answerId
-    };
+    }
 
     return sendRequest(
         'POST',
-        `/quiz/quizAnswerProcess/${quizActionId}`,
-        JSON.stringify(data)
+        `/quiz/answerProcess/${quizActionId}`,
+        data
     );
 }
 
 function loadQuestion(questionId) {
-    //!!!
+    let quizActionId = document.querySelector('.quiz-process-left-block').dataset.quizActionId;
+
+    let response = sendRequest(
+        'GET',
+        `/quiz/getQuestion/${quizActionId}/${questionId}`
+    );
+
+    if (response.question) {
+        let question = response.question
+        let prevQuestionButtonElement = document.querySelector('.quiz-process-navigations-block-button-prev');
+        prevQuestionButtonElement.dataset.questionId = response.previousQuestionId !== null ? response.previousQuestionId : '';
+        response.previousQuestionId !== null ?
+            prevQuestionButtonElement.classList.remove('disabled')
+            :
+            prevQuestionButtonElement.classList.add('disabled')
+
+        let nextQuestionButtonElement = document.querySelector('.quiz-process-navigations-block-button-next');
+        nextQuestionButtonElement.dataset.questionId = response.nextQuestionId !== null ? response.nextQuestionId : '';
+        response.nextQuestionId !== null ?
+            nextQuestionButtonElement.classList.remove('disabled')
+            :
+            nextQuestionButtonElement.classList.add('disabled')
+
+        let questionBlockElement = document.querySelector('.quiz-process-right-block')
+        questionBlockElement.dataset.quizQuestionId = question.id
+
+        renderQuestion(question);
+    } else {
+        console.error('Can not get question data')
+    }
+}
+
+function renderQuestion(data) {
+    let quizProcessQuestionBlock = document.querySelector('#quiz-process-question-block');
+    let questionTitle = quizProcessQuestionBlock.querySelector('.quiz-process-question-block-title span');
+    let questionTask = quizProcessQuestionBlock.querySelector('.quiz-process-question-block-task');
+    let quizProcessQuestionBlockAnswersBlock = document.querySelector('#quiz-process-question-block-answers-block');
+
+    questionTitle.innerText = data.id + 1;
+    questionTask.innerText = data.question;
+    quizProcessQuestionBlockAnswersBlock.innerHTML = '';
+
+    for (let answer of data.answers) {
+        let answerItemElement = getQuestionAnswerItemTemplate()
+        answerItemElement.dataset.answerId = String(answer.realId);
+        if (data.usersAnswer.indexOf(answer.realId) !== -1) {
+            answerItemElement.classList.add('active');
+        }
+        answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-numbering').innerHTML = answer.humanId;
+        if (answer.text) {
+            answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.text;
+        } else if (answer.image) {
+            answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.image;
+        }
+
+        quizProcessQuestionBlockAnswersBlock.appendChild(answerItemElement);
+    }
+}
+
+function getQuestionAnswerItemTemplate() {
+    let quizQuestionAnswerItemTemplateElement = document.createElement('div');
+    quizQuestionAnswerItemTemplateElement.className = 'quiz-process-question-block-answers-block-item';
+
+    let quizQuestionAnswerItemNumberingElement = document.createElement('div');
+    quizQuestionAnswerItemNumberingElement.className = 'quiz-process-question-block-answers-block-item-numbering';
+
+    let quizQuestionAnswerItemOptionElement = document.createElement('div');
+    quizQuestionAnswerItemOptionElement.className = 'quiz-process-question-block-answers-block-item-option';
+    quizQuestionAnswerItemTemplateElement.appendChild(quizQuestionAnswerItemNumberingElement);
+    quizQuestionAnswerItemTemplateElement.appendChild(quizQuestionAnswerItemOptionElement);
+
+    return quizQuestionAnswerItemTemplateElement;
 }
 
 function setProgressPercent(percent) {
