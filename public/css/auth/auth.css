@@ -1,9 +1,11 @@
 .auth-page-logo-block {
     text-align: center;
+    padding-top: 140px;
 }
 
 .auth-page-container {
-    padding-top: 143px;
+    background-color: #0f2038;
+    height: 100%;
 }
 
 .auth-page-logo-block-text {
@@ -12,7 +14,6 @@
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    /*font-family: GT Walsheim Pro;*/
     font-style: normal;
     font-weight: 900;
     font-size: 27px;

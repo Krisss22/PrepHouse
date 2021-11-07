@@ -1,0 +1,47 @@
+<svg width="380" height="457" viewBox="0 0 380 457" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect width="380" height="457" rx="10" fill="url(#paint0_linear)"/>
+<circle cx="158.889" cy="311.823" r="60.7049" stroke="#FF8DED" stroke-width="2.11148"/>
+<circle cx="158.889" cy="311.823" r="67.0393" stroke="#FF8EF4" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="62.8164" stroke="#FF8EF4" stroke-width="2.11148"/>
+<circle cx="60.7058" cy="311.823" r="62.8164" stroke="#FF8DED" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="69.1508" stroke="#FF85CE" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="75.4852" stroke="#F473C1" stroke-width="2.11148"/>
+<circle cx="60.7057" cy="311.823" r="69.1508" stroke="#FF8EF4" stroke-width="2.11148"/>
+<circle cx="60.7057" cy="311.823" r="75.4852" stroke="#FF85CE" stroke-width="2.11148"/>
+<circle cx="60.7057" cy="311.823" r="81.8197" stroke="#F473C1" stroke-width="2.11148"/>
+<circle cx="60.7059" cy="311.823" r="88.1541" stroke="#F473A2" stroke-width="2.11148"/>
+<circle cx="60.7058" cy="311.823" r="94.4885" stroke="#F473A2" stroke-width="2.11148"/>
+<circle cx="60.7058" cy="311.823" r="100.823" stroke="#F47392" stroke-width="2.11148"/>
+<circle cx="228.568" cy="311.823" r="34.3115" stroke="#FF8EF4" stroke-width="2.11148"/>
+<circle cx="228.568" cy="311.823" r="27.977" stroke="#FF8DED" stroke-width="2.11148"/>
+<circle cx="228.568" cy="311.823" r="21.6426" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="228.568" cy="311.823" r="15.3082" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="56.482" stroke="#FF8DED" stroke-width="2.11148"/>
+<circle cx="60.7058" cy="311.823" r="56.482" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="50.1475" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="43.8131" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="306.693" cy="311.823" r="37.4787" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="60.7056" cy="311.823" r="50.1475" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="158.889" cy="311.823" r="54.3705" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="-6.86089" cy="317.102" r="34.3115" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="-6.86109" cy="317.102" r="27.977" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="-6.86094" cy="317.102" r="40.6459" stroke="#FF86EC" stroke-width="2.11148"/>
+<circle cx="-6.86147" cy="317.102" r="46.9803" stroke="#FF8EF4" stroke-width="2.11148"/>
+<circle cx="158.889" cy="311.823" r="48.0361" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="385.873" cy="312.879" r="34.3115" stroke="#FF8DED" stroke-width="2.11148"/>
+<circle cx="385.873" cy="312.879" r="27.977" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="384.817" cy="312.879" r="21.6426" stroke="#FFA0F0" stroke-width="2.11148"/>
+<circle cx="385.345" cy="313.407" r="41.1738" stroke="#FF8EF4" stroke-width="2.11148"/>
+<circle cx="385.345" cy="313.407" r="47.5082" stroke="#EF8AFF" stroke-width="2.11148"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="190" y1="0" x2="190" y2="457" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F8589B"/>
+<stop offset="1" stop-color="#F85858"/>
+</linearGradient>
+<clipPath id="clip0">
+<rect width="380" height="457" rx="10" fill="white"/>
+</clipPath>
+</defs>
+</svg>

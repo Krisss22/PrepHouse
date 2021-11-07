@@ -183,7 +183,7 @@
 }
 
 .home-middle-block .home-middle-block-title {
-    margin-top: 90px;
+    padding-top: 90px;
     color: #FFFFFF;
     margin-left: 103px;
     font-style: normal;
@@ -224,7 +224,6 @@
     display: table;
 }
 .home-middle-block-jobs-list-item {
-    background-color: #2cccc4;
     color: #FFFFFF;
     width: 380px;
     height: 460px;
@@ -235,6 +234,30 @@
     padding: 42px 34px;
     position: relative;
     cursor: pointer;
+}
+.home-middle-block-jobs-list-item.card-0{
+    background: url("../../storage/images/home/job-title-card-0.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-jobs-list-item.card-1{
+    background: url("../../storage/images/home/job-title-card-1.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-jobs-list-item.card-2{
+    background: url("../../storage/images/home/job-title-card-2.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-jobs-list-item.card-3{
+    background: url("../../storage/images/home/job-title-card-3.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-jobs-list-item.card-4{
+    background: url("../../storage/images/home/job-title-card-4.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-jobs-list-item.card-5{
+    background: url("../../storage/images/home/job-title-card-5.svg") no-repeat;
+    background-size: 100%;
 }
 .job-item-questions-count {
     font-style: normal;
@@ -381,11 +404,26 @@
 .home-middle-block-lectures-block-list-item {
     width: 590px;
     height: 340px;
-    background-color: #2cccc4;
     color: #FFFFFF;
     float: left;
     margin-top: 47px;
     position: relative;
+}
+.home-middle-block-lectures-block-list-item.lecture-card-0 {
+    background: url("../../storage/images/home/lecture-card-0.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-lectures-block-list-item.lecture-card-1 {
+    background: url("../../storage/images/home/lecture-card-1.svg") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-lectures-block-list-item.lecture-card-2 {
+    background: url("../../storage/images/home/lecture-card-2.png") no-repeat;
+    background-size: 100%;
+}
+.home-middle-block-lectures-block-list-item.lecture-card-3 {
+    background: url("../../storage/images/home/lecture-card-3.svg") no-repeat;
+    background-size: 100%;
 }
 .home-middle-block-lectures-block-list-item:nth-child(2n+1) {
     margin-right: 45px;
@@ -620,4 +658,8 @@
 .home-middle-block-how-it-work-block {
     margin-top: 156px;
     text-align: center;
+}
+
+.home-head-content-screen {
+    overflow: hidden;
 }
