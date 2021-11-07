@@ -21,7 +21,7 @@
             <tr>
                 <th scope="row">{{ $quiz->id }}</th>
                 <td>{{ $quiz->name }}</td>
-                <td>{{ $quiz->getAllQuesionsCount() }}</td>
+                <td>{{ $quiz->getAllQuestionsCount() }}</td>
                 <td>{{ $quiz->created_at }}</td>
                 <td>{{ $quiz->updated_at }}</td>
                 <td>
