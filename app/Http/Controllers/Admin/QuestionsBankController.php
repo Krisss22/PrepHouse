@@ -169,7 +169,6 @@ class QuestionsBankController extends AdminController
             'action' => self::ACTION_EDIT,
             'sectionName' => $this->sectionName,
             'question' => QuestionsBank::findOrFail($id),
-            'tags' => Tag::all(),
         ]);
     }
 
@@ -220,7 +219,6 @@ class QuestionsBankController extends AdminController
             'action' => self::ACTION_CREATE,
             'sectionName' => $this->sectionName,
             'question' => new QuestionsBank(),
-            'tags' => Tag::all(),
         ]);
     }
 

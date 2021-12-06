@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Quiz;
 use App\Models\QuizTag;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class QuizController extends AdminController

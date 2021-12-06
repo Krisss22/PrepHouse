@@ -13,14 +13,9 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <div class="search-select-element">
+            <div class="search-select-element" data-json-name="tags" data-json-url="/admin/tags/get-json">
                 <input type="text" class="form-control search-select-input" value="{{ $question->tag_id ? $question->tag->name : '' }}">
                 <input type="text" class="search-select-input-hidden" name="inputTag" value="{{ $question->tag_id ?? '' }}">
-                <div class="search-select-results">
-                    @foreach($tags as $tag)
-                        <div data-tag-id="{{ $tag->id }}" class="search-select-results-item search-select-results-item-hidden">{{ $tag->name }}</div>
-                    @endforeach
-                </div>
             </div>
         </div>
         <div class="col-7">

@@ -94,7 +94,7 @@ function createSelectElements(element) {
 
     let searchSelectResultsElement = element.querySelector('.search-select-results');
 
-    searchSelectElementJsons.length > 0 && searchSelectElementJsons[element.dataset.jsonName].forEach((item) => {
+    searchSelectElementJsons[element.dataset.jsonName].length > 0 && searchSelectElementJsons[element.dataset.jsonName].forEach((item) => {
         let divSelectItemElement = document.createElement('div');
         divSelectItemElement.classList.add('search-select-results-item');
         divSelectItemElement.classList.add('search-select-results-item-hidden');

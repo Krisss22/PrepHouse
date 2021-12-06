@@ -2,26 +2,64 @@ document.addEventListener('click', function(event) {
     let element = event.target;
 
     if (element.getAttribute('id') === 'addNewTagInQuiz') {
-        let divElement = document.createElement('div');
         let newQuizElementsCount = document.querySelectorAll('input.new-quiz-tag').length
-        element = '<div class="col-5 quiz-tag-block-item-tag">' +
-            '<label for="tag" class="form-label">Tag</label>' +
-            '<div class="quiz-tag-block-item-delete">Delete</div>' +
-            '<div class="search-select-element" data-json-name="tags" data-json-url="/admin/tags/get-json">' +
-            '<input type="text" class="form-control search-select-input" value="">' +
-            '<input type="text" class="search-select-input-hidden new-quiz-tag" name="newQuizTag[' + newQuizElementsCount + '][tagId]" value="">' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-1 quiz-tag-block-item-count">' +
-            '<label for="count" class="form-label">Count</label>' +
-            '<input type="number" class="form-control" name="newQuizTag[' + newQuizElementsCount + '][count]" value="" required>' +
-            '</div>';
-        divElement.classList.add('quiz-tag-block-item')
-        divElement.innerHTML = element;
-        document.querySelector('#addNewTagInQuiz').insertAdjacentElement('beforebegin', divElement)
+
+        let quizItemLabelTemplateElement = document.createElement('label');
+        quizItemLabelTemplateElement.setAttribute('for', 'tag');
+        quizItemLabelTemplateElement.classList.add('form-label');
+        quizItemLabelTemplateElement.append('Tag');
+
+        let quizItemDeleteButtonTemplateElement = document.createElement('div');
+        quizItemDeleteButtonTemplateElement.classList.add('quiz-tag-block-item-delete');
+        quizItemDeleteButtonTemplateElement.append('Delete');
+
+        let quizItemSearchInputTemplateElement = document.createElement('input');
+        quizItemSearchInputTemplateElement.setAttribute('type', 'text');
+        quizItemSearchInputTemplateElement.classList.add('form-control', 'search-select-input');
+
+        let quizItemSearchHiddenInputTemplateElement = document.createElement('input');
+        quizItemSearchHiddenInputTemplateElement.setAttribute('type', 'text');
+        quizItemSearchHiddenInputTemplateElement.setAttribute('name', `newQuizTag[${newQuizElementsCount}][tagId]`);
+        quizItemSearchHiddenInputTemplateElement.classList.add('search-select-input-hidden', 'new-quiz-tag');
+
+        let quizItemSearchDivTemplateElement = document.createElement('div');
+        quizItemSearchDivTemplateElement.setAttribute('data-json-name', 'tags');
+        quizItemSearchDivTemplateElement.setAttribute('data-json-url', '/admin/tags/get-json');
+        quizItemSearchDivTemplateElement.classList.add('search-select-element');
+        quizItemSearchDivTemplateElement.appendChild(quizItemSearchInputTemplateElement);
+        quizItemSearchDivTemplateElement.appendChild(quizItemSearchHiddenInputTemplateElement);
+
+        let quizItemCountLabelTemplateElement = document.createElement('label');
+        quizItemCountLabelTemplateElement.setAttribute('for', 'count');
+        quizItemCountLabelTemplateElement.classList.add('form-label');
+        quizItemCountLabelTemplateElement.append('Count');
+
+        let quizItemCountInputTemplateElement = document.createElement('input');
+        quizItemCountInputTemplateElement.setAttribute('type', 'number');
+        quizItemCountInputTemplateElement.required = true;
+        quizItemCountInputTemplateElement.setAttribute('name', `newQuizTag[${newQuizElementsCount}][count]">`);
+        quizItemCountInputTemplateElement.classList.add('form-control');
+
+        let quizItemTagTemplateElement = document.createElement('div');
+        quizItemTagTemplateElement.classList.add('col-5', 'quiz-tag-block-item-tag');
+        quizItemTagTemplateElement.appendChild(quizItemLabelTemplateElement);
+        quizItemTagTemplateElement.appendChild(quizItemDeleteButtonTemplateElement);
+        quizItemTagTemplateElement.appendChild(quizItemSearchDivTemplateElement);
+
+        let quizItemCountTemplateElement = document.createElement('div');
+        quizItemCountTemplateElement.classList.add('col-1', 'quiz-tag-block-item-count');
+        quizItemCountTemplateElement.appendChild(quizItemCountLabelTemplateElement);
+        quizItemCountTemplateElement.appendChild(quizItemCountInputTemplateElement);
+
+        let quizItemTemplateElement = document.createElement('div');
+        quizItemTemplateElement.classList.add('quiz-tag-block-item');
+        quizItemTemplateElement.appendChild(quizItemTagTemplateElement);
+        quizItemTemplateElement.appendChild(quizItemCountTemplateElement);
+
+        document.querySelector('#addNewTagInQuiz').insertAdjacentElement('beforebegin', quizItemTemplateElement)
     }
 
-    if (element.classList.contains('quiz-tag-block-item-delete')) {
+    if (element.classList && element.classList.contains('quiz-tag-block-item-delete')) {
         element.parentNode.parentNode.remove();
     }
 })
