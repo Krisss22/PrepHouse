@@ -47,6 +47,7 @@
 .quiz-item-list-item .quiz-item-progress-bar-line {
     height: 5px;
     border-radius: 4px;
+    background-color: #F5BA26;
 }
 
 .quiz-item-list-item.progress .quiz-item-progress-bar-line {
@@ -55,6 +56,10 @@
 
 .quiz-item-list-item.finished .quiz-item-progress-bar-line {
     background-color: #5EA66E;
+}
+
+.quiz-item-list-item.failed .quiz-item-progress-bar-line {
+    background-color: #d70007;
 }
 
 .quiz-item-progress-job-title-text {
@@ -360,7 +365,7 @@
     border: 1px #FFFFFF solid;
     border-top: 1px #EAEDF2 solid;
     padding: 0 31px;
-    height: 80px;
+    min-height: 80px;
     cursor: pointer;
 }
 

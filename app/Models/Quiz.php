@@ -32,6 +32,11 @@ class Quiz extends Model
         return $this->hasOne('App\Models\Topic', 'id', 'topic_id');
     }
 
+    public function quizAction(): HasOne
+    {
+        return $this->hasOne('App\Models\QuizAction', 'quiz_id', 'id');
+    }
+
     public function quizTags(): HasMany
     {
         return $this->hasMany('App\Models\QuizTag', 'quiz_id', 'id');

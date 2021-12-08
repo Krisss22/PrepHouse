@@ -67,4 +67,12 @@ class User extends Authenticatable
                 return 'Admin';
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getInitials(): string
+    {
+        return $this->name[0] . $this->surname[0];
+    }
 }

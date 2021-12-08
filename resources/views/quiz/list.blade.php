@@ -26,7 +26,7 @@
                         /{{ $quiz->getAllQuestionsCount() }}</div>
                     <div class="quiz-item-questions-count-title">questions</div>
                     <a href="/quiz/run/{{ $quiz->id }}" target="_blank">
-                        @if(isset($quiz->quiz_action_data))
+                        @if(isset($quiz->quiz_action_data) && !$quiz->quiz_action_finished)
                             <div class="quiz-item-button continue-button">
                                 Continue
                             </div>

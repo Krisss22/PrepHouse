@@ -59,7 +59,11 @@ class QuizzesController extends Controller
             if (isset($quizzesList[$i]->quiz_action_data)) {
                 $quizzesList[$i]->quiz_action_data = new QuizData(json_decode($quizzesList[$i]->quiz_action_data, true));
                 if ($quizzesList[$i]->quiz_action_finished) {
-                    $quizzesList[$i]->processStatusClass = 'finished';
+                    if ($quizzesList[$i]->quiz_action_data->isSuccessful()) {
+                        $quizzesList[$i]->processStatusClass = 'finished';
+                    } else {
+                        $quizzesList[$i]->processStatusClass = 'failed';
+                    }
                 } else {
                     $quizzesList[$i]->processStatusClass = 'process';
                 }

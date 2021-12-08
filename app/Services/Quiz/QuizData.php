@@ -4,8 +4,10 @@ namespace App\Services\Quiz;
 
 class QuizData
 {
-    public $name = '';
-    public $questions = [];
+    public const MIN_SUCCESSFUL_PERCENT = 70;
+
+    public string $name = '';
+    public array $questions = [];
 
     public function __construct($data = null)
     {
@@ -44,5 +46,43 @@ class QuizData
         }
 
         return $answeredQuestionsCount;
+    }
+
+    public function isSuccessful(): bool
+    {
+        if (count($this->questions) < $this->getAnsweredQuestionsCount()) {
+            return false;
+        }
+
+        $successfulAnswers = 0;
+        foreach ($this->questions as $question) {
+            if (!empty($question->usersAnswer)) {
+                $correctAnswersCount = 0;
+                $userCorrectAnswersCount = 0;
+                foreach ($question->answers as $answer) {
+                    if ($answer->correct) {
+                        $correctAnswersCount++;
+                    }
+
+                    foreach ($question->usersAnswer as $userAnswer) {
+                        if ($answer->id === $userAnswer) {
+                            $userCorrectAnswersCount++;
+                        }
+                    }
+                }
+
+                if ($userCorrectAnswersCount === 0) {
+                    continue;
+                }
+
+                if ($correctAnswersCount === $userCorrectAnswersCount) {
+                    $successfulAnswers++;
+                } else {
+                    $successfulAnswers += 0.5;
+                }
+            }
+        }
+
+        return ($successfulAnswers / count($this->questions) * 100) >= self::MIN_SUCCESSFUL_PERCENT;
     }
 }
