@@ -41,7 +41,7 @@
                         <div class="answerBlockItem">
                             <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
                             <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="fileAnswerHidden[{{ $answer->id }}][correct]" @if($answer->correct) checked @endIf>
-                            <img data-id="{{ $answer->id }}" src="{{ '/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image }}">
+                            <img data-id="{{ $answer->id }}" src="{{ asset('storage/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image) }}">
                             <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}][value]" value="{{ $answer->id }}">
                             <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}]" type="file" value="">
                         </div>

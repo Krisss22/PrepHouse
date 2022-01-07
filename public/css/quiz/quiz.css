@@ -95,7 +95,7 @@
 .quiz-item-list-item.finished .quiz-item-progress-job-title-icon {
     width: 26px;
     height: 26px;
-    background: url("../../storage/images/green-check.svg") no-repeat;
+    background: url("../../images/green-check.svg") no-repeat;
     float: left;
     margin-left: 12px;
     margin-top: 5px;

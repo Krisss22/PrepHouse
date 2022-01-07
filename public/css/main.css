@@ -36,7 +36,11 @@
     bottom: 30px;
 }
 
-.left-menu-block-item-profile .left-menu-block-item-icon {
+.left-menu-block-item-profile a {
+    text-decoration: none;
+}
+
+.left-menu-block-item-profile a .left-menu-block-item-icon {
     width: 30px;
     height: 30px;
     margin: 0 auto 8px;
@@ -73,4 +77,3 @@
     background-color: #F7F8FA;
     padding-left: 60px;
 }
-

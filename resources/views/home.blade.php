@@ -70,7 +70,7 @@
             </div>
             <div class="home-head-content-right-block">
                 <div class="home-head-content-screen">
-                    <img src="../../storage/images/home/home-head-content-screen.png">
+                    <img src="{{ asset('images/home/home-head-content-screen.png') }}">
                 </div>
             </div>
         </div>
@@ -85,43 +85,43 @@
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
-                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
             <div class="home-middle-block-jobs-list-item card-1">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
-                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
             <div class="home-middle-block-jobs-list-item card-2">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
-                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
             <br>
             <div class="home-middle-block-jobs-list-item card-3">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
-                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
             <div class="home-middle-block-jobs-list-item card-4">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
-                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
             <div class="home-middle-block-jobs-list-item card-5">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
-                <img class="job-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
         </div>
 
         <div class="home-middle-block-how-it-work-block">
-            <img src="../../storage/images/home/how-it-work.png">
+            <img src="{{ asset('images/home/how-it-work.png') }}">
         </div>
 
         <div class="home-middle-block-share-question-block">
@@ -142,7 +142,7 @@
                 <div class="home-middle-block-share-question-block-button-text">Share question</div>
             </a>
             <div class="home-middle-block-share-question-block-image">
-                <img src="../../storage/images/home/share_question_image.svg">
+                <img src="{{ asset('images/home/share_question_image.svg') }}">
             </div>
         </div>
 
@@ -155,31 +155,31 @@
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
                 <div class="home-middle-block-lectures-block-list-item lecture-card-1">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
                 <div class="home-middle-block-lectures-block-list-item lecture-card-2">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
                 <div class="home-middle-block-lectures-block-list-item lecture-card-3">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
                     <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
                     <div class="home-middle-block-lectures-block-list-item-description">Sample text.  the text box. Click again or double click to start editing the text.</div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="../../storage/images/home/job_item_play_icon.svg">
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
             </div>
         </div>
 
         <div class="home-middle-block-materials-block">
-            <img src="../../storage/images/home/discoverImg.png" class="home-middle-block-materials-block-image">
+            <img src="{{ asset('images/home/discoverImg.png') }}" class="home-middle-block-materials-block-image">
             <div class="home-middle-block-materials-block-title"><p>All usefull materials in one place</p></div>
             <div class="home-middle-block-materials-block-description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
             <a class="home-middle-block-materials-block-button"><p>Open Course Gallery</p></a>
@@ -190,45 +190,45 @@
                 <div class="home-middle-block-feedback-block-left-text-list">
                     <div data-feedback-id="0" class="home-middle-block-feedback-block-left-text-list-item active">
                         <div class="home-middle-block-feedback-block-left-text">
-                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            <img src="{{ asset('images/home/quotes.png') }}" class="home-middle-block-feedback-block-left-text-quotes">
                             1When someone does something that they know that they shouldn’t do, did they really have a choice.
                         </div>
                         <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
                     </div>
                     <div data-feedback-id="1" class="home-middle-block-feedback-block-left-text-list-item">
                         <div class="home-middle-block-feedback-block-left-text">
-                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            <img src="{{ asset('images/home/quotes.png') }}" class="home-middle-block-feedback-block-left-text-quotes">
                             2When someone does something that they know that they shouldn’t do, did they really have a choice.
                         </div>
                         <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
                     </div>
                     <div data-feedback-id="2" class="home-middle-block-feedback-block-left-text-list-item">
                         <div class="home-middle-block-feedback-block-left-text">
-                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            <img src="{{ asset('images/home/quotes.png') }}" class="home-middle-block-feedback-block-left-text-quotes">
                             3When someone does something that they know that they shouldn’t do, did they really have a choice.
                         </div>
                         <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
                     </div>
                     <div data-feedback-id="3" class="home-middle-block-feedback-block-left-text-list-item">
                         <div class="home-middle-block-feedback-block-left-text">
-                            <img src="../../storage/images/home/quotes.png" class="home-middle-block-feedback-block-left-text-quotes">
+                            <img src="{{ asset('images/home/quotes.png') }}" class="home-middle-block-feedback-block-left-text-quotes">
                             4When someone does something that they know that they shouldn’t do, did they really have a choice.
                         </div>
                         <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha Kucherenko, Ukraine</div>
                     </div>
                 </div>
                 <div class="home-middle-block-feedback-block-left-images-list">
-                    <img data-feedback-id="0" src="../../storage/images/home/example-photo-1.png" class="home-middle-block-feedback-block-left-images-list-item active">
-                    <img data-feedback-id="1" src="../../storage/images/home/example-photo-2.png" class="home-middle-block-feedback-block-left-images-list-item">
-                    <img data-feedback-id="2" src="../../storage/images/home/example-photo-3.png" class="home-middle-block-feedback-block-left-images-list-item">
-                    <img data-feedback-id="3" src="../../storage/images/home/example-photo-4.png" class="home-middle-block-feedback-block-left-images-list-item">
+                    <img data-feedback-id="0" src="{{ asset('images/home/example-photo-1.png') }}" class="home-middle-block-feedback-block-left-images-list-item active">
+                    <img data-feedback-id="1" src="{{ asset('images/home/example-photo-2.png') }}" class="home-middle-block-feedback-block-left-images-list-item">
+                    <img data-feedback-id="2" src="{{ asset('images/home/example-photo-3.png') }}" class="home-middle-block-feedback-block-left-images-list-item">
+                    <img data-feedback-id="3" src="{{ asset('images/home/example-photo-4.png') }}" class="home-middle-block-feedback-block-left-images-list-item">
                 </div>
             </div>
             <div class="home-middle-block-feedback-block-right">
-                <img data-feedback-id="0" src="../../storage/images/home/example-photo-1.png" class="home-middle-block-feedback-block-right-image active">
-                <img data-feedback-id="1" src="../../storage/images/home/example-photo-2.png" class="home-middle-block-feedback-block-right-image">
-                <img data-feedback-id="2" src="../../storage/images/home/example-photo-3.png" class="home-middle-block-feedback-block-right-image">
-                <img data-feedback-id="3" src="../../storage/images/home/example-photo-4.png" class="home-middle-block-feedback-block-right-image">
+                <img data-feedback-id="0" src="{{ asset('images/home/example-photo-1.png') }}" class="home-middle-block-feedback-block-right-image active">
+                <img data-feedback-id="1" src="{{ asset('images/home/example-photo-2.png') }}" class="home-middle-block-feedback-block-right-image">
+                <img data-feedback-id="2" src="{{ asset('images/home/example-photo-3.png') }}" class="home-middle-block-feedback-block-right-image">
+                <img data-feedback-id="3" src="{{ asset('images/home/example-photo-4.png') }}" class="home-middle-block-feedback-block-right-image">
             </div>
         </div>
 
@@ -240,9 +240,9 @@
     </div>
     <div class="home-bottom-block">
         <div class="home-bottom-socials">
-            <a><img src="../../storage/images/home/twiter-icon.png"></a>
-            <a><img src="../../storage/images/home/facebook-icon.png"></a>
-            <a><img src="../../storage/images/home/instagram-icon.png"></a>
+            <a><img src="{{ asset('images/home/twiter-icon.png') }}"></a>
+            <a><img src="{{ asset('images/home/facebook-icon.png') }}"></a>
+            <a><img src="{{ asset('images/home/instagram-icon.png') }}"></a>
         </div>
         <div class="home-bottom-copyright">Copyright (C) 2021 PREPHouse.</div>
     </div>

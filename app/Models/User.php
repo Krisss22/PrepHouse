@@ -14,6 +14,9 @@ class User extends Authenticatable
     public const GUEST_ROLE = 0;
     public const ADMIN_ROLE = 1;
 
+    const IMAGES_PATH = 'images/users';
+    const USER_NO_PHOTO_IMAGE_NAME = 'user.svg';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,9 +26,16 @@ class User extends Authenticatable
         'name',
         'surname',
         'job_title',
+        'education',
+        'certificates',
+        'image',
+        'address',
         'email',
         'password',
-        'role'
+        'role',
+        'news',
+        'surveys',
+        'promotions'
     ];
 
     /**
@@ -61,10 +71,10 @@ class User extends Authenticatable
     public function getRoleName(): string
     {
         switch ($this->role) {
-            case 0:
-                return 'User';
             case 1:
                 return 'Admin';
+            default:
+                return 'User';
         }
     }
 

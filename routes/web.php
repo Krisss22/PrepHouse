@@ -25,6 +25,16 @@ Route::get('/quiz/getQuestion/{quizActionId}/{questionId}', [App\Http\Controller
 Route::get('/quiz/finish/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'finish'])->name('quiz-finish');
 Route::get('/quiz/statistic/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'statistic'])->name('quiz-statistic');
 
+Route::group(['prefix' => 'account'], function () {
+    Route::any('/', [App\Http\Controllers\Account\AccountController::class, 'index'])->name('account');
+    Route::get('/profile', [App\Http\Controllers\Account\AccountController::class, 'profile'])->name('account-profile');
+    Route::post('/profile/save', [App\Http\Controllers\Account\AccountController::class, 'profileSave'])->name('account-profile-save');
+    Route::get('/password', [App\Http\Controllers\Account\AccountController::class, 'password'])->name('account-password');
+    Route::post('/password/save', [App\Http\Controllers\Account\AccountController::class, 'passwordSave'])->name('account-password-save');
+    Route::get('/notifications', [App\Http\Controllers\Account\AccountController::class, 'notifications'])->name('account-notifications');
+    Route::post('/notifications/save', [App\Http\Controllers\Account\AccountController::class, 'notificationsSave'])->name('account-notifications-save');
+});
+
 // Admin routs
 Route::group(['prefix' => 'admin'], function () {
     Route::any('/', [App\Http\Controllers\Admin\StatisticController::class, 'index']);

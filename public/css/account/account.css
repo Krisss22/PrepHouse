@@ -1,0 +1,210 @@
+.account-section-block {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.account-section-title {
+    width: 480px;
+    height: 53px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 53px;
+    color: #494A50;
+    margin-bottom: 45px;
+    margin-top: 85px;
+}
+
+.account-section-left-block {
+    background-color: #FFFFFF;
+    width: 600px;
+    float: left;
+    box-shadow: 0px 10px 20px rgba(67, 104, 178, 0.0544611);
+    border-radius: 2px;
+    padding: 50px 45px;
+    margin-bottom: 50px;
+}
+
+.account-section-right-block {
+    margin-left: 50px;
+    float: right;
+    width: 170px;
+}
+
+.account-section-right-block a {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    color: #4780D8;
+    text-decoration: none;
+}
+
+.account-section-right-block a.active {
+    color: black;
+}
+
+.account-form-half-width-input-block {
+    width: calc(50% - 10px);
+}
+
+.account-form-half-width-input-block-left {
+    float: left;
+}
+
+.account-form-half-width-input-block-right {
+    float: right;
+}
+
+.account-form-full-width-input-block {
+    clear: both;
+    width: 100%;
+}
+
+.account-form-text-input-block {
+    margin-bottom: 25px;
+}
+
+.account-form-text-input-block label {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    color: #494A50;
+}
+
+.account-form-text-input-block input {
+    padding: 0 21px;
+    margin-top: 7px;
+    width: calc(100% - 42px);
+    background: #F7F8FA;
+    border-radius: 4px;
+    height: 50px;
+    border: none;
+}
+
+.account-form-text-input-block textarea {
+    margin-top: 7px;
+    padding: 21px;
+    width: calc(100% - 42px);
+    background: #F7F8FA;
+    border-radius: 4px;
+    height: 150px;
+    border: none;
+}
+
+.account-form-text-input-block select {
+    margin-top: 7px;
+    padding: 0 21px;
+    width: 100%;
+    background: #F7F8FA;
+    border-radius: 4px;
+    height: 50px;
+    border: none;
+}
+
+.account-form-submit-button {
+    margin-top: 50px;
+    cursor: pointer;
+    height: 50px;
+    background: #4780D8;
+    border-radius: 100px;
+    border: none;
+    color: #FFFFFF;
+    padding: 0 55px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.account-image-block {
+    height: 110px;
+}
+
+.account-image {
+    float: left;
+}
+
+#account-image {
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+}
+
+.account-image-description,
+.account-image-buttons {
+    margin-left: 135px;
+}
+
+.account-image-description {
+    min-height: 35px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #9B9FA9;
+}
+
+.account-image-buttons {
+    margin-top: 20px;
+}
+
+.account-image-buttons #account-upload-image-button {
+    float: left;
+    width: 150px;
+    height: 50px;
+    background: #B6C1D4;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+.account-image-buttons #account-image-remove-button {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 45px;
+    color: #4780D8;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.account-separate-line {
+    clear: both;
+    margin-left: -45px;
+    width: calc(100% + 90px);
+    height: 2px;
+    background-color: #EAEDF2;
+    margin-top: 50px;
+    margin-bottom: 35px;
+}
+
+.account-validation-error-message {
+    color: red;
+}
+
+.account-form-descriptions {
+    width: 300px;
+    margin: 0 auto 35px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #494A50;
+}
+
+.account-notifications-separation-line {
+    width: 100%;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    border: 1px solid #D7DBE2;
+    margin: 15px 0;
+    float: left;
+}

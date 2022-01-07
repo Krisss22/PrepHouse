@@ -124,11 +124,11 @@ class QuestionsBankController extends AdminController
            if ($request->hasFile('fileAnswer')) {
                foreach ($request->file('fileAnswer') as $answerId => $image) {
                    $answer = Answer::findOrFail($answerId);
-                   if (file_exists(public_path(Answer::IMAGES_PATH) . '/' . $answer->image)) {
-                       unlink(public_path(Answer::IMAGES_PATH) . '/' . $answer->image);
+                   if (file_exists(storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $answer->image)) {
+                       unlink(storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $answer->image);
                    }
                    $imageName = time() . '.' . $image->extension();
-                   $image->move(public_path(Answer::IMAGES_PATH), $imageName);
+                   $image->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
                    $answer->update([
                        'image' => $imageName
                    ]);
@@ -155,7 +155,7 @@ class QuestionsBankController extends AdminController
            if ($request->has('newFileAnswer')) {
                foreach ($request->newFileAnswer as $item) {
                    $imageName = time() . '.' . $item['value']->extension();
-                   $item['value']->move(public_path(Answer::IMAGES_PATH), $imageName);
+                   $item['value']->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
                    Answer::create([
                        'image' => $imageName,
                        'question_id' => $question->id,
@@ -203,7 +203,7 @@ class QuestionsBankController extends AdminController
             if ($request->has('newFileAnswer')) {
                 foreach ($request->newFileAnswer as $item) {
                     $imageName = time() . '.' . $item['value']->extension();
-                    $item['value']->move(public_path(Answer::IMAGES_PATH), $imageName);
+                    $item['value']->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
                     Answer::create([
                         'image' => $imageName,
                         'question_id' => $question->id,

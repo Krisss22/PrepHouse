@@ -236,27 +236,27 @@
     cursor: pointer;
 }
 .home-middle-block-jobs-list-item.card-0{
-    background: url("../../storage/images/home/job-title-card-0.svg") no-repeat;
+    background: url("../../images/home/job-title-card-0.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-jobs-list-item.card-1{
-    background: url("../../storage/images/home/job-title-card-1.svg") no-repeat;
+    background: url("../../images/home/job-title-card-1.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-jobs-list-item.card-2{
-    background: url("../../storage/images/home/job-title-card-2.svg") no-repeat;
+    background: url("../../images/home/job-title-card-2.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-jobs-list-item.card-3{
-    background: url("../../storage/images/home/job-title-card-3.svg") no-repeat;
+    background: url("../../images/home/job-title-card-3.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-jobs-list-item.card-4{
-    background: url("../../storage/images/home/job-title-card-4.svg") no-repeat;
+    background: url("../../images/home/job-title-card-4.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-jobs-list-item.card-5{
-    background: url("../../storage/images/home/job-title-card-5.svg") no-repeat;
+    background: url("../../images/home/job-title-card-5.svg") no-repeat;
     background-size: 100%;
 }
 .job-item-questions-count {
@@ -410,19 +410,19 @@
     position: relative;
 }
 .home-middle-block-lectures-block-list-item.lecture-card-0 {
-    background: url("../../storage/images/home/lecture-card-0.svg") no-repeat;
+    background: url("../../images/home/lecture-card-0.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-lectures-block-list-item.lecture-card-1 {
-    background: url("../../storage/images/home/lecture-card-1.svg") no-repeat;
+    background: url("../../images/home/lecture-card-1.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-lectures-block-list-item.lecture-card-2 {
-    background: url("../../storage/images/home/lecture-card-2.png") no-repeat;
+    background: url("../../images/home/lecture-card-2.png") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-lectures-block-list-item.lecture-card-3 {
-    background: url("../../storage/images/home/lecture-card-3.svg") no-repeat;
+    background: url("../../images/home/lecture-card-3.svg") no-repeat;
     background-size: 100%;
 }
 .home-middle-block-lectures-block-list-item:nth-child(2n+1) {
