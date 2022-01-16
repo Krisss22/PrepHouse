@@ -16,7 +16,7 @@
         <div class="quiz-process-right-block" data-quiz-question-id="{{ $currentQuestion->id }}">
             <div class="quiz-process-progress-block">
                 <div class="quiz-process-progress">
-                    <div id="quiz-process-progress-data" class="quiz-process-progress-data">{{ $quizActionData->getPercent() }}%</div>
+                    <div id="quiz-process-progress-data" class="quiz-process-progress-data">{{ $quizActionData->getProgressPercent() }}%</div>
                     <div class="quiz-process-progress-bar">
                         <div class="quiz-process-progress-title">PROGRESS</div>
                         <div class="quiz-process-progress-progress">
@@ -34,7 +34,11 @@
                     @foreach($currentQuestion->answers as $answerId => $answer)
                         <div class="quiz-process-question-block-answers-block-item {{ $currentQuestion->isAnswerSelected($answerId) ? 'active' : '' }}" data-answer-id="{{ $answerId }}">
                             <div class="quiz-process-question-block-answers-block-item-numbering">{{ $answer->getHumanId() }}</div>
-                            <div class="quiz-process-question-block-answers-block-item-option">{{ $answer->getOption() }}</div>
+                            @if($answer->image)
+                                <div class="quiz-process-question-block-answers-block-item-option"><img src="{{ $answer->getOption() }}"></div>
+                            @else
+                                <div class="quiz-process-question-block-answers-block-item-option">{{ $answer->getOption() }}</div>
+                            @endif
                         </div>
                     @endforeach
                 </div>

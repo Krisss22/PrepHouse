@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Quiz;
 
 use App\Http\Controllers\Controller;
+use App\Models\Answer;
 use App\Models\QuestionsBank;
 use App\Models\Quiz;
 use App\Models\QuizAction;
@@ -86,13 +87,16 @@ class QuizzesController extends Controller
 
         $quiz = Quiz::findOrFail($quizId);
         $questionsArray = [];
+        $tagsArray = [];
         foreach ($quiz->quizTags as $quizTag) {
+            $tagsArray[$quizTag->tag->id] = $quizTag->tag->name;
             $questions = QuestionsBank::getRandomQuestionsByTagId($quizTag->tag_id, $quizTag->count);
             foreach ($questions as $question) {
                 $answers = [];
                 foreach ($question->answers as $answer) {
                     $answers[] = [
                         'image' => $answer->image,
+                        'imageFile' => $answer->image ? base64_encode(file_get_contents(storage_path('app/public/' . Answer::IMAGES_PATH . '/' . $answer->image))) : null,
                         'text' => $answer->text,
                         'correct' => (bool) $answer->correct,
                     ];
@@ -101,6 +105,7 @@ class QuizzesController extends Controller
                     'question' => $question->question,
                     'answers' => $answers,
                     'usersAnswer' => [],
+                    'tagId' => $quizTag->tag->id,
                     'flagged' => false,
                 ];
             }
@@ -108,6 +113,7 @@ class QuizzesController extends Controller
 
         $quizArray = [
             'name' => $quiz->name,
+            'tags' => $tagsArray,
             'questions' => $questionsArray,
         ];
 
@@ -198,7 +204,7 @@ class QuizzesController extends Controller
 
         return Response::json([
             'status' => self::RESPONSE_STATUS_SUCCESS,
-            'processPercent' => $quizActionData->getPercent(),
+            'processPercent' => $quizActionData->getProgressPercent(),
         ]);
     }
 
@@ -220,7 +226,8 @@ class QuizzesController extends Controller
                 'realId' => $answer->id,
                 'humanId' => $answer->getHumanId(),
                 'text' => $answer->text,
-                'image' => $answer->image
+                'image' => $answer->image,
+                'imageFile' => $answer->imageFile ?? null,
             ];
         }
 
@@ -246,11 +253,18 @@ class QuizzesController extends Controller
         return redirect('/quiz/statistic/' . $quizActionId);
     }
 
+    public function statisticList() {
+        return view('quiz/statistic/list', [
+            'statisticItemsList' => QuizAction::getAllUserQuizzesQuery(Auth::user()->id, 1)->paginate(self::ITEM_ON_PAGE)
+        ]);
+    }
+
     public function statistic($quizActionId) {
         $quizAction = QuizAction::findOrFail($quizActionId);
 
-        return view('quiz/statistic', [
-            'quizAction' => $quizAction
+        return view('quiz/statistic/statistic', [
+            'quizAction' => $quizAction,
+            'quizActionData' => $quizAction->getData()
         ]);
     }
 }

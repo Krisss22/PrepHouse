@@ -23,6 +23,7 @@ Route::get('/quiz/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController:
 Route::post('/quiz/answerProcess/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'answerProcess'])->name('quiz-answer-process');
 Route::get('/quiz/getQuestion/{quizActionId}/{questionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'getQuestion'])->name('quiz-get-question');
 Route::get('/quiz/finish/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'finish'])->name('quiz-finish');
+Route::get('/quiz/statistic/list', [App\Http\Controllers\Quiz\QuizzesController::class, 'statisticList'])->name('quiz-statistic-list');
 Route::get('/quiz/statistic/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'statistic'])->name('quiz-statistic');
 
 Route::group(['prefix' => 'account'], function () {

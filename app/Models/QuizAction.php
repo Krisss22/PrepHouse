@@ -49,6 +49,12 @@ class QuizAction extends Model
         return new QuizData(json_decode($this->data, true));
     }
 
+    public function getStartDate(): string
+    {
+
+        return $this->created_at->format('M d, Y');
+    }
+
     static public function getLastUserQuiz()
     {
         return self::query()
@@ -57,4 +63,17 @@ class QuizAction extends Model
             ->orderByDesc('id')
             ->first();
     }
+
+    static public function getAllUserQuizzesQuery($userId, $finished = false): \Illuminate\Database\Eloquent\Builder
+    {
+        $query = self::query()
+            ->where('user_id', '=', $userId);
+
+        if ($finished) {
+            $query->where('finished', '=', 1);
+        }
+
+        return $query;
+    }
+
 }

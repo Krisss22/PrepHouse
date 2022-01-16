@@ -118,7 +118,12 @@ function renderQuestion(data) {
         if (answer.text) {
             answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.text;
         } else if (answer.image) {
-            answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.image;
+            console.log(answer)
+            if (answer.imageFile) {
+                answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = `<img src="data:image/png;base64, ${answer.imageFile}">`;
+            } else {
+                answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.image;
+            }
         }
 
         quizProcessQuestionBlockAnswersBlock.appendChild(answerItemElement);

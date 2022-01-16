@@ -8,6 +8,7 @@ class QuizDataQuestion
     public $answers = [];
     public $flagged = false;
     public $question = '';
+    public $tagId = null;
     public $usersAnswer = null;
 
     public function __construct($questionId, $data = null)
@@ -20,6 +21,9 @@ class QuizDataQuestion
             }
             if (isset($data['question'])) {
                 $this->question = $data['question'];
+            }
+            if (isset($data['tagId'])) {
+                $this->tagId = $data['tagId'];
             }
             if (isset($data['usersAnswer'])) {
                 $this->usersAnswer = $data['usersAnswer'];

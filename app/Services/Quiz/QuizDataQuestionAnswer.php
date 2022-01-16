@@ -2,11 +2,14 @@
 
 namespace App\Services\Quiz;
 
+use App\Models\Answer;
+
 class QuizDataQuestionAnswer
 {
     public $id;
     public $text = null;
     public $image = null;
+    public $imageFile = null;
     public $correct = false;
 
     public function __construct($answerId, $data = null)
@@ -19,6 +22,9 @@ class QuizDataQuestionAnswer
             }
             if (isset($data['image'])) {
                 $this->image = $data['image'];
+                if (isset($data['imageFile'])) {
+                    $this->imageFile = $data['imageFile'];
+                }
             }
             if (isset($data['correct'])) {
                 $this->correct = $data['correct'];
@@ -30,7 +36,7 @@ class QuizDataQuestionAnswer
     {
         $alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
         if ($this->id >= count($alphabet)) {
-            return (string) $this->id + 1;
+            return (string) ($this->id + 1);
         }
         return strtoupper($alphabet[$this->id]);
     }
@@ -45,7 +51,7 @@ class QuizDataQuestionAnswer
         }
 
         if (isset($this->image)) {
-            return $this->image;
+            return $this->imageFile ? 'data:image/png;base64, ' . $this->imageFile : storage_path('app/public/' . Answer::IMAGES_PATH . '/' . $this->image);
         }
 
         throw new \Exception('Text and image are null in answer ' . $this->id);

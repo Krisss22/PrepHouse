@@ -19,6 +19,7 @@
     <link href="{{ asset('css/auth/auth.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/quiz/quiz.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/quiz/statistic.css') }}" rel="stylesheet">
     <link href="{{ asset('css/share_question/share_question.css') }}" rel="stylesheet">
     <link href="{{ asset('css/account/account.css') }}" rel="stylesheet">
 </head>

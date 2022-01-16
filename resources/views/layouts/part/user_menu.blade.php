@@ -16,10 +16,12 @@
         <div class="left-menu-block-item-icon"><img src="{{ asset('images/left_menu/strategies.png') }}"></div>
         <div class="left-menu-block-item-title">Strategies</div>
     </div>
-    <div class="left-menu-block-item left-menu-block-item-profile left-menu-block-item-bottom">
-        <a href="{{ route('account-profile') }}">
-            <div class="left-menu-block-item-icon">{{ Auth::user()->getInitials() }}</div>
-            <div class="left-menu-block-item-title">Profile</div>
-        </a>
-    </div>
+    @if(Auth::user())
+            <div class="left-menu-block-item left-menu-block-item-profile left-menu-block-item-bottom">
+                <a href="{{ route('account-profile') }}">
+                    <div class="left-menu-block-item-icon">{{ Auth::user()->getInitials() }}</div>
+                    <div class="left-menu-block-item-title">Profile</div>
+                </a>
+            </div>
+    @endif
 </div>

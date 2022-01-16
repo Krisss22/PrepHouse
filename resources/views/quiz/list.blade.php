@@ -4,13 +4,14 @@
     @include('layouts.part.user_menu')
     <div class="main-content">
         <div class="quiz-section-title">Choose a desired occupation</div>
+        <a href="{{ route('quiz-statistic-list') }}" class="quiz-section-history-button">History</a>
         <div class="quiz-item-list">
             @foreach($quizzesList as $quiz)
             <div class="quiz-item-list-item {{ $quiz->processStatusClass }}">
                 <div class="quiz-item-top-block">
                     @if(isset($quiz->quiz_action_data))
                         <div class="quiz-item-progress-bar">
-                            <div class="quiz-item-progress-bar-line" style="width: {{ $quiz->quiz_action_data->getPercent() }}%;"></div>
+                            <div class="quiz-item-progress-bar-line" style="width: {{ $quiz->quiz_action_data->getProgressPercent() }}%;"></div>
                         </div>
                     @endif
                     <div class="quiz-item-progress-job-title-text">Job title</div>
@@ -23,7 +24,7 @@
                         @else
                             0
                         @endif
-                        /{{ $quiz->getAllQuestionsCount() }}</div>
+                        / {{ $quiz->getAllQuestionsCount() }}</div>
                     <div class="quiz-item-questions-count-title">questions</div>
                     <a href="/quiz/run/{{ $quiz->id }}" target="_blank">
                         @if(isset($quiz->quiz_action_data) && !$quiz->quiz_action_finished)
