@@ -67,7 +67,6 @@ function sendAnswer(questionId, answerId) {
 
 function loadQuestion(questionId) {
     let quizActionId = document.querySelector('.quiz-process-left-block').dataset.quizActionId;
-
     let response = sendRequest(
         'GET',
         `/quiz/getQuestion/${quizActionId}/${questionId}`
@@ -96,6 +95,8 @@ function loadQuestion(questionId) {
     } else {
         console.error('Can not get question data')
     }
+
+    endLoadingSpinnerAnimation()
 }
 
 function renderQuestion(data) {

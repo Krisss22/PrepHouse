@@ -9,8 +9,10 @@
         <div class="left-menu-block-item-title">Study</div>
     </div>
     <div class="left-menu-block-item left-menu-block-item-testing left-menu-block-item-active">
-        <div class="left-menu-block-item-icon"><img src="{{ asset('images/left_menu/testing.png') }}"></div>
-        <div class="left-menu-block-item-title">testing</div>
+        <a href="{{ route('quizzes-list') }}">
+            <div class="left-menu-block-item-icon"><img src="{{ asset('images/left_menu/testing.png') }}"></div>
+            <div class="left-menu-block-item-title">testing</div>
+        </a>
     </div>
     <div class="left-menu-block-item left-menu-block-item-strategies">
         <div class="left-menu-block-item-icon"><img src="{{ asset('images/left_menu/strategies.png') }}"></div>

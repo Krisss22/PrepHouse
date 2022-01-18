@@ -20,6 +20,13 @@
     cursor: pointer;
 }
 
+.quiz-process-back-button a,
+.quiz-statistic-back-button a {
+    text-decoration: none;
+    color: #9B9FA9;
+}
+
+.quiz-process-back-button span,
 .quiz-statistic-back-button span {
     font-size: 30px;
 }
