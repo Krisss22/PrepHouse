@@ -78,7 +78,7 @@
     <div class="home-middle-block">
         <div class="home-middle-block-title">Pick A desired job title</div>
         <div class="home-middle-block-description">You will be ask to answer different question same as you are on a real interview</div>
-        <a class="home-middle-block-button"><p>View all Jobs</p></a>
+        <a href="/" class="home-middle-block-button"><p>View all Jobs</p></a>
 
         <div class="home-middle-block-jobs-list">
             <div class="home-middle-block-jobs-list-item card-0">
@@ -99,7 +99,6 @@
                 <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.</div>
                 <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
             </div>
-            <br>
             <div class="home-middle-block-jobs-list-item card-3">
                 <div class="job-item-questions-count">78 questions</div>
                 <div class="job-item-title">Java Automation Engineer</div>

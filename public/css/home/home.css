@@ -73,11 +73,22 @@
     background: #334e76;
     border-radius: 100px;
 }
+.home-middle-block-materials-block-button:hover,
+.home-middle-block-share-question-block-button:hover,
+.home-menu-block .menu .menu-item.log-in-button:hover,
+.home-head-content-left-share-question-button:hover {
+    background-color: #415c85;
+}
 .home-menu-block .menu .menu-item.sign-in-button {
     width: 126px;
     height: 53.56px;
     background: #F7B631;
     border-radius: 45px;
+}
+.home-middle-block-email-form-block-button:hover,
+.home-menu-block .menu .menu-item.sign-in-button:hover,
+.home-head-content-left-start-quiz-button:hover{
+    background-color: #f3c86f;
 }
 #logout-form {
     display: none;
@@ -104,25 +115,28 @@
     position: relative;
 }
 .home-head-content-left-first-rectangle {
-    left: -20px;
+    width: 541px;
+    left: 65px;
     z-index: 1;
 }
 .home-head-content-left-second-rectangle {
+    width: 540px;
     top: -35px;
+    left: 85px;
 }
 .home-head-content-left-first-rectangle div {
     font-size: 50px;
     color: #FFFFFF;
     position: absolute;
     top: 15px;
-    left: 250px;
+    width: 100%;
 }
 .home-head-content-left-second-rectangle div {
     font-size: 40px;
     color: #FFFFFF;
     position: absolute;
     top: 30px;
-    left: 250px;
+    width: 100%;
 }
 .home-head-content-left-text-block p {
     width: 440px;
@@ -202,6 +216,7 @@
     line-height: 32px;
 }
 .home-middle-block .home-middle-block-button {
+    text-decoration: none;
     color: #FFFFFF;
     margin-top: -100px;
     margin-right: 117px;
@@ -217,19 +232,22 @@
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 29px;
+    line-height: 25px;
 }
 .home-middle-block-jobs-list {
     margin: 80px auto;
-    display: table;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .home-middle-block-jobs-list-item {
     color: #FFFFFF;
     width: 380px;
     height: 460px;
     float: left;
-    margin-right: 43px;
-    margin-bottom: 43px;
+    margin: 0 21px 43px;
     border-radius: 10px;
     padding: 42px 34px;
     position: relative;
@@ -391,7 +409,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
-    line-height: 32px;
+    line-height: 27px;
     color: #FFFFFF;
 }
 .home-middle-block-lectures-block-list {
@@ -400,13 +418,15 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 }
 .home-middle-block-lectures-block-list-item {
     width: 590px;
     height: 340px;
     color: #FFFFFF;
     float: left;
-    margin-top: 47px;
+    margin: 47px 21px 0px;
     position: relative;
 }
 .home-middle-block-lectures-block-list-item.lecture-card-0 {
@@ -424,9 +444,6 @@
 .home-middle-block-lectures-block-list-item.lecture-card-3 {
     background: url("../../images/home/lecture-card-3.svg") no-repeat;
     background-size: 100%;
-}
-.home-middle-block-lectures-block-list-item:nth-child(2n+1) {
-    margin-right: 45px;
 }
 .home-middle-block-lectures-block-list-item-play-icon {
     position: absolute;
@@ -659,7 +676,10 @@
     margin-top: 156px;
     text-align: center;
 }
-
 .home-head-content-screen {
     overflow: hidden;
+}
+.home-middle-block-lectures-block-button:hover,
+.home-middle-block-button:hover {
+    background-color: #3c485a;
 }

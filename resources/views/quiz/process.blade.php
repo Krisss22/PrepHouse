@@ -2,7 +2,7 @@
 
 @section('content')
     @include('layouts.part.user_menu')
-    <div class="main-content">
+    <div class="main-content quiz-process-main-content">
         <div class="quiz-process-left-block" data-quiz-action-id="{{ $quizAction->id }}">
             <div class="quiz-process-back-button"><a href="{{ route('quizzes-list') }}"><span>&#8592;</span> BACK TO OCCUPATION</a></div>
             <div class="quiz-process-job-title">JOB TITLE</div>
