@@ -672,10 +672,13 @@
 .home-middle-block-feedback-block-left-text-list-item.active {
     display: block;
 }
-.home-middle-block-how-it-work-block {
+div.home-middle-block-how-it-work-block {
     margin-top: 156px;
     width: 100%;
     text-align: center;
+}
+div.home-middle-block-how-it-work-block img {
+    max-width: 100%;
 }
 .home-head-content-screen {
     overflow: hidden;
