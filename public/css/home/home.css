@@ -304,7 +304,7 @@
     bottom: 36px;
 }
 .home-middle-block-share-question-block {
-    min-width: 1224px;
+    max-width: 100%;
     min-height: 615px;
     background-color: #1C3A67;
     width: 1224px;
@@ -674,6 +674,7 @@
 }
 .home-middle-block-how-it-work-block {
     margin-top: 156px;
+    max-width: 100%;
     text-align: center;
 }
 .home-head-content-screen {
