@@ -441,6 +441,7 @@
     box-shadow: 0 10px 20px rgba(67, 104, 178, 0.0544611);
     border-radius: 2px;
     height: 75px;
+    width: 800px;
 }
 
 .quiz-process-navigations-block-button-prev,
@@ -468,4 +469,23 @@
 .quiz-process-navigations-block-button-next {
     float: right;
     margin-right: 31px;
+}
+
+@media screen and (max-width: 1366px) {
+    .quiz-process-right-block {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 1260px) {
+    .quiz-process-right-block {
+        float: none;
+        margin: 25px auto 35px;
+    }
+    .quiz-process-progress-block {
+        float: left;
+        width: 800px;
+        clear: both;
+        margin-bottom: 25px;
+    }
 }
