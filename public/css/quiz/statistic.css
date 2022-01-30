@@ -493,3 +493,94 @@
 .quiz-statistic-diagram-value span {
     color: #A3A6B5;
 }
+
+.main-content-statistic-example {
+    width: 100%;
+    background-color: #edeff2;
+}
+
+.statistic-example {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+.statistic-authorization {
+    width: 50%;
+    float: right;
+    background-color: #fff;
+}
+
+.statistic-authorization-block {
+    margin: 90px auto 130px;
+    width: fit-content;
+}
+
+.statistic-authorization-title {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 35px;
+    color: #494A50;
+    width: 340px;
+}
+
+.statistic-authorization-description {
+    margin-top: 15px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    color: #494A50;
+    opacity: 0.8;
+    width: 300px;
+}
+
+.statistic-authorization-block form {
+    margin-top: 50px;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.statistic-authorization-block form .form-row {
+    margin: 29px 0 0;
+    width: 100%;
+}
+
+/*body .statistic-authorization-block form .form-row .auth-page-sign-up-form-name-block input,*/
+/*body .statistic-authorization-block form .form-row .auth-page-sign-up-form-surname-block input {*/
+/*    width: 200px;*/
+/*}*/
+
+.statistic-authorization-block form .form-row label {
+    color: black;
+    padding-left: 0px;
+}
+
+.statistic-authorization-block .auth-page-sign-up-form-name-block,
+.statistic-authorization-block .auth-page-sign-up-form-surname-block {
+    max-width: 220px;
+}
+
+.statistic-authorization-block form .form-row input[type="text"],
+.statistic-authorization-block form .form-row input[type="email"],
+.statistic-authorization-block form .form-row input[type="password"] {
+    color: black;
+    background-color: #F7F8FA;
+    width: calc(100% - 40px);
+}
+
+.statistic-authorization-block form .form-row input:checked + label:before {
+    margin-left: 3px;
+}
+
+body .statistic-authorization-block form .form-row.auth-page-form-other-info-block {
+    color: black;
+    width: 100%;
+}
+
+.statistic-authorization-login-link {
+    color: #F7B631;
+    text-decoration: none;
+}

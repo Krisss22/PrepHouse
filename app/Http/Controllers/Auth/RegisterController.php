@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\QuizAction;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Exception;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -47,7 +50,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -61,17 +64,38 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
+     * @return User
+     * @throws Exception
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
-        return User::create([
+        $newUser = User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'job_title' => $data['job_title'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        try {
+            session_start();
+            if (isset($_SESSION['unlogged_quizzes_id']) && is_array($_SESSION['unlogged_quizzes_id'])) {
+                foreach ($_SESSION['unlogged_quizzes_id'] as $quizId) {
+                    QuizAction::findOrFail($quizId)->update([
+                        'user_id' => $newUser->id
+                    ]);
+                    $this->redirectTo = route('quiz-statistic', [
+                        'quizActionId' => $quizId,
+                    ]);
+                }
+                unset($_SESSION['unlogged_quizzes_id']);
+            }
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+            throw $exception;
+        }
+
+        return $newUser;
     }
 }

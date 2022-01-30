@@ -129,6 +129,15 @@ class QuizzesController extends Controller
 
         $quizAction = QuizAction::create($quizActionFields);
 
+        if (!Auth::check()) {
+            session_start();
+            if (isset($_SESSION['unlogged_quizzes_id']) && is_array($_SESSION['unlogged_quizzes_id'])) {
+                $_SESSION['unlogged_quizzes_id'][] = $quizAction->id;
+            } else {
+                $_SESSION['unlogged_quizzes_id'] = [$quizAction->id];
+            }
+        }
+
         return redirect('/quiz/' . $quizAction->id);
     }
 
@@ -261,6 +270,12 @@ class QuizzesController extends Controller
 
     public function statistic($quizActionId) {
         $quizAction = QuizAction::findOrFail($quizActionId);
+
+        if ($quizAction->user_id === null) {
+            return view('quiz/statistic/unloggedStatistic', [
+                'quizAction' => $quizAction,
+            ]);
+        }
 
         return view('quiz/statistic/statistic', [
             'quizAction' => $quizAction,
