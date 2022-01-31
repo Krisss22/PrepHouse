@@ -3,15 +3,18 @@
 namespace App\Models;
 
 use App\Services\Quiz\QuizData;
+use App\Services\Quiz\QuizService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @method static create(array $array)
  * @method static findOrFail()
  * @method static where()
  * @method static select(string $string)
+ * @method static find(int $unloggedQuizActionId)
  * @property mixed $finished
  * @property mixed $data
  */
@@ -55,13 +58,19 @@ class QuizAction extends Model
         return $this->created_at->format('M d, Y');
     }
 
-    static public function getLastUserQuiz()
+    static public function getLastUserQuizById(int $quizId)
     {
-        return self::query()
-            ->where('user_id', 1)
+        $query = self::query()
+            ->select('quiz_action.*', 'quizzes.id as quizzes_id')
+            ->leftJoin('quizzes', 'quiz_action.quiz_id', '=', 'quizzes.id')
+            ->where('quizzes.id', $quizId)
             ->where('finished', 0)
-            ->orderByDesc('id')
-            ->first();
+            ->orderByDesc('quiz_action.id');
+
+        return Auth::check() ?
+            $query->where('user_id', Auth::user()->id)->first()
+            :
+            $query->whereIn('quiz_action.id', QuizService::getUnloggedQuizActionIds())->first();
     }
 
     static public function getAllUserQuizzesQuery($userId, $finished = false): \Illuminate\Database\Eloquent\Builder

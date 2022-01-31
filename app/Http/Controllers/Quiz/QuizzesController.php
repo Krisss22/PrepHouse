@@ -8,6 +8,7 @@ use App\Models\QuestionsBank;
 use App\Models\Quiz;
 use App\Models\QuizAction;
 use App\Services\Quiz\QuizData;
+use App\Services\Quiz\QuizService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,13 +42,33 @@ class QuizzesController extends Controller
                 ) as quiz_action_data')
             ];
         } else {
-            $additionalRawQueries = [
-                DB::raw("null as quiz_action_finished"),
-                DB::raw("null as quiz_action_data")
-            ];
+            $unloggedQuizActionIds = QuizService::getUnloggedQuizActionIds();
+            if (count($unloggedQuizActionIds) > 0) {
+                $additionalRawQueries = [
+                    DB::raw('(
+                    SELECT quiz_action.finished
+                    FROM quiz_action
+                    WHERE quiz_action.quiz_id = quizzes.id
+                        AND quiz_action.id IN (' . implode(', ', $unloggedQuizActionIds) . ')
+                    ORDER BY quiz_action.id DESC
+                    LIMIT 1
+                ) as quiz_action_finished'),
+                    DB::raw('(
+                    SELECT quiz_action.data
+                    FROM quiz_action
+                    WHERE quiz_action.quiz_id = quizzes.id
+                        AND quiz_action.id IN (' . implode(', ', $unloggedQuizActionIds) . ')
+                    ORDER BY quiz_action.id DESC
+                    LIMIT 1
+                ) as quiz_action_data')
+                ];
+            } else {
+                $additionalRawQueries = [
+                    DB::raw("null as quiz_action_finished"),
+                    DB::raw("null as quiz_action_data")
+                ];
+            }
         }
-
-
 
         $quizzesList = Quiz::query()
             ->select([
@@ -80,7 +101,7 @@ class QuizzesController extends Controller
 
     protected function runQuiz(int $quizId)
     {
-        $userQuizAction = QuizAction::getLastUserQuiz();
+        $userQuizAction = QuizAction::getLastUserQuizById($quizId);
         if (isset($userQuizAction) && !$userQuizAction->isFinished()) {
             return redirect('/quiz/' . $userQuizAction->id);
         }
@@ -130,12 +151,7 @@ class QuizzesController extends Controller
         $quizAction = QuizAction::create($quizActionFields);
 
         if (!Auth::check()) {
-            session_start();
-            if (isset($_SESSION['unlogged_quizzes_id']) && is_array($_SESSION['unlogged_quizzes_id'])) {
-                $_SESSION['unlogged_quizzes_id'][] = $quizAction->id;
-            } else {
-                $_SESSION['unlogged_quizzes_id'] = [$quizAction->id];
-            }
+            QuizService::addUnloggedQuizActionId($quizAction->id);
         }
 
         return redirect('/quiz/' . $quizAction->id);

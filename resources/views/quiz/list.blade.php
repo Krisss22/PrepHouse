@@ -4,7 +4,9 @@
     @include('layouts.part.user_menu')
     <div class="main-content">
         <div class="quiz-section-title">Choose a desired occupation</div>
-        <a href="{{ route('quiz-statistic-list') }}" class="quiz-section-history-button">History</a>
+        @if(Auth::check())
+            <a href="{{ route('quiz-statistic-list') }}" class="quiz-section-history-button">History</a>
+        @endif
         <div class="quiz-item-list">
             @foreach($quizzesList as $quiz)
             <div class="quiz-item-list-item {{ $quiz->processStatusClass }}">

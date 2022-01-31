@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\QuizAction;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Services\Quiz\QuizService;
 use Exception;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -78,22 +77,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        try {
-            session_start();
-            if (isset($_SESSION['unlogged_quizzes_id']) && is_array($_SESSION['unlogged_quizzes_id'])) {
-                foreach ($_SESSION['unlogged_quizzes_id'] as $quizId) {
-                    QuizAction::findOrFail($quizId)->update([
-                        'user_id' => $newUser->id
-                    ]);
-                    $this->redirectTo = route('quiz-statistic', [
-                        'quizActionId' => $quizId,
-                    ]);
-                }
-                unset($_SESSION['unlogged_quizzes_id']);
-            }
-        } catch (Exception $exception) {
-            Log::error($exception->getMessage());
-            throw $exception;
+        $lastUnloggedQuizId = QuizService::getLastUnloggedQuizActionId();
+        if (isset($lastUnloggedQuizId)) {
+            QuizService::attachUserForQuizActions($newUser->id);
+            $this->redirectTo = route('quiz-statistic', [
+                'quizActionId' => $lastUnloggedQuizId,
+            ]);
         }
 
         return $newUser;
