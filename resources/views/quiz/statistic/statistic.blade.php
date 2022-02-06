@@ -57,11 +57,14 @@
                                     cross
                                 @endif
                             ">
+                                <div class="quiz-statistic-content-graph-item-line-progress" style="width: {{ $quizActionData->getCorrectAnsweredPercent($tagId) }}%;"></div>
                                 <div class="quiz-statistic-content-graph-item-label">{{ $tag }}</div>
                                 <div class="quiz-statistic-content-graph-item-percent">{{ $quizActionData->getCorrectAnsweredPercent($tagId) }}%</div>
                             </div>
                         </div>
                     @endforeach
+                    <div class="quiz-statistic-content-graph-item-border quiz-statistic-content-graph-item-almost-border"></div>
+                    <div class="quiz-statistic-content-graph-item-border quiz-statistic-content-graph-item-ready-border"></div>
                 </div>
             </div>
         </div>

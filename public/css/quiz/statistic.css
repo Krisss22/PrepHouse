@@ -397,21 +397,25 @@
 }
 
 .quiz-statistic-content-graph-item-line {
-    margin-left: 30px;
+    margin-left: 20px;
     width: calc(100% - 30px);
-    padding: 0 10px;
     height: 100%;
     mix-blend-mode: normal;
     border-radius: 2px;
+    position: relative;
 }
 
-.quiz-statistic-content-graph-item-line.check {
+.quiz-statistic-content-graph-item-line .quiz-statistic-content-graph-item-line-progress{
+    height: inherit;
+    position: absolute;
+}
+.quiz-statistic-content-graph-item-line.check .quiz-statistic-content-graph-item-line-progress {
     background-color: #2FB577;
 }
-.quiz-statistic-content-graph-item-line.oval {
+.quiz-statistic-content-graph-item-line.oval .quiz-statistic-content-graph-item-line-progress {
     background-color: #FAC535;
 }
-.quiz-statistic-content-graph-item-line.cross {
+.quiz-statistic-content-graph-item-line.cross .quiz-statistic-content-graph-item-line-progress {
     background-color: #fed8d8;
 }
 
@@ -457,6 +461,8 @@
     color: #494A50;
     float: left;
     margin-top: 5px;
+    margin-left: 10px;
+    position: inherit;
 }
 
 .quiz-statistic-content-graph-item-percent {
@@ -470,6 +476,7 @@
     opacity: 0.7;
     margin-left: 10px;
     margin-top: 5px;
+    position: inherit;
 }
 
 .quiz-statistic-diagram {
@@ -548,11 +555,6 @@
     width: 100%;
 }
 
-/*body .statistic-authorization-block form .form-row .auth-page-sign-up-form-name-block input,*/
-/*body .statistic-authorization-block form .form-row .auth-page-sign-up-form-surname-block input {*/
-/*    width: 200px;*/
-/*}*/
-
 .statistic-authorization-block form .form-row label {
     color: black;
     padding-left: 0px;
@@ -583,4 +585,27 @@ body .statistic-authorization-block form .form-row.auth-page-form-other-info-blo
 .statistic-authorization-login-link {
     color: #F7B631;
     text-decoration: none;
+}
+
+.quiz-statistic-content-graph-item-border {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    opacity: 0.2;
+}
+
+.quiz-statistic-content-graph-item-almost-border {
+    right: calc(30% + 2px);
+    background: repeating-linear-gradient(0deg, #F5BA26, #F5BA26 4px, #FFF 4px, #FFF 7px);
+}
+
+.quiz-statistic-content-graph-item-ready-border {
+    right: 0px;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, #2FB577, #2FB577 4px, #FFF 4px, #FFF 7px);
+}
+
+.quiz-statistic-content-graph-block {
+    position: relative;
 }
