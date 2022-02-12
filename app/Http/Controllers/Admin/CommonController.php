@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CommonController extends AdminController
 {
 
-    protected $sectionName = 'common';
+    protected string $sectionName = 'common';
 
     public function index()
     {

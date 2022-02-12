@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class TopicController extends AdminController
 {
-    protected $sectionName = 'topics';
+    protected string $sectionName = 'topics';
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View

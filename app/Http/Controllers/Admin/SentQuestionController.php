@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SentQuestionController extends AdminController
 {
 
-    protected $sectionName = 'sent-questions';
+    protected string $sectionName = 'sent-questions';
 
     public function index()
     {

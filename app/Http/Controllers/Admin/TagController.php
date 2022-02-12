@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TagController extends AdminController
 {
-    protected $sectionName = 'tags';
+    protected string $sectionName = 'tags';
 
     public function index()
     {

@@ -22,7 +22,7 @@ class AccountController extends Controller
 
     public function profile()
     {
-        return view('account/profile', []);
+        return $this->view('account/profile', []);
     }
 
     public function profileSave(Request $request)
@@ -65,7 +65,7 @@ class AccountController extends Controller
 
     public function password()
     {
-        return view('account/password', []);
+        return $this->view('account/password', []);
     }
 
     public function passwordSave(Request $request)
@@ -84,7 +84,7 @@ class AccountController extends Controller
             }
 
             if (count($errorsArray) > 0) {
-                return view('account/password')->withErrors($errorsArray);
+                return $this->view('account/password')->withErrors($errorsArray);
             }
 
             $isUpdated = Auth::user()->update([
@@ -101,7 +101,7 @@ class AccountController extends Controller
 
     public function notifications()
     {
-        return view('account/notifications', []);
+        return $this->view('account/notifications', []);
     }
 
     public function notificationsSave(Request $request): \Illuminate\Http\JsonResponse

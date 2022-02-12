@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class StatisticController extends AdminController
 {
 
-    protected $sectionName = 'statistics';
+    protected string $sectionName = 'statistics';
 
     public function index()
     {

@@ -1,0 +1,54 @@
+.main-content-strategies {
+    padding-left: 0px;
+    width: calc(100% - 100px);
+}
+
+.strategies-section-block {
+    max-width: 600px;
+    margin: 85px auto;
+}
+
+.strategies-section-block .strategies-section-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 53px;
+    color: #494A50;
+    margin-bottom: 45px;
+}
+
+.strategies-section-block .strategies-common-block {
+    width: auto;
+    background-color: #fff;
+    box-shadow: 0px 10px 20px rgba(67, 104, 178, 0.0544611);
+    border-radius: 2px;
+    padding: 50px;
+}
+
+.strategies-section-block .strategies-first-title,
+.strategies-section-block .strategies-second-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    color: #494A50;
+    margin-bottom: 20px;
+}
+
+.strategies-section-block .strategies-video-block {
+    margin-bottom: 40px;
+}
+
+.strategies-section-block .strategies-video-block frame .html5-video-player .ytp-gradient-top,
+.strategies-section-block .strategies-video-block frame .html5-video-player .ytp-show-cards-title {
+    display: none;
+}
+
+.strategies-section-block .strategies-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 29px;
+    color: #494A50;
+}

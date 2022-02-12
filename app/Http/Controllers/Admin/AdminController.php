@@ -10,8 +10,6 @@ class AdminController extends Controller
     public const ACTION_CREATE = 'create';
     public const ACTION_EDIT = 'edit';
 
-    protected $sectionName = '';
-
     /**
      * AdminController constructor.
      */

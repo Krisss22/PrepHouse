@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class QuestionsBankController extends AdminController
 {
 
-    protected $sectionName = 'questions';
+    protected string $sectionName = 'questions';
 
     /**
      * @param Request $request

@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::any('/share-question', [App\Http\Controllers\HomeController::class, 'shareQuestion'])->name('share-question');
 
+Route::any('/strategies', [App\Http\Controllers\Strategies\StrategiesController::class, 'index'])->name('strategies');
+
 Route::any('/quizzes-list', [App\Http\Controllers\Quiz\QuizzesController::class, 'index'])->name('quizzes-list');
 Route::get('/quiz/run/{quizId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'runQuiz'])->name('quiz-run');
 Route::get('/quiz/{quizActionId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'processQuiz'])->name('quiz-process');

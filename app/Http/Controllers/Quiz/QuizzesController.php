@@ -94,7 +94,7 @@ class QuizzesController extends Controller
             }
         }
 
-        return view('quiz/list', [
+        return $this->view('quiz/list', [
             'quizzesList' => $quizzesList
         ]);
     }
@@ -173,7 +173,7 @@ class QuizzesController extends Controller
             }
         }
 
-        return view('quiz/process', [
+        return $this->view('quiz/process', [
             'quizAction' => $quizAction,
             'quizActionData' => $quizActionData,
             'currentQuestion' => $currentQuestion,
@@ -279,7 +279,7 @@ class QuizzesController extends Controller
     }
 
     public function statisticList() {
-        return view('quiz/statistic/list', [
+        return $this->view('quiz/statistic/list', [
             'statisticItemsList' => QuizAction::getAllUserQuizzesQuery(Auth::user()->id, 1)->paginate(self::ITEM_ON_PAGE)
         ]);
     }
@@ -288,12 +288,12 @@ class QuizzesController extends Controller
         $quizAction = QuizAction::findOrFail($quizActionId);
 
         if ($quizAction->user_id === null) {
-            return view('quiz/statistic/unloggedStatistic', [
+            return $this->view('quiz/statistic/unloggedStatistic', [
                 'quizAction' => $quizAction,
             ]);
         }
 
-        return view('quiz/statistic/statistic', [
+        return $this->view('quiz/statistic/statistic', [
             'quizAction' => $quizAction,
             'quizActionData' => $quizAction->getData()
         ]);

@@ -14,4 +14,14 @@ class Controller extends BaseController
     protected const ITEM_ON_PAGE = 15;
     protected const RESPONSE_STATUS_SUCCESS = 'success';
     protected const RESPONSE_STATUS_ERROR = 'error';
+    protected string $sectionName = '';
+
+    protected function view(string $view, array $params = [])
+    {
+        if ($this->sectionName !== '') {
+            $params['sectionName'] = $this->sectionName;
+        }
+
+        return view($view, $params);
+    }
 }
