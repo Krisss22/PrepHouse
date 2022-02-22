@@ -1,0 +1,147 @@
+.main-content-study {
+    padding-left: 0px;
+    width: calc(100% - 100px);
+}
+
+.study-search-block {
+    height: 50px;
+    background: #F7F8FA;
+    border: 1px solid #E7E9ED;
+}
+
+.study-search-block img {
+    margin-left: 30px;
+    margin-top: 13px;
+    float: left;
+}
+
+.study-search-block input {
+    height: 85%;
+    border: 0px;
+    background-color: inherit;
+    margin-left: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #9B9FA9;
+}
+
+.study-search-block input:focus-visible {
+    outline: none;
+}
+
+.study-section-title {
+    margin: 70px 60px 50px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 53px;
+    color: #494A50;
+}
+
+.study-topics-list {
+    margin-left: 60px;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.study-topic-item {
+    width: 350px;
+    height: 120px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 8px 10px #F0F2F5;
+    border-radius: 3px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+    position: relative;
+}
+
+.study-topic-item-progress-block {
+    width: 40px;
+    height: 100%;
+    float: left;
+    margin-right: 20px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    place-content: flex-start;
+}
+
+.study-topic-item-progress-item {
+    width: 10px;
+    height: 8px;
+    margin-right: 3px;
+    margin-bottom: 4px;
+    background-color: #EAEDF2;
+    border-radius: 2px;
+}
+
+.study-topic-item-progress-item.watched {
+    background-color: #5EA66E;
+}
+
+.study-topic-item-under-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #424242;
+    opacity: 0.5;
+}
+
+.study-topic-item-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+    color: #F5BA26;
+}
+
+.study-topic-item-materials-count {
+    position: absolute;
+    bottom: 40px;
+    left: 85px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 28px;
+    color: #494A50;
+}
+
+.study-topic-item-materials-text {
+    position: absolute;
+    bottom: 25px;
+    left: 85px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #525252;
+    opacity: 0.3;
+}
+
+.study-topic-item-button {
+    border: 1px solid #4780D8;
+    box-sizing: border-box;
+    border-radius: 28px;
+    width: 115px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #4780D8;
+    line-height: 35px;
+    position: absolute;
+    right: 15px;
+    bottom: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.study-topic-item-button:hover {
+    background-color: #4780D8;
+    color: #FFFFFF;
+}

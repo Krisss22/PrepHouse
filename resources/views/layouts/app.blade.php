@@ -19,6 +19,7 @@
     <link href="{{ asset('css/share_question/share_question.css') }}" rel="stylesheet">
     <link href="{{ asset('css/account/account.css') }}" rel="stylesheet">
     <link href="{{ asset('css/strategies/strategies.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/study/study.css') }}" rel="stylesheet">
 </head>
 <body data-home-page="PrepHouse.html" data-home-page-title="PrepHouse" class="u-body">
     <div id="app">
