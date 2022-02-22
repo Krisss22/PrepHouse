@@ -84,7 +84,7 @@ function loadJson(jsonUrl, jsonName) {
         return;
     }
 
-    searchSelectElementJsons[jsonName] = sendQuestionAjax(jsonUrl);
+    searchSelectElementJsons[jsonName] = sendRequest('GET', jsonUrl);
 }
 
 function createSelectElements(element) {
@@ -94,7 +94,7 @@ function createSelectElements(element) {
 
     let searchSelectResultsElement = element.querySelector('.search-select-results');
 
-    searchSelectElementJsons[element.dataset.jsonName].length > 0 && searchSelectElementJsons[element.dataset.jsonName].forEach((item) => {
+    searchSelectElementJsons[element.dataset.jsonName] && searchSelectElementJsons[element.dataset.jsonName].length > 0 && searchSelectElementJsons[element.dataset.jsonName].forEach((item) => {
         let divSelectItemElement = document.createElement('div');
         divSelectItemElement.classList.add('search-select-results-item');
         divSelectItemElement.classList.add('search-select-results-item-hidden');
