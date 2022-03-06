@@ -9,7 +9,7 @@ function sendRequest(method = 'GET', url, data = {}, async = false, successCallb
     xhr.onreadystatechange = function (event) {
         if (this.readyState !== 4) return;
 
-        resultData = JSON.parse(this.responseText);
+        resultData = isJsonString(this.responseText) ? JSON.parse(this.responseText) : null;
         if (this.status === 200) {
             if (successCallbackFunction) {
                 successCallbackFunction();
@@ -35,27 +35,14 @@ function sendRequest(method = 'GET', url, data = {}, async = false, successCallb
     return resultData;
 }
 
-// function sendQuestionAjax(url, method = "GET", formData = null) {
-//     let result = [];
-//
-//     $.ajax({
-//         type: method,
-//         url: url,
-//         data: formData,
-//         processData: false,
-//         contentType: false,
-//         dataType: "json",
-//         async: false,
-//         success: function(data) {
-//             result = data;
-//         },
-//         error: function(data) {
-//             result = data;
-//         }
-//     });
-//
-//     return result;
-// }
+function isJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 
 function startLoadingSpinnerAnimation() {
     if (document.querySelector('.loading-spinner-block')) {
