@@ -84,7 +84,6 @@ class QuizData
     {
         $successfulAnswers = 0;
         foreach ($this->questions as $question) {
-//            dd($question);
             if ($tagId > 0 && $question->tagId !== $tagId) {
                 continue;
             }

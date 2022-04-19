@@ -19,7 +19,14 @@ Route::any('/share-question', [App\Http\Controllers\HomeController::class, 'shar
 
 Route::get('/strategies', [App\Http\Controllers\Strategies\StrategiesController::class, 'index'])->name('strategies');
 
-Route::get('/study', [App\Http\Controllers\Study\StudyController::class, 'index'])->name('study');
+Route::group(['prefix' => 'study'], function () {
+    Route::get('/', [App\Http\Controllers\Study\StudyController::class, 'index'])->name('study');
+    Route::get('/topic-materials/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'topicMaterialsList'])->name('topic-materials');
+    Route::get('/videos/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'videosList'])->name('videos');
+    Route::get('/books/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'booksList'])->name('books');
+    Route::get('/materials/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'materialsList'])->name('materials');
+    Route::get('/sites/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'sitesList'])->name('sites');
+});
 
 Route::any('/quizzes-list', [App\Http\Controllers\Quiz\QuizzesController::class, 'index'])->name('quizzes-list');
 Route::get('/quiz/run/{quizId}', [App\Http\Controllers\Quiz\QuizzesController::class, 'runQuiz'])->name('quiz-run');
@@ -40,7 +47,7 @@ Route::group(['prefix' => 'account'], function () {
     Route::post('/notifications/save', [App\Http\Controllers\Account\AccountController::class, 'notificationsSave'])->name('account-notifications-save');
 });
 
-// Admin routs
+// -------------------- Admin routs --------------------
 Route::group(['prefix' => 'admin'], function () {
     Route::any('/', [App\Http\Controllers\Admin\StatisticController::class, 'index']);
 });
@@ -51,6 +58,31 @@ Route::group(['prefix' => 'admin/statistics'], function () {
 
 Route::group(['prefix' => 'admin/common'], function () {
     Route::get('/', [App\Http\Controllers\Admin\CommonController::class, 'index']);
+});
+
+Route::group(['prefix' => 'admin/study'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\StudyController::class, 'index']);
+
+    Route::get('list/{topicId}/videos', [App\Http\Controllers\Admin\StudyController::class, 'videos'])->name('admin-study-videos');
+    Route::any('list/{topicId}/video/create', [App\Http\Controllers\Admin\StudyController::class, 'createVideo'])->name('admin-study-create-video');
+    Route::any('list/video/{videoId}/edit', [App\Http\Controllers\Admin\StudyController::class, 'editVideo'])->name('admin-study-edit-video');
+    Route::get('list/video/{videoId}/remove', [App\Http\Controllers\Admin\StudyController::class, 'deleteVideo'])->name('admin-study-remove-video');
+
+    Route::get('list/{topicId}/books', [App\Http\Controllers\Admin\StudyController::class, 'books'])->name('admin-study-books');
+    Route::any('list/{topicId}/book/create', [App\Http\Controllers\Admin\StudyController::class, 'createBook'])->name('admin-study-create-book');
+    Route::any('list/book/{videoId}/edit', [App\Http\Controllers\Admin\StudyController::class, 'editBook'])->name('admin-study-edit-book');
+    Route::get('list/book/{videoId}/remove', [App\Http\Controllers\Admin\StudyController::class, 'deleteBook'])->name('admin-study-remove-book');
+
+    Route::get('list/{topicId}/materials', [App\Http\Controllers\Admin\StudyController::class, 'materials'])->name('admin-study-materials');
+    Route::any('list/{topicId}/material/create', [App\Http\Controllers\Admin\StudyController::class, 'createMaterial'])->name('admin-study-create-material');
+    Route::any('list/material/{videoId}/edit', [App\Http\Controllers\Admin\StudyController::class, 'editMaterial'])->name('admin-study-edit-material');
+    Route::get('list/material/{videoId}/remove', [App\Http\Controllers\Admin\StudyController::class, 'deleteMaterial'])->name('admin-study-remove-material');
+
+    Route::get('list/{topicId}/sites', [App\Http\Controllers\Admin\StudyController::class, 'sites'])->name('admin-study-sites');
+    Route::any('list/{topicId}/site/create', [App\Http\Controllers\Admin\StudyController::class, 'createSite'])->name('admin-study-create-site');
+    Route::any('list/site/{videoId}/edit', [App\Http\Controllers\Admin\StudyController::class, 'editSite'])->name('admin-study-edit-site');
+    Route::get('list/site/{videoId}/remove', [App\Http\Controllers\Admin\StudyController::class, 'deleteSite'])->name('admin-study-remove-site');
+
 });
 
 Route::group(['prefix' => 'admin/questions'], function () {

@@ -48,7 +48,7 @@
     </form>
 
     <a href="/admin/quizzes/list" type="button" class="btn btn-primary">Back</a>
-    @if($action === \App\Http\Controllers\Admin\QuizController::ACTION_EDIT)
+    @if($action === \App\Http\Controllers\Admin\AdminController::ACTION_EDIT)
         <button type="submit" value="Update" form="edit-quiz-form" class="btn btn-success">Update</button>
         <a href="/admin/quizzes/delete/{{ $quiz->id }}}" class="btn btn-danger">Delete</a>
     @else
