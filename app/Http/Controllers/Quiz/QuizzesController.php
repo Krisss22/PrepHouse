@@ -132,6 +132,10 @@ class QuizzesController extends Controller
             }
         }
 
+        if (count($questionsArray) <= 0) {
+            return redirect('quizzes-list');
+        }
+
         $quizArray = [
             'name' => $quiz->name,
             'tags' => $tagsArray,
