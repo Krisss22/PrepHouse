@@ -35,9 +35,10 @@
                         <div class="quiz-process-question-block-answers-block-item {{ $currentQuestion->isAnswerSelected($answerId) ? 'active' : '' }}" data-answer-id="{{ $answerId }}">
                             <div class="quiz-process-question-block-answers-block-item-numbering">{{ $answer->getHumanId() }}</div>
                             @if($answer->image)
-                                <div class="quiz-process-question-block-answers-block-item-option"><img src="{{ $answer->getOption() }}"></div>
-                            @else
-                                <div class="quiz-process-question-block-answers-block-item-option">{{ $answer->getOption() }}</div>
+                                <div class="quiz-process-question-block-answers-block-item-option"><img src="{{ $answer->getOption('image') }}"></div>
+                            @endif
+                            @if($answer->text)
+                                <div class="quiz-process-question-block-answers-block-item-option">{{ $answer->getOption('text') }}</div>
                             @endif
                         </div>
                     @endforeach

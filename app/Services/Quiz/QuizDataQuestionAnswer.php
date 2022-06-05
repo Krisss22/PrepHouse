@@ -3,6 +3,7 @@
 namespace App\Services\Quiz;
 
 use App\Models\Answer;
+use Exception;
 
 class QuizDataQuestionAnswer
 {
@@ -42,18 +43,20 @@ class QuizDataQuestionAnswer
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function getOption(): string
+    public function getOption($optionsType): string
     {
-        if (isset($this->text)) {
-            return $this->text;
+        if (isset($this->{$optionsType})) {
+            if ($optionsType === 'text') {
+                return $this->text;
+            }
+            if ($optionsType === 'image') {
+                return $this->imageFile ? 'data:image/png;base64, ' . $this->imageFile : storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $this->image;
+            }
+            throw new Exception('Undefined optionsType');
         }
 
-        if (isset($this->image)) {
-            return $this->imageFile ? 'data:image/png;base64, ' . $this->imageFile : storage_path('app/public/' . Answer::IMAGES_PATH . '/' . $this->image);
-        }
-
-        throw new \Exception('Text and image are null in answer ' . $this->id);
+        throw new Exception('Text and image are null in answer ' . $this->id);
     }
 }

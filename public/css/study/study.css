@@ -209,6 +209,11 @@
     cursor: pointer;
 }
 
+.study-materials-item-video-thumbnail img {
+    width: 380px;
+    height: 175px;
+}
+
 .study-materials-item-video-title {
     margin-top: 20px;
     padding: 0 20px;

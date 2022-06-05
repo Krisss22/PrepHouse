@@ -117,7 +117,7 @@ class QuizzesController extends Controller
                 foreach ($question->answers as $answer) {
                     $answers[] = [
                         'image' => $answer->image,
-                        'imageFile' => $answer->image ? base64_encode(file_get_contents(storage_path('app/public/' . Answer::IMAGES_PATH . '/' . $answer->image))) : null,
+                        'imageFile' => $answer->image && file_exists(storage_path('app/public/' . Answer::IMAGES_PATH . '/' . $answer->image)) ? base64_encode(file_get_contents(storage_path('app/public/' . Answer::IMAGES_PATH . '/' . $answer->image))) : null,
                         'text' => $answer->text,
                         'correct' => (bool) $answer->correct,
                     ];
@@ -282,13 +282,15 @@ class QuizzesController extends Controller
         return redirect('/quiz/statistic/' . $quizActionId);
     }
 
-    public function statisticList() {
+    public function statisticList()
+    {
         return $this->view('quiz/statistic/list', [
             'statisticItemsList' => QuizAction::getAllUserQuizzesQuery(Auth::user()->id, 1)->paginate(self::ITEM_ON_PAGE)
         ]);
     }
 
-    public function statistic($quizActionId) {
+    public function statistic($quizActionId)
+    {
         $quizAction = QuizAction::findOrFail($quizActionId);
 
         if ($quizAction->user_id === null) {

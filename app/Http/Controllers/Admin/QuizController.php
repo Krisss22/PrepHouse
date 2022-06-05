@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Quiz;
+use App\Models\QuizAction;
 use App\Models\QuizTag;
+use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class QuizController extends AdminController
 {
@@ -129,6 +133,20 @@ class QuizController extends AdminController
         Quiz::findOrFail($id)->delete();
 
         return redirect('/admin/quizzes/list');
+    }
+
+    /**
+     * @param $tagId
+     * @return JsonResponse
+     */
+    public function getAllTagQuestionsCount($tagId): JsonResponse
+    {
+        $tag = Tag::findOrFail($tagId);
+
+        return Response::json([
+            'status' => self::RESPONSE_STATUS_SUCCESS,
+            'questionsCount' => count($tag->questions),
+        ]);
     }
 
 }

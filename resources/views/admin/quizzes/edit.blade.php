@@ -30,7 +30,7 @@
         <div class="quiz-tag-block">
             @foreach($quiz->quizTags as $quizTag)
                 <div class="quiz-tag-block-item">
-                    <div class="col-5 quiz-tag-block-item-tag">
+                    <div class="col-4 quiz-tag-block-item-tag">
                         <label class="form-label">Tag</label> <div class="quiz-tag-block-item-delete">Delete</div>
                         <div class="search-select-element" data-json-name="tags" data-json-url="/admin/tags/get-json">
                             <input type="text" class="form-control search-select-input" value="{{ $quizTag->tag->name }}">
@@ -40,6 +40,9 @@
                     <div class="col-1 quiz-tag-block-item-count">
                         <label for="count" class="form-label">Count</label>
                         <input type="number" class="form-control" name="quizTag[{{ $quizTag->id }}][count]" id="count" value="{{ $quizTag->count }}" required>
+                    </div>
+                    <div class="col-1 quiz-tag-block-item-count-use-all">
+                        <button class="form-control btn btn-primary quiz-tag-block-item-count-use-all-button">Use all</button>
                     </div>
                 </div>
             @endforeach

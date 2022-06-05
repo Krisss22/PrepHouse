@@ -6,7 +6,12 @@ use App\Models\Answer;
 use App\Models\QuestionsBank;
 use App\Models\Vacancy;
 use App\Models\Tag;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class QuestionsBankController extends AdminController
 {
@@ -15,7 +20,7 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function index(Request $request)
     {
@@ -62,7 +67,7 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function show($id)
     {
@@ -75,11 +80,11 @@ class QuestionsBankController extends AdminController
     /**
      * @param Request $request
      * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function edit(Request $request, $id)
     {
-       if ($request->isMethod('post')) {
+        if ($request->isMethod('post')) {
             $request->validate([
                 'inputQuestion' => 'required|max:1500'
             ]);
@@ -96,73 +101,53 @@ class QuestionsBankController extends AdminController
                     'release' => (int) $request->input('inputRelease') ?? 0,
                 ]);
 
+            $updateAnswers = [];
             $answerIds = [];
-            $questionAnswerIds = [];
-            foreach ($question->answers as $answer) {
-                $questionAnswerIds[] = $answer->id;
+
+            if ($request->has('textAnswer')) {
+                foreach ($request->textAnswer as $answerId => $item) {
+                    $updateAnswers[$answerId]['text'] = $item;
+                }
             }
 
-           if ($request->has('textAnswer')) {
-               foreach ($request->textAnswer as $answerId => $item) {
-                   $answerIds[] = $answerId;
-                   Answer::findOrFail($answerId)->update([
-                       'text' => $item['value'],
-                       'correct' => isset($item['correct'])
-                   ]);
-               }
-           }
+            if ($request->has('fileAnswer')) {
+                foreach ($request->file('fileAnswer') as $answerId => $image) {
+                    $updateAnswers[$answerId]['image'] = $image;
+                }
+            }
 
-           if ($request->has('fileAnswerHidden')) {
-               foreach ($request->fileAnswerHidden as $answerId => $item) {
-                   $answerIds[] = $answerId;
-                   Answer::findOrFail($answerId)->update([
-                       'correct' => isset($item['correct'])
-                   ]);
-               }
-           }
+            foreach ($updateAnswers as $answerId => $answerItem) {
+                $answer = Answer::findOrFail($answerId);
+                $updateArray = [];
+                $answerIds[] = $answerId;
 
-           if ($request->hasFile('fileAnswer')) {
-               foreach ($request->file('fileAnswer') as $answerId => $image) {
-                   $answer = Answer::findOrFail($answerId);
-                   if (file_exists(storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $answer->image)) {
-                       unlink(storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $answer->image);
-                   }
-                   $imageName = time() . '.' . $image->extension();
-                   $image->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
-                   $answer->update([
-                       'image' => $imageName
-                   ]);
+                foreach ($answerItem as $answerType => $answerValue) {
+                    if ($answerType === 'text') {
+                        $updateArray['text'] = $answerValue['value'];
+                    }
+                    if ($answerType === 'image') {
+                        if (file_exists(storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $answer->image)) {
+                            unlink(storage_path('app/public/' . Answer::IMAGES_PATH) . '/' . $answer->image);
+                        }
 
-               }
-           }
+                        $imageName = time() . '.' . $answerValue['value']->extension();
+                        $answerValue['value']->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
+                        $updateArray['image'] = $imageName;
+                    }
+                }
 
-           foreach ($question->answers as $answer) {
-               if (!in_array($answer->id, $answerIds)) {
-                   $answer->delete();
-               }
-           }
+                $updateArray['correct'] = isset($request->isCorrect[$answerId]);
 
-           if ($request->has('newTextAnswer')) {
-               foreach ($request->newTextAnswer as $item) {
-                   Answer::create([
-                       'text' => $item['value'],
-                       'question_id' => $question->id,
-                       'correct' => isset($item['correct'])
-                   ]);
-               }
-           }
+                $answer->update($updateArray);
+            }
 
-           if ($request->has('newFileAnswer')) {
-               foreach ($request->newFileAnswer as $item) {
-                   $imageName = time() . '.' . $item['value']->extension();
-                   $item['value']->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
-                   Answer::create([
-                       'image' => $imageName,
-                       'question_id' => $question->id,
-                       'correct' => isset($item['correct'])
-                   ]);
-               }
-           }
+            foreach ($question->answers as $answer) {
+                if (!in_array($answer->id, $answerIds)) {
+                    $answer->delete();
+                }
+            }
+
+            $this->createNewAnswers($request, $question->id);
         }
 
         return view('admin/questions/edit', [
@@ -174,7 +159,7 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|Factory|View|RedirectResponse|Redirector
      */
     public function create(Request $request)
     {
@@ -190,27 +175,7 @@ class QuestionsBankController extends AdminController
                 'release' => (int) $request->input('inputRelease') ?? 0
             ]);
 
-            if ($request->has('newTextAnswer')) {
-                foreach ($request->newTextAnswer as $item) {
-                    Answer::create([
-                        'text' => $item['value'],
-                        'question_id' => $question->id,
-                        'correct' => isset($item['correct'])
-                    ]);
-                }
-            }
-
-            if ($request->has('newFileAnswer')) {
-                foreach ($request->newFileAnswer as $item) {
-                    $imageName = time() . '.' . $item['value']->extension();
-                    $item['value']->move(storage_path('app/public/' . Answer::IMAGES_PATH), $imageName);
-                    Answer::create([
-                        'image' => $imageName,
-                        'question_id' => $question->id,
-                        'correct' => isset($item['correct'])
-                    ]);
-                }
-            }
+            $this->createNewAnswers($request, $question->id);
 
             return redirect('/admin/questions/list');
         }
@@ -222,9 +187,48 @@ class QuestionsBankController extends AdminController
         ]);
     }
 
+    private function createNewAnswers(Request $request, int $questionId): void
+    {
+        $answersList = [];
+
+        if ($request->has('newTextAnswer')) {
+            foreach ($request->newTextAnswer as $index => $item) {
+                $answersList[$index]['text'] = $item;
+            }
+        }
+
+        if ($request->has('newFileAnswer')) {
+            foreach ($request->newFileAnswer as $index => $item) {
+                $answersList[$index]['image'] = $item;
+            }
+        }
+
+        foreach ($answersList as $index => $answerItem) {
+            $text = null;
+            $image = null;
+
+            foreach ($answerItem as $answerType => $answerValue) {
+                if ($answerType === 'text') {
+                    $text = $answerValue['value'];
+                }
+                if ($answerType === 'image') {
+                    $image = $answerValue['value']->hashName();
+                    $answerValue['value']->move(storage_path('app/public/' . Answer::IMAGES_PATH), $image);
+                }
+            }
+
+            Answer::create([
+                'text' => $text,
+                'image' => $image,
+                'question_id' => $questionId,
+                'correct' => isset($request->isCorrect[$index])
+            ]);
+        }
+    }
+
     /**
      * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|Redirector|RedirectResponse
      */
     public function delete($id)
     {

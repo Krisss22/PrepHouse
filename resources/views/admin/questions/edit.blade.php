@@ -30,29 +30,19 @@
         <div class="col-7">
             <div id="questionAnswersBlock">
                 @foreach($question->answers as $index => $answer)
-                    @if($answer->text)
-                        <div class="answerBlockItem">
-                            <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
-                            <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="textAnswer[{{ $answer->id }}][correct]" @if($answer->correct) checked @endIf>
-                            <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}][value]">{{ $answer->text }}</textarea>
-                        </div>
-                    @endif
-                    @if($answer->image)
-                        <div class="answerBlockItem">
-                            <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
-                            <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="fileAnswerHidden[{{ $answer->id }}][correct]" @if($answer->correct) checked @endIf>
+                    <div class="answerBlockItem">
+                        <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                        <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="isCorrect[{{ $answer->id }}]" @if($answer->correct) checked @endIf>
+                        @if($answer->image)
                             <img data-id="{{ $answer->id }}" src="{{ asset('storage/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image) }}">
-                            <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}][value]" value="{{ $answer->id }}">
-                            <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}]" type="file" value="">
-                        </div>
-                    @endif
+                        @endif
+                        <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}][value]" value="{{ $answer->id }}">
+                        <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}][value]" type="file" value="">
+                        <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}][value]">{{ $answer->text }}</textarea>
+                    </div>
                 @endforeach
             </div>
             <div id="addAnswerButton" class="btn btn-primary">Add answer</div>
-            <div id="addAnswerButtonsBlock" class="hidden">
-                <div class="btn btn-secondary add-answer-type-button" data-answer-type="text">Text</div>
-                <div class="btn btn-secondary add-answer-type-button" data-answer-type="file">File</div>
-            </div>
             <div id="answersBlock">
             </div>
         </div>

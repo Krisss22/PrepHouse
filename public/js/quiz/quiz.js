@@ -110,21 +110,21 @@ function renderQuestion(data) {
     quizProcessQuestionBlockAnswersBlock.innerHTML = '';
 
     for (let answer of data.answers) {
-        let answerItemElement = getQuestionAnswerItemTemplate()
+        let answerItemElement = getQuestionAnswerItemTemplate();
         answerItemElement.dataset.answerId = String(answer.realId);
         if (data.usersAnswer.indexOf(answer.realId) !== -1) {
             answerItemElement.classList.add('active');
         }
         answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-numbering').innerHTML = answer.humanId;
-        if (answer.text) {
-            answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.text;
-        } else if (answer.image) {
-            console.log(answer)
+        if (answer.image) {
             if (answer.imageFile) {
-                answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = `<img src="data:image/png;base64, ${answer.imageFile}">`;
+                answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML += `<img src="data:image/png;base64, ${answer.imageFile}">`;
             } else {
-                answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML = answer.image;
+                answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML += answer.image;
             }
+        }
+        if (answer.text) {
+            answerItemElement.querySelector('.quiz-process-question-block-answers-block-item-option').innerHTML += answer.text;
         }
 
         quizProcessQuestionBlockAnswersBlock.appendChild(answerItemElement);

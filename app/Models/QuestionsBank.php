@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 /**
  * @method static insert(array $array)
  * @method static create(array $array)
- * @method static findOrFail()
+ * @method static findOrFail($id)
  * @property mixed $release
  * @property mixed $addedByAdmin
  */

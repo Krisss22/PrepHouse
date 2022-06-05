@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 /**
  * @method static create(array $array)
- * @method static findOrFail()
  * @method static where()
  * @method static select(string $string)
  * @method static find(int $unloggedQuizActionId)
+ * @method static findOrFail($quizActionId)
  * @property mixed $finished
  * @property mixed $data
  */

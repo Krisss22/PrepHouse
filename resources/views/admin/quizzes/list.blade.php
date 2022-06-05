@@ -20,7 +20,7 @@
         @foreach($quizzes as $quiz)
             <tr>
                 <th scope="row">{{ $quiz->id }}</th>
-                <td>{{ $quiz->name }}</td>
+                <td>{{ $quiz->name . ($quiz->getAllQuestionsCount() === 0 ? ' (Not visible)' : '' ) }}</td>
                 <td>{{ $quiz->getAllQuestionsCount() }}</td>
                 <td>{{ $quiz->created_at }}</td>
                 <td>{{ $quiz->updated_at }}</td>

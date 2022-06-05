@@ -14,11 +14,25 @@
 }
 
 
-.quiz-tag-block-item .quiz-tag-block-item-count {
+.quiz-tag-block-item .quiz-tag-block-item-count,
+.quiz-tag-block-item .quiz-tag-block-item-count-use-all {
     display: inline-block;
     margin-left: 30px;
 }
 
+.quiz-tag-block-item .quiz-tag-block-item-count-use-all {
+    cursor: pointer;
+}
+
 .quiz-tag-block-item {
     margin-bottom: 20px;
+}
+
+#answerText {
+    margin-top: 10px;
+}
+
+.answerBlockItem{
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
 }

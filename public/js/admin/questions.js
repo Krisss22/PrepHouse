@@ -1,38 +1,23 @@
-let addAnswerButton = document.querySelector('#addAnswerButton');
-addAnswerButton && addAnswerButton.addEventListener('click', function(event) {
-    let addAnswerButtonsBlock = document.querySelector('#addAnswerButtonsBlock');
-    if (addAnswerButtonsBlock && addAnswerButtonsBlock.classList.contains('hidden')) {
-        addAnswerButtonsBlock.classList.remove('hidden');
-    }
-});
-
-let addAnswerTypeButtons = document.querySelectorAll('#addAnswerButtonsBlock .add-answer-type-button');
+let addAnswerTypeButtons = document.querySelectorAll('#addAnswerButton');
 addAnswerTypeButtons && addAnswerTypeButtons.forEach(function(element) {
     element.addEventListener('click', function(event) {
-        let type = event.target.dataset.answerType,
-            answersBlock = document.querySelector('#answersBlock'),
+        let answersBlock = document.querySelector('#questionAnswersBlock'),
             element = '',
             answersCount = answersBlock.querySelectorAll('.answerBlockItem').length,
             addAnswerButtonsBlock = document.querySelector('#addAnswerButtonsBlock');
 
-        if (type === 'text') {
-            ++answersCount;
-            element = '<label for="answerText">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
-                '<br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="newTextAnswer[new' + answersCount + '][correct]">' +
-                '<textarea type="text" id="answerText" name="newTextAnswer[new' + answersCount + '][value]">Answer ' + answersCount + '</textarea>';
-        }
-        if (type === 'file') {
-            ++answersCount;
-            element = '<label for="answerFile">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
-                '<br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="newFileAnswer[new' + answersCount + '][correct]">' +
-                '<input id="answerFile" name="newFileAnswer[new' + answersCount + '][value]" type="file" value="">';
-        }
+        ++answersCount;
+        element += '<label for="answerText">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
+            '<br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="isCorrect[new' + answersCount + ']">' +
+            '<input id="answerFile" name="newFileAnswer[new' + answersCount + '][value]" type="file" value="">' +
+            '<textarea type="text" id="answerText" name="newTextAnswer[new' + answersCount + '][value]">Answer ' + answersCount + '</textarea>';
+
 
         if (addAnswerButtonsBlock && !addAnswerButtonsBlock.classList.contains('hidden')) {
             addAnswerButtonsBlock.classList.add('hidden');
         }
 
-        let lastAnswerElement = document.querySelector('#answersBlock').lastElementChild
+        let lastAnswerElement = document.querySelector('#questionAnswersBlock').lastElementChild
         if (lastAnswerElement) {
             let divElement = document.createElement('div');
             divElement.classList.add('answerBlockItem')
