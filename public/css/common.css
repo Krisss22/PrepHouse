@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #0F2038;
 }
 
 input.is-invalid,
@@ -10,4 +9,8 @@ input.is-invalid:active,
 input.is-invalid:focus,
 input.is-invalid:focus-visible {
     border: solid 2px red !important;
+}
+
+.hidden {
+    display: none;
 }

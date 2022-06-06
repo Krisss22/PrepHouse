@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TagController extends AdminController
 {
-    protected $sectionName = 'tags';
+    protected string $sectionName = 'tags';
 
     public function index()
     {
@@ -61,5 +61,10 @@ class TagController extends AdminController
         Tag::findOrFail($id)->delete();
 
         return redirect('/admin/tags/list');
+    }
+
+    public function getJson()
+    {
+        return json_encode(Tag::all());
     }
 }

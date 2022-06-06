@@ -14,7 +14,7 @@ class Answer extends Model
 {
     use HasFactory;
 
-    const IMAGES_PATH = 'storage/images/answers';
+    const IMAGES_PATH = 'images/answers';
 
     protected $table = 'question_answers';
 
@@ -22,5 +22,6 @@ class Answer extends Model
         'image',
         'text',
         'question_id',
+        'correct'
     ];
 }

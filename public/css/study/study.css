@@ -1,0 +1,567 @@
+.main-content-study {
+    padding-left: 0px;
+    width: calc(100% - 100px);
+}
+
+.study-search-block {
+    height: 50px;
+    background: #F7F8FA;
+    border: 1px solid #E7E9ED;
+}
+
+.study-search-block img {
+    margin-left: 30px;
+    margin-top: 13px;
+    float: left;
+}
+
+.study-search-block input {
+    height: 85%;
+    border: 0px;
+    background-color: inherit;
+    margin-left: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #9B9FA9;
+}
+
+.study-search-block input:focus-visible {
+    outline: none;
+}
+
+.study-section-title {
+    margin: 70px 60px 50px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 53px;
+    color: #494A50;
+}
+
+.study-topics-list {
+    margin-left: 60px;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.study-topic-item {
+    width: 350px;
+    height: 120px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 8px 10px #F0F2F5;
+    border-radius: 3px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+    position: relative;
+}
+
+.study-topic-item-progress-block {
+    width: 40px;
+    height: 100%;
+    float: left;
+    margin-right: 20px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    place-content: flex-start;
+}
+
+.study-topic-item-progress-item {
+    width: 10px;
+    height: 8px;
+    margin-right: 3px;
+    margin-bottom: 4px;
+    background-color: #EAEDF2;
+    border-radius: 2px;
+}
+
+.study-topic-item-progress-item.watched {
+    background-color: #5EA66E;
+}
+
+.study-topic-item-under-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #424242;
+    opacity: 0.5;
+}
+
+.study-topic-item-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+    color: #F5BA26;
+}
+
+.study-topic-item-materials-count {
+    position: absolute;
+    bottom: 40px;
+    left: 85px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 28px;
+    color: #494A50;
+}
+
+.study-topic-item-materials-text {
+    position: absolute;
+    bottom: 25px;
+    left: 85px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #525252;
+    opacity: 0.3;
+}
+
+.study-topic-item-button {
+    border: 1px solid #4780D8;
+    box-sizing: border-box;
+    border-radius: 28px;
+    width: 115px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #4780D8;
+    line-height: 35px;
+    position: absolute;
+    right: 15px;
+    bottom: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.study-topic-item-button:hover {
+    background-color: #4780D8;
+    color: #FFFFFF;
+}
+
+.study-materials-block {
+    margin-left: 60px;
+    margin-top: 50px;
+    width: calc(100% - 120px);
+}
+
+.study-materials-block-video {
+
+}
+
+.study-materials-items {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.study-materials-item {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 20px rgba(67, 104, 178, 0.0544611);
+    border-radius: 4px;
+    margin: 0 15px 15px;
+}
+
+.study-materials-block-head {
+    position: relative;
+    width: 100%;
+    height: 20px;
+}
+
+.study-materials-block-title {
+    position: absolute;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.452788px;
+    color: #494A50;
+}
+
+.study-materials-block-see-all {
+    right: 0px;
+    position: absolute;
+    text-decoration: none;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: right;
+    color: #494A50;
+}
+
+.study-materials-item-video {
+    width: 380px;
+    height: 340px;
+}
+
+.study-materials-item-video-thumbnail {
+    cursor: pointer;
+}
+
+.study-materials-item-video-thumbnail img {
+    width: 380px;
+    height: 175px;
+}
+
+.study-materials-item-video-title {
+    margin-top: 20px;
+    padding: 0 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.1115px;
+    line-height: 22px;
+    color: #424242;
+}
+
+.study-materials-item-video-description {
+    margin-top: 5px;
+    padding: 0 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #424242;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    height: 45px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.study-materials-item-video-action .study-materials-item-video-action-view {
+    margin-left: 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    line-height: 35px;
+    display: block;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #494A50;
+    width: 160px;
+    height: 40px;
+    float: left;
+}
+
+.study-materials-item-video-action .study-materials-item-video-action-view:hover {
+    color: #FFF;
+    background-color: #4780D8;
+}
+
+.study-materials-item-video-action .study-materials-item-video-action-bookmark {
+    background-image: url("../../images/study/star.svg");
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat;
+    float: left;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    background-position: center;
+    margin-left: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.study-materials-item-video-action .study-materials-item-video-action-bookmark:hover {
+    color: #FFF;
+    background-color: #4780D8;
+}
+
+.study-materials-item-video-action .study-materials-item-video-action-viewed {
+    background-image: url("../../images/study/eye.svg");
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 15px;
+    cursor: pointer;
+    float: right;
+    margin-right: 30px;
+}
+
+.study-materials-item-book {
+    width: 380px;
+    height: 270px;
+}
+
+.study-materials-item-material {
+    width: 175px;
+    height: 315px;
+}
+
+.study-materials-item-site {
+    width: 380px;
+    height: 340px;
+}
+
+.study-materials-block-site {
+    margin-bottom: 200px;
+}
+
+.study-materials-item-book-cover {
+    width: 175px;
+    height: 100%;
+    float: left;
+    background-color: black;
+}
+
+.study-materials-item-book-cover img {
+    width: 100%;
+    height: 100%;
+}
+
+.study-materials-item-book-info-block {
+    width: calc((50% + 50% - 175px) - 36px);
+    float: right;
+    padding: 18px;
+}
+
+.study-materials-item-book-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #494A50;
+}
+
+.study-materials-item-book-author {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    color: #494A50;
+}
+
+.study-materials-item-book-description {
+    margin-top: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #424242;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    height: 150px;
+    overflow: hidden;
+}
+
+.study-materials-item-book-action-download {
+    width: 125px;
+    height: 40px;
+    display: block;
+    line-height: 35px;
+    text-decoration: none;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #494A50;
+    float: left;
+}
+
+.study-materials-item-book-action-download:hover,
+.study-materials-item-book-action-bookmark:hover {
+    color: #FFF;
+    background-color: #4780D8;
+}
+
+.study-materials-item-book-action-bookmark {
+    margin-left: 4px;
+    background-image: url("../../images/study/star.svg");
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat;
+    float: left;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.study-materials-item-material-cover {
+    width: 100%;
+    height: 175px;
+}
+
+.study-materials-item-material-cover img {
+    width: 100%;
+    height: 100%;
+}
+
+.study-materials-item-material-title {
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 12px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #424242;
+}
+
+.study-materials-item-material-meta-info {
+    margin-left: 14px;
+    margin-right: 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #424242;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.study-materials-item-material-action .study-materials-item-material-action-view {
+    margin-left: 14px;
+    margin-top: 30px;
+    display: block;
+    width: 95px;
+    height: 40px;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    color: #494A50;
+    float: left;
+    cursor: pointer;
+}
+
+.study-materials-item-material-action .study-materials-item-material-action-view:hover,
+.study-materials-item-material-action .study-materials-item-material-action-bookmark:hover {
+    color: #FFF;
+    background-color: #4780D8;
+}
+
+.study-materials-item-material-action .study-materials-item-material-action-bookmark {
+    margin-top: 30px;
+    margin-left: 10px;
+    background-image: url("../../images/study/star.svg");
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat;
+    float: left;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.study-materials-item-site-cover {
+    width: 100%;
+    height: 175px;
+}
+
+.study-materials-item-site-cover img {
+    width: 100%;
+    height: 100%;
+}
+
+.study-materials-item-site-title {
+    margin-top: 18px;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #424242;
+}
+
+.study-materials-item-site-description {
+    margin-top: 5px;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #424242;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    height: 45px;
+    overflow: hidden;
+}
+
+.study-materials-item-site-action {
+    margin-top: 20px;
+}
+
+.study-materials-item-site-action-view {
+    width: 160px;
+    height: 40px;
+    text-decoration: none;
+    display: block;
+    margin-left: 16px;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    color: #494A50;
+    float: left;
+}
+
+.study-materials-item-site-action-view:hover,
+.study-materials-item-site-action-bookmark:hover {
+    color: #FFF;
+    background-color: #4780D8;
+}
+
+.study-materials-item-site-action-bookmark {
+    background-image: url("../../images/study/star.svg");
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat;
+    float: left;
+    border: 1px solid #E1E4E9;
+    box-sizing: border-box;
+    border-radius: 28px;
+    background-position: center;
+    cursor: pointer;
+    margin-left: 9px;
+}
+
+.study-materials-item-site-action-viewed {
+    background-image: url("../../images/study/eye.svg");
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    float: right;
+    margin-right: 30px;
+}

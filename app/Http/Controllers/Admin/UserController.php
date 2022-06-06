@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends AdminController
 {
 
-    protected $sectionName = 'users';
+    protected string $sectionName = 'users';
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Services\Quiz\QuizService;
+use Exception;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -47,7 +49,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -61,17 +63,28 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
+     * @return User
+     * @throws Exception
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
-        return User::create([
+        $newUser = User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'job_title' => $data['job_title'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $lastUnloggedQuizId = QuizService::getLastUnloggedQuizActionId();
+        if (isset($lastUnloggedQuizId)) {
+            QuizService::attachUserForQuizActions($newUser->id);
+            $this->redirectTo = route('quiz-statistic', [
+                'quizActionId' => $lastUnloggedQuizId,
+            ]);
+        }
+
+        return $newUser;
     }
 }

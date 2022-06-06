@@ -1,21 +1,74 @@
-function sendQuestionAjax(url, formData = null, method = "GET") {
-    let result = [];
+function sendRequest(method = 'GET', url, data = {}, async = false, successCallbackFunction = null, errorCallbackFunction = null) {
+    let xhr = new XMLHttpRequest();
+    let resultData = null;
 
-    $.ajax({
-        type: method,
-        url: url,
-        data: formData,
-        processData: false,
-        contentType: false,
-        dataType: "json",
-        async: false,
-        success: function(data) {
-            result = data;
-        },
-        error: function(data) {
-            result = data;
+    if (!async) {
+        startLoadingSpinnerAnimation();
+    }
+
+    xhr.onreadystatechange = function (event) {
+        if (this.readyState !== 4) return;
+
+        resultData = isJsonString(this.responseText) ? JSON.parse(this.responseText) : null;
+        if (this.status === 200) {
+            if (successCallbackFunction) {
+                successCallbackFunction();
+            }
+        } else {
+            if (errorCallbackFunction) {
+                errorCallbackFunction();
+            }
         }
-    });
+    };
 
-    return result;
+    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    xhr.open(method, url, async);
+    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+    xhr.setRequestHeader('content-type', 'application/json');
+    xhr.send(JSON.stringify(data));
+
+    if (!async) {
+        endLoadingSpinnerAnimation();
+    }
+
+    return resultData;
+}
+
+function isJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+function startLoadingSpinnerAnimation() {
+    if (document.querySelector('.loading-spinner-block')) {
+        return;
+    }
+
+    let spinnerBlock = document.createElement('div');
+    spinnerBlock.classList.add('loading-spinner-block');
+    let spinnerElement = document.createElement('div');
+    spinnerElement.classList.add('loading-spinner');
+    spinnerElement.setAttribute('id', 'circularG');
+
+    for (let i = 0; i < 8; i++) {
+        let circularElement = document.createElement('div');
+        circularElement.classList.add('circularG');
+        circularElement.setAttribute('id', 'circularG_' + (i + 1));
+        spinnerElement.appendChild(circularElement);
+    }
+    spinnerBlock.appendChild(spinnerElement);
+
+    document.querySelector('body').appendChild(spinnerBlock);
+}
+
+function endLoadingSpinnerAnimation() {
+    let loadingSpinnerBlockElement = document.querySelector('.loading-spinner-block');
+    if (loadingSpinnerBlockElement) {
+        loadingSpinnerBlockElement.remove();
+    }
 }

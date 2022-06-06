@@ -14,14 +14,9 @@
                 @csrf
                 <div class="col-2">
                     <label for="" class="form-label">Tags</label>
-                    <div class="search-select-element">
-                        <input type="text" class="form-control search-select-input" value="{{ $filter['inputTagName'] }}">
-                        <input type="text" class="search-select-input-hidden" name="inputTag" value="{{ $filter['inputTag'] }}">
-                        <div class="search-select-results">
-                            @foreach($tags as $tag)
-                                <div data-tag-id="{{ $tag->id }}" class="search-select-results-item search-select-results-item-hidden">{{ $tag->name }}</div>
-                            @endforeach
-                        </div>
+                    <div class="search-select-element" data-json-name="tags" data-json-url="/admin/tags/get-json">
+                        <input type="text" class="form-control search-select-input" value="">
+                        <input type="text" class="search-select-input-hidden" name="inputTag" value="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -67,7 +62,7 @@
             <tr>
                 <th scope="row">{{ $question->id }}</th>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->tag_id ? $question->tag->name : '' }}</a></td>
-                <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
+                <td class="questions-list-question-td"><a href="/admin/questions/show/{{ $question->id }}">{{ $question->question }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->isReleased() ? 'Yes' : 'No' }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->created_at }}</a></td>
                 <td><a href="/admin/questions/show/{{ $question->id }}">{{ $question->updated_at }}</a></td>

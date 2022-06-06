@@ -39,3 +39,25 @@
     margin-top: 10px;
 }
 
+.list-group-item.correctAnswer {
+    background-color: #9bea87;
+}
+
+.list-group-item.incorrectAnswer {
+    background-color: #ff7575;
+}
+
+.list-group-item img {
+    max-width: 500px;
+}
+
+input.answer-correct-input {
+    max-width: 25px;
+}
+
+td.questions-list-question-td {
+    max-width: 1000px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

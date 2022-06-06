@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @method static insert(array $array)
  * @method static create(array $array)
+ * @method static findOrFail($id)
+ * @property mixed $release
+ * @property mixed $addedByAdmin
  */
 class QuestionsBank extends Model
 {
@@ -24,16 +29,25 @@ class QuestionsBank extends Model
         'question',
         'addedByAdmin',
         'release',
-        'answer',
         'tag_id',
     ];
 
-    public function answers()
+    static public function getRandomQuestionsByTagId($tagId, $limit)
+    {
+        return self::query()
+            ->where('tag_id', '=', $tagId)
+            ->where('release', '=', true)
+            ->inRandomOrder()
+            ->limit($limit)
+            ->get();
+    }
+
+    public function answers(): HasMany
     {
         return $this->hasMany('App\Models\Answer', 'question_id', 'id');
     }
 
-    public function tag(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function tag(): HasOne
     {
         return $this->hasOne('App\Models\Tag', 'id', 'tag_id');
     }

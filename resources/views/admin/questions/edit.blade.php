@@ -13,14 +13,9 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <div class="search-select-element">
+            <div class="search-select-element" data-json-name="tags" data-json-url="/admin/tags/get-json">
                 <input type="text" class="form-control search-select-input" value="{{ $question->tag_id ? $question->tag->name : '' }}">
                 <input type="text" class="search-select-input-hidden" name="inputTag" value="{{ $question->tag_id ?? '' }}">
-                <div class="search-select-results">
-                    @foreach($tags as $tag)
-                        <div data-tag-id="{{ $tag->id }}" class="search-select-results-item search-select-results-item-hidden">{{ $tag->name }}</div>
-                    @endforeach
-                </div>
             </div>
         </div>
         <div class="col-7">
@@ -33,33 +28,21 @@
             <textarea type="text" class="form-control" name="inputQuestion" id="inputQuestion" required>{{ $question->question }}</textarea>
         </div>
         <div class="col-7">
-            <label for="inputUserAnswer" class="form-label">User's Answer</label>
-            @error('inputQuestion')
-            <span class="invalid-inputUserAnswer" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-            <textarea type="text" class="form-control" name="inputUserAnswer" id="inputUserAnswer" required>{{ $question->answer }}</textarea>
-        </div>
-        <div class="col-7">
             <div id="questionAnswersBlock">
                 @foreach($question->answers as $index => $answer)
-                    @if($answer->text)
-                        <label data-id="{{ $answer->id }}" for="answerText">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
-                        <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}]">{{ $answer->text }}</textarea>
-                    @endif
-                    @if($answer->image)
-                            <label data-id="{{ $answer->id }}" for="answerFile">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
-                            <img data-id="{{ $answer->id }}" src="{{ '/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image }}">
-                            <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}]" type="file" value="">
-                    @endif
+                    <div class="answerBlockItem">
+                        <label data-id="{{ $answer->id }}">Answer {{ $index + 1 }}</label> <div data-id="{{ $answer->id }}" class="remove-answer-button">Delete</div>
+                        <br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="isCorrect[{{ $answer->id }}]" @if($answer->correct) checked @endIf>
+                        @if($answer->image)
+                            <img data-id="{{ $answer->id }}" src="{{ asset('storage/' . App\Models\Answer::IMAGES_PATH . '/' . $answer->image) }}">
+                        @endif
+                        <input data-id="{{ $answer->id }}" type="hidden" name="fileAnswerHidden[{{ $answer->id }}][value]" value="{{ $answer->id }}">
+                        <input data-id="{{ $answer->id }}" id="answerFile" name="fileAnswer[{{ $answer->id }}][value]" type="file" value="">
+                        <textarea data-id="{{ $answer->id }}" type="text" id="answerText" name="textAnswer[{{ $answer->id }}][value]">{{ $answer->text }}</textarea>
+                    </div>
                 @endforeach
             </div>
             <div id="addAnswerButton" class="btn btn-primary">Add answer</div>
-            <div id="addAnswerButtonsBlock" class="hidden">
-                <div class="btn btn-secondary add-answer-type-button" data-answer-type="text">Text</div>
-                <div class="btn btn-secondary add-answer-type-button" data-answer-type="file">File</div>
-            </div>
             <div id="answersBlock">
             </div>
         </div>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class VacancyController extends AdminController
 {
-    protected $sectionName = 'vacancies';
+    protected string $sectionName = 'vacancies';
 
     public function index()
     {

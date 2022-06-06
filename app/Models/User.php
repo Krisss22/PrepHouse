@@ -7,12 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @method static create(array $array)
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
     public const GUEST_ROLE = 0;
     public const ADMIN_ROLE = 1;
+
+    const IMAGES_PATH = 'images/users';
+    const USER_NO_PHOTO_IMAGE_NAME = 'user.svg';
 
     /**
      * The attributes that are mass assignable.
@@ -23,9 +29,16 @@ class User extends Authenticatable
         'name',
         'surname',
         'job_title',
+        'education',
+        'certificates',
+        'image',
+        'address',
         'email',
         'password',
-        'role'
+        'role',
+        'news',
+        'surveys',
+        'promotions'
     ];
 
     /**
@@ -61,10 +74,18 @@ class User extends Authenticatable
     public function getRoleName(): string
     {
         switch ($this->role) {
-            case 0:
-                return 'User';
             case 1:
                 return 'Admin';
+            default:
+                return 'User';
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getInitials(): string
+    {
+        return $this->name[0] . $this->surname[0];
     }
 }

@@ -15,7 +15,4 @@ mix
     // .js('resources/js/app.js', 'public/js')
     // .vue()
     // .sass('resources/sass/app.scss', 'public/css')
-    .styles([
-        'resources/css/nicepage.scss',
-        'resources/css/PrepHouse.scss'
-    ], 'public/css/app.css')
+    .styles([], 'public/css/app.css')

@@ -1,49 +1,38 @@
-let addAnswerButton = document.querySelector('#addAnswerButton');
-addAnswerButton && addAnswerButton.addEventListener('click', function(event) {
-    let addAnswerButtonsBlock = document.querySelector('#addAnswerButtonsBlock');
-    if (addAnswerButtonsBlock && addAnswerButtonsBlock.classList.contains('hidden')) {
-        addAnswerButtonsBlock.classList.remove('hidden');
-    }
-});
-
-let addAnswerTypeButtons = document.querySelectorAll('#addAnswerButtonsBlock .add-answer-type-button');
+let addAnswerTypeButtons = document.querySelectorAll('#addAnswerButton');
 addAnswerTypeButtons && addAnswerTypeButtons.forEach(function(element) {
     element.addEventListener('click', function(event) {
-        let type = event.target.dataset.answerType,
-            answersBlock = document.querySelector('#answersBlock'),
+        let answersBlock = document.querySelector('#questionAnswersBlock'),
             element = '',
-            answersCount = answersBlock.querySelectorAll('label').length + document.querySelectorAll('#questionAnswersBlock label').length,
+            answersCount = answersBlock.querySelectorAll('.answerBlockItem').length,
             addAnswerButtonsBlock = document.querySelector('#addAnswerButtonsBlock');
 
-        if (type === 'text') {
-            ++answersCount;
-            element = '<label for="answerText">Answer ' + answersCount + '</label>' +
-                '<textarea type="text" id="answerText" name="newTextAnswer[]">Answer ' + answersCount + '</textarea>';
-        }
-        if (type === 'file') {
-            ++answersCount;
-            element = '<label for="answerFile">Answer ' + answersCount + '</label>' +
-                '<input id="answerFile" name="newFileAnswer[]" type="file" value="">';
-        }
+        ++answersCount;
+        element += '<label for="answerText">Answer ' + answersCount + '</label><div class="remove-answer-button">Delete</div>' +
+            '<br><label>Is correct: </label><input class="answer-correct-input" type="checkbox" name="isCorrect[new' + answersCount + ']">' +
+            '<input id="answerFile" name="newFileAnswer[new' + answersCount + '][value]" type="file" value="">' +
+            '<textarea type="text" id="answerText" name="newTextAnswer[new' + answersCount + '][value]">Answer ' + answersCount + '</textarea>';
+
 
         if (addAnswerButtonsBlock && !addAnswerButtonsBlock.classList.contains('hidden')) {
             addAnswerButtonsBlock.classList.add('hidden');
         }
 
-        answersBlock.innerHTML += element;
+        let lastAnswerElement = document.querySelector('#questionAnswersBlock').lastElementChild
+        if (lastAnswerElement) {
+            let divElement = document.createElement('div');
+            divElement.classList.add('answerBlockItem')
+            divElement.innerHTML = element;
+            lastAnswerElement.insertAdjacentElement('afterEnd', divElement)
+        } else {
+            answersBlock.innerHTML += '<div class="answerBlockItem">' + element + '</div>';
+        }
     });
 });
 
-let removeAnswerButtons = document.querySelectorAll('.remove-answer-button');
-removeAnswerButtons && removeAnswerButtons.forEach(function(element) {
-    element.addEventListener('click', function(event) {
-        let questionAnswersBlock = document.querySelector('#questionAnswersBlock'),
-            id = event.target.dataset.id;
+document.addEventListener('click', function(event) {
+    let element = event.target;
 
-        questionAnswersBlock.querySelectorAll('label, img, input, textarea, div').forEach((el) => {
-            if (el.dataset.id === id) {
-                el.remove();
-            }
-        });
-    });
-});
+    if (element.classList.contains('remove-answer-button')) {
+        element.parentNode.remove();
+    }
+})

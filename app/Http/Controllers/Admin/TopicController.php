@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tag;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class TopicController extends AdminController
 {
-    protected $sectionName = 'topics';
+    protected string $sectionName = 'topics';
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         return view('admin/topics/list', [
@@ -18,6 +22,10 @@ class TopicController extends AdminController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function create(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -33,6 +41,11 @@ class TopicController extends AdminController
         return redirect('/admin/topics/list');
     }
 
+    /**
+     * @param int $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function edit(int $id, Request $request)
     {
         if ($request->isMethod('post')) {
@@ -57,10 +70,22 @@ class TopicController extends AdminController
         ]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function delete($id)
     {
         Topic::findOrFail($id)->delete();
 
         return redirect('/admin/topics/list');
+    }
+
+    /**
+     * @return false|string
+     */
+    public function getJson()
+    {
+        return json_encode(Topic::all());
     }
 }
