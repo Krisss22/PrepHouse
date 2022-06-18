@@ -6,17 +6,22 @@ html, body { height: 100%; width: 100%; margin: 0; }
     position: fixed;
 }
 
-#admin-main-menu li a{
+#admin-main-menu .nav-item {
+    cursor: pointer;
+}
+
+#admin-main-menu .nav-item a {
     color: #fff;
     text-decoration: none;
+    display: block;
 }
 
-.menu ul {
-    padding: 0px;
+#admin-main-menu .nav-item-submenu a {
+    padding: 0.2rem 1.5rem;
 }
 
-.menu li {
-    list-style-type: none;
+#admin-main-menu .nav-item-submenu.hidden {
+    display: none;
 }
 
 #admin-content {
@@ -38,3 +43,10 @@ html, body { height: 100%; width: 100%; margin: 0; }
     margin: 25px 0;
 }
 
+.hidden {
+    display: none;
+}
+
+.nav-item-has-has-submenu {
+
+}

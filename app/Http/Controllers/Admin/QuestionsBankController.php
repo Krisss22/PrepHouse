@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Answer;
 use App\Models\QuestionsBank;
+use App\Models\Role;
 use App\Models\Vacancy;
 use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -20,10 +22,14 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param Request $request
-     * @return Application|Factory|View
+     * @return Application|Factory|View|JsonResponse
      */
     public function index(Request $request)
     {
+        if (!$this->checkAccess('questions', Role::showAccessType)) {
+            return response()->json(["error" => "Access denied for your role"], 403);
+        }
+
         $questions = QuestionsBank::query();
         $vacanciesList = Vacancy::all();
         $filter = [
@@ -67,10 +73,14 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param $id
-     * @return Application|Factory|View
+     * @return Application|Factory|View|JsonResponse
      */
     public function show($id)
     {
+        if (!$this->checkAccess('questions', Role::showAccessType)) {
+            return response()->json(["error" => "Access denied for your role"], 403);
+        }
+
         return view('admin/questions/show', [
             'sectionName' => $this->sectionName,
             'question' => QuestionsBank::findOrFail($id)
@@ -80,10 +90,14 @@ class QuestionsBankController extends AdminController
     /**
      * @param Request $request
      * @param $id
-     * @return Application|Factory|View
+     * @return Application|Factory|View|JsonResponse
      */
     public function edit(Request $request, $id)
     {
+        if (!$this->checkAccess('questions', Role::updateAccessType)) {
+            return response()->json(["error" => "Access denied for your role"], 403);
+        }
+
         if ($request->isMethod('post')) {
             $request->validate([
                 'inputQuestion' => 'required|max:1500'
@@ -159,10 +173,14 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param Request $request
-     * @return Application|Factory|View|RedirectResponse|Redirector
+     * @return Application|Factory|View|JsonResponse|RedirectResponse|Redirector
      */
     public function create(Request $request)
     {
+        if (!$this->checkAccess('questions', Role::createAccessType)) {
+            return response()->json(["error" => "Access denied for your role"], 403);
+        }
+
         if ($request->isMethod('post')) {
             $request->validate([
                 'inputQuestion' => 'required|max:1500'
@@ -187,6 +205,11 @@ class QuestionsBankController extends AdminController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param int $questionId
+     * @return void
+     */
     private function createNewAnswers(Request $request, int $questionId): void
     {
         $answersList = [];
@@ -228,15 +251,23 @@ class QuestionsBankController extends AdminController
 
     /**
      * @param $id
-     * @return Application|Redirector|RedirectResponse
+     * @return Application|JsonResponse|RedirectResponse|Redirector
      */
     public function delete($id)
     {
+        if (!$this->checkAccess('questions', Role::deleteAccessType)) {
+            return response()->json(["error" => "Access denied for your role"], 403);
+        }
+
         QuestionsBank::findOrFail($id)->delete();
 
         return redirect('/admin/questions/list');
     }
 
+    /**
+     * @param $id
+     * @return Application|RedirectResponse|Redirector
+     */
     public function release($id)
     {
         QuestionsBank::query()

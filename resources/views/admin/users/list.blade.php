@@ -21,7 +21,7 @@
                 <th scope="row">{{ $user->id }}</th>
                 <td><a href="/admin/users/show/{{ $user->id }}">{{ $user->name }}</a></td>
                 <td><a href="/admin/users/show/{{ $user->id }}">{{ $user->email }}</a></td>
-                <td><a href="/admin/users/show/{{ $user->id }}">{{ $user->getRoleName() }}</a></td>
+                <td><a href="/admin/users/show/{{ $user->id }}">{{ $user->role > 0 ? $user->userRole->name : 'without role' }}</a></td>
                 <td><a href="/admin/users/show/{{ $user->id }}">{{ $user->created_at }}</a></td>
                 <td><a href="/admin/users/show/{{ $user->id }}">{{ $user->updated_at }}</a></td>
                 <td>

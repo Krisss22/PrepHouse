@@ -112,6 +112,7 @@ Route::group(['prefix' => 'admin/vacancies'], function () {
 Route::group(['prefix' => 'admin/users'], function () {
     Route::get('list', [App\Http\Controllers\Admin\UserController::class, 'index']);
     Route::get('show/{id}', [App\Http\Controllers\Admin\UserController::class, 'show']);
+    Route::any('create', [App\Http\Controllers\Admin\UserController::class, 'create']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\UserController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\UserController::class, 'delete']);
 });
@@ -138,6 +139,14 @@ Route::group(['prefix' => 'admin/quizzes'], function () {
     Route::any('edit/{id}', [App\Http\Controllers\Admin\QuizController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\QuizController::class, 'delete']);
     Route::get('getAllTagQuestionsCount/{tagId}', [App\Http\Controllers\Admin\QuizController::class, 'getAllTagQuestionsCount']);
+});
+
+Route::group(['prefix' => 'admin/roles'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\RolesController::class, 'index']);
+    Route::get('show/{id}', [App\Http\Controllers\Admin\RolesController::class, 'show']);
+    Route::any('create', [App\Http\Controllers\Admin\RolesController::class, 'create']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\RolesController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\RolesController::class, 'delete']);
 });
 
 Auth::routes();

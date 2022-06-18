@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
  * @method static create(array $array)
+ * @method static findOrFail($id)
  */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
-    public const GUEST_ROLE = 0;
-    public const ADMIN_ROLE = 1;
 
     const IMAGES_PATH = 'images/users';
     const USER_NO_PHOTO_IMAGE_NAME = 'user.svg';
@@ -61,24 +59,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return bool
+     * @return HasOne
      */
-    public function isAdmin(): bool
+    public function userRole(): HasOne
     {
-        return $this->role === self::ADMIN_ROLE;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRoleName(): string
-    {
-        switch ($this->role) {
-            case 1:
-                return 'Admin';
-            default:
-                return 'User';
-        }
+        return $this->hasOne('App\Models\Role', 'id', 'role');
     }
 
     /**

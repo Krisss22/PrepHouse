@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -16,5 +17,19 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * @param string $sector
+     * @param string|null $accessType
+     * @return bool
+     */
+    public function checkAccess(string $sector, string $accessType = null): bool
+    {
+        if (Auth::guest()) {
+            return false;
+        }
+
+        return Auth::user()->userRole->checkAccess($sector, $accessType);
     }
 }
