@@ -5,7 +5,7 @@
     <div class="study-materials-item-material-title">{{ $material->title }}</div>
     <div class="study-materials-item-material-meta-info">{{ $material->getFileMetaInfo() }}</div>
     <div class="study-materials-item-material-action">
-        <a class="study-materials-item-material-action-view">View</a>
+        <a href="{{ $material->getFullPathToFile() }}" class="study-materials-item-material-action-view">Download</a>
         <a class="study-materials-item-material-action-bookmark"></a>
     </div>
 </div>

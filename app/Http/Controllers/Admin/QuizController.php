@@ -68,7 +68,8 @@ class QuizController extends AdminController
                 foreach ($request->quizTag as $quizTagId => $item) {
                     $quizTagIds[] = $quizTagId;
                     QuizTag::findOrFail($quizTagId)->update([
-                        'tag_id' => $item['tagId']
+                        'tag_id' => $item['tagId'],
+                        'count' => $item['count']
                     ]);
                 }
             }

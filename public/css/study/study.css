@@ -451,6 +451,7 @@
     color: #494A50;
     float: left;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .study-materials-item-material-action .study-materials-item-material-action-view:hover,

@@ -7,7 +7,7 @@
         <div class="study-materials-item-book-author">By {{ $book->author }}</div>
         <div class="study-materials-item-book-description">{{ $book->description }}</div>
         <div class="study-materials-item-book-action">
-            <a href="/" class="study-materials-item-book-action-download">Download</a>
+            <a href="{{ $book->getFullPathToFile() }}" class="study-materials-item-book-action-download">Download</a>
             <a class="study-materials-item-book-action-bookmark"></a>
         </div>
     </div>

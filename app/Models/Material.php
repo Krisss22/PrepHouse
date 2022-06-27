@@ -30,6 +30,11 @@ class Material extends Model
         return asset('storage/' . self::IMAGES_PATH . '/' . $this->image);
     }
 
+    public function getFullPathToFile(): string
+    {
+        return asset('storage/' . self::FILES_PATH . '/' . $this->file);
+    }
+
     public function getFileMetaInfo(): string
     {
         return 'meta info';
