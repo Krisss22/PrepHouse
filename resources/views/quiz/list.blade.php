@@ -26,7 +26,7 @@
                         @else
                             0
                         @endif
-                        / {{ $quiz->getAllQuestionsCount() }}</div>
+                        / {{ $quiz->getAllQuestionsCount(true) }}</div>
                     <div class="quiz-item-questions-count-title">questions</div>
                     <a href="/quiz/run/{{ $quiz->id }}" target="_blank">
                         @if(isset($quiz->quiz_action_data) && !$quiz->quiz_action_finished)

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\QuestionsBank;
 use App\Models\Quiz;
 use App\Models\QuizTag;
 use App\Models\Role;
-use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -160,11 +160,14 @@ class QuizController extends AdminController
      */
     public function getAllTagQuestionsCount($tagId): JsonResponse
     {
-        $tag = Tag::findOrFail($tagId);
+        $questions = QuestionsBank::query()
+            ->where("tag_id", "=", $tagId)
+            ->where("release", "=", "true")
+            ->get();
 
         return Response::json([
             'status' => self::RESPONSE_STATUS_SUCCESS,
-            'questionsCount' => count($tag->questions),
+            'questionsCount' => count($questions),
         ]);
     }
 

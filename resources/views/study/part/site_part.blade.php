@@ -2,8 +2,8 @@
     <div class="study-materials-item-site-cover">
         <img src="{{ $site->getFullPathImage() }}">
     </div>
-    <div class="study-materials-item-site-title">{{ $site->title }}</div>
-    <div class="study-materials-item-site-description">{{ $site->description }}</div>
+    <div title="{{ $site->title }}" class="study-materials-item-site-title">{{ $site->title }}</div>
+    <div title="{{ $site->description }}" class="study-materials-item-site-description">{{ $site->description }}</div>
     <div class="study-materials-item-site-action">
         <a href="{{ $site->link }}" target="_blank" class="study-materials-item-site-action-view">Visit Site</a>
         <a class="study-materials-item-site-action-bookmark"></a>

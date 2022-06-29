@@ -3,9 +3,9 @@
         <img src="{{ $book->getFullPathImage() }}">
     </div>
     <div class="study-materials-item-book-info-block">
-        <div class="study-materials-item-book-title">{{ $book->title }}</div>
+        <div title="{{ $book->title }}" class="study-materials-item-book-title">{{ $book->title }}</div>
         <div class="study-materials-item-book-author">By {{ $book->author }}</div>
-        <div class="study-materials-item-book-description">{{ $book->description }}</div>
+        <div title="{{ $book->description }}" class="study-materials-item-book-description">{{ $book->description }}</div>
         <div class="study-materials-item-book-action">
             <a href="{{ $book->getFullPathToFile() }}" class="study-materials-item-book-action-download">Download</a>
             <a class="study-materials-item-book-action-bookmark"></a>

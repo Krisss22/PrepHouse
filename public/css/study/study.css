@@ -222,6 +222,10 @@
     font-size: 18.1115px;
     line-height: 22px;
     color: #424242;
+    max-height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .study-materials-item-video-description {
@@ -340,6 +344,10 @@
     font-size: 18px;
     line-height: 22px;
     color: #494A50;
+    max-height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .study-materials-item-book-author {
@@ -420,6 +428,10 @@
     font-size: 18px;
     line-height: 22px;
     color: #424242;
+    max-height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .study-materials-item-material-meta-info {
@@ -495,6 +507,10 @@
     font-size: 18px;
     line-height: 22px;
     color: #424242;
+    max-height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .study-materials-item-site-description {
