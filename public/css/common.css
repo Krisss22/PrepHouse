@@ -4,11 +4,19 @@ html, body {
     margin: 0;
 }
 
+body {
+    position: relative;
+}
+
 input.is-invalid,
 input.is-invalid:active,
 input.is-invalid:focus,
 input.is-invalid:focus-visible {
     border: solid 2px red !important;
+}
+
+.error-alert-block {
+    color: red;
 }
 
 .hidden {

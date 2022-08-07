@@ -61,3 +61,7 @@ td.questions-list-question-td {
     white-space: nowrap;
     overflow: hidden;
 }
+
+img.question-image-img {
+    width: 500px;
+}

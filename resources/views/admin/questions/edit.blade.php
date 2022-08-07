@@ -19,6 +19,18 @@
             </div>
         </div>
         <div class="col-7">
+            <label for="inputQuestionImage" class="form-label">Question image</label>
+            @if($question->question_image)
+                <img alt class="question-image-img" src="{{ asset('storage/' . \App\Models\QuestionsBank::IMAGES_PATH . '/' . $question->question_image) }}">
+            @endif
+            @error('inputQuestion')
+            <span class="invalid-inputQuestionImage" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <input type="file" class="form-control" name="inputQuestionImage" id="file">
+        </div>
+        <div class="col-7">
             <label for="inputQuestion" class="form-label">Question</label>
             @error('inputQuestion')
             <span class="invalid-inputQuestion" role="alert">

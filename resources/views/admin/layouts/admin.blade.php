@@ -57,6 +57,9 @@
             @if(Auth::user()->userRole->checkAccess('vacancies', \App\Models\Role::showAccessType))
                 <div class="nav-item"><a href="/admin/vacancies/list" class="nav-link @if($sectionName === 'vacancies') active @endif">Vacancies</a></div>
             @endif
+
+            <div class="nav-item"><a href="/admin/landings/list" class="nav-link @if($sectionName === 'landings') active @endif">Landings</a></div>
+
             <div class="nav-item has-sub-menu">
                 <div class="nav-item-submenu-label nav-link">Users</div>
                 <div class="nav-item-submenu nav-link @if(in_array($sectionName, ['users', 'roles']) ? '' : 'hidden') @endif">
@@ -65,6 +68,15 @@
                     @endif
                     @if(Auth::user()->userRole->checkAccess('roles', \App\Models\Role::showAccessType))
                         <a href="/admin/roles/list" class="nav-link @if($sectionName === 'roles') active @endif">User roles</a>
+                    @endif
+                </div>
+            </div>
+            <hr>
+            <div class="nav-item has-sub-menu">
+                <div class="nav-item-submenu-label nav-link">Interviews</div>
+                <div class="nav-item-submenu nav-link @if(in_array($sectionName, ['interviewRequests']) ? '' : 'hidden') @endif">
+                    @if(Auth::user()->userRole->checkAccess('interview_requests', \App\Models\Role::showAccessType))
+                        <a href="/admin/interview-requests" class="nav-link @if($sectionName === 'interviewRequests') active @endif">Interview requests</a>
                     @endif
                 </div>
             </div>

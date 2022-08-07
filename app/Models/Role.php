@@ -36,6 +36,22 @@ class Role extends Model
     public const updateAccessType = 'update';
     public const deleteAccessType = 'delete';
 
+    private const ROLES_LIST = [
+        'roles',
+        'users',
+        'topics',
+        'tags',
+        'questions',
+        'quizzes',
+        'study_books',
+        'study_materials',
+        'study_videos',
+        'study_sites',
+        'vacancies',
+        'sent_questions',
+        'interview_requests',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -55,7 +71,13 @@ class Role extends Model
         "study_sites_permissions",
         "vacancies_permissions",
         "sent_questions_permissions",
+        "interview_requests_permissions",
     ];
+
+    public static function getRolesList(): array
+    {
+        return self::ROLES_LIST;
+    }
 
     /**
      * @param string $sector

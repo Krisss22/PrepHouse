@@ -1,0 +1,21 @@
+<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M60.6522 8.23179C42.6522 -9.54863 27.32 -1.46232 24.6522 12.0838C21.9843 25.63 -2.79876 28.3347 0.261187 44.3347C3.32114 60.3347 36.6522 50.8347 36.6522 65.3347C36.6522 79.8347 75.1896 79.3347 75.1896 60.3347C75.1896 41.3347 78.6522 26.0122 60.6522 8.23179Z" fill="white" fill-opacity="0.2"/>
+<mask id="mask0_1532_3278" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="-2" width="76" height="78">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M60.6522 8.23179C42.6522 -9.54863 27.32 -1.46232 24.6522 12.0838C21.9843 25.63 -2.79876 28.3347 0.261187 44.3347C3.32114 60.3347 36.6522 50.8347 36.6522 65.3347C36.6522 79.8347 75.1896 79.3347 75.1896 60.3347C75.1896 41.3347 78.6522 26.0122 60.6522 8.23179Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_1532_3278)">
+<g opacity="0.2">
+<rect y="-2" width="76" height="78" fill="#4780D8"/>
+</g>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 65H54V9H10V65Z" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M66 37L63 45L60 37V12C60 10.344 61.344 9 63 9C64.656 9 66 10.344 66 12V37Z" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 17.3868H66" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 59V54C20 49.03 24.03 45 29 45C33.97 45 38 40.97 38 36V29" stroke="#4780D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32 35L38 29L44 35" stroke="#4780D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M42 19C42 21.208 40.208 23 38 23C35.792 23 34 21.208 34 19C34 16.792 35.792 15 38 15C40.208 15 42 16.792 42 19Z" stroke="#4780D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M34 51L42 59" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 51L34 59" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 31L26 39" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26 31L18 39" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

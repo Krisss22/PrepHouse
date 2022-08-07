@@ -20,6 +20,7 @@
     <link href="{{ asset('css/account/account.css') }}" rel="stylesheet">
     <link href="{{ asset('css/strategies/strategies.css') }}" rel="stylesheet">
     <link href="{{ asset('css/study/study.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/notifications/notifications.css') }}" rel="stylesheet">
 </head>
 <body data-home-page="PrepHouse.html" data-home-page-title="PrepHouse" class="u-body">
     <div id="app">
@@ -35,6 +36,7 @@
     <script src="{{ asset('js/home/home.js') }}"></script>
     <script src="{{ asset('js/quiz/quiz.js') }}"></script>
     <script src="{{ asset('js/account/account.js') }}"></script>
+    <script src="{{ asset('js/notifications/notifications.js') }}"></script>
 {{--    <script src="{{ asset('js/share_question.js') }}"></script>--}}
 </body>
 </html>

@@ -1,0 +1,32 @@
+#notifications {
+    position: fixed;
+    width: 400px;
+    height: 100%;
+    padding: 20px;
+    right: 0;
+    top: 0;
+}
+
+#notifications .notification-item {
+    transition: all 2s linear;
+    display: block;
+    color: #FFFFFF;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px black;
+}
+
+.notification-item.success {
+    background-color: #58cc53;
+}
+
+.notification-item.error {
+    background-color: #d04949;
+}
+
+.notification-item.info {
+    background-color: #408ae6;
+}

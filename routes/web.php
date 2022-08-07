@@ -19,6 +19,14 @@ Route::any('/share-question', [App\Http\Controllers\HomeController::class, 'shar
 
 Route::get('/strategies', [App\Http\Controllers\Strategies\StrategiesController::class, 'index'])->name('strategies');
 
+Route::group(['prefix' => 'landing'], function () {
+    Route::get('/{landingName}', [App\Http\Controllers\Landing\LandingsController::class, 'show'])->name('show');
+});
+
+Route::group(['prefix' => 'notifications'], function () {
+    Route::get('/getAllNotifications', [App\Http\Controllers\Notification\NotificationController::class, 'getAllNotifications'])->name('getAllNotifications');
+});
+
 Route::group(['prefix' => 'study'], function () {
     Route::get('/', [App\Http\Controllers\Study\StudyController::class, 'index'])->name('study');
     Route::get('/topic-materials/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'topicMaterialsList'])->name('topic-materials');
@@ -47,9 +55,19 @@ Route::group(['prefix' => 'account'], function () {
     Route::post('/notifications/save', [App\Http\Controllers\Account\AccountController::class, 'notificationsSave'])->name('account-notifications-save');
 });
 
+Route::group(['prefix' => 'interview-requests'], function () {
+    Route::post('/save', [App\Http\Controllers\InterviewRequest\InterviewRequestController::class, 'saveInterviewRequest'])->name('save-interview-request');
+});
+
 // -------------------- Admin routs --------------------
 Route::group(['prefix' => 'admin'], function () {
     Route::any('/', [App\Http\Controllers\Admin\StatisticController::class, 'index']);
+});
+
+Route::group(['prefix' => 'admin/interview-requests'], function () {
+    Route::any('/', [App\Http\Controllers\Admin\InterviewRequestController::class, 'index']);
+    Route::any('/delete/{interviewRequestId}', [App\Http\Controllers\Admin\InterviewRequestController::class, 'delete']);
+    Route::any('/change-status/{interviewRequestId}/{newStatus}', [App\Http\Controllers\Admin\InterviewRequestController::class, 'changeStatus']);
 });
 
 Route::group(['prefix' => 'admin/statistics'], function () {
@@ -147,6 +165,14 @@ Route::group(['prefix' => 'admin/roles'], function () {
     Route::any('create', [App\Http\Controllers\Admin\RolesController::class, 'create']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\RolesController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\RolesController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'admin/landings'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\LandingsController::class, 'index']);
+    Route::any('create', [App\Http\Controllers\Admin\LandingsController::class, 'create']);
+    Route::any('edit/{landingsId}', [App\Http\Controllers\Admin\LandingsController::class, 'edit']);
+    Route::get('delete/{landingsId}', [App\Http\Controllers\Admin\LandingsController::class, 'delete']);
+    Route::get('changeActive/{landingsId}/{condition}', [App\Http\Controllers\Admin\LandingsController::class, 'changeActive']);
 });
 
 Auth::routes();

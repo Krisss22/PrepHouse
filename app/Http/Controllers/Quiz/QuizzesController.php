@@ -123,6 +123,7 @@ class QuizzesController extends Controller
                     ];
                 }
                 $questionsArray[] = [
+                    'questionImage' => $question->question_image,
                     'question' => $question->question,
                     'answers' => $answers,
                     'usersAnswer' => [],
@@ -264,6 +265,7 @@ class QuizzesController extends Controller
             'status' => self::RESPONSE_STATUS_SUCCESS,
             'question' => [
                 'id' => $questionData->id,
+                'questionImage' => $questionData->questionImage ? asset('storage/' . QuestionsBank::IMAGES_PATH . '/' . $questionData->questionImage) : null,
                 'question' => $questionData->question,
                 'answers' => $answers,
                 'usersAnswer' => $questionData->usersAnswer

@@ -18,6 +18,8 @@ class QuestionsBank extends Model
 {
     use HasFactory;
 
+    const IMAGES_PATH = 'images/questions';
+
     protected $table = 'questions_bank';
 
     /**
@@ -27,6 +29,7 @@ class QuestionsBank extends Model
      */
     protected $fillable = [
         'question',
+        'question_image',
         'addedByAdmin',
         'release',
         'tag_id',

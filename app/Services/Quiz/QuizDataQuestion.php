@@ -8,6 +8,7 @@ class QuizDataQuestion
     public $answers = [];
     public $flagged = false;
     public $question = '';
+    public $questionImage = null;
     public $tagId = null;
     public $usersAnswer = null;
 
@@ -21,6 +22,9 @@ class QuizDataQuestion
             }
             if (isset($data['question'])) {
                 $this->question = $data['question'];
+            }
+            if (isset($data['questionImage'])) {
+                $this->questionImage = $data['questionImage'];
             }
             if (isset($data['tagId'])) {
                 $this->tagId = $data['tagId'];

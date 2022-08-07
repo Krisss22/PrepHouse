@@ -162,7 +162,7 @@ class QuizController extends AdminController
     {
         $questions = QuestionsBank::query()
             ->where("tag_id", "=", $tagId)
-            ->where("release", "=", "true")
+            ->where("release", "=", 1)
             ->get();
 
         return Response::json([

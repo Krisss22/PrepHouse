@@ -1,0 +1,498 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #E5E5E5;
+}
+
+.top-menu-block {
+    padding: 60px;
+    /*background-color: #0F2038;*/
+    background-color: #001629;
+
+}
+
+.auth-block {
+    float: right;
+    margin-right: 110px;
+}
+
+.auth-block .log-in {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 50px;
+    float: left;
+    display: block;
+    width: 125px;
+    height: 55px;
+    background-color: #FFFFFF;
+    color: #4780D8;
+    box-sizing: border-box;
+    border: 1px solid #D6D6D6;
+    border-radius: 32px;
+}
+
+.auth-block .sign-up {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 50px;
+    margin-left: 15px;
+    float: left;
+    display: block;
+    width: 125px;
+    height: 55px;
+    background-color: #4780D8;
+    color: #FFFFFF;
+    border-radius: 32px;
+}
+
+.description-block {
+    height: 900px;
+    background-color: #0F2038;
+    border-bottom-left-radius: 128px;
+    border-bottom-right-radius: 128px;
+    background-image: url("../../../images/landings/preparation-for-interviews/description_background.svg");
+    background-size: cover;
+    background-position-y: -180px;
+}
+
+.description-block .description-style-circle {
+    z-index: -1;
+    position: absolute;
+    width: 990px;
+    height: 990px;
+    border-radius: 50%;
+    background: linear-gradient(198.21deg, #0D72CD 41.49%, #000000 96.44%);
+    top: 198px;
+    right: -44px;
+}
+
+.description-block .description-text-block {
+    z-index: 2;
+    margin-top: 130px;
+    margin-left: 160px;
+    float: left;
+    max-width: 415px;
+}
+
+.description-block .description-text-block .large-description {
+    z-index: 2;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.description-block .description-text-block .small-description {
+    z-index: 2;
+    margin-top: 22px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    color: #FFFFFF;
+    max-width: 390px;
+}
+
+.description-block .description-images-block {
+    float: right;
+    width: 875px;
+    text-align: right;
+    position: relative;
+}
+
+.how-its-work-block {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    margin: -120px 154px 0;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 18px;
+    text-align: center;
+}
+
+.how-its-work-block .small-label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34px;
+    text-align: center;
+    color: #222A41;
+}
+
+.how-its-work-block .large-label {
+    margin-top: 6px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 51px;
+    text-align: center;
+    color: #222A41;
+}
+
+.how-its-work-block .scheme-block {
+    margin-top: 80px;
+}
+
+.scheme-block .arrow {
+    display: inline-table;
+    margin: 0 30px;
+}
+
+.scheme-block .scheme-arrow {
+    position: absolute;
+    width: 28px;
+    height: 325px;
+    top: 35px;
+}
+
+.scheme-item {
+    margin: 0 0 75px;
+    width: 225px;
+    display: inline-table;
+}
+
+.scheme-item .scheme-item-label {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #222A41;
+}
+
+.scheme-item .scheme-item-description {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #222A41;
+}
+
+.scheme-block-first-line {
+    position: relative;
+}
+
+.pricing-block {
+    margin-top: 90px;
+    padding-bottom: 140px;
+    position: relative;
+}
+
+.pricing-block .small-label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34px;
+    text-align: center;
+    color: #222A41;
+}
+
+.pricing-block .large-label {
+    margin-top: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 51px;
+    text-align: center;
+    color: #222A41;
+}
+
+.pricing-items {
+    position: relative;
+    margin-top: 125px;
+    text-align: center;
+}
+
+.pricing-items .pricing-item {
+    width: 390px;
+    height: 700px;
+    background: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 18px;
+    display: inline-table;
+    margin: 0 -2px;
+}
+
+.pricing-items .pricing-item.best-price {
+    height: 794px;
+    background-color: #4780D8;
+    color: #fff;
+    top: -47px;
+    position: inherit;
+}
+
+.pricing-items .pricing-item .pricing-item-label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    margin: 50px 45px 0;
+}
+.pricing-items .pricing-item .pricing-item-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin: 20px 45px 0;
+}
+.pricing-items .pricing-item .pricing-item-price {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 80px;
+    text-align: center;
+    margin: 20px 45px 0;
+}
+.pricing-items .pricing-item .pricing-item-offers {
+    text-align: left;
+    margin: 20px 45px 0;
+}
+
+.pricing-items .pricing-item .pricing-item-offers .pricing-item-offer {
+    clear: both;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.pricing-items .pricing-item .pricing-item-offers .offer-check {
+    margin-right: 25px;
+    float: left;
+}
+
+.pricing-items .pricing-item .pricing-item-offers .pricing-item-offer div {
+    float: left;
+    width: calc(100% - 58px);
+    margin-top: 10px;
+}
+.pricing-items .pricing-item .pricing-item-select-button {
+    cursor: pointer;
+    clear: both;
+    left: 14.65%;
+    right: 66.74%;
+    top: 56.85%;
+    bottom: 42.11%;
+    background: #0B1728;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 45px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 14px 30px rgba(69, 158, 255, 0.2);
+    border-radius: 25px;
+    margin: 0 60px;
+    height: 50px;
+}
+
+.pricing-items .pricing-item.best-price .pricing-item-select-button {
+    background-color: #FFFFFF;
+    color: #4780D8;
+}
+
+.pricing-block .pricing-bottom-arc {
+    width: 100%;
+    height: 600px;
+    background-color: #0F2038;
+    border-top-left-radius: 128px;
+    border-top-right-radius: 128px;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.feedback-block {
+    background: linear-gradient(180.62deg, #0D72CD 27.42%, #000000 160.69%);
+    padding: 170px 60px 180px;
+    text-align: center;
+}
+
+.feedback-block .small-label {
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34px;
+    color: #FFFFFF;
+}
+.feedback-block .large-label {
+    text-align: left;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 51px;
+    color: #FFFFFF;
+}
+.feedback-block .feedback-items {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.feedback-block .feedback-items .feedback-item {
+    display: inline-block;
+    max-width: 360px;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 18px;
+}
+
+.submit-form-block {
+    text-align: center;
+    padding-top: 95px;
+    background-color: #0B1728;
+}
+
+.submit-form-block .label {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 46px;
+    text-align: center;
+    letter-spacing: -0.241177px;
+    color: #FFFFFF;
+}
+.submit-form-block .description {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.submit-form-block form {
+    text-align: left;
+    margin: 35px auto 0;
+    max-width: 525px;
+}
+.submit-form-block form label {
+    margin-bottom: 7px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+}
+.submit-form-block form input {
+    height: 50px;
+}
+.submit-form-block form textarea {
+    height: 100px;
+}
+.submit-form-block form input,
+.submit-form-block form textarea {
+    padding-left: 10px;
+    color: #FFFFFF;
+    width: 100%;
+    margin-bottom: 15px;
+    background: #202838;
+    border: 0;
+    border-radius: 4px;
+}
+
+.submit-form-block .form-submit-button {
+    cursor: pointer;
+    width: 200px;
+    height: 60px;
+    background: #4780D8;
+    border-radius: 54px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+    display: block;
+    margin: 0 auto;
+    border: 0;
+}
+
+.feedback-item .feedback-item-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    color: #6D7783;
+    margin-top: 20px;
+}
+
+.feedback-item {
+    min-height: 255px;
+    min-width: 300px;
+    margin-right: 30px;
+}
+
+.feedback-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.feedback-item .feedback-item-avatar {
+    margin-top: 10px;
+    float: left;
+}
+
+.feedback-item .feedback-item-name {
+    margin-top: 35px;
+}
+
+.feedback-item .feedback-item-name,
+.feedback-item .feedback-item-birthday {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #000000;
+    float: left;
+}
+
+.feedback-block .navigation {
+    float: right;
+    margin-right: 60px;
+}
+.feedback-block .navigation .go-left {
+    cursor: pointer;
+    margin-right: 30px;
+}
+.feedback-block .navigation .go-right {
+    cursor: pointer;
+}
+
+.footer {
+    padding-top: 55px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: #0B1728;
+}
+
+.footer .socials a {
+    margin-right: 55px;
+}
+
+.footer .socials a:nth-last-of-type(1) {
+    margin-right: 0;
+}
+
+.footer .copyright {
+    margin-top: 60px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.3;
+}
+

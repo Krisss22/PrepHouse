@@ -54,6 +54,7 @@ class RolesController extends AdminController
         return $this->view('admin/roles/edit', [
             'action' => self::ACTION_CREATE,
             'role' => new Role(),
+            'rolesList' => Role::getRolesList(),
         ]);
     }
 
@@ -77,6 +78,7 @@ class RolesController extends AdminController
         return $this->view('admin/roles/edit', [
             'action' => self::ACTION_EDIT,
             'role' => Role::findOrFail($roleId),
+            'rolesList' => Role::getRolesList(),
         ]);
     }
 
@@ -111,6 +113,7 @@ class RolesController extends AdminController
             "study_sites_permissions" => $request->input("study_sites_permissions"),
             "vacancies_permissions" => $request->input("vacancies_permissions"),
             "sent_questions_permissions" => $request->input("sent_questions_permissions"),
+            "interview_requests_permissions" => $request->input("interview_requests_permissions"),
         ];
     }
 }

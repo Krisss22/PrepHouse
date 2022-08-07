@@ -186,8 +186,15 @@ class QuestionsBankController extends AdminController
                 'inputQuestion' => 'required|max:1500'
             ]);
 
+            $imageName = null;
+            if ($request->has('inputQuestionImage')) {
+                $imageName = time() . '.' . $request->file('inputQuestionImage')->extension();
+                $request->file('inputQuestionImage')->move(storage_path('app/public/' . QuestionsBank::IMAGES_PATH), $imageName);
+            }
+
             $question = QuestionsBank::create([
                 'tag_id' => $request->input('inputTag') ? $request->input('inputTag') : null,
+                'question_image' => $imageName,
                 'question' => $request->input('inputQuestion'),
                 'addedByAdmin' => (int) $request->input('inputAddedByAdmin') ?? 0,
                 'release' => (int) $request->input('inputRelease') ?? 0

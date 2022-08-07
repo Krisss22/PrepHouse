@@ -29,13 +29,18 @@
             </div>
             <div id="quiz-process-question-block" class="quiz-process-question-block">
                 <div class="quiz-process-question-block-title">QUESTION <span>{{ $currentQuestion->getHumanId() }}</span></div>
+                <div class="quiz-process-question-block-image">
+                    @if($currentQuestion->questionImage)
+                        <img alt="" src="{{ asset('storage/' . \App\Models\QuestionsBank::IMAGES_PATH . '/' . $currentQuestion->questionImage) }}">
+                    @endif
+                </div>
                 <div class="quiz-process-question-block-task">{{ $currentQuestion->question }}</div>
                 <div id="quiz-process-question-block-answers-block" class="quiz-process-question-block-answers-block">
                     @foreach($currentQuestion->answers as $answerId => $answer)
                         <div class="quiz-process-question-block-answers-block-item {{ $currentQuestion->isAnswerSelected($answerId) ? 'active' : '' }}" data-answer-id="{{ $answerId }}">
                             <div class="quiz-process-question-block-answers-block-item-numbering">{{ $answer->getHumanId() }}</div>
                             @if($answer->image)
-                                <div class="quiz-process-question-block-answers-block-item-option"><img src="{{ $answer->getOption('image') }}"></div>
+                                <div class="quiz-process-question-block-answers-block-item-option"><img alt="" src="{{ $answer->getOption('image') }}"></div>
                             @endif
                             @if($answer->text)
                                 <div class="quiz-process-question-block-answers-block-item-option">{{ $answer->getOption('text') }}</div>

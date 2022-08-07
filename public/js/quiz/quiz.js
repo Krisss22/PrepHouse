@@ -103,10 +103,18 @@ function renderQuestion(data) {
     let quizProcessQuestionBlock = document.querySelector('#quiz-process-question-block');
     let questionTitle = quizProcessQuestionBlock.querySelector('.quiz-process-question-block-title span');
     let questionTask = quizProcessQuestionBlock.querySelector('.quiz-process-question-block-task');
+    let questionTaskImage = quizProcessQuestionBlock.querySelector('.quiz-process-question-block-image');
     let quizProcessQuestionBlockAnswersBlock = document.querySelector('#quiz-process-question-block-answers-block');
 
+    let questionImage = data.questionImage
+    if (questionImage) {
+        questionTaskImage.innerHTML = `<img alt="" src="${questionImage}">`
+    } else {
+        questionTaskImage.innerHTML = ''
+    }
+
     questionTitle.innerText = data.id + 1;
-    questionTask.innerText = data.question;
+    questionTask.inner = data.question;
     quizProcessQuestionBlockAnswersBlock.innerHTML = '';
 
     for (let answer of data.answers) {

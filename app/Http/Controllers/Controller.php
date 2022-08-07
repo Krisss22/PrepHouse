@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Notification\NotificationService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,13 +15,13 @@ class Controller extends BaseController
     protected const ITEM_ON_PAGE = 15;
     protected const RESPONSE_STATUS_SUCCESS = 'success';
     protected const RESPONSE_STATUS_ERROR = 'error';
+
     protected string $sectionName = '';
 
     protected function view(string $view, array $params = [])
     {
-        if ($this->sectionName !== '') {
-            $params['sectionName'] = $this->sectionName;
-        }
+        $params['sectionName'] = $this->sectionName;
+        $params['notifications'] = NotificationService::getAllNotifications();
 
         return view($view, $params);
     }
