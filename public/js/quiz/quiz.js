@@ -114,7 +114,7 @@ function renderQuestion(data) {
     }
 
     questionTitle.innerText = data.id + 1;
-    questionTask.inner = data.question;
+    questionTask.innerText = data.question;
     quizProcessQuestionBlockAnswersBlock.innerHTML = '';
 
     for (let answer of data.answers) {

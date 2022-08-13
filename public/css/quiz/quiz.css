@@ -477,8 +477,7 @@
 
 .quiz-process-question-block-image img {
     margin-top: 20px;
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
 }
 
 @media screen and (max-width: 1366px) {
