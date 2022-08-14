@@ -35,14 +35,18 @@ class QuestionsBank extends Model
         'tag_id',
     ];
 
-    static public function getRandomQuestionsByTagId($tagId, $limit)
+    static public function getRandomQuestionsByTagId(int $tagId, int $limit, bool $useAll)
     {
-        return self::query()
+        $query = self::query()
             ->where('tag_id', '=', $tagId)
             ->where('release', '=', true)
-            ->inRandomOrder()
-            ->limit($limit)
-            ->get();
+            ->inRandomOrder();
+
+        if (!$useAll) {
+            $query->limit($limit);
+        }
+
+        return $query->get();
     }
 
     public function answers(): HasMany

@@ -5,13 +5,17 @@ document.addEventListener('click', function(event) {
         renderNewTagField();
     }
 
-    if (element.classList.contains('quiz-tag-block-item-count-use-all-button')) {
-        event.preventDefault();
-        fillAllTagQuestionsCount(element);
-    }
-
     if (element.classList && element.classList.contains('quiz-tag-block-item-delete')) {
         element.parentNode.parentNode.remove();
+    }
+});
+
+document.addEventListener('change', function(event) {
+    let element = event.target;
+
+    if (element.classList.contains('quiz-tag-block-item-use-all-checkbox')) {
+        event.preventDefault();
+        clickUseAllTagQuestionsCount(element);
     }
 });
 
@@ -55,9 +59,14 @@ function renderNewTagField() {
     quizItemCountInputTemplateElement.setAttribute('name', `newQuizTag[${newQuizElementsCount}][count]">`);
     quizItemCountInputTemplateElement.classList.add('form-control');
 
-    let quizItemUseAllTagQuestionsButtonTemplateElement = document.createElement('button');
-    quizItemUseAllTagQuestionsButtonTemplateElement.classList.add('form-control', 'btn', 'btn-primary', 'quiz-tag-block-item-count-use-all-button');
-    quizItemUseAllTagQuestionsButtonTemplateElement.innerText = 'Use all';
+    let quizItemUseAllLabelTemplateElement = document.createElement('label');
+    quizItemUseAllLabelTemplateElement.classList.add('form-check-label');
+    quizItemUseAllLabelTemplateElement.append('UseAll');
+
+    let quizItemUseAllTagQuestionsInputTemplateElement = document.createElement('input');
+    quizItemUseAllTagQuestionsInputTemplateElement.setAttribute('type', 'checkbox');
+    quizItemUseAllTagQuestionsInputTemplateElement.classList.add('form-check-input', 'quiz-tag-block-item-use-all-checkbox');
+    quizItemUseAllTagQuestionsInputTemplateElement.setAttribute('name', `newQuizTag[${newQuizElementsCount}][use_all]">`)
 
     let quizItemTagTemplateElement = document.createElement('div');
     quizItemTagTemplateElement.classList.add('col-4', 'quiz-tag-block-item-tag');
@@ -71,8 +80,9 @@ function renderNewTagField() {
     quizItemCountTemplateElement.appendChild(quizItemCountInputTemplateElement);
 
     let quizItemUseAllTagQuestionsTemplateElement = document.createElement('div');
-    quizItemUseAllTagQuestionsTemplateElement.classList.add('col-1', 'quiz-tag-block-item-count-use-all');
-    quizItemUseAllTagQuestionsTemplateElement.appendChild(quizItemUseAllTagQuestionsButtonTemplateElement);
+    quizItemUseAllTagQuestionsTemplateElement.classList.add('col-1', 'quiz-tag-block-item-use-all', 'form-check', 'form-switch');
+    quizItemUseAllTagQuestionsTemplateElement.appendChild(quizItemUseAllLabelTemplateElement);
+    quizItemUseAllTagQuestionsTemplateElement.appendChild(quizItemUseAllTagQuestionsInputTemplateElement);
 
     let quizItemTemplateElement = document.createElement('div');
     quizItemTemplateElement.classList.add('quiz-tag-block-item');
@@ -83,17 +93,12 @@ function renderNewTagField() {
     document.querySelector('#addNewTagInQuiz').insertAdjacentElement('beforebegin', quizItemTemplateElement)
 }
 
-function fillAllTagQuestionsCount(element) {
-    let tagId = element.parentNode.parentNode.querySelector('.search-select-input-hidden').value;
-    let response = sendRequest(
-        'GET',
-        `/admin/quizzes/getAllTagQuestionsCount/${tagId}`
-    );
+function clickUseAllTagQuestionsCount(element) {
+    let countElement = element.parentNode.parentNode.querySelector('#count');
 
-    let countInput = element.parentNode.parentNode.querySelector('.quiz-tag-block-item-count input#count');
-    if (response && countInput) {
-        countInput.value = response.questionsCount
+    if (element.checked) {
+        countElement.setAttribute('disabled', 'true');
+    } else {
+        countElement.removeAttribute('disabled');
     }
-
-    console.log(response)
 }

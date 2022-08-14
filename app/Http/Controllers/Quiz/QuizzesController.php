@@ -111,7 +111,7 @@ class QuizzesController extends Controller
         $tagsArray = [];
         foreach ($quiz->quizTags as $quizTag) {
             $tagsArray[$quizTag->tag->id] = $quizTag->tag->name;
-            $questions = QuestionsBank::getRandomQuestionsByTagId($quizTag->tag_id, $quizTag->count);
+            $questions = QuestionsBank::getRandomQuestionsByTagId($quizTag->tag_id, $quizTag->count, $quizTag->isUseAll());
             foreach ($questions as $question) {
                 $answers = [];
                 foreach ($question->answers as $answer) {
@@ -238,7 +238,7 @@ class QuizzesController extends Controller
         ]);
     }
 
-    public function getQuestion($quizActionId, $questionId): JsonResponse
+    public function getQuestion(int $quizActionId, int $questionId): JsonResponse
     {
         $quizAction = QuizAction::findOrFail($quizActionId);
         $quizActionData = $quizAction->getData();
@@ -275,7 +275,7 @@ class QuizzesController extends Controller
         ]);
     }
 
-    public function finish($quizActionId)
+    public function finish(int $quizActionId)
     {
         $quizAction = QuizAction::findOrFail($quizActionId);
         $quizAction->finished = true;
@@ -291,7 +291,7 @@ class QuizzesController extends Controller
         ]);
     }
 
-    public function statistic($quizActionId)
+    public function statistic(int $quizActionId)
     {
         $quizAction = QuizAction::findOrFail($quizActionId);
 

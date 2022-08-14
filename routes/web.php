@@ -156,7 +156,6 @@ Route::group(['prefix' => 'admin/quizzes'], function () {
     Route::any('create', [App\Http\Controllers\Admin\QuizController::class, 'create']);
     Route::any('edit/{id}', [App\Http\Controllers\Admin\QuizController::class, 'edit']);
     Route::get('delete/{id}', [App\Http\Controllers\Admin\QuizController::class, 'delete']);
-    Route::get('getAllTagQuestionsCount/{tagId}', [App\Http\Controllers\Admin\QuizController::class, 'getAllTagQuestionsCount']);
 });
 
 Route::group(['prefix' => 'admin/roles'], function () {

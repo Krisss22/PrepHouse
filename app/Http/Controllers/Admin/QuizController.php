@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\QuestionsBank;
 use App\Models\Quiz;
 use App\Models\QuizTag;
 use App\Models\Role;
@@ -13,7 +12,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Response;
 
 class QuizController extends AdminController
 {
@@ -69,7 +67,8 @@ class QuizController extends AdminController
                     $quizTagIds[] = $quizTagId;
                     QuizTag::findOrFail($quizTagId)->update([
                         'tag_id' => $item['tagId'],
-                        'count' => $item['count']
+                        'count' => $item['count'] ?? 0,
+                        'use_all' => isset($item['use_all']),
                     ]);
                 }
             }
@@ -124,7 +123,8 @@ class QuizController extends AdminController
                     QuizTag::create([
                         'quiz_id' => $quiz->id,
                         'tag_id' => $item['tagId'],
-                        'count' => $item['count']
+                        'count' => $item['count'] ?? 0,
+                        'use_all' => isset($item['use_all']),
                     ]);
                 }
             }
@@ -152,23 +152,6 @@ class QuizController extends AdminController
         Quiz::findOrFail($id)->delete();
 
         return redirect('/admin/quizzes/list');
-    }
-
-    /**
-     * @param $tagId
-     * @return JsonResponse
-     */
-    public function getAllTagQuestionsCount($tagId): JsonResponse
-    {
-        $questions = QuestionsBank::query()
-            ->where("tag_id", "=", $tagId)
-            ->where("release", "=", 1)
-            ->get();
-
-        return Response::json([
-            'status' => self::RESPONSE_STATUS_SUCCESS,
-            'questionsCount' => count($questions),
-        ]);
     }
 
 }

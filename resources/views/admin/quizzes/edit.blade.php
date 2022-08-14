@@ -39,10 +39,11 @@
                     </div>
                     <div class="col-1 quiz-tag-block-item-count">
                         <label for="count" class="form-label">Count</label>
-                        <input type="number" class="form-control" name="quizTag[{{ $quizTag->id }}][count]" id="count" value="{{ $quizTag->count }}" required>
+                        <input type="number" class="form-control" name="quizTag[{{ $quizTag->id }}][count]" id="count" value="{{ $quizTag->count }}" {{ $quizTag->isUseAll() ? 'disabled' : '' }} required>
                     </div>
-                    <div class="col-1 quiz-tag-block-item-count-use-all">
-                        <button class="form-control btn btn-primary quiz-tag-block-item-count-use-all-button">Use all</button>
+                    <div class="col-1 quiz-tag-block-item-use-all form-check form-switch">
+                        <label class="form-label">Use all</label>
+                        <input type="checkbox" class="form-check-input quiz-tag-block-item-use-all-checkbox" name="quizTag[{{ $quizTag->id }}][use_all]" {{ $quizTag->isUseAll() ? 'checked' : '' }}>
                     </div>
                 </div>
             @endforeach
