@@ -27,6 +27,10 @@ Route::group(['prefix' => 'notifications'], function () {
     Route::get('/getAllNotifications', [App\Http\Controllers\Notification\NotificationController::class, 'getAllNotifications'])->name('getAllNotifications');
 });
 
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('/', [App\Http\Controllers\Study\DashboardController::class, 'index'])->name('study');
+});
+
 Route::group(['prefix' => 'study'], function () {
     Route::get('/', [App\Http\Controllers\Study\StudyController::class, 'index'])->name('study');
     Route::get('/topic-materials/{topicId}', [App\Http\Controllers\Study\StudyController::class, 'topicMaterialsList'])->name('topic-materials');

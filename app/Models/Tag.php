@@ -28,4 +28,16 @@ class Tag extends Model
     {
         return $this->hasMany('App\Models\QuestionsBank', 'tag_id', 'id');
     }
+
+    public function questionsInRelease(): int
+    {
+        $inReleaseCount = 0;
+        foreach ($this->questions as $question) {
+            if ($question->release) {
+                $inReleaseCount++;
+            }
+        }
+
+        return $inReleaseCount;
+    }
 }

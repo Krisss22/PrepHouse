@@ -18,6 +18,8 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
+            <th scope="col">Questions count</th>
+            <th scope="col">Questions in release count</th>
             <th scope="col">Created at</th>
             <th scope="col">Updated at</th>
             <th scope="col">Actions</th>
@@ -28,6 +30,8 @@
             <tr>
                 <th scope="row">{{ $tag->id }}</th>
                 <td>{{ $tag->name }}</td>
+                <td>{{ count($tag->questions) }}</td>
+                <td>{{ $tag->questionsInRelease() }}</td>
                 <td>{{ $tag->created_at }}</td>
                 <td>{{ $tag->updated_at }}</td>
                 <td>
