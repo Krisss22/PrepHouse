@@ -33,6 +33,7 @@
                 <td>{{ $landing->created_at }}</td>
                 <td>{{ $landing->updated_at }}</td>
                 <td>
+                    <a href="/landing/{{ $landing->name }}">Open</a>
                     <a href="/admin/landings/changeActive/{{ $landing->id }}/{{ $landing->active ? "disable" : "enable" }}">{{ $landing->active ? "Disable" : "Enable" }}</a>
                     <a href="/admin/landings/edit/{{ $landing->id }}">Edit</a>
                     <a href="/admin/landings/delete/{{ $landing->id }}">Delete</a>

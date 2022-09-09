@@ -31,20 +31,28 @@
         <div class="nav nav-pills flex-column mb-auto">
             <div class="nav-item"><a href="/admin/statistics/list" class="nav-link @if($sectionName === 'statistics') active @endif">Statistics</a></div>
 {{--            <li><a href="/admin/common" class="nav-link @if($sectionName === 'common') active @endif">Common</a></li>--}}
-            @if(Auth::user()->userRole->checkAccess('topics', \App\Models\Role::showAccessType))
-                <div class="nav-item"><a href="/admin/topics/list" class="nav-link @if($sectionName === 'topics') active @endif">Topics</a></div>
-            @endif
-            @if(Auth::user()->userRole->checkAccess('tags', \App\Models\Role::showAccessType))
-                <div class="nav-item"><a href="/admin/tags/list" class="nav-link @if($sectionName === 'tags') active @endif">Tags</a></div>
-            @endif
-            @if(Auth::user()->userRole->checkAccess('questions', \App\Models\Role::showAccessType))
-                <div class="nav-item"><a href="/admin/questions/list" class="nav-link @if($sectionName === 'questions') active @endif">Questions bank</a></div>
-            @endif
+            <div class="nav-item has-sub-menu">
+                <div class="nav-item-submenu-label nav-link">Quizzes</div>
+                <div class="nav-item-submenu nav-link {{ in_array($sectionName, ['topics', 'tags', 'questions', 'quizzes', 'expertise-areas']) ? '' : 'hidden' }}">
+                    @if(Auth::user()->userRole->checkAccess('topics', \App\Models\Role::showAccessType))
+                        <div class="nav-item"><a href="/admin/topics/list" class="nav-link @if($sectionName === 'topics') active @endif">Topics</a></div>
+                    @endif
+                    @if(Auth::user()->userRole->checkAccess('tags', \App\Models\Role::showAccessType))
+                        <div class="nav-item"><a href="/admin/tags/list" class="nav-link @if($sectionName === 'tags') active @endif">Tags</a></div>
+                    @endif
+                    @if(Auth::user()->userRole->checkAccess('expertise_areas', \App\Models\Role::showAccessType))
+                        <div class="nav-item"><a href="/admin/expertise-areas/list" class="nav-link @if($sectionName === 'expertise-areas') active @endif">Expertise areas</a></div>
+                    @endif
+                    @if(Auth::user()->userRole->checkAccess('questions', \App\Models\Role::showAccessType))
+                        <div class="nav-item"><a href="/admin/questions/list" class="nav-link @if($sectionName === 'questions') active @endif">Questions bank</a></div>
+                    @endif
+                    @if(Auth::user()->userRole->checkAccess('quizzes', \App\Models\Role::showAccessType))
+                        <div class="nav-item"><a href="/admin/quizzes/list" class="nav-link @if($sectionName === 'quizzes') active @endif">Manage quizzes</a></div>
+                    @endif
+                </div>
+            </div>
             @if(Auth::user()->userRole->checkAccess('sent_questions', \App\Models\Role::showAccessType))
                 <div class="nav-item"><a href="/admin/sent-questions/list" class="nav-link @if($sectionName === 'sent-questions') active @endif">Sent questions</a></div>
-            @endif
-            @if(Auth::user()->userRole->checkAccess('quizzes', \App\Models\Role::showAccessType))
-                <div class="nav-item"><a href="/admin/quizzes/list" class="nav-link @if($sectionName === 'quizzes') active @endif">Quizzes</a></div>
             @endif
             @if(
                 Auth::user()->userRole->checkAccess('study_videos', \App\Models\Role::showAccessType)
@@ -62,7 +70,7 @@
 
             <div class="nav-item has-sub-menu">
                 <div class="nav-item-submenu-label nav-link">Users</div>
-                <div class="nav-item-submenu nav-link @if(in_array($sectionName, ['users', 'roles']) ? '' : 'hidden') @endif">
+                <div class="nav-item-submenu nav-link {{ in_array($sectionName, ['users', 'roles']) ? '' : 'hidden' }}">
                     @if(Auth::user()->userRole->checkAccess('users', \App\Models\Role::showAccessType))
                         <a href="/admin/users/list" class="nav-link @if($sectionName === 'users') active @endif">Manage users</a>
                     @endif
@@ -74,7 +82,7 @@
             <hr>
             <div class="nav-item has-sub-menu">
                 <div class="nav-item-submenu-label nav-link">Interviews</div>
-                <div class="nav-item-submenu nav-link @if(in_array($sectionName, ['interviewRequests']) ? '' : 'hidden') @endif">
+                <div class="nav-item-submenu nav-link {{ in_array($sectionName, ['interviewRequests']) ? '' : 'hidden' }}">
                     @if(Auth::user()->userRole->checkAccess('interview_requests', \App\Models\Role::showAccessType))
                         <a href="/admin/interview-requests" class="nav-link @if($sectionName === 'interviewRequests') active @endif">Interview requests</a>
                     @endif

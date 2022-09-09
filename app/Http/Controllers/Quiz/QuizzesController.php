@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Quiz;
 
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
+use App\Models\ExpertiseArea;
 use App\Models\QuestionsBank;
 use App\Models\Quiz;
 use App\Models\QuizAction;
@@ -95,7 +96,8 @@ class QuizzesController extends Controller
         }
 
         return $this->view('quiz/list', [
-            'quizzesList' => $quizzesList
+            'quizzesList' => $quizzesList,
+            'expertiseAreasList' => ExpertiseArea::all(),
         ]);
     }
 

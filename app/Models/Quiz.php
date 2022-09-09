@@ -25,7 +25,13 @@ class Quiz extends Model
     protected $fillable = [
         'name',
         'topic_id',
+        'expertise_area_id',
     ];
+
+    public function expertiseArea(): HasOne
+    {
+        return $this->hasOne('App\Models\ExpertiseArea', 'id', 'expertise_area_id');
+    }
 
     public function topic(): HasOne
     {

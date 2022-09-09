@@ -50,6 +50,7 @@ class Role extends Model
         'vacancies',
         'sent_questions',
         'interview_requests',
+        'expertise_areas',
     ];
 
     /**
@@ -72,6 +73,7 @@ class Role extends Model
         "vacancies_permissions",
         "sent_questions_permissions",
         "interview_requests_permissions",
+        "expertise_areas_permissions",
     ];
 
     public static function getRolesList(): array

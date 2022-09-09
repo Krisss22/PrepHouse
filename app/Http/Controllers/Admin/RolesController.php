@@ -114,6 +114,7 @@ class RolesController extends AdminController
             "vacancies_permissions" => $request->input("vacancies_permissions"),
             "sent_questions_permissions" => $request->input("sent_questions_permissions"),
             "interview_requests_permissions" => $request->input("interview_requests_permissions"),
+            "expertise_areas_permissions" => $request->input("expertise_areas_permissions"),
         ];
     }
 }

@@ -7,9 +7,14 @@
         @if(Auth::check())
             <a href="{{ route('quiz-statistic-list') }}" class="quiz-section-history-button">History</a>
         @endif
+        <div class="expertise-areas-list">
+            @foreach($expertiseAreasList as $index => $expertiseArea)
+                <div data-expertise-name="{{ $expertiseArea->name }}" class="expertise-areas-item {{ $index === 0 ? 'active' : '' }}">{{ $expertiseArea->name }}</div>
+            @endforeach
+        </div>
         <div class="quiz-item-list">
             @foreach($quizzesList as $quiz)
-            <div class="quiz-item-list-item {{ $quiz->processStatusClass }}">
+            <div data-expertise-name="{{ $quiz->expertiseArea->name }}" class="quiz-item-list-item {{ $quiz->processStatusClass }} {{ $expertiseAreasList[0]->name !== $quiz->expertiseArea->name ? 'hidden' : '' }}">
                 <div class="quiz-item-top-block">
                     @if(isset($quiz->quiz_action_data))
                         <div class="quiz-item-progress-bar">

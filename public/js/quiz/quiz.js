@@ -20,6 +20,10 @@ document.addEventListener('click', function(event) {
     ) {
         loadQuestion(element.dataset.questionId);
     }
+
+    if (element.classList.contains('expertise-areas-item')) {
+        showQuizzesByExpertise(element, element.dataset.expertiseName)
+    }
 });
 
 function clickAnswer(answerId) {
@@ -161,4 +165,24 @@ function setProgressPercent(percent) {
         progressPercentNumber.innerHTML = `${percent}%`
         progressPercentElement.style.width = `${percent}%`;
     }
+}
+
+function showQuizzesByExpertise(element, expertiseName) {
+    document.querySelectorAll('.expertise-areas-item').forEach(el => {
+        if (el.dataset.expertiseName === expertiseName && !el.classList.contains('active')) {
+            el.classList.add('active');
+        } else {
+            el.classList.remove('active');
+        }
+    });
+
+    document.querySelectorAll('.quiz-item-list-item').forEach(el => {
+        if (el.dataset.expertiseName === expertiseName) {
+            el.classList.remove('hidden');
+        } else {
+            if (!el.classList.contains('hidden')) {
+                el.classList.add('hidden');
+            }
+        }
+    });
 }

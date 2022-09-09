@@ -58,6 +58,7 @@ class QuizController extends AdminController
                 ->update([
                     'name' => $request->input('name'),
                     'topic_id' => $request->input('topic'),
+                    'expertise_area_id' => $request->has('expertiseArea') ? $request->input('expertiseArea') : null
                 ]);
 
             $quizTagIds = [];
@@ -115,7 +116,8 @@ class QuizController extends AdminController
 
             $quiz = Quiz::create([
                 'name' => $request->input('name'),
-                'topic_id' => $request->input('topic')
+                'topic_id' => $request->input('topic'),
+                'expertise_area_id' => $request->has('expertiseArea') ? $request->input('expertiseArea') : null
             ]);
 
             if ($request->has('newQuizTag')) {

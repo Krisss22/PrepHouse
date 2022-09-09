@@ -147,6 +147,15 @@ Route::group(['prefix' => 'admin/tags'], function () {
     Route::get('get-json', [App\Http\Controllers\Admin\TagController::class, 'getJson']);
 });
 
+Route::group(['prefix' => 'admin/expertise-areas'], function () {
+    Route::get('list', [App\Http\Controllers\Admin\ExpertiseAreaController::class, 'index']);
+    Route::any('create', [App\Http\Controllers\Admin\ExpertiseAreaController::class, 'create']);
+    Route::any('change-status/{expertiseAreaId}/{newStatus}', [App\Http\Controllers\Admin\ExpertiseAreaController::class, 'changeStatus']);
+    Route::any('edit/{id}', [App\Http\Controllers\Admin\ExpertiseAreaController::class, 'edit']);
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\ExpertiseAreaController::class, 'delete']);
+    Route::get('get-json', [App\Http\Controllers\Admin\ExpertiseAreaController::class, 'getJson']);
+});
+
 Route::group(['prefix' => 'admin/topics'], function () {
     Route::get('list', [App\Http\Controllers\Admin\TopicController::class, 'index']);
     Route::any('create', [App\Http\Controllers\Admin\TopicController::class, 'create']);
