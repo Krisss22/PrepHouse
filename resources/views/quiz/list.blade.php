@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts.part.user_menu')
     <div class="main-content">
-        <div class="quiz-section-title">Choose a desired occupation</div>
+        <div class="quiz-section-title">Choose your area of expertise</div>
         @if(Auth::check())
             <a href="{{ route('quiz-statistic-list') }}" class="quiz-section-history-button">History</a>
         @endif
@@ -13,7 +13,7 @@
             @endforeach
         </div>
         <div class="quiz-item-list">
-            @foreach($quizzesList as $quiz)
+            @foreach($quizzesLidst as $quiz)
             <div data-expertise-name="{{ $quiz->expertiseArea->name }}" class="quiz-item-list-item {{ $quiz->processStatusClass }} {{ $expertiseAreasList[0]->name !== $quiz->expertiseArea->name ? 'hidden' : '' }}">
                 <div class="quiz-item-top-block">
                     @if(isset($quiz->quiz_action_data))
