@@ -31,7 +31,7 @@
         <div class="col-7">
             <label for="expertise_area" class="form-label">Expertise area</label>
             <div class="search-select-element" data-json-name="tags" data-json-url="/admin/expertise-areas/get-json">
-                <input type="text" class="form-control search-select-input" value="{{ $quiz->expertiseArea->name }}">
+                <input type="text" class="form-control search-select-input" value="{{ $quiz->expertiseArea->name ?? '' }}">
                 <input type="text" class="search-select-input-hidden" name="expertiseArea" value="{{ $quiz->expertise_area_id }}">
             </div>
         </div>
