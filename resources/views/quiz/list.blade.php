@@ -14,7 +14,7 @@
         </div>
         <div class="quiz-item-list">
             @foreach($quizzesList as $quiz)
-            <div data-expertise-name="{{ $quiz->expertiseArea->name }}" class="quiz-item-list-item {{ $quiz->processStatusClass }} {{ $expertiseAreasList[0]->name !== $quiz->expertiseArea->name ? 'hidden' : '' }}">
+            <div data-expertise-name="{{ $quiz->expertiseArea->name ?? '' }}" class="quiz-item-list-item {{ $quiz->processStatusClass }} {{ $expertiseAreasList[0]->name !== ($quiz->expertiseArea->name ?? '') ? 'hidden' : '' }}">
                 <div class="quiz-item-top-block">
                     @if(isset($quiz->quiz_action_data))
                         <div class="quiz-item-progress-bar">
