@@ -14,7 +14,8 @@
     <body data-home-page="PrepHouse.html" data-home-page-title="PrepHouse" class="u-body">
         <div id="app">
             <div class="top-menu-block">
-                <img alt="logo" src="{{ asset('images/landings/preparation-for-interviews/logo.svg') }}" class="logo">
+                <img alt="logo" src="{{ asset('images/landings/preparation-for-interviews/logo.svg') }}" class="logo desktop">
+                <img alt="logo" src="{{ asset('images/landings/preparation-for-interviews/logo_mobile.svg') }}" class="logo mobile">
 
                 @guest
                 <div class="auth-block">
@@ -26,11 +27,11 @@
 
             <div class="description-block">
                 <div class="description-text-block">
-                    <div class="large-description">Preparation for interviews with the best specialists</div>
-                    <div class="small-description">Improve your interviewing skills by sharing real life experiences and interests in a secure online environment.</div>
+                    <div class="large-description">Preparation for interviews with the best specialists<div class="small-description">Improve your interviewing skills by sharing real life experiences and interests in a secure online environment.</div></div>
                 </div>
                 <div class="description-images-block">
-                    <img alt="" src="{{ asset('images/landings/preparation-for-interviews/description_image.svg') }}">
+                    <img class="desktop" alt="" src="{{ asset('images/landings/preparation-for-interviews/description_image.svg') }}">
+                    <img class="mobile" alt="" src="{{ asset('images/landings/preparation-for-interviews/description_image_mobile.svg') }}">
                 </div>
             </div>
 

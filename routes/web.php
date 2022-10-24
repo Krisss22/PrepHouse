@@ -28,7 +28,7 @@ Route::group(['prefix' => 'notifications'], function () {
 });
 
 Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('/', [App\Http\Controllers\Study\DashboardController::class, 'index'])->name('study');
+    Route::get('/', [App\Http\Controllers\Dashboard\DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::group(['prefix' => 'study'], function () {

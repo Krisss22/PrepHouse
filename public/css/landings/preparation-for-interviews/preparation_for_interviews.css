@@ -6,9 +6,11 @@ body {
 
 .top-menu-block {
     padding: 60px;
-    /*background-color: #0F2038;*/
     background-color: #001629;
+}
 
+.top-menu-block img.logo.mobile {
+    display: none;
 }
 
 .auth-block {
@@ -32,6 +34,7 @@ body {
     box-sizing: border-box;
     border: 1px solid #D6D6D6;
     border-radius: 32px;
+    text-decoration: none;
 }
 
 .auth-block .sign-up {
@@ -49,6 +52,7 @@ body {
     background-color: #4780D8;
     color: #FFFFFF;
     border-radius: 32px;
+    text-decoration: none;
 }
 
 .description-block {
@@ -75,9 +79,8 @@ body {
 .description-block .description-text-block {
     z-index: 2;
     margin-top: 130px;
-    margin-left: 160px;
     float: left;
-    max-width: 415px;
+    width: 50%;
 }
 
 .description-block .description-text-block .large-description {
@@ -88,6 +91,8 @@ body {
     line-height: 59px;
     color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    float: right;
+    max-width: 70%;
 }
 
 .description-block .description-text-block .small-description {
@@ -103,9 +108,16 @@ body {
 
 .description-block .description-images-block {
     float: right;
-    width: 875px;
+    width: 50%;
     text-align: right;
     position: relative;
+}
+
+.description-block .description-images-block img.mobile {
+    display: none;
+}
+.description-block .description-images-block img {
+    width: 100%;
 }
 
 .how-its-work-block {
@@ -494,5 +506,146 @@ body {
     color: #FFFFFF;
     mix-blend-mode: normal;
     opacity: 0.3;
+}
+
+@media (max-width: 1200px) {
+    .auth-block {
+        margin-right: 0px;
+    }
+    .description-block {
+        height: auto;
+        padding-bottom: 300px;
+    }
+    .description-block .description-text-block {
+        margin-left: 20px;
+        margin-top: 50px;
+        width: 65%;
+    }
+    .description-block .description-images-block {
+        float: none;
+        width: 100%;
+    }
+    .description-block .description-text-block .large-description {
+        max-width: 100%;
+    }
+
+    .description-block .description-images-block img {
+        width: 100%;
+    }
+    .how-its-work-block {
+        max-width: 700px;
+        margin: -120px auto 0;
+    }
+    .how-its-work-block .scheme-block {
+        width: 250px;
+        margin: 40px auto 0px;
+    }
+    .scheme-block-first-line .arrow,
+    .scheme-block-first-line .scheme-arrow,
+    .scheme-block-second-line .arrow {
+        display: none;
+    }
+    .pricing-block {
+        margin-top: 35px;
+        position: inherit;
+        padding-bottom: 40px;
+    }
+    .pricing-block .pricing-items {
+        margin-top: 20px;
+    }
+    .pricing-items .pricing-item {
+        max-width: 700px;
+        width: inherit;
+        margin: 0 auto;
+        display: block;
+        padding-top: 40px;
+    }
+    .pricing-items .pricing-item.best-price {
+        width: 100%;
+        max-width: 730px;
+        margin: -20px auto;
+        top: 0px;
+        position: relative;
+    }
+    .pricing-items .pricing-item .pricing-item-label,
+    .pricing-items .pricing-item .pricing-item-description {
+        text-align: left;
+        margin: 0px 45px 0;
+    }
+    .pricing-items .pricing-item .pricing-item-offers .pricing-item-offer {
+        padding: 0 30px;
+    }
+    .feedback-block {
+        padding: 30px 20px 180px;
+    }
+    .feedback-block .feedback-items {
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .feedback-block .feedback-items .feedback-item {
+        display: inline-block;
+        width: 90%;
+        padding: 0px;
+        margin-right: 10px;
+        max-width: 600px;
+    }
+    .feedback-block .navigation {
+        float: left;
+        margin-left: 0px;
+    }
+    .submit-form-block form {
+        max-width: initial;
+    }
+    .submit-form-block form input, .submit-form-block form textarea {
+        padding-left: 0px;
+        width: 90%;
+        display: block;
+        margin: 0 auto 15px;
+    }
+    .submit-form-block form label {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .pricing-items .pricing-item .pricing-item-offers {
+        margin: 20px 0px 0px;
+        padding: 0 40px;
+        max-width: 600px;
+    }
+    .feedback-block .feedback-items .feedback-item img {
+        margin-top: 20px;
+    }
+    .feedback-block .feedback-items .feedback-item .feedback-item-description {
+        padding: 0 20px;
+        width: calc(100% - 40px);
+        white-space: initial;
+    }
+    .top-menu-block {
+        padding: 20px;
+    }
+    .top-menu-block img.logo.mobile {
+        display: initial;
+    }
+    .top-menu-block img.logo.desktop {
+        display: none;
+    }
+    .auth-block {
+        width: calc(100% - 145px)
+    }
+    .top-menu-block .auth-block a {
+        width: calc(50% - 10px);
+        max-width: 125px;
+        float: right;
+    }
+    .auth-block .sign-up {
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+    .description-block .description-images-block img.mobile {
+        display: initial;
+    }
+    .description-block .description-images-block img.desktop {
+        display: none;
+    }
 }
 
