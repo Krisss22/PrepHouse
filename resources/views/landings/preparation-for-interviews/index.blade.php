@@ -139,23 +139,43 @@
                 <div class="small-label">Testimonials</div>
                 <div class="large-label">Words from satisfied users</div>
                 <div class="feedback-items">
-                    <div class="feedback-item">
-                        <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
-                        <div class="feedback-item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
-                        <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
-                        <div class="feedback-item-name">Name Name<br>2022-02-02</div>
-                    </div>
-                    <div class="feedback-item">
-                        <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
-                        <div class="feedback-item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
-                        <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
-                        <div class="feedback-item-name">Name Name<br>2022-02-02</div>
-                    </div>
-                    <div class="feedback-item">
-                        <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
-                        <div class="feedback-item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
-                        <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
-                        <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                    <div class="feedback-items-line">
+                        <div class="feedback-item" data-visible="true">
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
+                            <div class="feedback-item-description">111 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
+                            <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                        </div>
+                        <div class="feedback-item" data-visible="true">
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
+                            <div class="feedback-item-description">222 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
+                            <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                        </div>
+                        <div class="feedback-item" data-visible="true">
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
+                            <div class="feedback-item-description">333 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
+                            <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                        </div>
+                        <div class="feedback-item" data-visible="true">
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
+                            <div class="feedback-item-description">444 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
+                            <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                        </div>
+                        <div class="feedback-item" data-visible="true">
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
+                            <div class="feedback-item-description">555 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
+                            <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                        </div>
+                        <div class="feedback-item" data-visible="true">
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_icon.svg') }}">
+                            <div class="feedback-item-description">666 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when.</div>
+                            <img alt="" src="{{ asset('images/landings/preparation-for-interviews/feedback_test.png') }}" class="feedback-item-avatar">
+                            <div class="feedback-item-name">Name Name<br>2022-02-02</div>
+                        </div>
                     </div>
                 </div>
                 <div class="navigation">
@@ -209,6 +229,7 @@
         <div id="notifications"></div>
 
         <script src="{{ asset('js/functions.js') }}"></script>
+        <script src="{{ asset('js/landings/preparation-for-interviews/slider.js') }}"></script>
         <script src="{{ asset('js/notifications/notifications.js') }}"></script>
     </body>
 </html>

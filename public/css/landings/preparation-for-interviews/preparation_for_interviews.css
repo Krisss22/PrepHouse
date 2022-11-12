@@ -347,8 +347,11 @@ body {
     color: #FFFFFF;
 }
 .feedback-block .feedback-items {
+    display: flex;
     margin-top: 70px;
     margin-bottom: 70px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .feedback-block .feedback-items .feedback-item {
@@ -358,6 +361,12 @@ body {
     background: #FFFFFF;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     border-radius: 18px;
+    white-space: break-spaces;
+}
+
+.feedback-block .feedback-items .feedback-items-line {
+    transition-duration: 0.7s;
+    transition-timing-function: linear;
 }
 
 .submit-form-block {
@@ -445,10 +454,6 @@ body {
     min-height: 255px;
     min-width: 300px;
     margin-right: 30px;
-}
-
-.feedback-item:nth-child(3n) {
-    margin-right: 0;
 }
 
 .feedback-item .feedback-item-avatar {
