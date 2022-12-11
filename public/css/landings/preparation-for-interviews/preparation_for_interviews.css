@@ -1,4 +1,14 @@
+@font-face {
+    font-family: 'Lato-custom';
+    src: url(../../../fonts/lato-light-webfont.woff2) format('woff2'),
+    url(../../../fonts/lato-light-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
+    font-family: 'Lato-custom';
     padding: 0;
     margin: 0;
     background-color: #E5E5E5;
@@ -36,7 +46,10 @@ body {
     border-radius: 32px;
     text-decoration: none;
 }
-
+.auth-block .log-in:hover {
+    background-color: #4780D8;
+    color: #FFF;
+}
 .auth-block .sign-up {
     font-style: normal;
     font-weight: 400;
@@ -54,7 +67,10 @@ body {
     border-radius: 32px;
     text-decoration: none;
 }
-
+.auth-block .sign-up:hover {
+    background-color: #FFF;
+    color: #4780D8;
+}
 .description-block {
     height: 900px;
     background-color: #0F2038;
@@ -121,11 +137,15 @@ body {
 }
 
 .how-its-work-block {
+    background-color: #0F2038;
+}
+
+.how-its-work-block .how-its-work-inner-block {
     padding-top: 70px;
     padding-bottom: 40px;
-    margin: -120px 154px 0;
+    margin: 0 154px 0;
     background: #FFFFFF;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     border-radius: 18px;
     text-align: center;
 }
@@ -162,7 +182,7 @@ body {
     position: absolute;
     width: 28px;
     height: 325px;
-    top: 35px;
+    top: 70px;
 }
 
 .scheme-item {
@@ -197,17 +217,8 @@ body {
 
 .pricing-block {
     margin-top: 90px;
-    padding-bottom: 140px;
+    padding-bottom: 90px;
     position: relative;
-}
-
-.pricing-block .small-label {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 34px;
-    text-align: center;
-    color: #222A41;
 }
 
 .pricing-block .large-label {
@@ -228,7 +239,7 @@ body {
 
 .pricing-items .pricing-item {
     width: 390px;
-    height: 700px;
+    height: 730px;
     background: #FFFFFF;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     border-radius: 18px;
@@ -237,7 +248,7 @@ body {
 }
 
 .pricing-items .pricing-item.best-price {
-    height: 794px;
+    height: 825px;
     background-color: #4780D8;
     color: #fff;
     top: -47px;
@@ -259,6 +270,27 @@ body {
     line-height: 27px;
     margin: 20px 45px 0;
 }
+
+.pricing-items .pricing-item .pricing-item-price span.line-through {
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff;
+    position: relative;
+    color: red;
+}
+
+.pricing-items .pricing-item .pricing-item-price span.line-through .line {
+    position: absolute;
+    border-radius: 10px;
+    left: -5px;
+    top: 26px;
+    width: calc(100% + 10px);
+    height: 5px;
+    background-color: #0f2038;
+}
+
+.pricing-items .pricing-item.best-price .pricing-item-price span.line-through .line {
+    background-color: #0f2038;
+}
+
 .pricing-items .pricing-item .pricing-item-price {
     font-style: normal;
     font-weight: 600;
@@ -298,7 +330,7 @@ body {
     background: #0B1728;
     font-weight: 600;
     font-size: 16px;
-    line-height: 45px;
+    line-height: 50px;
     text-align: center;
     color: #FFFFFF;
     box-shadow: 0 14px 30px rgba(69, 158, 255, 0.2);
@@ -307,9 +339,21 @@ body {
     height: 50px;
 }
 
+.pricing-items .pricing-item .pricing-item-select-button:hover {
+    background: #FFF;
+    color: #0B1728;
+    border: 1px solid #0B1728;
+}
+
 .pricing-items .pricing-item.best-price .pricing-item-select-button {
     background-color: #FFFFFF;
     color: #4780D8;
+}
+
+.pricing-items .pricing-item.best-price .pricing-item-select-button:hover {
+    background-color: #4780D8;
+    color: #FFF;
+    border: 1px solid #FFF;
 }
 
 .pricing-block .pricing-bottom-arc {
@@ -325,7 +369,7 @@ body {
 
 .feedback-block {
     background: linear-gradient(180.62deg, #0D72CD 27.42%, #000000 160.69%);
-    padding: 170px 60px 180px;
+    padding: 100px 60px 180px;
     text-align: center;
 }
 
@@ -371,11 +415,21 @@ body {
 
 .submit-form-block {
     text-align: center;
-    padding-top: 95px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     background-color: #0B1728;
 }
 
+.submit-form-block .submit-form-line {
+    width: fit-content;
+    height: 100%;
+    display: inline-block;
+    padding-top: 15px;
+}
+
 .submit-form-block .label {
+    float: left;
+    display: inline-block;
     font-style: normal;
     font-weight: 700;
     font-size: 41px;
@@ -384,27 +438,20 @@ body {
     letter-spacing: -0.241177px;
     color: #FFFFFF;
 }
-.submit-form-block .description {
-    margin-top: 20px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 34px;
-    text-align: center;
-    color: #FFFFFF;
-}
 .submit-form-block form {
+    float: left;
     text-align: left;
-    margin: 35px auto 0;
-    max-width: 525px;
 }
 .submit-form-block form label {
+    float: left;
     margin-bottom: 7px;
     font-style: normal;
     font-weight: 500;
-    font-size: 13px;
-    line-height: 15px;
+    font-size: 30px;
+    line-height: 52px;
     color: #FFFFFF;
+    margin-left: 70px;
+    margin-right: 20px;
 }
 .submit-form-block form input {
     height: 50px;
@@ -412,11 +459,13 @@ body {
 .submit-form-block form textarea {
     height: 100px;
 }
-.submit-form-block form input,
-.submit-form-block form textarea {
+html body > div .submit-form-block form input,
+html body > div .submit-form-block form textarea {
+    font-size: 18px;
+    float: left;
     padding-left: 10px;
     color: #FFFFFF;
-    width: 100%;
+    width: 270px;
     margin-bottom: 15px;
     background: #202838;
     border: 0;
@@ -424,9 +473,11 @@ body {
 }
 
 .submit-form-block .form-submit-button {
+    margin-left: 20px;
+    float: left;
     cursor: pointer;
     width: 200px;
-    height: 60px;
+    height: 50px;
     background: #4780D8;
     border-radius: 54px;
     font-style: normal;
@@ -436,10 +487,12 @@ body {
     text-align: center;
     color: #FFFFFF;
     display: block;
-    margin: 0 auto;
     border: 0;
 }
-
+.submit-form-block .form-submit-button:hover {
+    background: #FFF;
+    color: #4780D8;
+}
 .feedback-item .feedback-item-description {
     font-style: normal;
     font-weight: 400;
@@ -513,9 +566,156 @@ body {
     opacity: 0.3;
 }
 
+.infographic-block {
+    padding: 50px 0 0 0;
+    background-color: #FFFFFF;
+    height: 470px;
+    margin: -120px 154px 0;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 6%);
+    border-radius: 18px;
+    text-align: center;
+}
+
+.infographic-block .label {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.infographic-items {
+    width: fit-content;
+    height: fit-content;
+    margin: 50px auto 0;
+}
+
+.infographic-item {
+    position: relative;
+    width: 134px;
+    height: 134px;
+    float: left;
+}
+
+.infographic-item:not(:first-of-type) {
+    margin-left: 90px;
+}
+
+.infographic-item .diagram,
+.infographic-item .image,
+.infographic-item .description,
+.infographic-item .percentage {
+    position: absolute;
+}
+
+.infographic-item .percentage {
+    top: 160px;
+    width: 100%;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(71, 128, 216);
+    text-align: center;
+}
+
+.infographic-item .description {
+    top: 220px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.infographic-item .diagram {
+    width: 134px;
+    height: 134px;
+    z-index: 4;
+    opacity: 1;
+    display: block;
+    visibility: visible;
+}
+.infographic-item .image {
+    left: 34px;
+    top: 34px;
+
+    width: 72px;
+    height: 7px;
+    z-index: 5;
+    opacity: 1;
+    display: block;
+    visibility: visible;
+}
+
+.limited-time-offer-block {
+    background-color: #0F2038;
+    padding-bottom: 50px;
+}
+.limited-time-offer-block .limited-time-offer-inner-block {
+    margin: -30px 154px 0;
+    background-color: #0e72ce;
+    text-align: center;
+    height: 460px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 6%);
+    padding-top: 80px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.limited-time-offer {
+    height: 300px;
+    width: 550px;
+    margin: 50px auto 0;
+}
+.limited-time-offer-block .label {
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 30px;
+}
+.limited-time-offer .limited-offer-image {
+    position: relative;
+    float: left;
+}
+div.limited-time-offer-block div.limited-time-offer div.price-block {
+    color: #FFFFFF;
+    width: fit-content;
+    float: right;
+    margin-top: 20px;
+}
+div.limited-time-offer-block div.limited-time-offer div.price-block .price-label {
+    font-size: 30px;
+}
+div.limited-time-offer-block div.limited-time-offer div.price-block .price {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 80px;
+}
+.limited-time-offer-block .limited-offer-submit {
+    margin: 35px auto 0;
+    width: 250px;
+    display: block;
+    cursor: pointer;
+    clear: both;
+    left: 14.65%;
+    right: 66.74%;
+    top: 56.85%;
+    bottom: 42.11%;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 65px;
+    text-align: center;
+    box-shadow: 0 14px 30px rgb(69 158 255 / 20%);
+    border-radius: 25px;
+    height: 70px;
+    background-color: #0f2038;
+    color: #fff;
+}
+.limited-time-offer-block .limited-offer-submit:hover {
+    background-color: #FFF;
+    color: #0f2038;
+}
+.limited-time-offer-block .limited-offer-image .background,
+.limited-time-offer-block .limited-offer-image .gift {
+    position: absolute;
+}
+
 @media (max-width: 1200px) {
     .auth-block {
-        margin-right: 0px;
+        margin-right: 0;
     }
     .description-block {
         height: auto;
@@ -538,12 +738,16 @@ body {
         width: 100%;
     }
     .how-its-work-block {
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+    .how-its-work-block .how-its-work-inner-block {
         max-width: 700px;
-        margin: -120px auto 0;
+        margin: 0 auto 0;
     }
     .how-its-work-block .scheme-block {
         width: 250px;
-        margin: 40px auto 0px;
+        margin: 40px auto 0;
     }
     .scheme-block-first-line .arrow,
     .scheme-block-first-line .scheme-arrow,
@@ -564,18 +768,20 @@ body {
         margin: 0 auto;
         display: block;
         padding-top: 40px;
+        height: 650px;
     }
     .pricing-items .pricing-item.best-price {
         width: 100%;
         max-width: 730px;
         margin: -20px auto;
-        top: 0px;
+        top: 0;
         position: relative;
+        height: 700px;
     }
     .pricing-items .pricing-item .pricing-item-label,
     .pricing-items .pricing-item .pricing-item-description {
         text-align: left;
-        margin: 0px 45px 0;
+        margin: 0 45px 0;
     }
     .pricing-items .pricing-item .pricing-item-offers .pricing-item-offer {
         padding: 0 30px;
@@ -590,30 +796,31 @@ body {
     .feedback-block .feedback-items .feedback-item {
         display: inline-block;
         width: 90%;
-        padding: 0px;
+        padding: 0;
         margin-right: 10px;
         max-width: 600px;
     }
     .feedback-block .navigation {
         float: left;
-        margin-left: 0px;
+        margin-left: 0;
     }
     .submit-form-block form {
+        width: 100%;
         max-width: initial;
     }
     .submit-form-block form input, .submit-form-block form textarea {
-        padding-left: 0px;
+        padding-left: 0;
         width: 90%;
         display: block;
         margin: 0 auto 15px;
     }
     .submit-form-block form label {
         display: block;
-        width: 90%;
-        margin: 0 auto;
+        width: 80%;
+        margin-left: 10%;
     }
     .pricing-items .pricing-item .pricing-item-offers {
-        margin: 20px 0px 0px;
+        margin: 20px 0 0;
         padding: 0 40px;
         max-width: 600px;
     }
@@ -643,7 +850,7 @@ body {
         float: right;
     }
     .auth-block .sign-up {
-        margin-left: 0px;
+        margin-left: 0;
         margin-right: 15px;
     }
     .description-block .description-images-block img.mobile {
@@ -651,6 +858,70 @@ body {
     }
     .description-block .description-images-block img.desktop {
         display: none;
+    }
+    .limited-time-offer .gift,
+    .limited-time-offer .limited-offer-image {
+        display: none;
+    }
+    .infographic-block {
+        height: auto;
+        width: 100%;
+        max-width: 700px;
+        margin: -150px auto 0;
+    }
+    .infographic-block .infographic-items {
+        width: 100%;
+    }
+    .infographic-item:not(:first-of-type) {
+        margin-left: 0;
+    }
+    .infographic-block .infographic-items .infographic-item {
+        height: 280px;
+        width: 100%;
+        float: none;
+    }
+    .infographic-block .infographic-items .infographic-item .diagram{
+        margin-left: calc(50% - 67px);
+    }
+    .infographic-block .infographic-items .infographic-item .image {
+        margin-left: calc(50% - 67px);
+    }
+    .limited-time-offer-block {
+        padding-bottom: 0;
+        height: 430px;
+    }
+    .limited-time-offer-block .limited-time-offer-inner-block {
+        max-width: 700px;
+        margin: -30px auto 0;
+        width: 100%;
+        padding-top: 50px;
+    }
+    .limited-time-offer {
+        width: 100%;
+    }
+    div.limited-time-offer-block div.limited-time-offer div.price-block {
+        float: none;
+        margin: 20px auto 0;
+    }
+    .submit-form-block .hidden {
+        display: none;
+    }
+    html body > div .submit-form-block form input {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .submit-form-block .form-submit-button {
+        margin-top: 40px;
+        margin-left: calc(50% - 100px);
+    }
+    .submit-form-block .label {
+        width: 100%;
+    }
+    .pricing-block .pricing-item .pricing-item-price .line-through {
+        display: inline-block;
+    }
+    .pricing-items .pricing-item .pricing-item-price span.line-through .line {
+        top: 40px;
     }
 }
 
