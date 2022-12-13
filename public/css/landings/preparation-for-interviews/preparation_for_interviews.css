@@ -406,8 +406,12 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     border-radius: 18px;
     white-space: break-spaces;
+    position: relative;
 }
-
+.feedback-block .feedback-items .feedback-item img.feedback-item-icon {
+    position: absolute;
+    left: calc(50% - 30px);
+}
 .feedback-block .feedback-items .feedback-items-line {
     transition-duration: 0.7s;
     transition-timing-function: linear;
@@ -500,7 +504,7 @@ html body > div .submit-form-block form textarea {
     line-height: 24px;
     text-align: center;
     color: #6D7783;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .feedback-item {
@@ -768,7 +772,8 @@ div.limited-time-offer-block div.limited-time-offer div.price-block .price {
         margin: 0 auto;
         display: block;
         padding-top: 40px;
-        height: 650px;
+        height: fit-content;
+        padding-bottom: 40px;
     }
     .pricing-items .pricing-item.best-price {
         width: 100%;
@@ -776,7 +781,8 @@ div.limited-time-offer-block div.limited-time-offer div.price-block .price {
         margin: -20px auto;
         top: 0;
         position: relative;
-        height: 700px;
+        height: fit-content;
+        padding-bottom: 40px;
     }
     .pricing-items .pricing-item .pricing-item-label,
     .pricing-items .pricing-item .pricing-item-description {
@@ -795,7 +801,7 @@ div.limited-time-offer-block div.limited-time-offer div.price-block .price {
     }
     .feedback-block .feedback-items .feedback-item {
         display: inline-block;
-        width: 90%;
+        width: 90vw;
         padding: 0;
         margin-right: 10px;
         max-width: 600px;
@@ -824,13 +830,11 @@ div.limited-time-offer-block div.limited-time-offer div.price-block .price {
         padding: 0 40px;
         max-width: 600px;
     }
-    .feedback-block .feedback-items .feedback-item img {
-        margin-top: 20px;
-    }
     .feedback-block .feedback-items .feedback-item .feedback-item-description {
         padding: 0 20px;
         width: calc(100% - 40px);
         white-space: initial;
+        min-height: 100px;
     }
     .top-menu-block {
         padding: 20px;
@@ -922,6 +926,13 @@ div.limited-time-offer-block div.limited-time-offer div.price-block .price {
     }
     .pricing-items .pricing-item .pricing-item-price span.line-through .line {
         top: 40px;
+    }
+    .infographic-item .description {
+        margin: 0 45px;
+        width: calc(100% - 90px);
+    }
+    .feedback-item .feedback-item-name, .feedback-item .feedback-item-birthday {
+        margin: 0 0 20px 20px;
     }
 }
 
