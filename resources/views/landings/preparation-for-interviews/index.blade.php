@@ -78,7 +78,7 @@
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We provide very detailed feedback and how to improve</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>You will receive personalized learning materials</div></div>
                         </div>
-                        <div class="pricing-item-select-button">Book screening call NOW</div>
+                        <a href="https://calendly.com/prephouse/phone-screening" class="pricing-item-select-button">Book screening call NOW</a>
                     </div>
                     <div class="pricing-item best-price">
                         <div class="pricing-item-label">Live interview</div>
@@ -91,7 +91,7 @@
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>You will get a recording of a conducted interview</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>You will receive personalized guide on how became the best applicant</div></div>
                         </div>
-                        <div class="pricing-item-select-button">Book live interview NOW</div>
+                        <a href="https://calendly.com/prephouse/interview" class="pricing-item-select-button">Book live interview NOW</a>
                     </div>
                     <div class="pricing-item">
                         <div class="pricing-item-label">Resume re-design</div>
@@ -103,7 +103,7 @@
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We word your experience to make it attractable</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>You receive the resume that will make you stand out from competition</div></div>
                         </div>
-                        <div class="pricing-item-select-button">Get your best resume NOW</div>
+                        <a href="https://calendly.com/prephouse/resume" class="pricing-item-select-button">Get your best resume NOW</a>
                     </div>
                 </div>
                 <div class="pricing-bottom-arc"></div>
@@ -194,7 +194,7 @@
                         <div class="price-block">
                             <div class="price-label">all 3 only...</div>
                             <div class="price">$250</div>
-                            <a class="limited-offer-submit">Order now!</a>
+                            <a href="https://calendly.com/prephouse/3-in-1-bundle" class="limited-offer-submit">Order now!</a>
                         </div>
                     </div>
                 </div>
