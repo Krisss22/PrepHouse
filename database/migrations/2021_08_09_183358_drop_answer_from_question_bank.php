@@ -26,7 +26,7 @@ class DropAnswerFromQuestionBank extends Migration
     public function down()
     {
         Schema::table('question_bank', function (Blueprint $table) {
-            $table->string('answer')->nullable(true);
+            $table->string('answer')->nullable();
         });
     }
 }

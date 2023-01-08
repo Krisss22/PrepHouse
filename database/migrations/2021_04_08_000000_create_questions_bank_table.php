@@ -19,7 +19,7 @@ class CreateQuestionsBankTable extends Migration
             $table->string('question');
             $table->integer('addedByAdmin')->default(0);
             $table->integer('release')->default(0);
-            $table->string('answer')->nullable(true);
+            $table->string('answer')->nullable();
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@
 
             <div class="description-block">
                 <div class="description-text-block">
-                    <div class="large-description">Still struggle to land the job of your dream?<div class="small-description">Tired of thousands calls a day from IT recruiters, but still barely get an interview invite? We know your pain! We can get you through!</div></div>
+                    <div class="large-description">Are you a QA Engineer and struggle to pass the interview?<div class="small-description">Tired of thousands calls a day from IT recruiters, but still barely get an interview invite? We know your pain! We can get you through!</div></div>
                 </div>
                 <div class="description-images-block">
                     <img class="desktop" alt="" src="{{ asset('images/landings/preparation-for-interviews/description_image.svg') }}">

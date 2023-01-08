@@ -32,13 +32,15 @@ class AddCommonUserInfo extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('image');
-            $table->dropColumn('education');
-            $table->dropColumn('certificates');
-            $table->dropColumn('address');
-            $table->dropColumn('news');
-            $table->dropColumn('surveys');
-            $table->dropColumn('promotions');
+            $table->dropColumn([
+                'image',
+                'education',
+                'certificates',
+                'address',
+                'news',
+                'surveys',
+                'promotions',
+            ]);
         });
     }
 }

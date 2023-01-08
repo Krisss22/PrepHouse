@@ -52,12 +52,9 @@ class TagController extends AdminController
                 'name' => 'required|max:100',
             ]);
 
-            Tag::query()
-                ->where('id', $id)
-                ->limit(1)
-                ->update([
-                    'name' => $request->input('name')
-                ]);
+            Tag::findOrFail($id)->update([
+                'name' => $request->input('name')
+            ]);
 
             return redirect('/admin/tags/list');
         }
