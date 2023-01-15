@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Services\Quiz\QuizData;
 use App\Services\Quiz\QuizService;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -73,7 +74,7 @@ class QuizAction extends Model
             $query->whereIn('quiz_action.id', QuizService::getUnloggedQuizActionIds())->first();
     }
 
-    static public function getAllUserQuizzesQuery($userId, $finished = false): \Illuminate\Database\Eloquent\Builder
+    static public function getAllUserQuizzesQuery($userId, $finished = false): Builder
     {
         $query = self::query()
             ->where('user_id', '=', $userId);

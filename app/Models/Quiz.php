@@ -50,26 +50,21 @@ class Quiz extends Model
 
     public function getAllQuestionsCount(bool $onlyInRelease = false): int
     {
-        $questionsCount = 0;
-        if ($onlyInRelease) {
-            $tagIds = [];
-            foreach ($this->quizTags as $quizTag) {
-                $tagIds[] = $quizTag->tag_id;
-            }
-
-            $releasedQuestions = QuestionsBank::query()
-                ->whereIn("tag_id", $tagIds)
-                ->where("release", "=", true)
-                ->get();
-
-            $questionsCount = count($releasedQuestions);
-        } else {
-            foreach ($this->quizTags as $quizTag) {
-                $questionsCount += $quizTag->count;
-            }
+        $tagIds = [];
+        foreach ($this->quizTags as $quizTag) {
+            $tagIds[] = $quizTag->tag_id;
         }
 
-        return $questionsCount;
+        $questionsBankQuery = QuestionsBank::query()
+            ->whereIn("tag_id", $tagIds);
+
+        if ($onlyInRelease) {
+            $questionsBankQuery->where("release", "=", true);
+        }
+
+        $releasedQuestions = $questionsBankQuery->get();
+
+        return count($releasedQuestions);
     }
 }
 

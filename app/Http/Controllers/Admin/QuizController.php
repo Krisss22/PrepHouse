@@ -85,7 +85,8 @@ class QuizController extends AdminController
                     QuizTag::create([
                         'quiz_id' => $quiz->id,
                         'tag_id' => $item['tagId'],
-                        'count' => $item['count']
+                        'count' => $item['count'] ?? 0,
+                        'use_all' => isset($item['use_all']),
                     ]);
                 }
             }
