@@ -71,7 +71,7 @@
                     <div class="pricing-item">
                         <div class="pricing-item-label">Screening call</div>
                         <div class="pricing-item-description">You get calls from recruiters, but nobody invites you for the interview? Probably you say something wrong! Order a screening call from us to find the problem!</div>
-                        <div class="pricing-item-price"><span class="line-through">$55<div class="line"></div></span> $39</div>
+                        <div class="pricing-item-price">$39</div>
                         <div class="pricing-item-offers">
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>10-15 min screening phone call</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We ask questions based on the position you are applying</div></div>
@@ -83,7 +83,7 @@
                     <div class="pricing-item best-price">
                         <div class="pricing-item-label">Live interview</div>
                         <div class="pricing-item-description">Want to know your chances of getting your dream job? Or need to gain confidence before actual interview? Schedule one with us to know your strength and weaknesses!</div>
-                        <div class="pricing-item-price"><span class="line-through">$130<div class="line"></div></span> $99</div>
+                        <div class="pricing-item-price">$99</div>
                         <div class="pricing-item-offers">
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>Video interview up to 60 minutes</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>We ask questions based on the position you are applying</div></div>
@@ -96,7 +96,7 @@
                     <div class="pricing-item">
                         <div class="pricing-item-label">Resume re-design</div>
                         <div class="pricing-item-description">Non ATS-compliant resume is one of the reasons why candidates don’t get calls. We will make your resume professional and draw more attention from recruiters.</div>
-                        <div class="pricing-item-price"><span class="line-through">$200<div class="line"></div></span> $149</div>
+                        <div class="pricing-item-price">$149</div>
                         <div class="pricing-item-offers">
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Friendly call to understand your goals and expectations</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We format your resume to be ATS compliant</div></div>
