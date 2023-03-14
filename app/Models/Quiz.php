@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @method static create(array $array)
@@ -55,16 +56,24 @@ class Quiz extends Model
             $tagIds[] = $quizTag->tag_id;
         }
 
-        $questionsBankQuery = QuestionsBank::query()
-            ->whereIn("tag_id", $tagIds);
-
+        $whereQuery = "";
         if ($onlyInRelease) {
-            $questionsBankQuery->where("release", "=", true);
+            $whereQuery = "and qb.release = 1";
         }
 
-        $releasedQuestions = $questionsBankQuery->get();
+        $query = "select qt.count, qt.use_all, (select count(qb.id) from questions_bank qb where qb.tag_id = qt.tag_id $whereQuery) all_questions from quiz_tag qt where qt.tag_id in (?) and qt.quiz_id = ?";
+        $rows = DB::select($query, [implode(',', $tagIds), $this->id]);
 
-        return count($releasedQuestions);
+        $count = 0;
+        foreach ($rows as $row) {
+            if ($row->use_all) {
+                $count +=  $row->all_questions;
+            } else {
+                $count +=  $row->count;
+            }
+        }
+
+        return $count;
     }
 }
 

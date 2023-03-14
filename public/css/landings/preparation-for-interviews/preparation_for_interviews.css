@@ -436,7 +436,7 @@ body {
     display: inline-block;
     font-style: normal;
     font-weight: 700;
-    font-size: 41px;
+    font-size: 27px;
     line-height: 46px;
     text-align: center;
     letter-spacing: -0.241177px;
@@ -454,7 +454,7 @@ body {
     font-size: 30px;
     line-height: 52px;
     color: #FFFFFF;
-    margin-left: 70px;
+    margin-left: 30px;
     margin-right: 20px;
 }
 .submit-form-block form input {

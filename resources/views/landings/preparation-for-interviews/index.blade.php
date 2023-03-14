@@ -69,29 +69,29 @@
                 <div class="large-label">Choose the right plan</div>
                 <div class="pricing-items">
                     <div class="pricing-item">
-                        <div class="pricing-item-label">Screening call</div>
-                        <div class="pricing-item-description">You get calls from recruiters, but nobody invites you for the interview? Probably you say something wrong! Order a screening call from us to find the problem!</div>
-                        <div class="pricing-item-price">$39</div>
+                        <div class="pricing-item-label">1:1 Consultation</div>
+                        <div class="pricing-item-description">Whether you just competed QA Course or already had several interviews, I can help you to identify your problems and provide a clear path how to work on them.</div>
+                        <div class="pricing-item-price">$79</div>
                         <div class="pricing-item-offers">
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>10-15 min screening phone call</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We ask questions based on the position you are applying</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We provide very detailed feedback and how to improve</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>You will receive personalized learning materials</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Feedback on your resume (ATS-compliancy, structure, keywords)</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Feedback on job profiles (LinkedIn, Indeed, Dice, etc) </div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>QA Mock interview (know your strong and weak sides)</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Written feedback on how to improve and what to do to get more calls</div></div>
                         </div>
-                        <a href="https://calendly.com/prephouse/phone-screening" class="pricing-item-select-button">Book screening call NOW</a>
+                        <a href="https://calendly.com/prephouse/1-hour-coaching-session" class="pricing-item-select-button">Book 1:1 Consultation</a>
                     </div>
                     <div class="pricing-item best-price">
-                        <div class="pricing-item-label">Live interview</div>
-                        <div class="pricing-item-description">Want to know your chances of getting your dream job? Or need to gain confidence before actual interview? Schedule one with us to know your strength and weaknesses!</div>
-                        <div class="pricing-item-price">$99</div>
+                        <div class="pricing-item-label">QA Job Coaching</div>
+                        <div class="pricing-item-description">If you need a mentor to walk you to the job offer, this option is for you. Motivation, support and all learning materials, everything in one place.</div>
+                        <div class="pricing-item-price">$399</div>
                         <div class="pricing-item-offers">
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>Video interview up to 60 minutes</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>We ask questions based on the position you are applying</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>We provide very detailed feedback highlighting your strengths and weaknesses</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>You will get a recording of a conducted interview</div></div>
-                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>You will receive personalized guide on how became the best applicant</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>De-design your resume (ATS-compliancy, structure, keywords)</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>Update job profiles (LinkedIn, Indeed, Dice, etc)</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>QA Screen Call training (what stops recruiters from getting you an interview?)</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>QA Mock interview training (pass any interview like you don’t need a job)</div></div>
+                            <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>1 month of hard work on getting you the Job Offer of your dream</div></div>
                         </div>
-                        <a href="https://calendly.com/prephouse/interview" class="pricing-item-select-button">Book live interview NOW</a>
+                        <a href="https://calendly.com/prephouse/3-in-1-bundle" class="pricing-item-select-button">Book Job Coaching</a>
                     </div>
                     <div class="pricing-item">
                         <div class="pricing-item-label">Resume re-design</div>
@@ -167,43 +167,10 @@
                 </div>
             </div>
 
-            <div class="limited-time-offer-block">
-                <div class="limited-time-offer-inner-block">
-                    <div class="label">Limited time offer!</div>
-                    <div class="limited-time-offer">
-                        <div class="limited-offer-image" style="margin-left: -30px;">
-                            <div class="background">
-                                <div class="svg-view" style="transform: translate(0px, 0px);">
-                                    <div style="width: 250px; height: 250px;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="270" height="250" viewBox="0 0 280.227 250" xml:space="preserve" overflow="hidden" preserveAspectRatio="none" class="svg-view__svg">
-                                        <svg overflow="hidden" height="100%" width="241.227">
-                                            <g style="transform: scaleX(1.177); transform-origin: 30px 0;">
-                                                <rect x="29" style="fill: rgb(250, 251, 255);" width="192" height="250"></rect>
-                                            </g>
-                                        </svg>
-                                            <path style="fill: rgb(250, 251, 255);" d="M0,20v210c0,11,9,20,20,20h9.7V0H20C9,0,0,9,0,20z"></path>
-                                            <g width="39" style="transform: matrix(1, 0, 0, 1, 29.227, 0);">
-                                                <path style="fill: rgb(250, 251, 255);" d="M225.8,81.5V20c0-9.4-6.5-17.2-15.2-19.4v248.8c8.7-2.2,15.2-10,15.2-19.4v-69.3   l12.1-19.8l12.1-19.8L225.8,81.5z"></path>
-                                            </g>
-			                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="gift" style="width: 250px;height: 250px;z-index: 5;opacity: 1;display: block;visibility: visible;"><div class="lottie-container"><div class="lottie-anim-0" style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"><defs><clipPath id="__lottie_element_2"><rect width="500" height="500" x="0" y="0"></rect></clipPath><filter id="__lottie_element_13" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%"><feComponentTransfer in="SourceGraphic"><feFuncA type="table" tableValues="1.0 0.0"></feFuncA></feComponentTransfer></filter><mask><g filter="url(#__lottie_element_13)"><rect width="500" height="500" x="0" y="0" fill="#ffffff" opacity="0"></rect><g transform="matrix(0.8999999761581421,0,0,0.8999999761581421,250,250)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(18,19,49)" fill-opacity="1" d=" M-197.5,146.125 C-197.5,146.125 -196,185 -192,188 C-188,191 -99,292 -99,292 C-99,292 180,222 180,222 C180,222 191,146.5 191,146.5 C191,146.5 0.75,205.75 0.75,205.75 C0.75,205.75 -197.5,146.125 -197.5,146.125z"></path><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="0" d=" M-197.5,146.125 C-197.5,146.125 -196,185 -192,188 C-188,191 -99,292 -99,292 C-99,292 180,222 180,222 C180,222 191,146.5 191,146.5 C191,146.5 0.75,205.75 0.75,205.75 C0.75,205.75 -197.5,146.125 -197.5,146.125z"></path></g></g></g></mask></defs><g clip-path="url(#__lottie_element_2)"><g transform="matrix(0.8999999761581421,0,0,0.8999999761581421,250,250)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-11.5,6.5)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" id="Strokecolor1" stroke="rgb(18,19,49)" stroke-opacity="1" stroke-width="20" d=" M-172.93800354003906,-104.93800354003906 C-172.93800354003906,-104.93800354003906 -172.43800354003906,-54.9379997253418 -172.43800354003906,-54.9379997253418 C-172.43800354003906,-54.9379997253418 11.5,-8 11.5,-8 C11.5,-8 194.5,-56 194.5,-56 C194.5,-56 195,-105 195,-105 M195.03399658203125,-105 C195.03399658203125,-105 11,-152.5 11,-152.5 C11,-152.5 -173.03399658203125,-105 -173.03399658203125,-105 C-173.03399658203125,-105 11,-57.5 11,-57.5 C11,-57.5 195.03399658203125,-105 195.03399658203125,-105z" style="stroke: rgb(15, 32, 56);"></path></g></g><g transform="matrix(0.8999999761581421,0,0,0.8999999761581421,250,250)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-11.5,6.5)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" id="Strokecolor1" stroke="rgb(18,19,49)" stroke-opacity="1" stroke-width="20" d=" M170.12399291992188,-48.5 C170.12399291992188,-48.5 12,-9.5 12,-9.5 C12,-9.5 -147.93800354003906,-46.4379997253418 -147.93800354003906,-46.4379997253418 C-147.93800354003906,-46.4379997253418 -147.5189971923828,42.70199966430664 -147.5189971923828,42.70199966430664 C-147.5189971923828,42.70199966430664 -147.05499267578125,141.56300354003906 -147.05499267578125,141.56300354003906 C-147.05499267578125,141.56300354003906 11.90999984741211,189.5 11.90999984741211,189.5 C11.90999984741211,189.5 170.14300537109375,140.5 170.14300537109375,140.5 C170.14300537109375,140.5 170.13299560546875,43.49599838256836 170.13299560546875,43.49599838256836 C170.13299560546875,43.49599838256836 170.12399291992188,-48.5 170.12399291992188,-48.5z M11.75,-10.187999725341797 C11.75,-10.187999725341797 11.824000358581543,65.81900024414062 11.824000358581543,65.81900024414062 C11.824000358581543,65.81900024414062 11.944999694824219,189.18800354003906 11.944999694824219,189.18800354003906" style="stroke: rgb(15, 32, 56);"></path></g></g><g mask="url(#__lottie_element_12)" style="display: block;"><g transform="matrix(0.8999999761581421,0,0,0.8999999761581421,250,250)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" id="Strokecolor2" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M-87.74199676513672,187.5 C-87.74199676513672,187.5 -87.4800033569336,69.53399658203125 -87.4800033569336,69.53399658203125 C-87.4800033569336,69.53399658203125 -87.27400207519531,-22.75 -87.27400207519531,-22.75 C-87.27400207519531,-22.75 -102.13700103759766,-27 -102.13700103759766,-27 C-102.13700103759766,-27 -102,-74 -102,-74 C-102,-74 0,-107.30400085449219 0,-107.30400085449219 M87.58799743652344,187.5 C87.58799743652344,187.5 87.24099731445312,63.505001068115234 87.24099731445312,63.505001068115234 C87.24099731445312,63.505001068115234 86.99700164794922,-23.75 86.99700164794922,-23.75 C86.99700164794922,-23.75 101.86299896240234,-28.5 101.86299896240234,-28.5 C101.86299896240234,-28.5 102,-74 102,-74 C102,-74 0,-107.19599914550781 0,-107.19599914550781" style="stroke: rgb(13, 114, 205);"></path></g></g></g><g transform="matrix(0.8999999761581421,0,0,0.8999999761581421,249.10000610351562,246.39999389648438)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M1.4789999723434448,-105.14399719238281 C-236,-138.01300048828125 -48.645999908447266,-304.00201416015625 3.944000005722046,-102.67900085449219" style="stroke: rgb(13, 114, 205);"></path></g></g><g transform="matrix(0.8999999761581421,0,0,0.8999999761581421,248.75079345703125,246.39999389648438)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" id="Strokecolor2" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M4.415999889373779,-105.14399719238281 C238.94200134277344,-138.01300048828125 53.917999267578125,-304.00201416015625 1.9819999933242798,-102.67900085449219" style="stroke: rgb(13, 114, 205);"></path></g></g></g></svg></div></div></div>
-                        </div>
-                        <div class="price-block">
-                            <div class="price-label">all 3 only...</div>
-                            <div class="price">$250</div>
-                            <a href="https://calendly.com/prephouse/3-in-1-bundle" class="limited-offer-submit">Order now!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="submit-form-block">
                 <div class="submit-form-line">
-                    <div class="label">Enter your email to receive promotions</div>
-                    <form method="post" action="{{ route('save-interview-request') }}">
+                    <div class="label">Enter your email to receive FREE ‘QA Interview Questions Cheatsheet’</div>
+                    <form method="post" action="https://prephouse.us17.list-manage.com/subscribe/post?u=a190311f7a147a59cf4bfc164&amp;id=b2e60986a5&amp;f_id=002f6ae0f0">
                         @csrf
                         <label>Email</label>
                         @error('email')
@@ -211,11 +178,12 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                        <input name="email" class="form-email">
+                        <input name="EMAIL" class="form-email" id="mce-EMAIL">
                         <input class="hidden">
 
-                        <button class="form-submit-button" type="submit">Submit</button>
+                        <button class="form-submit-button" type="submit" id="mc-embedded-subscribe">Submit</button>
                     </form>
+                    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='zip';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
                 </div>
             </div>
 
