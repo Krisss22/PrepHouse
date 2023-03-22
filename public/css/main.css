@@ -35,6 +35,11 @@
     margin-top: 20px;
 }
 
+.left-menu-block-icon img {
+    max-width: 75px;
+    max-height: 75px;
+}
+
 .left-menu-block-item-icon {
     text-align: center;
 }

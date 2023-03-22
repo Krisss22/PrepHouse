@@ -1,5 +1,9 @@
 <div class="left-menu-block">
-    <div class="left-menu-block-icon"><a href="{{ route('home') }}"><img src="{{ asset('images/left_menu/main-icon.png') }}"></a></div>
+    <div class="left-menu-block-icon">
+        <a href="{{ route('home') }}">
+            <img src="{{ asset(env("SITE_VERSION") === "PREPHOUSE" ? "images/left_menu/main-icon.png" : "images/my-fork/logo1.png") }}">
+        </a>
+    </div>
     <div class="left-menu-block-item left-menu-block-item-dashboard">
         <a href="{{ route('dashboard') }}">
             <div class="left-menu-block-item-icon"><img src="{{ asset('images/left_menu/dashboard.png') }}"></div>
