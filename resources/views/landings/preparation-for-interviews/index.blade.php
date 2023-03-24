@@ -18,10 +18,10 @@
                 <img alt="logo" src="{{ asset('images/landings/preparation-for-interviews/logo_mobile.svg') }}" class="logo mobile">
 
                 @guest
-                <div class="auth-block">
+                <!--<div class="auth-block">
                     <a class="log-in" href="{{ route('login') }}">Log In</a>
                     <a class="sign-up" href="{{ route('register') }}">Sign Up</a>
-                </div>
+                </div>-->
                 @endguest
             </div>
 
