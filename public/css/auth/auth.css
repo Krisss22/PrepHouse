@@ -234,3 +234,11 @@ body form.auth-page-main-block-form .auth-page-form-other-info-block a {
     color: #F7B631;
     text-decoration: none;
 }
+
+.auth-page-logo-block > div > img {
+    width: 150px;
+}
+
+.auth-page-login-form #loginButton:disabled {
+    background: #f7b631ba;
+}
