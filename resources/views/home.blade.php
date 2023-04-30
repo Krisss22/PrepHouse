@@ -27,15 +27,15 @@
                 </a>
                 @guest
                     <a class="menu-item log-in-button" href="{{ route('login') }}">
-                        <div>Sign In</div>
+                        <div id="log-in-button">Sign In</div>
                     </a>
                     <a class="menu-item sign-in-button" href="{{ route('register') }}">
-                        <div>Sign Up</div>
+                        <div id="sign-up-button">Sign Up</div>
                     </a>
                 @else
                     <a class="menu-item log-in-button" href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <div>Sign Out</div>
+                        <div id="log-out-button">Sign Out</div>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -65,7 +65,7 @@
                     </svg>
                 </div>
                 <div class="home-head-content-left-text-block">
-                    <p>We created unique and comprehensive quizzes and courses for better preparation for your upcoming
+                    <p text-point="intro-paragraph">We created unique and comprehensive quizzes and courses for better preparation for your upcoming
                         interview. Select your desired title and start a quiz to see how close you are to pass this
                         interview. It is 100% free, you will see your results immediately after completion. </p>
                 </div>
@@ -105,7 +105,7 @@
     </div>
     <div class="home-middle-block">
         <div class="home-middle-block-title">Pick A desired job title</div>
-        <div class="home-middle-block-description">You will be ask to answer different question same as you are on a
+        <div text-point="description-job-title" class="home-middle-block-description">You will be ask to answer different question same as you are on a
             real interview
         </div>
         <a href="/" class="home-middle-block-button"><p>View all Jobs</p></a>
