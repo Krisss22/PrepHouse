@@ -23,6 +23,8 @@ class QuizzesController extends Controller
 
     public function index()
     {
+        $this->setPageTitle("Quizzes list");
+
         if (Auth::check()) {
             $additionalRawQueries = [
                 DB::raw('(
@@ -166,6 +168,8 @@ class QuizzesController extends Controller
 
     public function processQuiz(int $quizActionId)
     {
+        $this->setPageTitle("Process quiz");
+
         $quizAction = QuizAction::findOrFail($quizActionId);
         if ($quizAction->isFinished()) {
             return redirect('/quizzes-list');
@@ -288,6 +292,8 @@ class QuizzesController extends Controller
 
     public function statisticList()
     {
+        $this->setPageTitle("Statistic list");
+
         return $this->view('quiz/statistic/list', [
             'statisticItemsList' => QuizAction::getAllUserQuizzesQuery(Auth::user()->id, 1)->paginate(self::ITEM_ON_PAGE)
         ]);
@@ -295,6 +301,8 @@ class QuizzesController extends Controller
 
     public function statistic(int $quizActionId)
     {
+        $this->setPageTitle("Statistic");
+
         $quizAction = QuizAction::findOrFail($quizActionId);
 
         if ($quizAction->user_id === null) {

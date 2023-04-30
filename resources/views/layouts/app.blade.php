@@ -6,7 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PrepHouse</title>
+    <title>{{ $pageTitle ?? "" }}</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -38,6 +38,7 @@
     <script src="{{ asset('js/account/account.js') }}"></script>
     <script src="{{ asset('js/auth/auth.js') }}"></script>
     <script src="{{ asset('js/notifications/notifications.js') }}"></script>
+    <script src="{{ asset('js/study/study.js') }}"></script>
 {{--    <script src="{{ asset('js/share_question.js') }}"></script>--}}
 </body>
 </html>

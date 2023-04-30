@@ -87,4 +87,11 @@ class RegisterController extends Controller
 
         return $newUser;
     }
+
+    public function showRegistrationForm()
+    {
+        $this->setPageTitle("Sign Up");
+
+        return $this->view('auth.register');
+    }
 }

@@ -12,7 +12,7 @@
                 <div data-expertise-name="{{ $expertiseArea->name }}" class="expertise-areas-item {{ $index === 0 ? 'active' : '' }}">{{ $expertiseArea->name }}</div>
             @endforeach
         </div>
-        <div class="quiz-item-list">
+        <div id="area-quiz-select" class="quiz-item-list">
             @foreach($quizzesList as $quiz)
             <div data-expertise-name="{{ $quiz->expertiseArea->name ?? '' }}" class="quiz-item-list-item {{ $quiz->processStatusClass }} {{ $expertiseAreasList[0]->name !== ($quiz->expertiseArea->name ?? '') ? 'hidden' : '' }}">
                 <div class="quiz-item-top-block">
@@ -48,13 +48,13 @@
             </div>
             @endforeach
         </div>
-        <div class="quiz-share-suggestion">
+        <div id="area-quiz-share" class="quiz-share-suggestion">
             <div class="quiz-share-suggestion-button">+</div>
             <div class="quiz-share-suggestion-text">
                 <div class="quiz-share-suggestion-title">Didn't find your occupation?</div>
                 <div class="quiz-share-suggestion-description">Please share your suggestions and we will consider adding it later. </div>
             </div>
         </div>
-        <div class="quiz-share-footer">Copyright © {{ date('Y') }} PrepHome</div>
+        <div class="quiz-share-footer">Copyright © {{ date('Y') }} PrepHouse</div>
     </div>
 @endsection

@@ -12,7 +12,22 @@
     </div>
     <div class="form-row">
         <label>Job Title @error('job_title')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
-        <input id="job-title" type="text" class="@error('job_title') is-invalid @enderror" name="job_title" value="{{ old('job_title') }}" required autocomplete="job-title" autofocus>
+        <select id="job-title" name="job_title" class="@error('job_title') is-invalid @enderror" required autofocus>
+            <option value="Junior level Developer">Junior level Developer</option>
+            <option value="Middle level Developer">Middle level Developer</option>
+            <option value="Senior level Developer">Senior level Developer</option>
+            <option value="Leading Developer">Leading Developer</option>
+            <option value="QA Analyst, Software Tester">QA Analyst, Software Tester</option>
+            <option value="QA Engineer">QA Engineer</option>
+            <option value="Senior QA Engineer">Senior QA Engineer</option>
+            <option value="Automation QA Engineer">Automation QA Engineer</option>
+            <option value="Test Lead">Test Lead</option>
+            <option value="Automation Test Lead">Automation Test Lead</option>
+            <option value="Business Analyst">Business Analyst</option>
+            <option value="Senior Business Analyst">Senior Business Analyst</option>
+            <option value="Designer">Designer</option>
+            <option></option>
+        </select>
     </div>
     <div class="form-row">
         <label>Email @error('email')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>

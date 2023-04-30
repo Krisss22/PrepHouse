@@ -16,6 +16,7 @@
 }
 
 .study-search-block input {
+    width: 90%;
     height: 85%;
     border: 0px;
     background-color: inherit;

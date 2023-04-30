@@ -1,35 +1,3 @@
-/*#questionModal .modal-footer {*/
-/*    text-align: center;*/
-/*}*/
-
-/*#questionModal .question-modal-register-offer-text {*/
-/*    font-size: 15px;*/
-/*    margin: 10px 0;*/
-/*}*/
-
-/*#notificationPopup {*/
-/*    display: none;*/
-/*    position: fixed;*/
-/*    right: 15px;*/
-/*    top: 15px;*/
-/*    padding: 25px;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-/*#notificationPopup.notificationPopupShow {*/
-/*    display: block;*/
-/*}*/
-
-/*#notificationPopup.notificationPopupSuccess {*/
-/*    background-color: green;*/
-/*    color: white;*/
-/*}*/
-
-/*#notificationPopup.notificationPopupError {*/
-/*    background-color: red;*/
-/*    color: white;*/
-/*}*/
-
 .home-head-block {
     width: 100%;
     min-height: 1015px;
@@ -686,4 +654,10 @@ div.home-middle-block-how-it-work-block img {
 .home-middle-block-lectures-block-button:hover,
 .home-middle-block-button:hover {
     background-color: #3c485a;
+}
+#home-my-fork-logo {
+    width: 300px;
+    position: absolute;
+    top: -60px;
+    left: 40px;
 }

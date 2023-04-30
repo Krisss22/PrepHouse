@@ -16,13 +16,6 @@
             <div class="top-menu-block">
                 <img alt="logo" src="{{ asset('images/landings/preparation-for-interviews/logo.svg') }}" class="logo desktop">
                 <img alt="logo" src="{{ asset('images/landings/preparation-for-interviews/logo_mobile.svg') }}" class="logo mobile">
-
-                @guest
-                <!--<div class="auth-block">
-                    <a class="log-in" href="{{ route('login') }}">Log In</a>
-                    <a class="sign-up" href="{{ route('register') }}">Sign Up</a>
-                </div>-->
-                @endguest
             </div>
 
             <div class="description-block">

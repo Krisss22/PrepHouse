@@ -17,9 +17,11 @@ class HomeController extends Controller
      *
      * @return Renderable
      */
-    public function index()
+    public function index(): Renderable
     {
-        return view(
+        $this->setPageTitle(self::isOriginSite() ? "PrepHouse" : "My Fork - your educational solution");
+
+        return $this->view(
             'home',
             [
                 'vacancies' => Vacancy::all()
