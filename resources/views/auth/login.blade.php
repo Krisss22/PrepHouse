@@ -5,7 +5,7 @@
 <div class="container auth-page-container">
     <div class="auth-page-logo-block">
         <div>
-            <a href="{{ route('home') }}">
+            <a href="{{ route('home') }}" class="not-unique">
                 @if (Controller::isOriginSite())
                     <svg width="53" height="54" viewBox="0 0 53 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M49.6519 0.0172608C41.6012 -0.267488 33.7195 2.98563 28.0241 8.68092L17.2003 19.5048C14.2785 22.4266 12.0017 26.0286 10.616 29.9214C9.23031 33.8143 8.71904 38.0447 9.1375 42.1555L9.26763 43.4339L31.4757 26.9174L52.6842 0.0172608H49.6519Z" fill="#F7B631"/>
@@ -45,11 +45,11 @@
                 </div>
                 <div class="auth-page-remember-me-text">Remember Me</div>
                 @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="auth-page-forgot-password">Forgot Password?</a>
+                    <a href="{{ route('password.request') }}" class="auth-page-forgot-password not-unique">Forgot Password?</a>
                 @endif
             </div>
-            <div class="form-row">
-                <button id="loginButton" type="submit" class="auth-page-main-block-form-submit-button">Log In</button>
+            <div id="loginButton" class="form-row not-unique">
+                <button type="submit" class="auth-page-main-block-form-submit-button">Log In</button>
             </div>
             <div class="form-row auth-page-form-other-info-block">
                 By clicking on Sign Up, you agree to Live The Lingo's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>

@@ -31,8 +31,8 @@
     </div>
     @if(Auth::user())
             <div class="left-menu-block-item left-menu-block-item-profile left-menu-block-item-bottom  {{  $sectionName === 'account' ? 'left-menu-block-item-active' : ''  }}">
-                <a id="account-profile-link" href="{{ route('account-profile') }}">
-                    <div class="left-menu-block-item-icon">{{ Auth::user()->getInitials() }}</div>
+                <a href="{{ route('account-profile') }}">
+                    <div id="account-profile-link" class="left-menu-block-item-icon">{{ Auth::user()->getInitials() }}</div>
                     <div class="left-menu-block-item-title">Profile</div>
                 </a>
             </div>
