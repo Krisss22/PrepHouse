@@ -39,7 +39,7 @@
     </div>
     <div class="form-row">
         <label>Confirm password @error('password_confirmation')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror</label>
-        <input id="password-confirm" type="password" class="@error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="password-confirm">
+        <input id="password-confirm" type="password" class="@error('password_confirmation') is-invalid @enderror" name="password_confirmation"  disabled required autocomplete="password-confirm">
     </div>
     <div class="form-row auth-page-remember-me-row">
         <div class="auth-page-remember-me-block">

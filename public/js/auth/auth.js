@@ -31,4 +31,10 @@ loginInputs && loginInputs.length > 0 && loginInputs.forEach(element => {
 
 document.addEventListener("DOMContentLoaded", () => {
     setLoginButtonAvailability();
+
+    loginInputs && loginInputs.length > 0 && loginInputs.forEach(element => {
+        element.addEventListener('input', () => {
+            setLoginButtonAvailability();
+        });
+    });
 });

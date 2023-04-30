@@ -37,6 +37,7 @@
     <script src="{{ asset('js/quiz/quiz.js') }}"></script>
     <script src="{{ asset('js/account/account.js') }}"></script>
     <script src="{{ asset('js/auth/auth.js') }}"></script>
+    <script src="{{ asset('js/auth/register.js') }}"></script>
     <script src="{{ asset('js/notifications/notifications.js') }}"></script>
     <script src="{{ asset('js/study/study.js') }}"></script>
 {{--    <script src="{{ asset('js/share_question.js') }}"></script>--}}
