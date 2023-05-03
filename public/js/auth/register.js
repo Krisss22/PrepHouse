@@ -14,7 +14,7 @@ function setConfirmPasswordAvailability() {
 document.addEventListener("DOMContentLoaded", () => {
     setConfirmPasswordAvailability();
 
-    document.querySelector('.auth-page-sign-up-form input#password').addEventListener('input', () => {
+    document.querySelector('.auth-page-sign-up-form input#password')?.addEventListener('input', () => {
         setConfirmPasswordAvailability();
     });
 });

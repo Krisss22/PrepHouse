@@ -28,6 +28,11 @@
             <div class="auth-page-main-block-top-lable">Log In</div>
             <div class="auth-page-main-block-top-sign-up">Don't have an account? <a href="{{ route('register') }}">Sign Up</a></div>
         </div>
+        <div class="test-login-errors">
+            <p text-point="login-error" class="hidden">Error: fields are empty</p>
+            <p text-point="login-error" class="hidden">Error: email is incorrect</p>
+            <p text-point="login-error" class="hidden">Error: credentials you provided are incorrect. Please try again. </p>
+        </div>
         <form class="auth-page-main-block-form auth-page-login-form" method="POST" action="{{ route('login') }}">
             @csrf
             <div class="form-row">
@@ -48,7 +53,7 @@
                     <a href="{{ route('password.request') }}" class="auth-page-forgot-password not-unique">Forgot Password?</a>
                 @endif
             </div>
-            <div id="loginButton" class="form-row not-unique">
+            <div id="loginButton" class="form-row not-unique" onclick="validateLogin(event)">
                 <button type="submit" class="auth-page-main-block-form-submit-button">Log In</button>
             </div>
             <div class="form-row auth-page-form-other-info-block">

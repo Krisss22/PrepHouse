@@ -48,6 +48,13 @@
         </div>
         <div class="auth-page-remember-me-text">Remember Me</div>
     </div>
+    <div class="form-row auth-page-remember-me-row">
+        <div class="auth-page-remember-me-block">
+            <input id="auth-page-agree-terms" type="checkbox">
+            <label for="auth-page-agree-terms" class="auth-page-remember-me-checkbox"></label>
+        </div>
+        <div class="auth-page-agree-terms-text">Agree with Terms and Conditions</div>
+    </div>
     <div class="form-row">
         <button type="submit" class="auth-page-main-block-form-submit-button">Sign Up</button>
     </div>

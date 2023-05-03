@@ -26,10 +26,10 @@
                     <div>Course Gallery</div>
                 </a>
                 @guest
-                    <a class="menu-item log-in-button" href="{{ route('login') }}">
+                    <a data="record-data" class="menu-item log-in-button" href="{{ route('login') }}">
                         <div id="log-in-button">Sign In</div>
                     </a>
-                    <a class="menu-item sign-in-button" href="{{ route('register') }}">
+                    <a data="record-data" class="menu-item sign-in-button" href="{{ route('register') }}">
                         <div id="sign-up-button">Sign Up</div>
                     </a>
                 @else
@@ -92,7 +92,7 @@
                                     fill="#1C3A67"/>
                             </svg>
                         </div>
-                        <div class="home-head-content-left-share-question-button-text">Share question</div>
+                        <div data="record-data" class="home-head-content-left-share-question-button-text">Share question</div>
                     </a>
                 </div>
             </div>
@@ -108,7 +108,7 @@
         <div text-point="description-job-title" class="home-middle-block-description">You will be ask to answer different question same as you are on a
             real interview
         </div>
-        <a href="/" class="home-middle-block-button"><p>View all Jobs</p></a>
+        <a data="record-data" href="/" class="home-middle-block-button"><p>View all Jobs</p></a>
 
         <div class="home-middle-block-jobs-list">
             <div id="main-page-card" class="home-middle-block-jobs-list-item card-0">
@@ -188,7 +188,7 @@
             <div class="home-middle-block-lectures-block-description">Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </div>
-            <a class="home-middle-block-lectures-block-button"><p>View all Lectures</p></a>
+            <a data="record-data" class="home-middle-block-lectures-block-button"><p>View all Lectures</p></a>
             <div class="home-middle-block-lectures-block-list">
                 <div class="home-middle-block-lectures-block-list-item lecture-card-0">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
@@ -234,7 +234,7 @@
             <div class="home-middle-block-materials-block-title"><p>All usefull materials in one place</p></div>
             <div class="home-middle-block-materials-block-description"><p>Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-            <a class="home-middle-block-materials-block-button"><p>Open Course Gallery</p></a>
+            <a data="record-data" class="home-middle-block-materials-block-button"><p>Open Course Gallery</p></a>
         </div>
 
         <div class="home-middle-block-feedback-block">

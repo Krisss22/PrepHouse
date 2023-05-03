@@ -48,7 +48,7 @@
             </div>
             @endforeach
         </div>
-        <div id="area-quiz-share" class="quiz-share-suggestion">
+        <div id="area-quiz-share" class="quiz-share-suggestion" onclick="showPopup('', 'This functionality is temporarily unavailable')">
             <div class="quiz-share-suggestion-button">+</div>
             <div class="quiz-share-suggestion-text">
                 <div class="quiz-share-suggestion-title">Didn't find your occupation?</div>

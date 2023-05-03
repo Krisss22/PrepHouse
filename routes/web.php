@@ -187,4 +187,8 @@ Route::group(['prefix' => 'admin/landings'], function () {
     Route::get('changeActive/{landingsId}/{condition}', [App\Http\Controllers\Admin\LandingsController::class, 'changeActive']);
 });
 
+Route::group(['prefix' => 'test'], function () {
+    Route::post('checkCredentials', [App\Http\Controllers\Test\ForkTestController::class, 'checkCredentials']);
+});
+
 Auth::routes();

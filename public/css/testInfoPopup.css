@@ -1,0 +1,35 @@
+#testInfoPopup {
+    position: fixed;
+    width: 700px;
+    padding-bottom: 50px;
+    height: auto;
+    background-color: #FFF;
+    border: 1px solid;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 100px;
+}
+
+#testInfoPopup #headInfoPopup {
+    height: 50px;
+}
+
+#testInfoPopup #closeInfoPopup {
+    width: 20px;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#testInfoPopup #titleInfoPopup {
+    padding-top: 10px;
+}
+
+.test-login-errors > p {
+    color: red;
+}
