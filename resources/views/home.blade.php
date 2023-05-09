@@ -17,7 +17,7 @@
                             <path d="M0 45.8525L32.9238 12.9287L33.8972 13.9021L0.973403 46.8259L0 45.8525Z" fill="#E0E6F5"/>
                         </svg>
                     @else
-                        <img alt="logo" id="home-my-fork-logo" src="{{ asset("images/my-fork/logo2.png") }}">
+                        <img alt="logo" id="home-my-fork-logo" src="{{ asset("images/my-fork/my-fork-white.png") }}">
                     @endif
                 </a>
             </div>
