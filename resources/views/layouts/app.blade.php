@@ -1,3 +1,5 @@
+@php use App\Http\Controllers\Controller; @endphp
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -23,7 +25,7 @@
     <link href="{{ asset('css/notifications/notifications.css') }}" rel="stylesheet">
     <link href="{{ asset('css/testInfoPopup.css') }}" rel="stylesheet">
 </head>
-<body data-home-page="PrepHouse.html" data-home-page-title="PrepHouse" class="u-body">
+<body class="u-body @if(Controller::isOriginSite()) prephouse-version @else my-fork-version @endif">
     <div id="app">
         @yield('content')
     </div>

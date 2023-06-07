@@ -581,6 +581,10 @@
     display: inline-block;
     width: 100%;
 }
+body.my-fork-version .home-middle-block-email-form-block {
+    padding-top: 0;
+    margin-top: 50px;
+}
 .home-middle-block-email-form-block-title {
     font-style: normal;
     font-weight: bold;
@@ -644,6 +648,10 @@ div.home-middle-block-how-it-work-block {
     margin-top: 156px;
     width: 100%;
     text-align: center;
+}
+body.my-fork-version div.home-middle-block-how-it-work-block {
+    margin-top: 0;
+    padding-top: 50px;
 }
 div.home-middle-block-how-it-work-block img {
     max-width: 100%;
