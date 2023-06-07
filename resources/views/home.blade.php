@@ -49,7 +49,13 @@
         <div class="home-head-content-block">
             <div class="home-head-content-left-block">
                 <div class="home-head-content-left-first-rectangle">
-                    <div>Your personal coach</div>
+                    <div>
+                        @if(Controller::isOriginSite())
+                            Your personal coach
+                        @else
+                            Create your course
+                        @endif
+                    </div>
                     <svg width="541" height="98" viewBox="0 0 541 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                               d="M8.41663 10.7812L532.583 0.78125C537.232 0.78125 541 4.36623 541 8.78564V89.7769C541 94.1976 537.229 97.7812 532.583 97.7812L8.41663 77.7812C3.76825 77.7812 0 74.1963 0 69.7769V18.7856C0 14.3649 3.77079 10.7812 8.41663 10.7812Z"
@@ -57,7 +63,13 @@
                     </svg>
                 </div>
                 <div class="home-head-content-left-second-rectangle">
-                    <div>Over 1000 interview questions</div>
+                    <div>
+                        @if(Controller::isOriginSite())
+                            Over 1000 interview questions
+                        @else
+                            let your students enjoy it
+                        @endif
+                    </div>
                     <svg width="540" height="109" viewBox="0 0 540 109" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
                               d="M529.102 24.7812L10.8976 0.78125C4.87903 0.78125 0 4.36623 0 8.78564V100.777C0 105.198 4.88232 108.781 10.8976 108.781L529.102 96.7812C535.121 96.7812 540 93.1963 540 88.7769V32.7856C540 28.3649 535.118 24.7812 529.102 24.7812Z"
@@ -65,9 +77,7 @@
                     </svg>
                 </div>
                 <div class="home-head-content-left-text-block">
-                    <p>We created unique and comprehensive quizzes and courses for better preparation for your upcoming
-                        interview. Select your desired title and start a quiz to see how close you are to pass this
-                        interview. It is 100% free, you will see your results immediately after completion. </p>
+                    <p>Our platform allows content creaters to share all the great knowledge they have with the students utilizing great tools we provide. From unique video player to direct automated engagement, and thought out learning process constructor, our platform will provide best experience for both creator and its students.</p>
                 </div>
                 <div class="home-head-content-left-buttons-block">
                     <a class="home-head-content-left-start-quiz-button">
@@ -80,7 +90,13 @@
                                     fill="#F7B631"/>
                             </svg>
                         </div>
-                        <div class="home-head-content-left-start-quiz-button-text">Start Quiz</div>
+                        <div class="home-head-content-left-start-quiz-button-text">
+                            @if(Controller::isOriginSite())
+                                Start Quiz
+                            @else
+                                Start Demo
+                            @endif
+                        </div>
                     </a>
                     <a href="/share-question" class="home-head-content-left-share-question-button">
                         <div class="home-head-content-left-share-question-button-svg">
@@ -92,7 +108,13 @@
                                     fill="#1C3A67"/>
                             </svg>
                         </div>
-                        <div class="home-head-content-left-share-question-button-text">Share question</div>
+                        <div class="home-head-content-left-share-question-button-text">
+                            @if(Controller::isOriginSite())
+                                Share question
+                            @else
+                                Ask a question
+                            @endif
+                        </div>
                     </a>
                 </div>
             </div>
@@ -104,79 +126,102 @@
         </div>
     </div>
     <div class="home-middle-block">
-        <div class="home-middle-block-title">Pick A desired job title</div>
-        <div class="home-middle-block-description">You will be ask to answer different question same as you are on a
-            real interview
-        </div>
-        <a href="/" class="home-middle-block-button"><p>View all Jobs</p></a>
-
-        <div class="home-middle-block-jobs-list">
-            <div id="main-page-card" class="home-middle-block-jobs-list-item card-0">
-                <div class="job-item-questions-count">78 questions</div>
-                <div class="job-item-title">Java Automation Engineer</div>
-                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
-                </div>
-                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
+        @if(Controller::isOriginSite())
+            <div class="home-middle-block-title">Pick A desired job title</div>
+            <div class="home-middle-block-description">You will be ask to answer different question same as you are on a
+                real interview
             </div>
-            <div id="main-page-card" class="home-middle-block-jobs-list-item card-1">
-                <div class="job-item-questions-count">78 questions</div>
-                <div class="job-item-title">Java Automation Engineer</div>
-                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+            <a href="/" class="home-middle-block-button"><p>View all Jobs</p></a>
+            <div class="home-middle-block-jobs-list">
+                <div id="main-page-card" class="home-middle-block-jobs-list-item card-0">
+                    <div class="job-item-questions-count">78 questions</div>
+                    <div class="job-item-title">Java Automation Engineer</div>
+                    <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                    </div>
+                    <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
-                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
-            </div>
-            <div id="main-page-card" class="home-middle-block-jobs-list-item card-2">
-                <div class="job-item-questions-count">78 questions</div>
-                <div class="job-item-title">Java Automation Engineer</div>
-                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                <div id="main-page-card" class="home-middle-block-jobs-list-item card-1">
+                    <div class="job-item-questions-count">78 questions</div>
+                    <div class="job-item-title">Java Automation Engineer</div>
+                    <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                    </div>
+                    <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
-                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
-            </div>
-            <div id="main-page-card" class="home-middle-block-jobs-list-item card-3">
-                <div class="job-item-questions-count">78 questions</div>
-                <div class="job-item-title">Java Automation Engineer</div>
-                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                <div id="main-page-card" class="home-middle-block-jobs-list-item card-2">
+                    <div class="job-item-questions-count">78 questions</div>
+                    <div class="job-item-title">Java Automation Engineer</div>
+                    <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                    </div>
+                    <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
-                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
-            </div>
-            <div id="main-page-card" class="home-middle-block-jobs-list-item card-4">
-                <div class="job-item-questions-count">78 questions</div>
-                <div class="job-item-title">Java Automation Engineer</div>
-                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                <div id="main-page-card" class="home-middle-block-jobs-list-item card-3">
+                    <div class="job-item-questions-count">78 questions</div>
+                    <div class="job-item-title">Java Automation Engineer</div>
+                    <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                    </div>
+                    <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
-                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
-            </div>
-            <div id="main-page-card" class="home-middle-block-jobs-list-item card-5">
-                <div class="job-item-questions-count">78 questions</div>
-                <div class="job-item-title">Java Automation Engineer</div>
-                <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                <div id="main-page-card" class="home-middle-block-jobs-list-item card-4">
+                    <div class="job-item-questions-count">78 questions</div>
+                    <div class="job-item-title">Java Automation Engineer</div>
+                    <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                    </div>
+                    <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
-                <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
+                <div id="main-page-card" class="home-middle-block-jobs-list-item card-5">
+                    <div class="job-item-questions-count">78 questions</div>
+                    <div class="job-item-title">Java Automation Engineer</div>
+                    <div class="job-item-description">You will be asked to answer most common 20-30 interview questions.
+                    </div>
+                    <img class="job-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
+                </div>
             </div>
-        </div>
+        @endif
 
         <div class="home-middle-block-how-it-work-block">
             <img src="{{ asset('images/home/how-it-work.png') }}">
         </div>
 
         <div class="home-middle-block-share-question-block">
-            <div class="home-middle-block-share-question-block-title">Have interview question you want to share?</div>
+            <div class="home-middle-block-share-question-block-title">
+                @if(Controller::isOriginSite())
+                    Have interview question you want to share?
+                @else
+                    Have questions and would like to know more?
+                @endif
+            </div>
             <div class="home-middle-block-share-question-block-description">
-                We will be glad to hear that!
+                @if(Controller::isOriginSite())
+                    We will be glad to hear that!
+                @else
+                    We will glad to make a demo for you!
+                @endif
                 <p>
-                    Click this button to submit one or more super interesting question from your expirience.
+                    @if(Controller::isOriginSite())
+                        Click this button to submit one or more super interesting question from your experience.
+                    @else
+                        Schedule a quick demo session to learn about all amazing and unique tools we are offering.
+                    @endif
                 </p>
             </div>
             <a class="home-middle-block-share-question-block-button">
-                <div class="home-middle-block-share-question-block-button-svg">
-                    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20.7812" r="20" fill="white"/>
-                        <path
-                            d="M18.0472 22.1412C18.0472 21.4372 18.2552 20.7652 18.6712 20.1252C19.1032 19.4852 19.5672 18.9732 20.0632 18.5892C20.5592 18.1892 21.0152 17.7252 21.4312 17.1972C21.8632 16.6692 22.0792 16.1412 22.0792 15.6132C22.0792 15.0532 21.8872 14.6212 21.5032 14.3172C21.1192 14.0132 20.5832 13.8612 19.8952 13.8612C18.5512 13.8612 17.5992 14.5732 17.0392 15.9972L14.2072 14.3652C14.6872 13.1812 15.4472 12.2692 16.4872 11.6292C17.5432 10.9732 18.7192 10.6452 20.0152 10.6452C21.4712 10.6452 22.7272 11.0692 23.7832 11.9172C24.8552 12.7492 25.3912 13.9012 25.3912 15.3732C25.3912 16.0452 25.2472 16.6692 24.9592 17.2452C24.6872 17.8212 24.3512 18.3172 23.9512 18.7332C23.5672 19.1332 23.1752 19.5172 22.7752 19.8852C22.3912 20.2372 22.0552 20.6052 21.7672 20.9892C21.4952 21.3732 21.3592 21.7572 21.3592 22.1412H18.0472ZM21.1432 27.4932C20.7432 27.8933 20.2632 28.0933 19.7032 28.0933C19.1432 28.0933 18.6632 27.8933 18.2632 27.4932C17.8632 27.0932 17.6632 26.6132 17.6632 26.0532C17.6632 25.4932 17.8632 25.0132 18.2632 24.6133C18.6632 24.2132 19.1432 24.0132 19.7032 24.0132C20.2632 24.0132 20.7432 24.2132 21.1432 24.6133C21.5432 25.0132 21.7432 25.4932 21.7432 26.0532C21.7432 26.6132 21.5432 27.0932 21.1432 27.4932Z"
-                            fill="#1C3A67"/>
-                    </svg>
+                @if(Controller::isOriginSite())
+                    <div class="home-middle-block-share-question-block-button-svg">
+                        <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20.7812" r="20" fill="white"/>
+                            <path
+                                d="M18.0472 22.1412C18.0472 21.4372 18.2552 20.7652 18.6712 20.1252C19.1032 19.4852 19.5672 18.9732 20.0632 18.5892C20.5592 18.1892 21.0152 17.7252 21.4312 17.1972C21.8632 16.6692 22.0792 16.1412 22.0792 15.6132C22.0792 15.0532 21.8872 14.6212 21.5032 14.3172C21.1192 14.0132 20.5832 13.8612 19.8952 13.8612C18.5512 13.8612 17.5992 14.5732 17.0392 15.9972L14.2072 14.3652C14.6872 13.1812 15.4472 12.2692 16.4872 11.6292C17.5432 10.9732 18.7192 10.6452 20.0152 10.6452C21.4712 10.6452 22.7272 11.0692 23.7832 11.9172C24.8552 12.7492 25.3912 13.9012 25.3912 15.3732C25.3912 16.0452 25.2472 16.6692 24.9592 17.2452C24.6872 17.8212 24.3512 18.3172 23.9512 18.7332C23.5672 19.1332 23.1752 19.5172 22.7752 19.8852C22.3912 20.2372 22.0552 20.6052 21.7672 20.9892C21.4952 21.3732 21.3592 21.7572 21.3592 22.1412H18.0472ZM21.1432 27.4932C20.7432 27.8933 20.2632 28.0933 19.7032 28.0933C19.1432 28.0933 18.6632 27.8933 18.2632 27.4932C17.8632 27.0932 17.6632 26.6132 17.6632 26.0532C17.6632 25.4932 17.8632 25.0132 18.2632 24.6133C18.6632 24.2132 19.1432 24.0132 19.7032 24.0132C20.2632 24.0132 20.7432 24.2132 21.1432 24.6133C21.5432 25.0132 21.7432 25.4932 21.7432 26.0532C21.7432 26.6132 21.5432 27.0932 21.1432 27.4932Z"
+                                fill="#1C3A67"/>
+                        </svg>
+                    </div>
+                @endif
+                <div class="home-middle-block-share-question-block-button-text">
+                    @if(Controller::isOriginSite())
+                        Share question
+                    @else
+                        Schedule demo
+                    @endif
                 </div>
-                <div class="home-middle-block-share-question-block-button-text">Share question</div>
             </a>
             <div class="home-middle-block-share-question-block-image">
                 <img src="{{ asset('images/home/share_question_image.svg') }}">
@@ -184,142 +229,201 @@
         </div>
 
         <div class="home-middle-block-lectures-block">
-            <div class="home-middle-block-lectures-block-title">Modules Lectures</div>
-            <div class="home-middle-block-lectures-block-description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div class="home-middle-block-lectures-block-title">
+                @if(Controller::isOriginSite())
+                    Modules Lectures
+                @else
+                    Take a look at these examples
+                @endif
             </div>
-            <a class="home-middle-block-lectures-block-button"><p>View all Lectures</p></a>
+            <div class="home-middle-block-lectures-block-description">
+                @if(Controller::isOriginSite())
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                @else
+                    Below are some of the possible options how you can customize your course learning space to achieve high engagement and satisfaction from students.
+                @endif
+            </div>
+            <a class="home-middle-block-lectures-block-button"><p>
+                    @if(Controller::isOriginSite())
+                        View all Lectures
+                    @else
+                        Schedule your demo
+                    @endif
+                </p></a>
             <div class="home-middle-block-lectures-block-list">
                 <div class="home-middle-block-lectures-block-list-item lecture-card-0">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
-                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
-                    <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
-                        again or double click to start editing the text.
+                    <div class="home-middle-block-lectures-block-list-item-title">
+                        @if(Controller::isOriginSite())
+                            Watch Java tutorial
+                        @else
+                            Watch Java learning course
+                        @endif
                     </div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon"
-                         src="{{ asset('images/home/job_item_play_icon.svg') }}">
+                    @if(Controller::isOriginSite())
+                        <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
+                            again or double click to start editing the text.
+                        </div>
+                    @endif
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
                 <div class="home-middle-block-lectures-block-list-item lecture-card-1">
                     <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
-                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
-                    <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
-                        again or double click to start editing the text.
+                    <div class="home-middle-block-lectures-block-list-item-title">
+                        @if(Controller::isOriginSite())
+                            Watch Java tutorial
+                        @else
+                            Watch Sales course by Mark
+                        @endif
                     </div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon"
-                         src="{{ asset('images/home/job_item_play_icon.svg') }}">
+                    @if(Controller::isOriginSite())
+                        <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
+                            again or double click to start editing the text.
+                        </div>
+                    @endif
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
                 <div class="home-middle-block-lectures-block-list-item lecture-card-2">
-                    <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
-                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
-                    <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
-                        again or double click to start editing the text.
+                    <div class="home-middle-block-lectures-block-list-item-info">2 videos * 4 articles * 1 book</div>
+                    <div class="home-middle-block-lectures-block-list-item-title">
+                        @if(Controller::isOriginSite())
+                            Watch Java tutorial
+                        @else
+                            Watch Healthy life. Chose or chore?
+                        @endif
                     </div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon"
-                         src="{{ asset('images/home/job_item_play_icon.svg') }}">
+                    @if(Controller::isOriginSite())
+                        <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
+                            again or double click to start editing the text.
+                        </div>
+                    @endif
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
                 <div class="home-middle-block-lectures-block-list-item lecture-card-3">
-                    <div class="home-middle-block-lectures-block-list-item-info">3 videos * 2 articles * 1 book</div>
-                    <div class="home-middle-block-lectures-block-list-item-title">Watch Java tutorial</div>
-                    <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
-                        again or double click to start editing the text.
+                    <div class="home-middle-block-lectures-block-list-item-info">4 videos * 1 articles * 1 book</div>
+                    <div class="home-middle-block-lectures-block-list-item-title">
+                        @if(Controller::isOriginSite())
+                            Watch Java tutorial
+                        @else
+                            Easy steps to enjoy a life
+                        @endif
                     </div>
-                    <img class="home-middle-block-lectures-block-list-item-play-icon"
-                         src="{{ asset('images/home/job_item_play_icon.svg') }}">
+                    @if(Controller::isOriginSite())
+                        <div class="home-middle-block-lectures-block-list-item-description">Sample text. the text box. Click
+                            again or double click to start editing the text.
+                        </div>
+                    @endif
+                    <img class="home-middle-block-lectures-block-list-item-play-icon" src="{{ asset('images/home/job_item_play_icon.svg') }}">
                 </div>
             </div>
         </div>
 
-        <div class="home-middle-block-materials-block">
-            <img src="{{ asset('images/home/discoverImg.png') }}" class="home-middle-block-materials-block-image">
-            <div class="home-middle-block-materials-block-title"><p>All usefull materials in one place</p></div>
-            <div class="home-middle-block-materials-block-description"><p>Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-            <a class="home-middle-block-materials-block-button"><p>Open Course Gallery</p></a>
-        </div>
+        @if(Controller::isOriginSite())
+            <div class="home-middle-block-materials-block">
+                <img src="{{ asset('images/home/discoverImg.png') }}" class="home-middle-block-materials-block-image">
+                <div class="home-middle-block-materials-block-title"><p>All usefull materials in one place</p></div>
+                <div class="home-middle-block-materials-block-description"><p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+                <a class="home-middle-block-materials-block-button"><p>Open Course Gallery</p></a>
+            </div>
+        @endif
 
-        <div class="home-middle-block-feedback-block">
-            <div class="home-middle-block-feedback-block-left">
-                <div class="home-middle-block-feedback-block-left-text-list">
-                    <div data-feedback-id="0" class="home-middle-block-feedback-block-left-text-list-item active">
-                        <div class="home-middle-block-feedback-block-left-text">
-                            <img src="{{ asset('images/home/quotes.png') }}"
-                                 class="home-middle-block-feedback-block-left-text-quotes">
-                            1When someone does something that they know that they shouldn’t do, did they really have a
-                            choice.
+        @if(Controller::isOriginSite())
+            <div class="home-middle-block-feedback-block">
+                <div class="home-middle-block-feedback-block-left">
+                    <div class="home-middle-block-feedback-block-left-text-list">
+                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-text-list-item active">
+                            <div class="home-middle-block-feedback-block-left-text">
+                                <img src="{{ asset('images/home/quotes.png') }}"
+                                     class="home-middle-block-feedback-block-left-text-quotes">
+                                1When someone does something that they know that they shouldn’t do, did they really have a
+                                choice.
+                            </div>
+                            <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
+                                Kucherenko, Ukraine
+                            </div>
                         </div>
-                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
-                            Kucherenko, Ukraine
+                        <div data-feedback-id="1" class="home-middle-block-feedback-block-left-text-list-item">
+                            <div class="home-middle-block-feedback-block-left-text">
+                                <img src="{{ asset('images/home/quotes.png') }}"
+                                     class="home-middle-block-feedback-block-left-text-quotes">
+                                2When someone does something that they know that they shouldn’t do, did they really have a
+                                choice.
+                            </div>
+                            <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
+                                Kucherenko, Ukraine
+                            </div>
+                        </div>
+                        <div data-feedback-id="2" class="home-middle-block-feedback-block-left-text-list-item">
+                            <div class="home-middle-block-feedback-block-left-text">
+                                <img src="{{ asset('images/home/quotes.png') }}"
+                                     class="home-middle-block-feedback-block-left-text-quotes">
+                                3When someone does something that they know that they shouldn’t do, did they really have a
+                                choice.
+                            </div>
+                            <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
+                                Kucherenko, Ukraine
+                            </div>
+                        </div>
+                        <div data-feedback-id="3" class="home-middle-block-feedback-block-left-text-list-item">
+                            <div class="home-middle-block-feedback-block-left-text">
+                                <img src="{{ asset('images/home/quotes.png') }}"
+                                     class="home-middle-block-feedback-block-left-text-quotes">
+                                4When someone does something that they know that they shouldn’t do, did they really have a
+                                choice.
+                            </div>
+                            <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
+                                Kucherenko, Ukraine
+                            </div>
                         </div>
                     </div>
-                    <div data-feedback-id="1" class="home-middle-block-feedback-block-left-text-list-item">
-                        <div class="home-middle-block-feedback-block-left-text">
-                            <img src="{{ asset('images/home/quotes.png') }}"
-                                 class="home-middle-block-feedback-block-left-text-quotes">
-                            2When someone does something that they know that they shouldn’t do, did they really have a
-                            choice.
-                        </div>
-                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
-                            Kucherenko, Ukraine
-                        </div>
-                    </div>
-                    <div data-feedback-id="2" class="home-middle-block-feedback-block-left-text-list-item">
-                        <div class="home-middle-block-feedback-block-left-text">
-                            <img src="{{ asset('images/home/quotes.png') }}"
-                                 class="home-middle-block-feedback-block-left-text-quotes">
-                            3When someone does something that they know that they shouldn’t do, did they really have a
-                            choice.
-                        </div>
-                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
-                            Kucherenko, Ukraine
-                        </div>
-                    </div>
-                    <div data-feedback-id="3" class="home-middle-block-feedback-block-left-text-list-item">
-                        <div class="home-middle-block-feedback-block-left-text">
-                            <img src="{{ asset('images/home/quotes.png') }}"
-                                 class="home-middle-block-feedback-block-left-text-quotes">
-                            4When someone does something that they know that they shouldn’t do, did they really have a
-                            choice.
-                        </div>
-                        <div data-feedback-id="0" class="home-middle-block-feedback-block-left-description">Natasha
-                            Kucherenko, Ukraine
-                        </div>
+                    <div class="home-middle-block-feedback-block-left-images-list">
+                        <img data-feedback-id="0" src="{{ asset('images/home/example-photo-1.png') }}"
+                             class="home-middle-block-feedback-block-left-images-list-item active">
+                        <img data-feedback-id="1" src="{{ asset('images/home/example-photo-2.png') }}"
+                             class="home-middle-block-feedback-block-left-images-list-item">
+                        <img data-feedback-id="2" src="{{ asset('images/home/example-photo-3.png') }}"
+                             class="home-middle-block-feedback-block-left-images-list-item">
+                        <img data-feedback-id="3" src="{{ asset('images/home/example-photo-4.png') }}"
+                             class="home-middle-block-feedback-block-left-images-list-item">
                     </div>
                 </div>
-                <div class="home-middle-block-feedback-block-left-images-list">
+                <div class="home-middle-block-feedback-block-right">
                     <img data-feedback-id="0" src="{{ asset('images/home/example-photo-1.png') }}"
-                         class="home-middle-block-feedback-block-left-images-list-item active">
+                         class="home-middle-block-feedback-block-right-image active">
                     <img data-feedback-id="1" src="{{ asset('images/home/example-photo-2.png') }}"
-                         class="home-middle-block-feedback-block-left-images-list-item">
+                         class="home-middle-block-feedback-block-right-image">
                     <img data-feedback-id="2" src="{{ asset('images/home/example-photo-3.png') }}"
-                         class="home-middle-block-feedback-block-left-images-list-item">
+                         class="home-middle-block-feedback-block-right-image">
                     <img data-feedback-id="3" src="{{ asset('images/home/example-photo-4.png') }}"
-                         class="home-middle-block-feedback-block-left-images-list-item">
+                         class="home-middle-block-feedback-block-right-image">
                 </div>
             </div>
-            <div class="home-middle-block-feedback-block-right">
-                <img data-feedback-id="0" src="{{ asset('images/home/example-photo-1.png') }}"
-                     class="home-middle-block-feedback-block-right-image active">
-                <img data-feedback-id="1" src="{{ asset('images/home/example-photo-2.png') }}"
-                     class="home-middle-block-feedback-block-right-image">
-                <img data-feedback-id="2" src="{{ asset('images/home/example-photo-3.png') }}"
-                     class="home-middle-block-feedback-block-right-image">
-                <img data-feedback-id="3" src="{{ asset('images/home/example-photo-4.png') }}"
-                     class="home-middle-block-feedback-block-right-image">
+        @endif
+            <div class="home-middle-block-email-form-block">
+                @if(Controller::isOriginSite())
+                <div class="home-middle-block-email-form-block-title">
+                        Sign Up to save your progress
+                </div>
+                @endif
+                <div class="home-middle-block-email-form-block-description">Subscribe to our newsletter to learn more about course production, how to gain new students, and how to utilize our platform for your success</div>
+                <a href="/register" class="home-middle-block-email-form-block-button">Subscribe</a>
             </div>
         </div>
 
-        <div class="home-middle-block-email-form-block">
-            <div class="home-middle-block-email-form-block-title">Sign Up to save your progress</div>
-            <div class="home-middle-block-email-form-block-description">Some text...</div>
-            <a href="/register" class="home-middle-block-email-form-block-button">Subscribe</a>
-        </div>
-    </div>
     <div class="home-bottom-block">
         <div class="home-bottom-socials">
             <a><img src="{{ asset('images/home/twiter-icon.png') }}"></a>
             <a><img src="{{ asset('images/home/facebook-icon.png') }}"></a>
             <a><img src="{{ asset('images/home/instagram-icon.png') }}"></a>
         </div>
-        <div class="home-bottom-copyright">Copyright (C) 2021 PREPHouse.</div>
+        <div class="home-bottom-copyright">
+            Copyright (C) {{ date('Y') }}
+            @if(Controller::isOriginSite())
+                PREPHouse.
+            @else
+                My-Fork
+            @endif
+        </div>
     </div>
 @endsection
