@@ -669,3 +669,7 @@ div.home-middle-block-how-it-work-block img {
     top: -60px;
     left: 40px;
 }
+#home-my-fork-schedule-img {
+    width: 400px;
+    border-radius: 25px;
+}

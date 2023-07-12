@@ -224,7 +224,11 @@
                 </div>
             </a>
             <div class="home-middle-block-share-question-block-image">
-                <img src="{{ asset('images/home/share_question_image.svg') }}">
+                @if(Controller::isOriginSite())
+                    <img src="{{ asset('images/home/share_question_image.svg') }}">
+                @else
+                    <img id="home-my-fork-schedule-img" src="{{ asset("images/my-fork/home-schedule.jpg") }}">
+                @endif
             </div>
         </div>
 

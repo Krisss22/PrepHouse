@@ -64,7 +64,7 @@
                     <div class="pricing-item">
                         <div class="pricing-item-label">1:1 Consultation</div>
                         <div class="pricing-item-description">Whether you just competed QA Course or already had several interviews, I can help you to identify your problems and provide a clear path how to work on them.</div>
-                        <div class="pricing-item-price">$79</div>
+                        <div class="pricing-item-price">$89</div>
                         <div class="pricing-item-offers">
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Feedback on your resume (ATS-compliancy, structure, keywords)</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Feedback on job profiles (LinkedIn, Indeed, Dice, etc) </div></div>
@@ -76,7 +76,7 @@
                     <div class="pricing-item best-price">
                         <div class="pricing-item-label">QA Job Coaching</div>
                         <div class="pricing-item-description">If you need a mentor to walk you to the job offer, this option is for you. Motivation, support and all learning materials, everything in one place.</div>
-                        <div class="pricing-item-price">$399</div>
+                        <div class="pricing-item-price">$499</div>
                         <div class="pricing-item-offers">
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>De-design your resume (ATS-compliancy, structure, keywords)</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_white.svg') }}"><div>Update job profiles (LinkedIn, Indeed, Dice, etc)</div></div>
@@ -89,7 +89,7 @@
                     <div class="pricing-item">
                         <div class="pricing-item-label">Resume re-design</div>
                         <div class="pricing-item-description">Non ATS-compliant resume is one of the reasons why candidates don’t get calls. We will make your resume professional and draw more attention from recruiters.</div>
-                        <div class="pricing-item-price">$149</div>
+                        <div class="pricing-item-price">$179</div>
                         <div class="pricing-item-offers">
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>Friendly call to understand your goals and expectations</div></div>
                             <div class="pricing-item-offer"><img class="offer-check" alt="" src="{{ asset('images/landings/preparation-for-interviews/checklist_green.svg') }}"><div>We format your resume to be ATS compliant</div></div>
